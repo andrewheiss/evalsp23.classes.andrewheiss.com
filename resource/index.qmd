@@ -1,0 +1,5 @@
+---
+title: "Resources"
+---
+
+I have included a bunch of extra resources and guides related to causal inference, program evaluation, R, data, and other relevant topics. Enjoy!
