@@ -23,18 +23,18 @@ description-meta: "Use modern statistical and data scientific tools to measure c
 
 website:
   title: "Program Evaluation"
-  site-url: "https://evalf22.classes.andrewheiss.com"
+  site-url: "https://evalsp23.classes.andrewheiss.com"
 
   favicon: "/files/icon-512.png"
 
   twitter-card:
-    image: "/files/social-image-f22.png"
+    image: "/files/social-image-sp23.png"
     card-style: summary_large_image
     creator: "@andrewheiss"
     # site: "@andrewheiss"
 
   open-graph:
-    image: "/files/social-image-f22.png"
+    image: "/files/social-image-sp23.png"
     locale: en_US
 
   navbar:
@@ -54,7 +54,7 @@ website:
       - text: "News"
         file: news/index.qmd
       - icon: slack
-        href: "https://gsuevalf2022.slack.com"
+        href: "https://gsuevalsp2023.slack.com"
         aria-label: Slack
       - icon: cloud-fill
         href: "https://rstudio.cloud"
