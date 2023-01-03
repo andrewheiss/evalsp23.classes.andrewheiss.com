@@ -58,7 +58,7 @@ slide_tabs(slide_details, "/slides/01-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-
+::: {.content-hidden}
 ## In-class stuff
 
 Here are all the materials we'll use in class:
@@ -74,7 +74,7 @@ RStudio labs:
 - [Lab slides 3: Data basics](/slides/01-class_03_data-basics.html) ([PDF](/slides/01-class_03_data-basics.pdf))
 - [Lab slides 4: Visualize data with ggplot2](/slides/01-class_04_visualize-data.html) ([PDF](/slides/01-class_04_visualize-data.pdf))
 - [Lab slides 5: Transform data with dplyr](/slides/01-class_05_transform-data.html) ([PDF](/slides/01-class_05_transform-data.pdf))
-
+:::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sHcnk9KcoQVzDywxWRzVWHC

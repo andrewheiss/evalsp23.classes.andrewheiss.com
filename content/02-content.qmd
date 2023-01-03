@@ -56,7 +56,7 @@ slide_tabs(slide_details, "/slides/02-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-
+::: {.content-hidden}
 ## In-class stuff
 
 Here are all the materials we'll use in class:
@@ -89,7 +89,7 @@ Hands-on R materials:
 ## Bayesian statistics resources
 
 In class I briefly mentioned the difference between frequentist and Bayesian statistics. You can see a bunch of [additional resources and examples of these two approaches to statistics here](/resource/bayes.qmd). [This huge blog post](https://www.andrewheiss.com/blog/2021/12/01/multilevel-models-panel-data-guide/) also shows how to do multilevel models with Bayesian models.
-
+:::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sERjvBbJGr9mpqvtiLVPzd4
