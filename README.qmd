@@ -7,7 +7,8 @@ format: gfm
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.retina = 3
 )
 
 withr::with_dir(here::here(), {
@@ -60,7 +61,6 @@ The pipeline does several major tasks:
 
 - **Upload resulting `_site/` folder to my remote server**: Quarto places the compiled website in a folder named `/_site/`. The pipeline uses `rsync` to upload this folder to my personal remote server. This target will only run if the `UPLOAD_WEBSITES` environment variable is set to `TRUE`, and it will only work if you have an SSH key set up on my personal server, which only I do.
 
-
 The complete pipeline looks like this:
 
 <small>(This uses [`mermaid.js` syntax](https://mermaid-js.github.io/mermaid/) and should display as a graph on GitHub. You can also view it by pasting the code into <https://mermaid.live>.)</small>
@@ -71,6 +71,38 @@ The complete pipeline looks like this:
 cat("``` mermaid\n")
 cat(workflow_graph, sep = "\n")
 cat("\n```")
+```
+
+
+## Fonts and colors
+
+The fonts used throughout the site are [Fira Sans Condensed](https://fonts.google.com/specimen/Fira+Sans+Condensed) (for headings and titles) and [Barlow](https://fonts.google.com/specimen/Barlow) (for everything else).
+
+The colors for the site and hex logo come from a palette of 8 colors generated from the viridis inferno colormap:
+
+```{r inferno-fake, eval=FALSE}
+viridisLite::viridis(8, option = "inferno", begin = 0.1, end = 0.9)
+```
+
+```{r show-inferno, fig.width=8, fig.height=1, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+
+pal <- viridisLite::viridis(8, option = "inferno", begin = 0.1, end = 0.9)
+
+tibble(x = 1:length(pal),
+       color = pal) %>% 
+  mutate(x_nice = glue::glue("[{x}]")) %>% 
+  mutate(across(c(color, x_nice), ~fct_inorder(.))) %>% 
+  ggplot(aes(x = color, y = 1, fill = color)) +
+  geom_tile() +
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_fill_identity() +
+  facet_wrap(vars(x_nice), scales = "free_x", nrow = 1) +
+  theme_void(base_family = "Inconsolata") +
+  theme(panel.spacing.x = unit(-1, units = "pt"),
+        panel.spacing.y = unit(-0.5, units = "lines"),
+        strip.text = element_blank()) + 
+  theme(axis.text.x = element_text(margin = margin(b = 5)))
 ```
 
 

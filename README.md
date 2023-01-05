@@ -188,6 +188,24 @@ graph LR
   end
 ```
 
+## Fonts and colors
+
+The fonts used throughout the site are [Fira Sans
+Condensed](https://fonts.google.com/specimen/Fira+Sans+Condensed) (for
+headings and titles) and
+[Barlow](https://fonts.google.com/specimen/Barlow) (for everything
+else).
+
+The colors for the site and hex logo come from a palette of 8 colors
+generated from the viridis inferno colormap:
+
+``` r
+viridisLite::viridis(8, option = "inferno", begin = 0.1, end = 0.9)
+```
+
+<img src="README_files/figure-commonmark/show-inferno-1.png"
+width="768" />
+
 ## Licenses
 
 **Text and figures:** All prose and images are licensed under Creative

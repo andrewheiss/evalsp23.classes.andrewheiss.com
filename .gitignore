@@ -15,8 +15,7 @@ projects/*.zip
 # knitr and caching stuff
 **/*_files/*
 **/*_cache/*
-
-README.html
+!README_files/*
 
 files/incomplete-reports.zip
 
