@@ -197,7 +197,8 @@ headings and titles) and
 else).
 
 The colors for the site and hex logo come from a palette of 8 colors
-generated from the viridis inferno colormap:
+generated from the [viridis inferno color
+map](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html#the-color-scales):
 
 ``` r
 viridisLite::viridis(8, option = "inferno", begin = 0.1, end = 0.9)
