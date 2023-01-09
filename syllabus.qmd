@@ -141,13 +141,13 @@ Additionally, we have a class chatroom at [Slack](https://gsuevalf2021.slack.com
 
 ## Course structure
 
-We meet weekly from 4:30–7:00 PM on Mondays in 330 Aderhold. ***However***, despite policies and rhetoric to the contrary, we're still in the middle of a severe global pandemic, and the BA.5 variant of COVID-19 is raging.
+We meet weekly from 7:15–9:45 PM on Thursdays in 204 Aderhold. ***However***, despite policies and rhetoric to the contrary, we're still in the middle of a severe global pandemic, and the BA.5 variant of COVID-19 is raging.
 
 Accordingly, this semester we're going to have a [flipped classroom](https://en.wikipedia.org/wiki/Flipped_classroom), which will let us maximize flexibility during this pandemic. 
 
 We will **not** have lectures during our regularly scheduled class time. Instead, you will do the readings and watch recorded lecture videos prior to each in-person class session. You can do the readings and watch the videos on your own schedule at whatever time works best for you. Many of you work full time and you have childcare and parental care responsibilities, leaving you with only evenings for coursework. I've designed this asynchronous system with *you specifically* in mind. I also can only really do teaching work at night when my kids are in bed—I recorded all these videos between like 10 PM and 2 AM. We're all in similar pandemic boats.
 
-We will do several things during our Monday in-person classes:
+We will do several things during our Thursday in-person classes:
 
 - **Extensive Q&A**: As you do the readings and watch the videos prior to class, you will inevitably have questions. In [your weekly check-in assignment](/assignment/weekly-check-in.qmd), you'll submit (at least) 3 of those questions to me prior to class. We'll spend a good chunk of each class answering, clarifying, debating, and discussing your questions.
 - **Activities**: In some weeks, we'll do some in-class activities to help solidify concepts about logic models, DAGs, and other evaluation and causal inference principles.
@@ -155,9 +155,9 @@ We will do several things during our Monday in-person classes:
 
 ## Attendance and participation
 
-You're expected to come to class each Monday prepared—having read the material and watched the videos—and ready to discuss the content and work with R. 
+You're expected to come to class each Thursday prepared—having read the material and watched the videos—and ready to discuss the content and work with R. 
 
-Attendance and participation are important to your success in this course. However, again, we're still in the middle of a global pandemic. If you are sick or are incapable of participating meaningfully in class (e.g. you have stayed up all night and are going to fall asleep in class), please stay home. I will stream our in-person sessions on Mondays via Webex (and will set up my own camera and microphone system to do it), so if you cannot attend, you can tune in if needed.
+Attendance and participation are important to your success in this course. However, again, we're still in the middle of a global pandemic. If you are sick or are incapable of participating meaningfully in class (e.g. you have stayed up all night and are going to fall asleep in class), please stay home. I will stream our in-person sessions on Thursdays via Webex (and will set up my own camera and microphone system to do it), so if you cannot attend, you can tune in if needed.
 
 GSU has some new process for getting absences excused because of illness, but I don't care about that process. If you're sick, I don't need a doctor's note or anything. If a relative dies and you have to attend a funeral, do it!—don't worry about sending me confirmation or anything. If your childcare situation falls through one week, focus on your kids!—again, don't worry about sending me confirmation. You're all adults—I trust you. Given the flipped nature of the course, you'll be able to catch up on the material.
 
@@ -171,7 +171,7 @@ If you test positive for COVID-19, report it at <https://cc-gsu.force.com/s/>, h
 
 GSU and the University System of Georgia do not have a mask mandate for students or faculty. However, I personally will be wearing a mask when [the CDC's community transmission levels](https://covid.cdc.gov/covid-data-tracker/#county-view?list_select_state=Georgia&data-type=Risk&list_select_county=13121) in the Atlanta area are medium or above.
 
-**I strongly recommend/urge/encourage you to wear a mask in class on Mondays** regardless of your vaccination status. I will place a box of disposable masks by the door if you would like one. 
+**I strongly recommend/urge/encourage you to wear a mask in class on Thursdays** regardless of your vaccination status. I will place a box of disposable masks by the door if you would like one. 
 
 Again, GSU does not require either vaccines or masks, and if you aren't vaccinated or don't wear a mask, there are no penalties.
 
