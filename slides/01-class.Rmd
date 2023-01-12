@@ -33,11 +33,11 @@ class: middle
 
 .box-5.large[Join the Slack workspace]
 
-.center.large.sp-after[[andhs.co/slack](<https://andhs.co/slack>)]
+.center.large.sp-after[[andhs.co/slack](https://andhs.co/slack)]
 
-.box-5.large[Join the RStudio.cloud workspace]
+.box-5.large[Join the Posit Cloud workspace]
 
-.center.large[[andhs.co/rstudio](https://andhs.co/rstudio)]
+.center.large[[andhs.co/posit](https://andhs.co/rstudio)]
 
 ---
 
@@ -47,7 +47,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**August 22, 2022**
+**January 12, 2023**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
