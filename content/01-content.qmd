@@ -64,18 +64,16 @@ Here are all the materials we'll use in class:
 
 - [**Session 1 in-person slides**](/slides/01-class.html) ([PDF](/slides/01-class.pdf))
 
-::: {.content-hidden}
-
 RStudio labs:
 
-- [RStudio.cloud project](https://rstudio.cloud/spaces/269500/content/4377348)
+- [RStudio.cloud project](https://posit.cloud/spaces/323551/content/5254772)
 - [Project `.zip` file](/projects/01-class.zip)
 - [Lab slides 1: Markdown and universal writing](/slides/01-class_01_markdown-writing.html) ([PDF](/slides/01-class_01_markdown-writing.pdf))
 - [Lab slides 2: Getting started with R and RStudio](/slides/01-class_02-getting-started.html) ([PDF](/slides/01-class_02-getting-started.pdf))
 - [Lab slides 3: Data basics](/slides/01-class_03_data-basics.html) ([PDF](/slides/01-class_03_data-basics.pdf))
 - [Lab slides 4: Visualize data with ggplot2](/slides/01-class_04_visualize-data.html) ([PDF](/slides/01-class_04_visualize-data.pdf))
 - [Lab slides 5: Transform data with dplyr](/slides/01-class_05_transform-data.html) ([PDF](/slides/01-class_05_transform-data.pdf))
-:::
+
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sHcnk9KcoQVzDywxWRzVWHC

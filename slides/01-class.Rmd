@@ -176,6 +176,12 @@ class: center middle section-title section-title-6 animated fadeIn
 
 ---
 
+class: middle
+
+.box-6.large[What is R? What is Posit? Why R?]
+
+---
+
 layout: true
 class: title title-6
 
@@ -253,7 +259,7 @@ class: middle
 
 .box-6.huge[How to<br>ask for help]
 
-.center[[Guidelines](https://evalf22.classes.andrewheiss.com/news/2022-08-22_getting-help.html)]
+.center[[Guidelines](https://evalsp23.classes.andrewheiss.com/news/2023-01-12_getting-help.html)]
 
 ---
 

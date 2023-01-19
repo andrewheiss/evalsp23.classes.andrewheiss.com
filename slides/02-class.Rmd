@@ -41,7 +41,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**August 29, 2022**
+**January 19, 2023**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
@@ -150,7 +150,7 @@ class: middle
 
 ???
 
-<https://evalf22.classes.andrewheiss.com/slides/02-slides.html#38>
+<https://evalsp23.classes.andrewheiss.com/slides/02-slides.html#38>
 
 <https://www.andrewheiss.com/blog/2022/05/20/marginalia/#regression-sliders-switches-and-mixing-boards>
 
