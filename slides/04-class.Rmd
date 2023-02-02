@@ -107,6 +107,7 @@ https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html
 - <https://bookdown.org/yihui/rmarkdown-cookbook/figure-number.html>
 - <https://rmd4sci.njtierney.com/figures-tables-captions-.html>
 - <https://rmd4sci.njtierney.com/start.html>
+- <https://quarto.org/docs/authoring/cross-references.html>
 
 ---
 
