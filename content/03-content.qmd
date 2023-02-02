@@ -77,10 +77,11 @@ Hands-on R materials:
 - [Lab slides 5: Transform data with dplyr](/slides/01-class_05_transform-data.html) ([PDF](/slides/01-class_05_transform-data.pdf))
 
 
-## Bayesian statistics resources
+### Logic model for MPA/MPP program
 
-In class I briefly mentioned the difference between frequentist and Bayesian statistics. You can see a bunch of [additional resources and examples of these two approaches to statistics here](/resource/bayes.qmd). [This huge blog post](https://www.andrewheiss.com/blog/2021/12/01/multilevel-models-panel-data-guide/) also shows how to do multilevel models with Bayesian models.
-
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics(here::here("files", "img", "mpa-mpp-logic-model.jpg"), error = FALSE)
+```
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sHjKJRcD-ebQUbcaFhc0cQH
