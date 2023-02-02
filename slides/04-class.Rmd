@@ -42,7 +42,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**September 12, 2022**
+**February 2, 2023**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
@@ -59,11 +59,11 @@ class: title title-inv-8
 
 --
 
-.box-4.medium.sp-after-half[Quick useful R tips]
+.box-1.medium.sp-after-half[Super quick R FAQs]
 
 --
 
-.box-1.medium.sp-after-half[Logic models]
+.box-4.medium.sp-after-half[Regression!]
 
 --
 
@@ -76,16 +76,8 @@ class: title title-inv-8
 ---
 
 layout: false
-name: final-project
-class: center middle section-title section-title-6 animated fadeIn
-
-# Final project details
-
----
-
-layout: false
 name: r-stuff
-class: center middle section-title section-title-4 animated fadeIn
+class: center middle section-title section-title-1 animated fadeIn
 
 # Quick useful<br>R tips
 
@@ -96,11 +88,7 @@ class: middle
 
 ---
 
-.box-4.large[Visual markdown editor]
-
----
-
-.box-4.large[Weird figure/table<br>placement in PDFs]
+.box-1.large[Weird figure/table<br>placement in PDFs]
 
 ???
 
@@ -108,7 +96,11 @@ https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html
 
 ---
 
-.box-4.large[Figure and table<br>captions and numbers]
+.box-1.large[Figure sizing in R]
+
+---
+
+.box-1.large[Figure and table<br>captions and numbers]
 
 ???
 
@@ -118,165 +110,22 @@ https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html
 
 ---
 
-class: middle
+.box-1.large[Make nicer tables when<br>knitting with `kable()`]
 
-.box-4.large[Side-by-side regression tables]
-
----
-
-```{r echo=FALSE, warning=FALSE}
-model1 <- lm(body_mass_g ~ bill_length_mm, data = penguins)
-model2 <- lm(body_mass_g ~ flipper_length_mm, data = penguins)
-model3 <- lm(body_mass_g ~ bill_length_mm + flipper_length_mm, data = penguins)
-model4 <- lm(body_mass_g ~ bill_length_mm + flipper_length_mm + sex, data = penguins)
-
-modelsummary(list(model1, model2, model3, model4),
-             table.attr = "style=\'font-size:0.5em;\'",
-             stars = TRUE,
-             output = "kableExtra")
-```
-
----
-
-```{r echo=FALSE}
-modelsummary(list(model1, model2, model3, model4),
-             stars = TRUE,
-             output = "kableExtra")
-```
-
----
-
-class: middle
-
-.box-4.large[See full documentation and<br>examples for `modelsummary()` [here](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html)]
-
----
-
-layout: true
-class: middle
-
----
-
-.box-4.large[Make nicer tables when<br>knitting with `kable()`]
-
-.box-inv-4[(Or even fancier tables with [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)!)]
-
----
-
-layout: false
-name: logic-models
-class: center middle section-title section-title-1 animated fadeIn
-
-# Logic models
-
----
-
-layout: true
-class: middle
-
----
-
-.box-1.large[Logic models as managerial tools]
-
----
-
-.box-1.large[Inputs vs. Activities vs.<br>Outputs vs. Outcomes]
-
----
-
-.box-1.large[Impact theory vs. logic model]
-
----
-
-layout: false
-class: title title-1
-
-# Impact theory
-
-.box-inv-1[Ensure that the theory linking activities to the outcomes is sound!]
-
-.center[
-<figure>
-  <img src="img/03/psd-impact-theory-arrow.png" alt="PSD impact theory" title="PSD impact theory" width="100%">
-</figure>
-]
-
----
-
-.center[
-<figure>
-  <img src="img/01/psd-logic-model.png" alt="PSD logic model" title="PSD logic model" width="70%">
-</figure>
-]
-
----
-
-layout: false
-class: title title-1
-
-# MPA/MPP at GSU
-
-.pull-left[
-<figure>
-  <img src="img/03/mpp-mission@4x.png" alt="MPP mission" title="MPP mission" width="130%">
-</figure>
-]
-
-.pull-right[
-<figure>
-  <img src="img/03/mpa-mission@4x.png" alt="MPA mission" title="MPA mission" width="100%">
-</figure>
-]
+.box-inv-1[(Or even fancier tables with [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)!)]
 
 ???
 
-Inputs:
+- <https://stats.andrewheiss.com/testy-turtle/notebook/models_total-aid.html#table>
+- <https://stats.andrewheiss.com/testy-turtle/notebook/models_aid-recipients.html#table>
 
-- Students
-- Curriculum
-- Money (grants, tuition)
-- AYSPS itself
-- Faculty, staff
-- Technology (iCollege, PAWS)
-- Infrastructure
-- Transportation
-- State regulations
-- National accreditation standards
-- Faculty research
+---
 
-Activities:
+layout: false
+name: regression
+class: center middle section-title section-title-5 animated fadeIn
 
-- Classes
-- Group work
-- Exams
-- Internships
-- Job fairs
-- Commencement
-- Studying
-- Tutoring
-- Office hours
-- Advising
-- Attendance
-
-Outputs:
-
-- Assignments and projects
-- Grades
-- Degree
-- Jobs
-- Awards
-- Network
-- Debt
-
-Outcomes:
-
-- Leadership
-- AYS national ranking
-- Public service motivation
-- Critical thinking
-- Efficient workforce
-- Income
-- Better society
+# Regression!
 
 ---
 
@@ -285,27 +134,156 @@ class: middle
 
 ---
 
-.box-1.medium[Isn't it best to always<br>have an articulated theory?] 
+.box-4.large.sp-after[Drawing lines through points]
 
-.box-1.medium[Should implicit theory and articulated theory<br>be the same thing in most cases?]
+--
 
----
+.center.sp-after[<https://evalsp23.classes.andrewheiss.com/slides/02-slides.html#17>]
 
-.box-1.medium[How much does this evaluation stuff cost?] 
+--
 
-.box-1.medium[Can you do scaled-down versions<br>of these evaluations?]
-
----
-
-.box-1.medium[What if a program exists already<br>and doesn't have a logic model?] 
+.box-4[<span style="color: #F6D645;">Lo</span>cally <span style="color: #F6D645;">e</span>stimated/<span style="color: #F6D645;">we</span>ighted <span style="color: #F6D645;">s</span>catterplot <span style="color: #F6D645;">s</span>moothing (LOESS/LOWESS)<br>is a common method (but not the only one!)]
 
 ---
 
-.box-1.medium[Why would a program aim for final outcomes<br>that can't be measured?]
+.center[
+<video controls>
+  <source src="img/10/loess_window.mp4" type="video/mp4">
+</video>
+]
 
 ---
 
-.box-1.medium[What should you do if you find that your<br>theory of change (or logic model in general)<br>is wrong in the middle of the program?<br>Is it ethical to stop or readjust?]
+.box-4.large[Regression equations]
+
+.box-inv-4[And is the intercept ever useful,<br>or should we always ignore it?]
+
+???
+
+<https://evalsp23.classes.andrewheiss.com/slides/02-slides.html#38>
+
+<https://www.andrewheiss.com/blog/2022/05/20/marginalia/#regression-sliders-switches-and-mixing-boards>
+
+---
+
+.box-4.medium[What does it mean to<br>hold something constant?]
+
+.box-4.medium[Why is one category always left out<br>when you use a categorical variable?]
+
+---
+
+.center[
+<figure>
+  <img src="img/02-class/slider-switch-annotated-80.jpg" alt="Single slider and switch" title="Single slider and switch" width="100%">
+</figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/02-class/mixer-board-annotated-80.jpg" alt="Mixer board" title="Mixer board" width="100%">
+</figure>
+]
+
+---
+
+.box-4.medium.sp-after[Why use two steps to create a regression in R?<br>(i.e. assigning it to an object with `<-`?)]
+
+.box-4.medium[Why use `tidy()`<br>from the broom package?]
+
+???
+
+Show model with `lm()`; show t-test with `t.test()`; show both through `tidy()`
+
+Use **marginaleffects**
+
+---
+
+.box-4.medium[How was the 0.05 significance<br>threshold determined?] 
+
+.box-4.medium[Could we say something is significant<br>if p > 0.05, but just note that it is at<br>a higher p-value?<br>Or does it have to fall under 0.05?]
+
+---
+
+.box-4.large[Why all this convoluted<br>logic of null worlds?]
+
+---
+
+layout: false
+class: title title-4
+
+# Different "dialects" of statistics
+
+.pull-left[
+.box-4.medium[Frequentist]
+
+$$P(\text{data} \mid H_0)$$
+
+.box-inv-4["Regular" statistics;<br>what you've learned<br><small>(and are learning here)</small>]
+
+]
+
+--
+
+.pull-right[
+.box-4.medium[Bayesian]
+
+$$P(H \mid \text{data})$$
+
+.box-inv-4[Requires lots of<br>computational power]
+
+]
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-4.medium[Do we care about the actual coefficients<br>or just whether or not they're significant?]
+
+.box-4.medium[How does significance relate to causation?]
+
+.box-4.medium[If we can't use statistics to assert causation<br>how are we going to use this information<br>in program evaluation?]
+
+---
+
+.box-4.large[What counts as a "good" R²?]
+
+---
+
+.center[
+<figure>
+  <img src="img/02-class/nice-plot-1.png" alt="Euler diagram" title="Euler diagram" width="45%">
+</figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/02-class/plot-diagram-prediction-1.png" alt="R2 prediction" title="R2 prediction" width="75%">
+</figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/02-class/plot-diagram-estimation-1.png" alt="R2 estimation" title="R2 estimation" width="75%">
+</figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/02-class/prediction-vs-estimation.jpg" alt="R2 estimation vs prediction" title="R2 estimation vs prediction" width="100%">
+</figure>
+]
+
 
 ---
 
@@ -554,6 +532,30 @@ dagify(
   geom_dag_text(color = "black", size = 5) +
   theme_dag()
 ```
+]
+
+---
+
+.center[
+<video controls loop>
+  <source src="img/05-class/video-confounding-unblocked.mp4" type="video/mp4">
+</video>
+]
+
+---
+
+.center[
+<video controls loop>
+  <source src="img/05-class/video-confounding-blocked.mp4" type="video/mp4">
+</video>
+]
+
+---
+
+.center[
+<video controls loop>
+  <source src="img/05-class/video-mediation.mp4" type="video/mp4">
+</video>
 ]
 
 ---

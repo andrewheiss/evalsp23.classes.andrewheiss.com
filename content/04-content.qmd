@@ -57,13 +57,14 @@ slide_tabs(slide_details, "/slides/04-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-::: {.content-hidden}
 ## In-class stuff
 
 Here are all the materials we'll use in class:
 
 - [**Session 4 FAQ slides**](/slides/04-class.html) ([PDF](/slides/04-class.pdf))
-:::
+- [{{< fa brands r-project >}} Regression playground Posit.cloud project](https://posit.cloud/spaces/323551/content/5299495)
+- [{{< fa file-zipper >}} Regression playground project `.zip` file](/projects/regression-example.zip)
+
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sFVrHdTifzlyS9dsJjhEhsF

@@ -1,0 +1,16 @@
+---
+title: "Health and wealth"
+---
+
+```{r libraries-data}
+library(tidyverse)     # This lets you create plots with ggplot, manipulate data, etc.
+library(broom)         # This lets you convert regression models into nice tables
+library(modelsummary)  # This lets you combine multiple regression models into a single table
+
+gapminder <- read_csv("data/gapminder.csv")
+
+# TODO: Make a new dataset called gapminder_2007 that:
+# 1. Only contains rows for 2007
+# 2. Omits rows from Oceania
+
+```

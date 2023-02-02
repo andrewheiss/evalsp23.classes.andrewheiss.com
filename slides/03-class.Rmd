@@ -42,7 +42,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**January 27, 2022**
+**January 26, 2023**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
@@ -59,96 +59,23 @@ class: title title-inv-8
 
 --
 
-.box-4.medium.sp-after-half[Regression and R stuff]
+.box-1.medium[Logic models]
 
 --
 
-.box-1.medium.sp-after-half[Logic models]
+.box-6.medium[R FAQs]
 
----
+--
 
-layout: false
-name: regression
-class: center middle section-title section-title-4 animated fadeIn
+.box-5.medium[Regression FAQs]
 
-# Regression and R stuff
+--
 
----
+.box-2.medium[Transforming data with **dplyr**]
 
-class: middle
+--
 
-.box-4.large[Big ol' example of running,<br>interpreting, and exploring<br>some regression models]
-
----
-
-class: middle
-
-.box-4.huge[andhs.co/live]
-
----
-
-class: middle
-
-.box-4.large[Side-by-side regression tables]
-
----
-
-```{r echo=FALSE, warning=FALSE}
-model1 <- lm(body_mass_g ~ bill_length_mm, data = penguins)
-model2 <- lm(body_mass_g ~ flipper_length_mm, data = penguins)
-model3 <- lm(body_mass_g ~ bill_length_mm + flipper_length_mm, data = penguins)
-model4 <- lm(body_mass_g ~ bill_length_mm + flipper_length_mm + sex, data = penguins)
-
-modelsummary(list(model1, model2, model3, model4),
-             table.attr = "style=\'font-size:0.5em;\'",
-             stars = TRUE,
-             output = "kableExtra")
-```
-
----
-
-```{r echo=FALSE}
-modelsummary(list(model1, model2, model3, model4),
-             stars = TRUE,
-             output = "kableExtra")
-```
-
----
-
-class: middle
-
-.box-4.large[See full documentation and<br>examples for `modelsummary()` [here](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html)]
-
----
-
-layout: true
-class: middle
-
----
-
-.box-4.large[Make nicer tables when<br>knitting with `kable()`]
-
-.box-inv-4[(Or even fancier tables with [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)!)]
-
----
-
-.box-4.large[Style suggestions]
-
----
-
-.box-4.large[Typing math]
-
----
-
-.box-4.large[Cleaner chunk output]
-
----
-
-.box-4.large[Figure resizing]
-
----
-
-.box-4.large[Non-English characters in PDFs]
+.box-4.medium[Regression with R]
 
 ---
 
@@ -288,47 +215,323 @@ class: middle
 
 .box-1.medium[What if a program exists already<br>and doesn't have a logic model?] 
 
-.box-1.medium[What if a program exists already and doesn't have baseline data (or any data!)?]
+---
+
+.box-1.medium[Why would a program aim for final outcomes<br>that can't be measured?]
 
 ---
 
-.box-1.medium[How can programs evaluate their final<br>outcomes if they are not measurable?<br>Do they find a different outcome<br>that is easier to measure?]
-
-.box-1.medium[Why would they pick final outcomes<br>that can't be measured?]
+.box-1.medium[What should you do if you find that your<br>theory of change (or logic model in general)<br>is wrong in the middle of the program?<br>Is it ethical to stop or readjust?]
 
 ---
 
-.box-1.medium[What should you do if you find that your theory of change (or logic model in general) is wrong in the middle of the program? Is it ethical to stop or readjust?]
+layout: false
+name: r-faqs
+class: center middle section-title section-title-6 animated fadeIn
+
+# R FAQs
+
+---
+
+class: title title-6
+
+# Main goals with R
+
+--
+
+.box-inv-6.medium[Manipulate data]
+
+--
+
+.box-inv-6.medium[Plot data]
+
+--
+
+.box-inv-6.medium[Analyze data with regression models]
 
 ---
 
 layout: true
-class: title title-1
+class: middle
 
 ---
 
-# Outcomes and programs
-
-.box-1.medium[Outcome variable]
-
-.box-inv-1.sp-after-half.SMALL[Thing you're measuring]
+.box-6.large[How to find R help online]
 
 --
 
-.box-1.medium[Outcome change]
-
-.box-inv-1.sp-after-half.SMALL[∆ in thing you're measuring over time]
+.box-inv-6[RStudio Community]
 
 --
 
-.box-1.medium[Program effect]
+.box-inv-6[Stack Overflow]
 
-.box-inv-1.SMALL[∆ in thing you're measuring over time *because of* the program]
+--
+
+.box-inv-6[Google .small[("rstats")]]
+
+--
+
+.box-inv-6[Twitter/Mastodon .small[(#rstats)]]
+
+--
+
+.box-inv-6[ChatGPT .small[(overconfident glorified autocomplete)]]
 
 ---
 
-# Outcomes and programs
+.box-6.large[What the heck is a tibble?]
 
+---
+
+.box-6.large[RStudio fun]
+
+---
+
+.box-6.large[File paths, working directories,<br>and RStudio projects]
+
+???
+
+- <https://www.theverge.com/22684730/students-file-folder-directory-structure-education-gen-z>
+- Working directories and RStudio projects
+
+---
+
+.box-6.large[The hyperliterality of computers]
+
+---
+
+.box-6.large[R Markdown fun]
+
+???
+
+- Visual markdown editor
+- Markdown metadata and outputs, figure sizes
+- Show final Rmd products. Explanatory, like blog post code through or a problem set vs. stand-alone research paper
+
+---
+
+class: middle
+
+.box-6.large[Side-by-side regression tables]
+
+---
+
+```{r echo=FALSE, warning=FALSE}
+model1 <- lm(body_mass_g ~ bill_length_mm, data = penguins)
+model2 <- lm(body_mass_g ~ flipper_length_mm, data = penguins)
+model3 <- lm(body_mass_g ~ bill_length_mm + flipper_length_mm, data = penguins)
+model4 <- lm(body_mass_g ~ bill_length_mm + flipper_length_mm + sex, data = penguins)
+
+modelsummary(list(model1, model2, model3, model4),
+             table.attr = "style=\'font-size:0.5em;\'",
+             stars = TRUE,
+             output = "kableExtra")
+```
+
+---
+
+```{r echo=FALSE}
+modelsummary(list(model1, model2, model3, model4),
+             stars = TRUE,
+             output = "kableExtra")
+```
+
+---
+
+class: middle
+
+.box-6.large[See full documentation and<br>examples for `modelsummary()` [here](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html)]
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-6.large[Make nicer tables when<br>knitting with `kable()`]
+
+.box-inv-6[(Or even fancier tables with [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)!)]
+
+
+---
+
+layout: false
+name: regression-faqs
+class: center middle section-title section-title-5 animated fadeIn
+
+# Regression FAQs
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-5.large.sp-after[Drawing lines through points]
+
+--
+
+.center.sp-after[<https://evalsp23.classes.andrewheiss.com/slides/02-slides.html#17>]
+
+--
+
+.box-5[<span style="color: #F6D645;">Lo</span>cally <span style="color: #F6D645;">e</span>stimated/<span style="color: #F6D645;">we</span>ighted <span style="color: #F6D645;">s</span>catterplot <span style="color: #F6D645;">s</span>moothing (LOESS/LOWESS)<br>is a common method (but not the only one!)]
+
+---
+
+.center[
+<video controls>
+  <source src="img/10/loess_window.mp4" type="video/mp4">
+</video>
+]
+
+---
+
+.box-5.large[Regression equations]
+
+.box-inv-5[And is the intercept ever useful,<br>or should we always ignore it?]
+
+???
+
+<https://evalsp23.classes.andrewheiss.com/slides/02-slides.html#38>
+
+<https://www.andrewheiss.com/blog/2022/05/20/marginalia/#regression-sliders-switches-and-mixing-boards>
+
+---
+
+.box-5.medium[What does it mean to<br>hold something constant?]
+
+.box-5.medium[Why is one category always left out<br>when you use a categorical variable?]
+
+---
+
+.center[
 <figure>
-  <img src="img/04/program-effect.png" alt="Outcomes and program effect" title="Outcomes and program effect" width="100%">
+  <img src="img/02-class/slider-switch-annotated-80.jpg" alt="Single slider and switch" title="Single slider and switch" width="100%">
 </figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/02-class/mixer-board-annotated-80.jpg" alt="Mixer board" title="Mixer board" width="100%">
+</figure>
+]
+
+---
+
+.box-5.medium.sp-after[Why use two steps to create a regression in R?<br>(i.e. assigning it to an object with `<-`?)]
+
+.box-5.medium[Why use `tidy()`<br>from the broom package?]
+
+???
+
+Show model with `lm()`; show t-test with `t.test()`; show both through `tidy()`
+
+Use **marginaleffects**
+
+---
+
+.box-5.medium[How was the 0.05 significance<br>threshold determined?] 
+
+.box-5.medium[Could we say something is significant<br>if p > 0.05, but just note that it is at<br>a higher p-value?<br>Or does it have to fall under 0.05?]
+
+---
+
+.box-5.large[Why all this convoluted<br>logic of null worlds?]
+
+---
+
+layout: false
+class: title title-5
+
+# Different "dialects" of statistics
+
+.pull-left[
+.box-5.medium[Frequentist]
+
+$$P(\text{data} \mid H_0)$$
+
+.box-inv-5["Regular" statistics;<br>what you've learned<br><small>(and are learning here)</small>]
+
+]
+
+--
+
+.pull-right[
+.box-5.medium[Bayesian]
+
+$$P(H \mid \text{data})$$
+
+.box-inv-5[Requires lots of<br>computational power]
+
+]
+
+---
+
+layout: true
+class: middle
+
+---
+
+.box-5.medium[Do we care about the actual coefficients<br>or just whether or not they're significant?]
+
+.box-5.medium[How does significance relate to causation?]
+
+.box-5.medium[If we can't use statistics to assert causation<br>how are we going to use this information<br>in program evaluation?]
+
+---
+
+.box-5.large[What counts as a "good" R²?]
+
+---
+
+.center[
+<figure>
+  <img src="img/02-class/nice-plot-1.png" alt="Euler diagram" title="Euler diagram" width="45%">
+</figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/02-class/plot-diagram-prediction-1.png" alt="R2 prediction" title="R2 prediction" width="75%">
+</figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/02-class/plot-diagram-estimation-1.png" alt="R2 estimation" title="R2 estimation" width="75%">
+</figure>
+]
+
+---
+
+.center[
+<figure>
+  <img src="img/02-class/prediction-vs-estimation.jpg" alt="R2 estimation vs prediction" title="R2 estimation vs prediction" width="100%">
+</figure>
+]
+
+---
+
+layout: false
+name: dplyr
+class: center middle section-title section-title-2 animated fadeIn
+
+# Transforming<br>data with dplyr
+
+---
+
+layout: false
+name: regression
+class: center middle section-title section-title-4 animated fadeIn
+
+# Regression with R
