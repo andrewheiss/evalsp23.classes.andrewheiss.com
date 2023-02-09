@@ -48,7 +48,6 @@ slide_tabs(slide_details, "/slides/05-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-::: {.content-hidden}
 ## In-class stuff
 
 Here are all the materials we'll use in class:
@@ -78,7 +77,6 @@ Here are all the materials we'll use in class:
 <source src="/slides/img/05-class/video-mediation.mp4" type="video/mp4">
 </video>
 </div>
-:::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sHwqEeiG5xb3zAHcQCGWZUC
