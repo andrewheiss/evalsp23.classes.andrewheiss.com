@@ -78,6 +78,20 @@ Here are all the materials we'll use in class:
 </video>
 </div>
 
+### Logic model and DAG for closing streets program
+
+Logic model:
+
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics(here::here("files", "img", "streets-logic-model.jpg"), error = FALSE)
+```
+
+DAG: 
+
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics(here::here("files", "img", "streets-dag.jpg"), error = FALSE)
+```
+
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sHwqEeiG5xb3zAHcQCGWZUC
 
