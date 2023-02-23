@@ -1,6 +1,7 @@
 ---
 title: "RCT: Vaccine payments"
 output: html_document
+date: '2023-02-23'
 ---
 
 ```{r setup, include=FALSE}

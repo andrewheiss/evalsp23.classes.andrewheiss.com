@@ -42,7 +42,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**October 3, 2022**
+**February 23, 2023**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
@@ -59,7 +59,7 @@ class: title title-inv-8
 
 --
 
-.box-3.medium.sp-after-half[FAQs]
+.box-3.medium.sp-after-half[Super quick FAQs]
 
 --
 
@@ -75,7 +75,7 @@ layout: false
 name: faqs
 class: center middle section-title section-title-3 animated fadeIn
 
-# FAQs
+# Super quick FAQs
 
 ---
 
@@ -212,12 +212,12 @@ class: middle
 
 ---
 
-.box-4.large[Can you walk through an example of<br>IPW and matching in class?]
-
----
-
 .box-4.large[Why not just control for confounders<br>instead of doing the whole matching/IPW dance?]
 
 ---
 
 .box-4.large[Which should we use?<br>Matching or IPW?]
+
+---
+
+.box-4.large[Can you walk through an example of<br>IPW and matching in class?]

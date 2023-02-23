@@ -53,14 +53,13 @@ slide_tabs(slide_details, "/slides/07-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-::: {.content-hidden}
 ## In-class stuff
 
 Here are all the materials we'll use in class:
 
 - [**Session 7 FAQ slides**](/slides/07-class.html) ([PDF](/slides/07-class.pdf))
 - [In-class `.zip` file](/projects/rcts-ipw.zip)
-- [RStudio.cloud project](https://rstudio.cloud/spaces/269500/content/4645983)
+- [Posit.cloud project](https://posit.cloud/spaces/323551/content/5479370)
 
 Other helpful resources:
 
@@ -70,7 +69,7 @@ Other helpful resources:
 - [Bayesian stats and decison making](/resource/bayes.qmd)
 - [Standard errors](/example/standard-errors.qmd)
 - [Unobserved confounding and sensitivity analysis](/example/confounding-sensitivity.qmd)
-:::
+
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sGJURMOwN9tf9MNDN4t0JMz
