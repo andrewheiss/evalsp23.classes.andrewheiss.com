@@ -50,16 +50,14 @@ slide_tabs(slide_details, "/slides/06-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-::: {.content-hidden}
 ## In-class stuff
 
 Here are all the materials we'll use in class:
 
 - [**Session 6 FAQ slides**](/slides/06-class.html) ([PDF](/slides/06-class.pdf))
 - [Zilch!](/resource/zilch.qmd)
-- [{{< fa brands r-project >}} Live R script](https://www.dropbox.com/s/akez7ssaiyt6um3/bayes-fun.R)
+- [{{< fa brands r-project >}} Live R script](https://www.dropbox.com/s/em6jftd6hrro86f/bayes-fun.R)
 - [{{< fa file-csv >}} `restaurant_inspections.csv`](https://vincentarelbundock.github.io/Rdatasets/csv/causaldata/restaurant_inspections.csv)
-:::
 
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sFJtz7egfUASfhhz6zuj7GZ

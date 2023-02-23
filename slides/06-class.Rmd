@@ -42,7 +42,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**September 26, 2022**
+**February 16, 2023**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
@@ -98,6 +98,14 @@ class: center middle section-title section-title-3 animated fadeIn
 
 layout: true
 class: middle
+
+---
+
+.box-3.large[What's the difference<br>between `+` and `%>%`?]
+
+???
+
+- <https://github.com/tonsky/FiraCode>
 
 ---
 
@@ -170,6 +178,14 @@ class: center middle section-title section-title-5 animated fadeIn
 class: middle
 
 .box-5.large[In the absence of p-values,<br>I'm confused about how<br>we report… significance?]
+
+---
+
+class: middle
+
+.box-5.huge[Math with computers]
+
+.box-inv-5[andhs.co/live]
 
 ---
 
