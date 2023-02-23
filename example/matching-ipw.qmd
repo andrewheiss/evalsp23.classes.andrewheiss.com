@@ -456,3 +456,315 @@ modelsummary(list("Naive" = model_wrong,
 ```
 
 Which one is right? In this case, because this is fake simulated data where I built in a 10 point effect, we can see which of these models gets the closest: here, the non-truncated IPW model wins. But that won't always be the case. Both matching and IPW work well for closing backdoors and adjusting for confounders. In real life, you won't know the true value, so try multiple ways.
+
+
+## jklol we're not all done! Fixing IPW standard errors and confidence intervals
+
+```{r extract-ipw-results, include=FALSE}
+ipw_results <- model_ipw %>% 
+  tidy(conf.int = TRUE) %>% 
+  mutate(term = janitor::make_clean_names(term)) %>% 
+  mutate(conf = glue::glue("[{round(conf.low, 2)}, {round(conf.high, 2)}]")) %>% 
+  split(~term)
+
+matching_results <- model_matched_wts %>% 
+  tidy(conf.int = TRUE) %>% 
+  mutate(term = janitor::make_clean_names(term)) %>% 
+  mutate(conf = glue::glue("[{round(conf.low, 2)}, {round(conf.high, 2)}]")) %>% 
+  split(~term)
+```
+
+So actually I lied. We're *not* all done yet. The IPW model that we ran gives us the correct point estimate (`r round(ipw_results$net_true$estimate, 2)`), but the standard error and confidence intervals are wrong. There's uncertainty inherent in the estimation of the propensity scores and inverse probability weights, and that uncertainty doesn't get passed on to the outcome model, thus resulting in underestimation of the standard error and overly narrow confidence intervals. 
+
+We can actually see underestimation in the side-by-side table of results up above: the IPW model's standard error is `r round(ipw_results$net_true$std.error, 2)`, resulting in a confidence interval of `r ipw_results$net_true$conf`, while the matching + weights model has a similar point estimate (`r round(matching_results$net_true$estimate, 2)`) but a bigger standard error (`r round(matching_results$net_true$std.error, 2)`) and a wider confidence interval of `r matching_results$net_true$conf`.
+
+The (arguably) most accurate way to include the uncertainty of the treatment model in the outcome model is to rely on brute force simulation (just like we [did with Zilch!](/resource/zilch.qmd)) to estimate the causal effect for lots and lots of different models and then combine them into a single value. With our Zilch simulations, we rerolled our dice thousands of times. With this data, however, we can't go out and collect new samples of mosquito net use—we only have one set of data to work with.
+
+So instead of collecting new data, we cheat. 
+
+We'll use a super-wild-that-this-even-works statistical procedure called [bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)) to create random modified versions of our dataset.
+
+### Intuition behind bootstrapping
+
+To help with the concept of bootstrapping, imagine we have 10 rows of data that looks like this:
+
+```{r generate-boot-example, echo=FALSE, warning=FALSE, message=FALSE}
+library(randomNames)
+library(kableExtra)
+
+withr::with_seed(1234, {
+  example_data <- tibble(ID = 1:10, 
+                         Name = randomNames(n = 10, which.names = "first")) %>% 
+    mutate(Cookies = rpois(n(), 3))
+})
+
+example_data %>% 
+  kbl() %>% 
+  kable_styling(full_width = FALSE)
+```
+
+With bootstrapping, we randomly select 10 rows from this original dataset to create a new dataset, and we do this some large number of times (like 1,000). Importantly, we randomly select rows *with replacement*, so that each random bootstrapped dataset will have some repeated rows. See this, for instance, where Sabiyya appears three times in the first bootstrapped dataset, Mariah twice in the second, and Kadi three times in the thousandth.
+
+```{r show-bootstrap-example, echo=FALSE, warning=FALSE, message=FALSE}
+set.seed(12345)
+boot1 <- tibble(ID = sample(example_data$ID, size = 10, replace = TRUE)) %>% 
+  left_join(example_data, by = "ID") %>% 
+  arrange(ID)
+
+boot2 <- tibble(ID = sample(example_data$ID, size = 10, replace = TRUE)) %>% 
+  left_join(example_data, by = "ID") %>% 
+  arrange(ID)
+
+boot3 <- tibble(ID = sample(example_data$ID, size = 10, replace = TRUE)) %>% 
+  left_join(example_data, by = "ID") %>% 
+  arrange(ID)
+
+blank <- tibble(dots = rep("", 10))
+
+columns <- c(rep(c("ID", "Name", "Cookies"), times = 3),
+             "…",
+             c("ID", "Name", "Cookies"))
+
+bind_cols(example_data, boot1, boot2, blank, boot3) %>% 
+  kbl(col.names = columns) %>% 
+  kable_styling() %>% 
+  add_header_above(c("Original data" = 3, "Bootstrap sample #1" = 3,
+                     "Bootstrap sample #2" = 3, " " = 1, "Bootstrap sample #1000" = 3)) %>% 
+  column_spec(1:3, background = "#dedede")
+```
+
+We can then work with each of the bootstrapped datasets. If we wanted to find the standard error and confidence interval for the number of cookies eaten, we would calculate the average and standard error within each dataset, then combine all these averages into a single number or range.
+
+The `rsample` package in R makes this easy to do by automatically splitting the dataset into random subsets for us. We can then create a function that R will run on each of the random datasets. Finally, we can collapse all the results into a single value. Here's a quick example using the simulated cookie data from above. 
+
+We'll use bootstrapping to find three specific numbers, or estimands:
+
+1. The average number of cookies eaten
+2. The standard error of the number of cookies eaten
+3. The confidence interval of the number of cookies eaten
+
+First we'll use `tribble()` to make up a little toy dataset:
+
+```{r make-cookie-data}
+cookie_data <- tribble(
+  ~ID, ~Name,      ~Cookies,
+  1,   "Mariah",   3,
+  2,   "Hibaq",    4,
+  3,   "Manaahil", 3,
+  4,   "Kadi",     2,
+  5,   "Ghaazi",   4,
+  6,   "Thanaa",   1,
+  7,   "Emilio",   2,
+  8,   "Jawhar",   4,
+  9,   "Iyaad",    3,
+  10,  "Sabiyya",  1
+)
+
+cookie_data
+```
+
+
+Next we'll create a function that will calculate the stuff we're interested in. This function will run an intercept-only model for each of the datasets we feed it. It feels weird to use a regression model to just get an average, but at its core regression is really just fancy averages. By using `lm()` and `tidy()`, we can automatically find averages, standard errors, and confidence intervals without extra math. Just go with it. 
+
+```{r cookie-stats-function}
+find_stats <- function(splits) {
+  current_data <- analysis(splits)
+  
+  cookie_model <- lm(Cookies ~ 1, data = current_data)
+  
+  return(tidy(cookie_model, conf.int = TRUE))
+}
+```
+
+Now we can do some actual boostrapping. We'll use the `bootstraps()` function from the `rsample` library to divide our dataset into 500 random datasets
+
+```{r split-cookies}
+library(rsample)
+
+# apparent = TRUE includes the actual dataset as the final 501st row. It's
+# necessary for the fancy automatic confidence interval calculations that we'll
+# do later
+set.seed(1234)
+cookie_samples <- bootstraps(cookie_data, times = 500, apparent = TRUE)
+cookie_samples
+```
+
+That new `splits` column contains a bunch of information about which rows are included in the new random dataset. If you're curious about which rows are in which data, you can drill down into the `boot_split` object, but you don't need to. For instance, here are the IDs included in the 5th simulated dataset. Neat.
+
+```{r show-some-ids}
+cookie_samples$splits[[5]]$in_id
+```
+
+Now that everything is split up and we have 500 datasets, we'll apply our `find_stats()` function to each of the datasets using the `map()` function from the `purrr` package:
+
+```{r find-cookie-stats, cache=TRUE}
+cookie_bootstrap_stats <- cookie_samples %>% 
+  mutate(stats = map(splits, find_stats))
+cookie_bootstrap_stats
+```
+
+This looks a little weird. We have a new column named `stats`, but it doesn't contain single numbers. Instead, each cell contains a whole dataset! Each cell holds the tidied results from the intercept-only regression model. We can look at the first nested dataset of results like this:
+
+```{r see-nested-cookie-df}
+cookie_bootstrap_stats$stats[[1]]
+```
+
+That looks like a regular table of regression results, with columns for the coefficient name, the estimate, standard error, p-value, and other things. 
+
+But all those numbers are nested inside datasets inside cells, which makes it really hard to work with. We can use the `unnest()` function to extract everything into regular columns:
+
+```{r see-unnested-cookie-df, cache=TRUE}
+cookie_bootstrap_stats_unnested <- cookie_samples %>% 
+  mutate(stats = map(splits, find_stats)) %>% 
+  unnest(stats)
+cookie_bootstrap_stats_unnested
+```
+
+That's much more manageable! Now we can start finding the three estimands we're interested in.
+
+**1\. The average number of cookies eaten**
+
+To find the average number of cookies eaten, based on our boostrapped samples, we can calculate the average of the `estimate` column. That's it.
+
+```{r boot-avg-cookies}
+cookie_bootstrap_stats_unnested %>% 
+  summarize(avg_cookies = mean(estimate))
+```
+
+**2\. The standard error of the number of cookies eaten**
+
+Finding the standard error is a little trickier. It's tempting to just find the average of the `std.error` column like we did for the `estimate` column, but for mathy reasons this is wrong. Instead we need to use special equations developed by [Donald Rubin (1987)](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470316696), often nicknamed "Rubin's Rules", that aggregate multiple standard errors into a single value in a way that adjusts for differences in those values. You can see [simplified definitions of all of Rubin's Rules here](https://bookdown.org/mwheymans/bookmi/rubins-rules.html).
+
+We didn't need to do anything fancy for the average number of cookies eaten because Rubin's Rules say that you can just take the average of an estimate to collapse (or pool) the results to a single number. Pooling standard errors requires a special formula that involves both the standard errors and the estimated averages:
+
+$$
+\sqrt{\operatorname{Average}(\text{standard errors}^2) + \operatorname{Variance}(\text{estimates})}
+$$
+
+Or in code:
+
+```{r rubin-se-example, eval=FALSE}
+sqrt(mean(errors^2) + var(estimates))
+```
+
+Let's do that with our cookie bootstraps:
+
+```{r boot-se-cookies}
+cookie_bootstrap_stats_unnested %>% 
+  summarize(avg_cookies = mean(estimate),
+            avg_se = sqrt(mean(std.error^2) + var(estimate)))
+```
+
+**3\. The confidence interval of the number of cookies eaten**
+
+Since confidence intervals are based on standard errors, we also can't just take the average of the `conf.low` and `conf.high` columns in each of the bootstrapped results. We have to follow one of the special Rubin's Rules to collapse the confidence intervals into single values. We could do this by hand by multiplying the standard error we found above by 1.96 and −1.96 and then add those to the average, but that's a lot of work. Instead, we can use the `int_t()` function from `rsample` to do this automatically. 
+
+The `.lower` and `.upper` columns here show the confidence interval, while the `.estimate` column shows the average number of cookies eaten.
+
+```{r boot-conf-cookies}
+# (Note that we have to use this function on the dataset of nested results, not
+# the one where we unnested everything.)
+cookie_bootstrap_stats %>% 
+  int_t(stats)
+```
+
+::: {.callout-tip}
+#### Distributions and percentiles
+
+`int_t()` technically works by using the critical values of the *t*-distribution at 2.5% and 97.5% (thus making a 95% confidence interval). If you want to be fancy and not assume that the distribution of the estimate follows a *t* distribution, you can use `int_pctl()` instead, which just finds the observed values at the 2.5% and 97.% percentiles without making any distributional assumptions.
+:::
+
+### Bootstrapping with inverse probability weighting
+
+Phew. Now that we get the rough intuition behind bootstrapping (create a bunch of random copies of the original data, calculate stuff on each copy, and collapse those results into a single number), we can go through the same process with inverse probability weighting to get standard errors and confidence intervals that incorporate the uncertainty of the propensity score model and are thus more accurate.
+
+We need to create a little function that will run the propensity score model, generate inverse probability weights, and run the outcome model for each of our random datasets. These are all the steps we ran earlier in the example, just in one function, running on a dataset named `current_data`:
+
+```{r one-ipw-function}
+fit_one_ipw <- function(split) {
+  # Work with just a sampled subset of the full data
+  current_data <- analysis(split)
+  
+  # Fit propensity score model
+  model_net <- glm(net ~ income + temperature + health,
+                   data = current_data,
+                   family = binomial(link = "logit"))
+
+  # Calculate inverse probability weights
+  net_ipw <- augment_columns(model_net,
+                             current_data,
+                             type.predict = "response") %>%
+    mutate(ipw = (net_num / .fitted) + ((1 - net_num) / (1 - .fitted)))
+  
+  # Fit outcome model with IPWs 
+  model_outcome <- lm(malaria_risk ~ net,
+                      data = net_ipw,
+                      weights = ipw)
+  
+  # Return a tidied version of the model results
+  return(tidy(model_outcome))
+}
+```
+
+With that function, we can take our `nets` data and make 1000 random copies of it. We'll then apply our neat `fit_one_ipw()` function to each of the datasets
+
+```{r ipw-boot, cache=TRUE}
+ipw_bootstrap_stats <- bootstraps(nets, 1000, apparent = TRUE) %>% 
+  mutate(results = map(splits, fit_one_ipw))
+```
+
+If we look at the results, we'll see the version with all of the regression output nested inside little datasets inside cells:
+
+```{r show-ipw-boot-nested, cache=TRUE, message=FALSE}
+ipw_bootstrap_stats
+```
+
+If we unnest that column, we can see the actual results. Notice how there are 2,002 rows here instead of 1,001—each dataset has two values in it: the intercept and the coefficient for `netTRUE`.
+
+```{r show-ipw-boot-unnested, cache=TRUE, message=FALSE}
+ipw_bootstrap_stats %>% 
+  unnest(results)
+```
+
+Since we're interested in the effect of net usage, we'll filter the data so we only look at that coefficient:
+
+```{r show-ipw-boot-nested-net-only, cache=TRUE, message=FALSE}
+ipw_bootstrap_net <- ipw_bootstrap_stats %>% 
+  unnest(results) %>% 
+  filter(term == "netTRUE")
+
+ipw_bootstrap_net
+```
+
+Now we can use Rubin's Rules to collapse all these estimates into a single average and a single standard error:
+
+```{r ipw-net-mean-se}
+ipw_bootstrap_net %>% 
+  summarize(avg_net = mean(estimate),
+            avg_se = sqrt(mean(std.error^2) + var(estimate)))
+```
+
+```{r extract-bootstrap-stats, include=FALSE}
+boot_stats <- ipw_bootstrap_net %>% 
+  summarize(avg_net = mean(estimate),
+            avg_se = sqrt(mean(std.error^2) + var(estimate)))
+```
+
+The average net effect (or point estimate) of `r boot_stats$avg_net` is the same as what we found with the regular `lm()` model from before, but the standard error is now bigger (`r round(boot_stats$avg_se, 2)`) and more like the standard error we got with matching + weights (`r round(matching_results$net_true$std.error, 2)`).
+
+Finally we can find the confidence interval for the estimate with `int_t()`:
+
+```{r ipw-net-conf}
+ipw_bootstrap_stats %>% 
+  int_t(results) %>% 
+  filter(term == "netTRUE")
+```
+
+```{r extract-bootstrap-conf, include=FALSE}
+boot_conf <- ipw_bootstrap_stats %>% 
+  int_t(results) %>% 
+  filter(term == "netTRUE") %>% 
+  mutate(conf = glue::glue("[{round(.lower, 2)}, {round(.upper, 2)}]"))
+```
+
+*That's* the correct result. Using inverse probability weighting, using a mosquito net causes a `r boot_stats$avg_net` point reduction in malaria risk scores, with a standard error of `r round(boot_stats$avg_se, 2)` and a 95% confidence interval of `r boot_conf$conf`.
