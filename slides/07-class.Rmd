@@ -84,6 +84,20 @@ class: middle
 
 ---
 
+.box-3.large[Commenting stuff]
+
+???
+
+> I've had this question for a bit but remembered it during the section on building out the Matching and IPW project in R Studio. I'm trying to understand the commenting syntax in order to keep things in the code that do not get run. In Stata if you use /* to open and */ to close a comment block, everything between the two gets 'commented out' like this:
+>
+>     /*
+>     Comments etc here
+>     */
+>
+> Is there a way to do this in R with pound signs?
+
+---
+
 .box-3.large[Randomness]
 
 .box-3.medium[How do we use random.org for things in R?]
@@ -209,6 +223,10 @@ class: center middle section-title section-title-4 animated fadeIn
 
 layout: true
 class: middle
+
+---
+
+.box-4.large[Can you talk more about<br>propensity scores and<br>"weirdness" weights?]
 
 ---
 
