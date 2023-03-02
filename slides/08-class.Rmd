@@ -42,7 +42,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**October 10, 2022**
+**March 2, 2023**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
@@ -72,6 +72,18 @@ class: title title-inv-8
 --
 
 .box-6.medium.sp-after-half[Two-way fixed effects]
+
+---
+
+class: title title-inv-8
+
+# Two quick things
+
+.box-8.large.sp-after[Chunk names]
+
+--
+
+.box-8.large[Correct SEs for IPW]
 
 ---
 
@@ -123,18 +135,6 @@ Alan Krueger died by suicide in 2019
   <img src="img/08-class/pa-nj-nobel.jpg" alt="Nobel PA/NJ" title="Nobel PA/NJ" width="57%">
 </figure>
 ]
-
----
-
-.center[
-<figure>
-  <img src="img/08-class/blackwell-casual.png" alt="NPR casual inference" title="NPR casual inference" width="100%">
-</figure>
-]
-
-???
-
-https://twitter.com/matt_blackwell/status/1447518447882096642
 
 ---
 
@@ -197,6 +197,21 @@ class: title title-5
 
 .box-inv-5.tiny[This is why lots of people don't like DAG-based adjustment]
 ]
+
+---
+
+layout: false
+
+.center[
+<figure>
+  <img src="img/08-class/charles-ozzy.png" alt="King Charles and Ozzy Osbourne" title="King Charles and Ozzy Osbourne" width="50%">
+</figure>
+]
+
+---
+
+layout: true
+class: title title-5
 
 ---
 

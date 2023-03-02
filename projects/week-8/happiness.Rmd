@@ -29,9 +29,9 @@ tidy(model_life_school_la)
 ```{r}
 ggplot(world_happiness, aes(x = life_expectancy, y = happiness_score)) +
   geom_point(aes(color = latin_america)) +
-  geom_abline(slope = 0.1023494, intercept = -2.0770858, color = "blue", size = 2) +
+  geom_abline(slope = 0.1023494, intercept = -2.0770858, color = "blue", linewidth = 2) +
   geom_abline(slope = 0.1023494, intercept = -2.0770858 + 0.6234255, 
-              color = "orange", size = 2)
+              color = "orange", linewidth = 2)
 ```
 
 ```{r}
@@ -44,7 +44,7 @@ tidy(model_life_school_la_int)
 ```{r}
 ggplot(world_happiness, aes(x = life_expectancy, y = happiness_score)) +
   geom_point(aes(color = latin_america)) +
-  geom_abline(slope = 0.10154408, intercept = -2.01948544, color = "blue", size = 2) +
+  geom_abline(slope = 0.10154408, intercept = -2.01948544, color = "blue", linewidth = 2) +
   geom_abline(slope = 0.10154408 + 0.02884127, intercept = -2.01948544 + -1.51554651, 
-              color = "darkred", size = 2)
+              color = "darkred", linewidth = 2)
 ```
