@@ -7,17 +7,26 @@ date: "2023-03-09"
 
 This session is a continuation of [session 8](/content/08-content/).
 
-::: {.content-hidden}
+
 ## In-class stuff
 
 Here are all the materials we'll use in class:
 
 - [**Session 9 FAQ slides**](/slides/09-class.html) ([PDF](/slides/09-class.pdf))
-- [Session 8 R code (from last week)](/projects/week-8.zip) (on [RStudio.cloud](https://rstudio.cloud/spaces/269500/content/4698821))
+- [Session 8 R code (from last week)](/projects/week-8.zip) (on [Posit.cloud](https://posit.cloud/spaces/323551/content/5522484))
 
 And here are some useful blog posts and examples of the stuff we talked about today:
 
 - [How random effects work](https://www.andrewheiss.com/blog/2021/12/01/multilevel-models-panel-data-guide/#introduction-to-random-effects-intercepts-for-each-continent)
 - [TWFE diagnostics](https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/)
-- [Sensitivity analysis for unobserved confounding](/example/confounding-sensitivity.qmd)
-:::
+
+And Quarto stuff!
+
+- [Quarto](https://quarto.org/)
+- [Netlify Drop](https://app.netlify.com/drop/) (easiest way to get a Quarto site online)
+- [Other ways to get Quarto stuff online](https://quarto.org/docs/publishing/)
+- [HTML themes for R Markdown and Quarto websites](https://bootswatch.com/)
+- Research notebooks + manuscripts:
+  - [Pandemic Pass?](https://stats.andrewheiss.com/mountainous-mackerel/)
+  - [Are Donors Really Responding?](https://stats.andrewheiss.com/testy-turtle/)
+  - [NGO Repression as a Predictor of Worsening Human Rights Abuses](https://stats.andrewheiss.com/cautioning-canary/)

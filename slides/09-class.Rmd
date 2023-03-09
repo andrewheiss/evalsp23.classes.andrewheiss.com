@@ -42,7 +42,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**October 17, 2022**
+**March 9, 2023**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
@@ -75,7 +75,7 @@ class: title title-inv-8
 
 --
 
-.box-2.medium[Clusters and sensitivity]
+.box-2.medium[Markdown fun]
 
 ---
 
@@ -153,71 +153,6 @@ class: middle
 
 ---
 
-.box-3.large[I keep reading about estimates, estimands, and estimators.]
-
-.box-3.large[What are these and<br>are they the same thing?]
-
----
-
-layout: false
-class: title title-3
-
-# Estima(and|or|ate)s
-
---
-
-.box-inv-3.less-medium[Estimand]
-
-.box-3.sp-after[Theoretical thing you want to know (β)]
-
---
-
-.box-inv-3.less-medium[Estimator]
-
-.box-3.sp-after[Process for guessing the thing .small[(e.g., diff-in-diff with interaction term)]]
-
---
-
-.box-inv-3.less-medium[Estimate]
-
-.box-3[The guess (β-hat)]
-
----
-
-class: middle
-
-.center[
-<figure>
-  <img src="img/09-class/estimandateor.jpg" alt="Estimandateor" title="Estimandateor" width="45%">
-</figure>
-]
-
-???
-
-<https://twitter.com/WomenInStat/status/1449068312873287682>
-
----
-
-class: middle
-
-.center[
-<figure>
-  <img src="img/09-class/flowchart.png" alt="Estimand flowchart" title="Estimand flowchart" width="100%">
-</figure>
-]
-
----
-
-class: middle
-
-.center[
-<figure>
-  <img src="img/09-class/three-step-process.png" alt="Three-step process" title="Three-step process" width="75%">
-</figure>
-]
-
----
-
 layout: false
 name: final-project
 class: center middle section-title section-title-7 animated fadeIn
@@ -256,17 +191,6 @@ class: middle
 $$\begin{aligned}
 \text{Mortality}\ =&\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
 &\ \beta_3\ (\text{Alabama} \times \text{After 1975})
-\end{aligned}$$
-
----
-
-.box-inv-1.medium[Organ donations]
-
-.box-1.medium[Two states: California vs. New Jersey]
-
-$$\begin{aligned}
-\text{Donation rate}\ =&\ \beta_0 + \beta_1\ \text{California} + \beta_2\ \text{After Q22011}\ + \\
-&\ \beta_3\ (\text{California} \times \text{After Q22011})
 \end{aligned}$$
 
 ---
@@ -310,45 +234,11 @@ $$\text{Mortality}\ =\ \beta_0 + \color{red}{\beta_1}\ \text{Treatment} + \beta_
 
 ---
 
-$$\begin{aligned}
-\text{Mortality}\ =&\ \beta_0 + \beta_1\ \text{Alabama} + \beta_2\ \text{After 1975}\ + \\
-&\ \color{red}{\beta_3}\ (\text{Alabama} \times \text{After 1975})
-\end{aligned}$$
-
-.center[vs.]
-
-$$\text{Mortality}\ =\ \beta_0 + \color{red}{\beta_1}\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}$$
-
-.center[vs.]
-
-$$\begin{aligned}
-\text{Mortality}\ =\ & \beta_0 + \color{red}{\beta_1}\ \text{Treatment} + \beta_2\ \text{State} + \beta_3\ \text{Year}\ +\\
-&\beta_4\ (\text{State} \times \text{Year})
-\end{aligned}$$
-
----
-
 .center[
 <figure>
   <img src="img/08-class/mm-tbl-5-2.png" alt="Mastering Metrics Table 5.2" title="Mastering Metrics Table 5.2" width="55%">
 </figure>
 ]
-
----
-
-$$\begin{aligned}
-\text{Donation rate}\ =&\ \beta_0 + \beta_1\ \text{California} + \beta_2\ \text{After Q22011}\ + \\
-&\ \color{red}{\beta_3}\ (\text{California} \times \text{After Q22011})
-\end{aligned}$$
-
-.center[vs.]
-
-$$
-\begin{aligned}
-\text{Donation rate}\ =\ & \beta_0 + \color{red}{\beta_1}\ \text{Treatment}\ + \\
-& \beta_2\ \text{State} + \beta_3\ \text{Quarter}
-\end{aligned}
-$$
 
 ---
 
@@ -371,10 +261,10 @@ Blog post
 ---
 
 layout: false
-name: sensitivity
+name: quarto
 class: center middle section-title section-title-2 animated fadeIn
 
-# Clusters<br>and sensitivity
+# Bonus fun with<br>R Markdown and Quarto
 
 ---
 
@@ -383,24 +273,6 @@ class: middle
 
 ---
 
-.box-2.medium.sp-after[What are robust standard errors?]
+.box-2.large.sp-after[Documents]
 
-.box-2.medium.sp-after[What are clustered standard errors?]
-
----
-
-.box-2.medium.sp-after[How do we know when we've got<br>the right confounders in our DAG?]
-
-.box-2.medium[How do we solve the fact that<br>we have so many unknowns in our DAG?]
-
----
-
-.center[
-<figure>
-  <img src="img/08-class/2020-2021-meme-garnick-1.jpg" alt="OVB" title="OVB" width="40%">
-</figure>
-]
-
-???
-
-https://owenozier.github.io/teaching/2020-2021-memes
+.box-2.large[Websites]
