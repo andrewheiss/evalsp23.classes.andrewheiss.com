@@ -41,7 +41,7 @@ class: center middle main-title section-title-3
 
 .class-info[
 
-**October 24, 2022**
+**March 23, 2023**
 
 .light[PMAP 8521: Program evaluation<br>
 Andrew Young School of Policy Studies
@@ -167,6 +167,12 @@ class: middle
 
 ---
 
+.box-6.medium[Is there a rule of thumb to determine which<br>quasi-experimental method we should use?]
+
+.box-6.medium[How do we know which method applies<br>to which circumstance? Does the data tell us?]
+
+---
+
 .box-6.medium[With RDD we rely on "the rule" to<br>determine treatment and control groups]
 
 .box-6[How do you decide on the rule?<br>You mentioned that it's arbitrary—<br>we can choose whatever rule we want?]
@@ -174,12 +180,6 @@ class: middle
 ---
 
 .box-6.medium[Can we use RDD to evaluate a program<br>that doesn't have a rule for participation?]
-
----
-
-.box-6.medium[Is there a rule of thumb to determine which<br>quasi-experimental method we should use?]
-
-.box-6.medium[How do we know which method applies<br>to which circumstance? Does the data tell us?]
 
 ---
 
@@ -460,12 +460,19 @@ ggplot(tutoring, aes(x = entrance_exam, y = exit_exam)) +
 .box-6.medium[How do we decide on the right model?]
 
 .center[
-- Parametric with $y = x$?
-- With $y = x^2 + x$? 
-- With $y = x^\text{whatever} + x^\text{whatever} + x$? 
-- Nonparametric? 
-- `rdrobust()` or just `lm()`? 
-- Controls or no controls?
+
+Parametric with $y = x$?
+
+With $y = x^2 + x$? 
+
+With $y = x^\text{whatever} + x^\text{whatever} + x$? 
+
+Nonparametric? 
+
+`rdrobust()` or just `lm()`? 
+
+Controls or no controls?
+
 ]
 
 ---
