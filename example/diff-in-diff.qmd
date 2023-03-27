@@ -261,8 +261,8 @@ Calculating all the pieces by hand like that is tedious, so we can use regressio
 
 $$
 \begin{aligned}
-\log(\text{duration}) = &\alpha + \beta \ \text{highearn} + \gamma \ \text{after_1980} + \\
-& \delta \ (\text{highearn} \times \text{after_1980}) + \epsilon
+\log(\text{duration}) = &\alpha + \beta \ \text{highearn} + \gamma \ \text{after\_1980} + \\
+& \delta \ (\text{highearn} \times \text{after\_1980}) + \epsilon
 \end{aligned}
 $$
 
