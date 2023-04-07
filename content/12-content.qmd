@@ -44,14 +44,14 @@ slide_tabs(slide_details, "/slides/12-slides.html")
 youtube_list(slide_details, playlist_id)
 ```
 
-::: {.content-hidden}
 ## In-class stuff
 
 Here are all the materials we'll use in class:
 
 - [**Week 12 FAQ slides**](/slides/12-class.html) ([PDF](/slides/12-class.pdf))
-- [{{< fa brands r-project >}} Live R script](https://www.dropbox.com/s/f1a04qzvmhelwcs/synthetic-data-f22.R)
-:::
+- [Generating random numbers](/example/random-numbers.qmd)
+- [The ultimate guide to generating synthetic data for causal inference](/example/synthetic-data.qmd)
+- [{{< fa brands r-project >}} Live R script](https://www.dropbox.com/s/mzaaxffdhu5tllp/synthetic-data-sp23.R)
 
 
 ```{verbatim include=FALSE}
