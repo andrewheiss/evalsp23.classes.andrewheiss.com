@@ -29,9 +29,13 @@ You will submit **three things** via iCollege:
 
 This project is due by **11:59 PM on Monday, May 1, 2023.** <span style="color: #81056F; font-weight: bold"> No late work will be accepted.</span>
 
-You can either run the analysis in RStudio locally on your computer (highly recommended(!!), since you won't have to worry about keeping all your work on RStudio's servers), or use an RStudio.cloud project. You can make a copy of this RStudio.cloud project—it doesn't have anything in it, but I have preinstalled all the packages we've used over the course of the semester, so you don't have to.
+I will grade your project using this rubric. I *highly* recommend that you refer to the rubric as you work on your project!
 
-- [{{< fa arrow-up-right-from-square >}} Empty RStudio.cloud project](https://rstudio.cloud/spaces/269500/content/4357672)
+- {{< fa list-check >}}&ensp;[`evalsp23_final-project-rubric.xlsx`](/files/evalsp23_final-project-rubric.xlsx)
+
+You can either run the analysis in RStudio locally on your computer (highly recommended(!!), since you won't have to worry about keeping all your work on Posit's servers), or use an Posit.cloud project. You can make a copy of this Posit.cloud project—it doesn't have anything in it, but I have preinstalled all the packages we've used over the course of the semester, so you don't have to.
+
+- [{{< fa arrow-up-right-from-square >}} Empty Posit.cloud project](https://posit.cloud/spaces/323551/content/5774783)
 - [{{< fa file-archive >}} Empty RStudio project you can download and unzip on your computer](/projects/final-project.zip) (doesn't include any packages, since you're responsible for installing those)
 
 
