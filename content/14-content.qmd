@@ -80,6 +80,87 @@ youtube_list(slide_details, playlist_id)
 ```
 
 
+## Synthetic data code from class
+
+```r
+library(tidyverse)
+library(broom)
+
+n_people <- 5003
+
+fake_data <- tibble(id = 1:n_people) %>% 
+  # Make exogenous stuff
+  mutate(time_of_day = sample(c("Morning", "Evening"), n_people, replace = TRUE)) %>% 
+  # Make endogenous things
+  mutate(prob_atlanta = 50 + ifelse(time_of_day == "Morning", 13, 0),
+         prob_charlotte = 15 + ifelse(time_of_day == "Morning", 36, 0),
+         prob_philly = 20 + ifelse(time_of_day == "Evening", 60, 10),
+         prob_la = 15 + ifelse(time_of_day != "Morning", -5, 20)) %>% 
+  rowwise() %>% 
+  mutate(city = sample(c("Atlanta", "Charlotte", "Philadelphia", "Los Angeles"),
+                       1, replace = TRUE, 
+                       prob = c(prob_atlanta, prob_charlotte, prob_philly, prob_la))) %>% 
+  ungroup() %>% 
+  mutate(liking_blue_baseline = rnorm(n_people, mean = 0.5, sd = 0.05),
+         liking_blue_morning_boost = ifelse(time_of_day == "Morning", 0.2, 0),
+         prob_liking_blue = liking_blue_baseline + liking_blue_morning_boost) %>% 
+  rowwise() %>% 
+  mutate(like_blue = sample(c(TRUE, FALSE), 1, replace = TRUE, 
+                            prob = c(prob_liking_blue, 1 - prob_liking_blue))) %>% 
+  ungroup() %>% 
+  mutate(cookies_baseline = rnorm(n_people, 3, 1),
+         cookie_time_effect = ifelse(time_of_day == "Morning", 2, 0),
+         cookie_blue_effect = ifelse(like_blue == TRUE, rnorm(n_people, 3, 0.5), 0),
+         cookie_city_effect = case_when(
+           city == "Atlanta" ~ 5,
+           city == "Philadelphia" ~ 1,
+           city == "Los Angeles" ~ -3,
+           city == "Charlotte" ~ 0
+         ),
+         cookies = cookies_baseline + cookie_time_effect + 
+           cookie_blue_effect + cookie_city_effect) %>% 
+  mutate(happiness_baseline = rnorm(n_people, mean = 47, sd = 9),
+         happiness_time_effect = case_when(
+           time_of_day == "Morning" ~ rnorm(n_people, 0, 1),
+           time_of_day == "Evening" ~ rnorm(n_people, 8, 1)
+         ),
+         happiness_blue_effect = ifelse(like_blue == TRUE, 4, 0),
+         happiness_cookie_effect = cookies * 1.3,
+         happiness_city_effect = case_when(
+           city == "Atlanta" ~ 10,
+           city == "Philadelphia" ~ 30,
+           city == "Los Angeles" ~ -10,
+           city == "Charlotte" ~ 5
+         ),
+         happiness = happiness_baseline + happiness_time_effect + happiness_blue_effect + 
+           happiness_cookie_effect + happiness_city_effect)
+
+real_data <- fake_data %>% 
+  select(id, city, time_of_day, like_blue, cookies, happiness) %>% 
+  mutate(cookies_rounded = round(cookies, 0),
+         happiness = round(happiness, 0))
+
+ggplot(fake_data, aes(x = like_blue)) +
+  geom_bar()
+
+real_data %>% 
+  group_by(city) %>% 
+  summarize(avg_cookies = mean(cookies),
+            avg_happiness = mean(happiness))
+
+ggplot(fake_data, aes(x = happiness_baseline)) +
+  geom_density()
+
+ggplot(real_data, aes(x = cookies, y = happiness)) +
+  geom_point() + 
+  geom_smooth(method = "lm")
+
+model_thing <- lm(happiness ~ cookies + time_of_day + like_blue, data = real_data)
+tidy(model_thing)
+```
+
+
+
 ```{verbatim include=FALSE}
 Playlist: https://www.youtube.com/playlist?list=PLS6tnpTr39sEKfedoOEFJvvNNHtDiYS-Q
 

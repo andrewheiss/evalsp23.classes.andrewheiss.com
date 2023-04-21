@@ -116,7 +116,7 @@ list(
 
 
   ## Build site ----
-  tar_quarto(site, path = "."),
+  tar_quarto(site, path = ".", quiet = FALSE),
 
 
   ## Upload site ----
