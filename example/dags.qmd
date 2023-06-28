@@ -15,7 +15,7 @@ This video shows how to use it:
 
 ## DAGs with R, ggdag, and dagitty
 
-You can use the [**ggdag**](https://ggdag.malco.io/) and [**dagitty**](http://dagitty.net/primer/) packages in R to build and work with DAGs too. I typically draw an initial DAG in my browser with dagitty.net and then I rewrite it in code in R so that it's more official and formal and reproducible.
+You can use the [**ggdag**](https://r-causal.github.io/ggdag/index.html) and [**dagitty**](http://dagitty.net/primer/) packages in R to build and work with DAGs too. I typically draw an initial DAG in my browser with dagitty.net and then I rewrite it in code in R so that it's more official and formal and reproducible.
 
 ### Live coding example
 
@@ -43,9 +43,9 @@ library(dagitty)    # For working with DAG logic
 
 The general process for making and working with DAGs in R is to create a DAG object with `dagify()` and then plot it with `ggdag()`. The documentation for **ggdag** is really good and helpful and full of examples. Check these pages for all sorts of additional details:
 
-- ["An introduction to ggdag"](https://ggdag.malco.io/articles/intro-to-ggdag.html)
-- ["An introduction to directed acyclic graphs"](https://ggdag.malco.io/articles/intro-to-dags.html)
-- [List of all ggdag-related functions](https://ggdag.malco.io/reference/index.html)
+- ["An introduction to ggdag"](https://r-causal.github.io/ggdag/articles/intro-to-ggdag.html)
+- ["An introduction to directed acyclic graphs"](https://r-causal.github.io/ggdag/articles/intro-to-dags.html)
+- [List of all ggdag-related functions](https://r-causal.github.io/ggdag/reference/index.html)
 
 The syntax for `dagify()` is similar to the formula syntax you've been using for building regression models with `lm()`. The formulas you use in `dagify()` indicate the relationships between nodes.
 
