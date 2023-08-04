@@ -1,5 +1,5 @@
 ---
-title: "Resources"
+title: "Recursos"
 ---
 
-I have included a bunch of extra resources and guides related to causal inference, program evaluation, R, data, and other relevant topics. Enjoy!
+Acá iremos incluyendo recursos adicionales relacionados con el curso

@@ -1,33 +1,33 @@
-author: Andrew Heiss
+author: Juan Carlos Castillo (Credits to Andrew Heiss)
 
 instructor:
-  name: Dr. Andrew Heiss
-  name_no_title: Andrew Heiss
-  email: aheiss@gsu.edu
-  url: "https://www.andrewheiss.com"
-  twitter: andrewheiss
-  github: andrewheiss
-  office: "357 Andrew Young School"
+  name: Prof. Juan Carlos Castillo
+  name_no_title: Juan Castillo
+  email: juancastillov@uchile.cl
+  url: "https://www.jc-castillo.com"
+  twitter:
+  github: juancarloscastillo
+  office: "325 Sociología FACSO, Universidad de Chile"
   contact_policy: >-
-    E-mail and Slack are the best ways to get in contact with me. I will try to respond to all course-related e-mails and Slack messages within 24 hours (*really*), but also remember that life can be busy and chaotic for everyone (including me!), so if I don't respond right away, don't worry!
+    E-mail y Slack son la mejor manera de ponerse en contacto conmigo y el equipo docente del curso.
   appointment_url: https://calendly.com/andrewheiss/
 
 course:
   number: "PMAP 8521"
-  semester: "Spring 2023"
-  days: "Thursdays"
-  time: "7:15–9:45 PM"
-  location: "Aderhold Learning Center 204"
-  dates: "January 9–May 2, 2023"
-  github: "https://www.github.com/andrewheiss/evalsp23.classes.andrewheiss.com"
-  url: "https://evalsp23.classes.andrewheiss.com"
+  semester: "Segundo 2023"
+  days: "Lunes y Martes"
+  time: "8:30-10:00 (Lunes) y 10:15-11:45(Martes)"
+  location: "Sala ..."
+  dates: "7 Agosto al 28 de Noviembre, 2023"
+  github: "https://github.com/cursos-metodos-facso/correlacional"
+  url: "https://correlacional.netlify.app"
   copyright_year: "2023"
-  slack: "https://gsuevalsp2023.slack.com"
+  slack: ""
 
 university:
-  name: Georgia State University
-  url: "https://www.gsu.edu"
+  name: Universidad de Chile
+  url: "https://www.uchile.cl"
 
 school:
-  name: Andrew Young School of Policy Studies
-  url: "https://aysps.gsu.edu/"
+  name: Departamento de Sociología, Facultad de Ciencias Sociales
+  url: "https://facso.uchile.cl/"

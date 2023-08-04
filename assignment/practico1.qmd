@@ -1,0 +1,7 @@
+---
+title: "Práctico 1"
+date: "2023-08-11"
+lang: es
+---
+
+# Acá práctico 1

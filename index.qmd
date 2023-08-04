@@ -1,8 +1,8 @@
 ---
-title: "Program Evaluation for Public Service"
-subtitle: "Combine research design, causal inference, and econometric tools to measure the effects of social programs"
+title: "Estadística Correlacional"
+subtitle: "Asociación entre variables e inferencia estadística"
 details: |
-  PMAP 8521 • Spring 2023<br>Andrew Young School of Policy Studies<br>Georgia State University
+  SOC01019 • Segundo Semestre 2023<br>Departamento de Sociología, Facultad de Ciencias Sociales<br>Universidad de Chile
 sidebar: false
 toc: false
 page-layout: full
@@ -10,7 +10,7 @@ format:
   html:
     template-partials:
       - html/home/title-block.html
-course-logo: /files/img/eval-hires.png
+course-logo: /files/logo-correlacional.png
 ---
 
 ```{r set-dependencies, include=FALSE}
@@ -27,17 +27,24 @@ withr::with_dir(here::here(), {
 ::: {.grid .course-details}
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
-### Instructor
+### Equipo docente
+
+**Profesor**
 
 - {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
 - {{< fa university >}} &nbsp; {{< var instructor.office >}}
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
-- {{< fa brands twitter >}} &nbsp; [{{< var instructor.twitter >}}](https://www.twitter.com/{{< var instructor.twitter >}})
 - {{< fa calendar-check >}} &nbsp; [Schedule an appointment]({{< var instructor.appointment_url >}})
+
+**Apoyos docentes**
+
+- Daniela Olivares
+- Andreas Lafferte
+
 :::
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
-### Course details
+### Detalles del curso
 
 - {{< fa calendar >}} &nbsp; {{< var course.days >}}
 - {{< fa calendar-alt >}} &nbsp; {{< var course.dates >}}
@@ -47,15 +54,12 @@ withr::with_dir(here::here(), {
 :::
 
 ::: {.g-col-12 .g-col-md-4 .contact-policy}
-### Contacting me
+### Contacto
 
 {{< var instructor.contact_policy >}}
 :::
 
 :::
 
-```{r echo=FALSE}
-knitr::include_graphics(here::here("files", "img", "eval-flowchart.png"), error = FALSE)
-```
 
 :::

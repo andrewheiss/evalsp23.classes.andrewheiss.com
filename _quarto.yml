@@ -19,13 +19,13 @@ execute:
 
 bibliography: files/bib/references.bib
 csl: files/bib/chicago-author-date.csl
-description-meta: "Use modern statistical and data scientific tools to measure causal effects and evaluate public policy"
+description-meta: "Estadística Correlacional - Asociación bivariada e inferencia"
 
 website:
-  title: "Program Evaluation"
-  site-url: "https://evalsp23.classes.andrewheiss.com"
+  title: "Estadística Correlacional"
+  site-url: "https://correlacional.netlify.app"
 
-  favicon: "/files/icon-512.png"
+  favicon: "/files/logo-correlacional.png"
 
   twitter-card:
     image: "/files/social-image-sp23.png"
@@ -35,97 +35,53 @@ website:
 
   open-graph:
     image: "/files/social-image-sp23.png"
-    locale: en_US
+    locale: es
 
   navbar:
     pinned: true
-    background: "#EE6A24"
+    background: "#BC3C6F"
     right:
       - syllabus.qmd
       - schedule.qmd
-      - text: "Content"
+      - text: "Clases"
         file: content/index.qmd
-      - text: "Assignments"
+      - text: "Prácticos"
         file: assignment/index.qmd
-      - text: "Examples"
-        file: example/index.qmd
-      - text: "Resources"
+      - text: "Recursos"
         file: resource/index.qmd
-      - text: "News"
+      - text: "Noticias"
         file: news/index.qmd
-      - icon: slack
-        href: "https://gsuevalsp2023.slack.com"
-        aria-label: Slack
       - icon: cloud-fill
         href: "https://rstudio.cloud"
         aria-label: RStudio.cloud
 
   sidebar:
-    - title: "Content"
+    - title: "Clases"
       style: "docked"
       search: false
+      lang: es
       background: dark
       contents:
-        - section: "Overview"
+        - section: "Sobre clases"
           contents:
             - content/index.qmd
-        - section: "Course content"
+        - section: "Sesiones"
           contents:
-            - text: "1: Evaluation and the causal revolution"
+            - text: "Sesión 1"
               file: content/01-content.qmd
-            - text: "2: Regression and inference"
+            - text: "Sesión 2"
               file: content/02-content.qmd
-            - text: "3: Theories of change and logic models"
-              file: content/03-content.qmd
-            - text: "4: Measurement and DAGs"
-              file: content/04-content.qmd
-            - text: "5: DAGs and potential outcomes"
-              file: content/05-content.qmd
-            - text: "6: Threats to validity"
-              file: content/06-content.qmd
-            - text: "7: Randomization and matching"
-              file: content/07-content.qmd
-            - text: "8: Diff-in-diff I"
-              file: content/08-content.qmd
-            - text: "9: Diff-in-diff II"
-              file: content/09-content.qmd
-            - text: "10: RDD I"
-              file: content/10-content.qmd
-            - text: "11: IV I"
-              file: content/11-content.qmd
-            - text: "12: IV II & RDD II"
-              file: content/12-content.qmd
-            - text: "13: Choosing and planning ethical evaluations"
-              file: content/13-content.qmd
-            - text: "14: Ethics, stories, and curiosity"
-              file: content/14-content.qmd
 
-    - title: "Assignments"
+    - title: "Prácticos"
       contents:
-        - section: "Overview"
+        - section: "Sobre prácticos"
           contents:
             - assignment/index.qmd
-        - section: "Other projects"
-          contents:
-            - assignment/final-project.qmd
-            - assignment/weekly-check-in.qmd
-        - section: "Problem sets"
+        - section: "Guías prácticos"
           contents:
             - assignment/01-problem-set.qmd
             - assignment/02-problem-set.qmd
-            - assignment/03-problem-set.qmd
-            - assignment/04-problem-set.qmd
-            - assignment/05-problem-set.qmd
-            - assignment/06-problem-set.qmd
-            - assignment/07-problem-set.qmd
-            - assignment/08-problem-set.qmd
-            - assignment/09-problem-set.qmd
-        - section: "Evaluation"
-          contents:
-            - assignment/01-eval-background-theory.qmd
-            - assignment/02-eval-measurement.qmd
-            - assignment/03-eval-dag.qmd
-            - assignment/04-eval-threats.qmd
+
 
     - title: "Examples"
       contents:

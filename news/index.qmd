@@ -1,5 +1,6 @@
 ---
-title: "News"
+title: "Noticias"
+lang: es
 listing:
   id: "news-table"
   contents: .
@@ -12,8 +13,8 @@ listing:
   sort-ui: true
   date-format: "dddd MMMM D, YYYY [at] h:mm A"
   feed: 
-    title: "Program Evaluation (PMAP 8521) News"
-    description: "Updates and FAQs for PMAP 8521 at Georgia State University"
+    title: "Noticias y mensajes importantes Estadística Correlacional"
+#    description: "Updates and FAQs for PMAP 8521 at Georgia State University"
   categories: false
 page-layout: full
 sidebar: false
@@ -36,10 +37,9 @@ feed_url <- paste0(base_url, "/", feed_name)
 
 ::: {.callout-tip}
 
-## Subscribe!
+## Suscribirse!
 
-You can use a feed reader like [Feedly](https://feedly.com/) or use an [RSS-to-email service](https://www.google.com/search?q=rss+to+email)  like [Blogtrottr](https://blogtrottr.com/) to subscribe to these updates and messages. I'll also e-mail out links to them when there are new updates.
-
+Puedes usar un lector de feeds como [Feedly](https://feedly.com/) o un servicio [RSS-to-email](https://www.google.com/search?q=rss+to+email)  como [Blogtrottr](https://blogtrottr.com/) para suscribirte a cualquiera de estos mensajes. 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-2}

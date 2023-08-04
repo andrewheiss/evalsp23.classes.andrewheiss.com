@@ -1,4 +1,4 @@
-source("renv/activate.R")
+# source("renv/activate.R")
 
 # Run the global .Rprofile if it exists
 if (file.exists("~/.Rprofile")) {
