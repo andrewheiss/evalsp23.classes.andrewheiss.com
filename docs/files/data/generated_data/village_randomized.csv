@@ -1,0 +1,1001 @@
+id,sex,age,pre_income,program,post_income,sex_num,program_num
+1,Male,45,979,No program,1281,1,0
+2,Female,23,664,No program,1041,0,0
+3,Female,42,729,No program,1247,0,0
+4,Female,34,744,Program,1249,0,1
+5,Female,53,769,No program,1343,0,0
+6,Female,33,762,Program,1251,0,1
+7,Male,20,846,Program,1136,1,1
+8,Male,40,674,Program,1329,1,1
+9,Female,39,747,Program,1303,0,1
+10,Male,35,744,No program,1189,1,0
+11,Female,24,763,Program,1168,0,1
+12,Male,27,740,No program,1100,1,0
+13,Male,35,920,No program,1198,1,0
+14,Female,45,877,No program,1273,0,0
+15,Male,31,824,No program,1156,1,0
+16,Female,26,658,No program,1078,0,0
+17,Male,8,1093,Program,1026,1,1
+18,Male,40,894,Program,1346,1,1
+19,Male,39,923,No program,1230,1,0
+20,Male,48,611,No program,1315,1,0
+21,Male,50,778,Program,1432,1,1
+22,Male,34,877,No program,1183,1,0
+23,Male,48,839,Program,1422,1,1
+24,Male,35,861,Program,1290,1,1
+25,Male,28,859,Program,1227,1,1
+26,Female,27,756,No program,1081,0,0
+27,Male,32,775,No program,1153,1,0
+28,Female,37,707,No program,1196,0,0
+29,Female,35,909,No program,1159,0,0
+30,Male,37,606,No program,1211,1,0
+31,Male,37,772,Program,1301,1,1
+32,Male,42,881,Program,1357,1,1
+33,Male,32,779,No program,1163,1,0
+34,Male,51,945,No program,1352,1,0
+35,Male,39,884,No program,1236,1,0
+36,Female,23,713,Program,1144,0,1
+37,Male,32,794,No program,1159,1,0
+38,Male,40,801,No program,1240,1,0
+39,Female,31,827,No program,1129,0,0
+40,Female,38,747,No program,1199,0,0
+41,Male,39,738,No program,1244,1,0
+42,Female,48,774,No program,1294,0,0
+43,Male,28,891,No program,1120,1,0
+44,Female,35,912,No program,1167,0,0
+45,Male,29,740,No program,1126,1,0
+46,Male,24,806,No program,1074,1,0
+47,Female,17,700,Program,1085,0,1
+48,Male,37,724,Program,1311,1,1
+49,Male,41,739,Program,1352,1,1
+50,Female,41,668,No program,1228,0,0
+51,Male,21,599,Program,1151,1,1
+52,Male,24,877,Program,1176,1,1
+53,Female,24,841,No program,1051,0,0
+54,Male,28,717,No program,1113,1,0
+55,Male,37,896,No program,1209,1,0
+56,Male,41,981,No program,1243,1,0
+57,Male,27,545,No program,1119,1,0
+58,Female,6,915,Program,979,0,1
+59,Male,45,923,No program,1290,1,0
+60,Female,41,815,No program,1237,0,0
+61,Female,28,748,No program,1104,0,0
+62,Male,24,690,No program,1087,1,0
+63,Male,32,712,Program,1265,1,1
+64,Male,36,736,Program,1304,1,1
+65,Male,42,589,No program,1261,1,0
+66,Female,49,735,No program,1310,0,0
+67,Male,27,899,Program,1207,1,1
+68,Male,38,725,No program,1214,1,0
+69,Male,48,957,Program,1425,1,1
+70,Male,26,795,Program,1192,1,1
+71,Male,33,811,Program,1265,1,1
+72,Female,17,848,No program,986,0,0
+73,Male,38,706,Program,1313,1,1
+74,Female,29,723,No program,1101,0,0
+75,Male,26,758,No program,1107,1,0
+76,Male,27,977,Program,1206,1,1
+77,Male,39,843,No program,1232,1,0
+78,Male,13,791,Program,1071,1,1
+79,Male,31,688,No program,1146,1,0
+80,Female,25,791,Program,1159,0,1
+81,Female,25,839,Program,1170,0,1
+82,Male,40,764,No program,1231,1,0
+83,Male,39,711,Program,1329,1,1
+84,Male,34,705,Program,1279,1,1
+85,Male,40,778,No program,1249,1,0
+86,Female,29,834,Program,1212,0,1
+87,Male,15,897,No program,995,1,0
+88,Male,47,666,Program,1401,1,1
+89,Male,33,720,Program,1260,1,1
+90,Female,31,595,Program,1229,0,1
+91,Male,37,811,Program,1306,1,1
+92,Female,43,872,Program,1341,0,1
+93,Male,39,825,No program,1234,1,0
+94,Male,44,923,No program,1279,1,0
+95,Male,35,858,No program,1196,1,0
+96,Male,30,741,No program,1136,1,0
+97,Male,32,945,No program,1165,1,0
+98,Male,43,844,Program,1367,1,1
+99,Male,27,858,Program,1204,1,1
+100,Female,25,708,No program,1070,0,0
+101,Male,38,775,Program,1322,1,1
+102,Male,41,678,Program,1354,1,1
+103,Male,18,793,Program,1123,1,1
+104,Male,43,936,Program,1365,1,1
+105,Male,35,754,Program,1295,1,1
+106,Male,33,807,No program,1173,1,0
+107,Male,46,878,Program,1400,1,1
+108,Male,50,641,Program,1432,1,1
+109,Male,24,663,No program,1077,1,0
+110,Male,45,707,No program,1282,1,0
+111,Female,29,830,No program,1096,0,0
+112,Male,36,808,No program,1200,1,0
+113,Female,40,925,No program,1211,0,0
+114,Male,36,677,Program,1303,1,1
+115,Male,20,756,Program,1151,1,1
+116,Female,30,590,No program,1115,0,0
+117,Female,50,962,Program,1422,0,1
+118,Male,37,908,No program,1211,1,0
+119,Male,27,736,Program,1197,1,1
+120,Female,28,775,Program,1196,0,1
+121,Female,46,787,Program,1384,0,1
+122,Female,38,980,No program,1202,0,0
+123,Female,26,804,Program,1178,0,1
+124,Female,35,841,Program,1276,0,1
+125,Male,41,870,Program,1353,1,1
+126,Male,52,869,No program,1352,1,0
+127,Male,26,633,Program,1206,1,1
+128,Male,31,874,No program,1149,1,0
+129,Male,45,708,No program,1284,1,0
+130,Male,30,797,No program,1135,1,0
+131,Female,50,607,Program,1404,0,1
+132,Female,45,821,No program,1274,0,0
+133,Male,18,699,Program,1127,1,1
+134,Male,39,582,Program,1322,1,1
+135,Female,21,633,Program,1118,0,1
+136,Male,20,658,No program,1046,1,0
+137,Female,36,855,No program,1178,0,0
+138,Male,36,831,No program,1197,1,0
+139,Female,35,869,Program,1262,0,1
+140,Female,48,747,No program,1293,0,0
+141,Male,38,818,Program,1312,1,1
+142,Female,28,841,No program,1104,0,0
+143,Male,36,791,No program,1199,1,0
+144,Male,30,689,No program,1133,1,0
+145,Male,34,913,No program,1186,1,0
+146,Female,24,967,Program,1152,0,1
+147,Female,34,1002,Program,1263,0,1
+148,Male,36,889,Program,1298,1,1
+149,Female,28,781,No program,1100,0,0
+150,Male,35,787,Program,1294,1,1
+151,Male,29,769,No program,1128,1,0
+152,Male,29,774,Program,1222,1,1
+153,Male,33,795,Program,1274,1,1
+154,Female,40,603,No program,1220,0,0
+155,Male,33,801,No program,1178,1,0
+156,Female,37,824,No program,1182,0,0
+157,Female,45,705,No program,1263,0,0
+158,Female,32,624,Program,1242,0,1
+159,Male,34,764,Program,1277,1,1
+160,Male,40,488,Program,1344,1,1
+161,Male,22,967,No program,1062,1,0
+162,Male,40,869,No program,1242,1,0
+163,Male,30,702,Program,1234,1,1
+164,Male,24,802,No program,1075,1,0
+165,Male,17,783,Program,1113,1,1
+166,Female,28,634,Program,1190,0,1
+167,Male,23,712,Program,1169,1,1
+168,Male,23,897,No program,1077,1,0
+169,Female,51,684,No program,1339,0,0
+170,Male,23,725,No program,1069,1,0
+171,Female,45,725,Program,1361,0,1
+172,Male,40,923,Program,1351,1,1
+173,Female,26,781,Program,1186,0,1
+174,Male,29,855,Program,1228,1,1
+175,Male,31,877,Program,1250,1,1
+176,Female,37,762,No program,1193,0,0
+177,Male,32,687,Program,1258,1,1
+178,Male,43,817,Program,1378,1,1
+179,Male,32,764,No program,1153,1,0
+180,Male,13,944,No program,967,1,0
+181,Male,34,748,Program,1277,1,1
+182,Male,16,769,No program,999,1,0
+183,Female,44,868,No program,1268,0,0
+184,Male,28,734,No program,1117,1,0
+185,Female,24,798,Program,1157,0,1
+186,Male,29,850,No program,1126,1,0
+187,Female,41,760,Program,1319,0,1
+188,Female,16,679,No program,973,0,0
+189,Male,38,831,No program,1207,1,0
+190,Female,25,772,Program,1168,0,1
+191,Female,35,598,No program,1166,0,0
+192,Female,42,827,No program,1237,0,0
+193,Male,41,813,No program,1249,1,0
+194,Female,50,632,Program,1425,0,1
+195,Female,36,747,No program,1183,0,0
+196,Female,28,782,No program,1088,0,0
+197,Female,57,744,Program,1480,0,1
+198,Female,32,855,Program,1243,0,1
+199,Female,43,642,Program,1348,0,1
+200,Female,44,705,No program,1259,0,0
+201,Female,40,755,Program,1319,0,1
+202,Male,49,944,Program,1432,1,1
+203,Male,33,784,No program,1173,1,0
+204,Female,23,698,No program,1044,0,0
+205,Male,31,954,No program,1157,1,0
+206,Female,30,777,No program,1112,0,0
+207,Male,38,855,No program,1225,1,0
+208,Male,26,912,Program,1198,1,1
+209,Male,42,841,No program,1257,1,0
+210,Female,23,930,No program,1060,0,0
+211,Male,53,721,No program,1364,1,0
+212,Male,49,960,Program,1437,1,1
+213,Male,31,618,No program,1148,1,0
+214,Female,36,702,No program,1185,0,0
+215,Male,31,741,Program,1250,1,1
+216,Female,23,823,No program,1041,0,0
+217,Female,8,753,Program,1008,0,1
+218,Female,35,858,Program,1256,0,1
+219,Male,35,842,Program,1289,1,1
+220,Female,51,868,Program,1427,0,1
+221,Male,15,948,No program,990,1,0
+222,Male,28,657,Program,1222,1,1
+223,Male,44,897,Program,1369,1,1
+224,Male,38,773,No program,1220,1,0
+225,Male,36,720,Program,1294,1,1
+226,Male,29,622,Program,1221,1,1
+227,Female,37,715,No program,1188,0,0
+228,Male,33,770,No program,1163,1,0
+229,Male,36,606,Program,1303,1,1
+230,Male,29,764,Program,1226,1,1
+231,Female,47,851,Program,1384,0,1
+232,Male,46,670,Program,1395,1,1
+233,Male,48,800,No program,1313,1,0
+234,Female,31,666,No program,1131,0,0
+235,Male,32,795,Program,1257,1,1
+236,Male,31,889,Program,1250,1,1
+237,Female,49,582,No program,1303,0,0
+238,Male,32,1031,No program,1152,1,0
+239,Male,36,683,Program,1294,1,1
+240,Female,39,894,Program,1306,0,1
+241,Male,42,1008,Program,1356,1,1
+242,Male,32,706,Program,1258,1,1
+243,Male,58,732,Program,1513,1,1
+244,Female,26,902,Program,1177,0,1
+245,Female,21,718,Program,1120,0,1
+246,Male,35,704,No program,1192,1,0
+247,Female,53,958,Program,1447,0,1
+248,Male,36,977,No program,1197,1,0
+249,Female,36,777,Program,1279,0,1
+250,Female,44,1028,Program,1354,0,1
+251,Male,34,990,No program,1175,1,0
+252,Male,36,793,No program,1205,1,0
+253,Male,47,719,No program,1310,1,0
+254,Male,36,733,Program,1292,1,1
+255,Male,27,940,No program,1105,1,0
+256,Male,39,854,No program,1231,1,0
+257,Male,24,864,No program,1082,1,0
+258,Male,20,799,Program,1149,1,1
+259,Male,34,818,Program,1282,1,1
+260,Male,24,751,No program,1090,1,0
+261,Female,41,914,No program,1221,0,0
+262,Male,34,767,No program,1168,1,0
+263,Male,27,999,Program,1206,1,1
+264,Male,51,859,No program,1349,1,0
+265,Male,34,899,No program,1182,1,0
+266,Male,49,948,Program,1434,1,1
+267,Female,34,795,No program,1163,0,0
+268,Male,32,623,No program,1148,1,0
+269,Male,39,739,Program,1326,1,1
+270,Female,45,859,No program,1275,0,0
+271,Male,62,920,Program,1561,1,1
+272,Female,25,821,Program,1172,0,1
+273,Male,33,884,Program,1267,1,1
+274,Female,46,894,Program,1380,0,1
+275,Male,38,903,Program,1324,1,1
+276,Male,33,875,No program,1173,1,0
+277,Female,22,781,No program,1031,0,0
+278,Male,32,902,Program,1266,1,1
+279,Male,33,750,No program,1174,1,0
+280,Male,34,835,No program,1182,1,0
+281,Male,51,749,Program,1448,1,1
+282,Male,30,848,No program,1151,1,0
+283,Female,19,850,Program,1111,0,1
+284,Female,40,789,Program,1321,0,1
+285,Female,34,803,Program,1255,0,1
+286,Male,33,843,No program,1168,1,0
+287,Male,41,687,Program,1339,1,1
+288,Male,6,902,Program,994,1,1
+289,Female,29,827,No program,1120,0,0
+290,Female,33,855,Program,1252,0,1
+291,Female,41,783,No program,1223,0,0
+292,Male,32,612,Program,1254,1,1
+293,Female,25,875,No program,1071,0,0
+294,Male,39,774,No program,1221,1,0
+295,Female,35,862,Program,1284,0,1
+296,Female,36,1005,Program,1287,0,1
+297,Female,47,684,No program,1290,0,0
+298,Male,30,935,Program,1236,1,1
+299,Female,23,763,No program,1038,0,0
+300,Male,22,794,Program,1162,1,1
+301,Male,25,747,Program,1190,1,1
+302,Female,21,750,No program,1030,0,0
+303,Male,35,685,No program,1179,1,0
+304,Male,53,813,No program,1378,1,0
+305,Female,34,847,No program,1161,0,0
+306,Male,43,781,No program,1265,1,0
+307,Male,24,638,Program,1178,1,1
+308,Female,33,760,No program,1150,0,0
+309,Male,41,841,Program,1351,1,1
+310,Female,31,728,No program,1124,0,0
+311,Female,43,741,No program,1240,0,0
+312,Female,42,683,No program,1240,0,0
+313,Male,29,859,Program,1229,1,1
+314,Male,27,733,No program,1107,1,0
+315,Male,59,1117,No program,1428,1,0
+316,Male,33,901,Program,1262,1,1
+317,Male,35,783,Program,1287,1,1
+318,Male,34,800,Program,1289,1,1
+319,Male,29,728,Program,1232,1,1
+320,Female,26,828,Program,1180,0,1
+321,Male,24,801,Program,1170,1,1
+322,Female,44,627,No program,1260,0,0
+323,Male,25,616,Program,1182,1,1
+324,Male,42,860,Program,1356,1,1
+325,Male,49,568,Program,1423,1,1
+326,Male,47,762,No program,1296,1,0
+327,Male,34,966,No program,1172,1,0
+328,Male,30,634,Program,1244,1,1
+329,Female,24,829,Program,1159,0,1
+330,Female,35,957,No program,1165,0,0
+331,Female,33,851,Program,1243,0,1
+332,Female,37,929,No program,1182,0,0
+333,Female,29,703,No program,1104,0,0
+334,Male,41,863,Program,1352,1,1
+335,Male,42,818,Program,1360,1,1
+336,Male,46,935,No program,1301,1,0
+337,Male,57,1049,No program,1419,1,0
+338,Male,37,811,Program,1311,1,1
+339,Female,29,910,No program,1111,0,0
+340,Male,34,760,Program,1282,1,1
+341,Female,19,764,Program,1112,0,1
+342,Male,36,745,No program,1201,1,0
+343,Male,31,665,No program,1146,1,0
+344,Female,39,807,Program,1301,0,1
+345,Male,32,796,Program,1257,1,1
+346,Male,21,872,Program,1153,1,1
+347,Male,35,779,No program,1185,1,0
+348,Female,21,708,Program,1133,0,1
+349,Female,44,787,No program,1257,0,0
+350,Male,17,984,Program,1111,1,1
+351,Male,34,845,No program,1177,1,0
+352,Female,40,827,No program,1212,0,0
+353,Male,20,906,No program,1042,1,0
+354,Female,49,979,No program,1311,0,0
+355,Female,26,971,Program,1182,0,1
+356,Female,30,757,Program,1224,0,1
+357,Male,37,792,No program,1207,1,0
+358,Female,32,764,Program,1241,0,1
+359,Male,25,780,Program,1185,1,1
+360,Female,39,845,Program,1313,0,1
+361,Male,30,752,Program,1241,1,1
+362,Male,40,683,No program,1236,1,0
+363,Male,30,776,Program,1237,1,1
+364,Male,25,945,Program,1187,1,1
+365,Female,34,985,Program,1260,0,1
+366,Female,41,760,Program,1330,0,1
+367,Female,37,883,No program,1192,0,0
+368,Male,34,787,Program,1280,1,1
+369,Female,16,788,Program,1072,0,1
+370,Female,50,733,Program,1411,0,1
+371,Female,35,642,No program,1161,0,0
+372,Male,26,980,Program,1201,1,1
+373,Female,33,880,Program,1256,0,1
+374,Male,38,621,Program,1309,1,1
+375,Male,20,765,No program,1041,1,0
+376,Male,42,955,No program,1258,1,0
+377,Female,37,811,No program,1195,0,0
+378,Male,47,819,Program,1405,1,1
+379,Male,45,885,Program,1383,1,1
+380,Female,30,899,No program,1118,0,0
+381,Male,30,863,Program,1239,1,1
+382,Male,25,842,No program,1082,1,0
+383,Male,31,947,Program,1257,1,1
+384,Male,44,971,No program,1281,1,0
+385,Male,53,823,Program,1469,1,1
+386,Male,44,779,No program,1284,1,0
+387,Female,17,801,No program,980,0,0
+388,Male,43,835,Program,1368,1,1
+389,Female,45,732,No program,1280,0,0
+390,Female,41,864,Program,1334,0,1
+391,Female,26,671,No program,1076,0,0
+392,Female,46,1023,No program,1275,0,0
+393,Female,42,552,No program,1235,0,0
+394,Female,42,817,No program,1241,0,0
+395,Male,31,794,Program,1251,1,1
+396,Female,43,855,Program,1352,0,1
+397,Male,36,759,No program,1205,1,0
+398,Male,34,1040,No program,1189,1,0
+399,Male,50,786,Program,1426,1,1
+400,Male,43,802,No program,1268,1,0
+401,Female,6,912,No program,880,0,0
+402,Male,31,870,No program,1150,1,0
+403,Female,20,818,No program,1016,0,0
+404,Female,41,783,Program,1331,0,1
+405,Male,31,777,Program,1240,1,1
+406,Male,44,665,No program,1280,1,0
+407,Female,40,863,No program,1210,0,0
+408,Male,35,845,No program,1192,1,0
+409,Female,34,696,No program,1170,0,0
+410,Male,31,781,No program,1159,1,0
+411,Female,37,929,Program,1294,0,1
+412,Female,24,927,No program,1054,0,0
+413,Female,42,678,No program,1242,0,0
+414,Male,31,880,No program,1154,1,0
+415,Female,28,813,Program,1192,0,1
+416,Male,32,839,No program,1155,1,0
+417,Male,54,713,Program,1473,1,1
+418,Female,17,779,Program,1097,0,1
+419,Male,32,594,No program,1149,1,0
+420,Male,36,726,No program,1198,1,0
+421,Female,30,769,No program,1109,0,0
+422,Female,31,930,Program,1232,0,1
+423,Male,39,694,No program,1219,1,0
+424,Male,37,830,Program,1305,1,1
+425,Female,28,809,Program,1194,0,1
+426,Male,41,664,Program,1342,1,1
+427,Male,37,828,No program,1209,1,0
+428,Male,42,958,No program,1252,1,0
+429,Male,22,894,Program,1164,1,1
+430,Male,27,913,Program,1214,1,1
+431,Female,33,779,No program,1147,0,0
+432,Female,45,896,Program,1366,0,1
+433,Male,30,563,Program,1237,1,1
+434,Female,25,675,Program,1166,0,1
+435,Male,43,783,Program,1367,1,1
+436,Female,40,811,No program,1216,0,0
+437,Male,23,852,Program,1169,1,1
+438,Female,55,872,No program,1373,0,0
+439,Female,50,754,Program,1417,0,1
+440,Male,21,752,Program,1142,1,1
+441,Female,57,765,Program,1490,0,1
+442,Female,18,744,No program,993,0,0
+443,Female,36,788,Program,1283,0,1
+444,Male,24,888,Program,1172,1,1
+445,Female,31,846,Program,1238,0,1
+446,Male,32,756,No program,1149,1,0
+447,Female,38,731,Program,1298,0,1
+448,Female,24,790,No program,1056,0,0
+449,Female,7,779,Program,993,0,1
+450,Male,34,922,Program,1283,1,1
+451,Male,28,573,No program,1121,1,0
+452,Female,37,703,No program,1194,0,0
+453,Female,27,862,Program,1184,0,1
+454,Female,43,866,No program,1248,0,0
+455,Female,35,735,No program,1162,0,0
+456,Female,41,779,No program,1232,0,0
+457,Male,25,980,Program,1194,1,1
+458,Female,33,690,No program,1155,0,0
+459,Male,38,978,No program,1221,1,0
+460,Male,34,832,Program,1274,1,1
+461,Male,52,905,No program,1355,1,0
+462,Female,15,747,No program,968,0,0
+463,Male,43,688,No program,1258,1,0
+464,Male,35,840,Program,1287,1,1
+465,Male,44,842,No program,1283,1,0
+466,Male,34,757,Program,1281,1,1
+467,Male,8,712,No program,917,1,0
+468,Male,39,930,No program,1236,1,0
+469,Female,33,666,No program,1146,0,0
+470,Male,25,943,Program,1185,1,1
+471,Male,28,741,No program,1125,1,0
+472,Male,36,612,No program,1195,1,0
+473,Male,60,1018,No program,1433,1,0
+474,Female,37,838,Program,1287,0,1
+475,Male,25,693,Program,1190,1,1
+476,Female,54,762,Program,1461,0,1
+477,Male,31,721,No program,1138,1,0
+478,Male,27,832,No program,1107,1,0
+479,Female,23,813,No program,1051,0,0
+480,Male,28,676,No program,1113,1,0
+481,Male,54,826,No program,1380,1,0
+482,Male,44,733,Program,1384,1,1
+483,Female,42,863,No program,1256,0,0
+484,Male,36,860,Program,1302,1,1
+485,Male,38,797,No program,1221,1,0
+486,Male,41,721,Program,1340,1,1
+487,Female,37,753,No program,1186,0,0
+488,Female,37,699,No program,1184,0,0
+489,Female,45,883,Program,1356,0,1
+490,Male,33,935,No program,1176,1,0
+491,Male,38,805,Program,1322,1,1
+492,Female,26,834,No program,1071,0,0
+493,Female,51,779,No program,1335,0,0
+494,Male,49,822,No program,1323,1,0
+495,Female,17,987,Program,1083,0,1
+496,Male,33,826,Program,1262,1,1
+497,Female,40,933,No program,1225,0,0
+498,Male,40,825,Program,1335,1,1
+499,Female,43,662,Program,1344,0,1
+500,Male,31,681,No program,1142,1,0
+501,Female,23,703,Program,1144,0,1
+502,Female,38,790,Program,1301,0,1
+503,Female,20,789,Program,1110,0,1
+504,Male,41,919,Program,1352,1,1
+505,Female,42,634,Program,1336,0,1
+506,Female,16,695,No program,982,0,0
+507,Female,44,626,No program,1269,0,0
+508,Female,33,851,No program,1144,0,0
+509,Male,28,755,Program,1225,1,1
+510,Female,39,616,No program,1222,0,0
+511,Male,48,718,No program,1319,1,0
+512,Female,51,700,Program,1428,0,1
+513,Female,23,830,Program,1153,0,1
+514,Male,31,856,No program,1144,1,0
+515,Male,36,673,Program,1298,1,1
+516,Female,36,903,No program,1180,0,0
+517,Female,31,847,No program,1124,0,0
+518,Male,12,823,Program,1055,1,1
+519,Female,32,826,No program,1137,0,0
+520,Male,23,843,No program,1060,1,0
+521,Female,35,897,No program,1176,0,0
+522,Male,27,747,No program,1106,1,0
+523,Male,34,805,No program,1176,1,0
+524,Female,28,1079,No program,1089,0,0
+525,Male,31,691,Program,1248,1,1
+526,Female,31,830,No program,1128,0,0
+527,Male,48,656,Program,1418,1,1
+528,Male,42,821,Program,1365,1,1
+529,Female,33,897,No program,1151,0,0
+530,Male,23,565,No program,1067,1,0
+531,Male,45,742,No program,1292,1,0
+532,Female,21,1025,No program,1027,0,0
+533,Male,23,723,No program,1069,1,0
+534,Female,27,658,Program,1186,0,1
+535,Male,25,846,No program,1090,1,0
+536,Female,26,728,Program,1179,0,1
+537,Female,48,948,No program,1299,0,0
+538,Female,34,908,Program,1260,0,1
+539,Female,28,880,No program,1110,0,0
+540,Male,42,657,Program,1345,1,1
+541,Male,37,836,No program,1201,1,0
+542,Female,23,838,No program,1050,0,0
+543,Female,29,592,No program,1112,0,0
+544,Male,40,863,Program,1344,1,1
+545,Female,55,830,Program,1460,0,1
+546,Male,51,694,Program,1438,1,1
+547,Female,43,779,No program,1253,0,0
+548,Female,35,1005,Program,1271,0,1
+549,Female,18,878,No program,988,0,0
+550,Female,28,672,Program,1201,0,1
+551,Male,33,809,No program,1174,1,0
+552,Male,40,975,Program,1338,1,1
+553,Female,36,803,Program,1280,0,1
+554,Male,36,749,No program,1194,1,0
+555,Female,53,916,No program,1354,0,0
+556,Female,39,753,No program,1211,0,0
+557,Male,32,777,No program,1160,1,0
+558,Male,31,886,Program,1251,1,1
+559,Female,36,978,Program,1277,0,1
+560,Female,27,717,No program,1081,0,0
+561,Male,49,777,No program,1326,1,0
+562,Female,32,793,Program,1250,0,1
+563,Female,30,889,Program,1219,0,1
+564,Female,26,954,Program,1183,0,1
+565,Male,44,969,No program,1272,1,0
+566,Female,22,777,No program,1038,0,0
+567,Female,30,893,Program,1227,0,1
+568,Female,38,713,Program,1298,0,1
+569,Male,34,746,No program,1177,1,0
+570,Male,38,680,Program,1313,1,1
+571,Female,22,690,Program,1134,0,1
+572,Female,31,859,Program,1216,0,1
+573,Male,18,873,No program,1024,1,0
+574,Female,27,822,Program,1181,0,1
+575,Male,46,724,Program,1396,1,1
+576,Male,38,830,No program,1211,1,0
+577,Male,36,680,Program,1297,1,1
+578,Male,26,624,Program,1194,1,1
+579,Male,29,750,No program,1133,1,0
+580,Female,25,759,No program,1071,0,0
+581,Female,36,705,No program,1170,0,0
+582,Male,43,600,Program,1364,1,1
+583,Male,38,758,Program,1312,1,1
+584,Male,29,853,Program,1229,1,1
+585,Male,41,879,Program,1351,1,1
+586,Male,39,960,Program,1334,1,1
+587,Male,43,804,No program,1278,1,0
+588,Female,31,1028,Program,1230,0,1
+589,Female,23,845,Program,1156,0,1
+590,Female,34,784,No program,1167,0,0
+591,Female,38,607,Program,1293,0,1
+592,Female,51,1043,No program,1341,0,0
+593,Male,34,941,Program,1284,1,1
+594,Male,39,863,Program,1345,1,1
+595,Male,34,912,Program,1292,1,1
+596,Female,57,904,No program,1390,0,0
+597,Female,48,886,No program,1300,0,0
+598,Female,33,894,No program,1149,0,0
+599,Female,34,906,Program,1256,0,1
+600,Male,35,731,No program,1186,1,0
+601,Male,36,773,Program,1314,1,1
+602,Male,29,812,No program,1134,1,0
+603,Male,36,714,Program,1297,1,1
+604,Male,28,1018,No program,1121,1,0
+605,Male,24,668,No program,1069,1,0
+606,Male,43,814,No program,1265,1,0
+607,Female,42,721,Program,1326,0,1
+608,Male,29,809,No program,1136,1,0
+609,Male,48,817,Program,1417,1,1
+610,Male,33,795,Program,1264,1,1
+611,Male,32,491,Program,1267,1,1
+612,Female,25,550,Program,1177,0,1
+613,Male,35,872,No program,1189,1,0
+614,Male,34,711,No program,1178,1,0
+615,Female,36,810,Program,1270,0,1
+616,Male,39,880,No program,1232,1,0
+617,Male,44,783,No program,1282,1,0
+618,Female,38,729,No program,1196,0,0
+619,Female,45,777,No program,1282,0,0
+620,Male,46,961,Program,1403,1,1
+621,Female,6,956,Program,982,0,1
+622,Male,31,995,No program,1154,1,0
+623,Female,41,950,Program,1320,0,1
+624,Female,24,641,Program,1162,0,1
+625,Male,25,614,No program,1099,1,0
+626,Female,38,807,No program,1198,0,0
+627,Male,31,782,Program,1242,1,1
+628,Female,18,652,Program,1098,0,1
+629,Male,44,601,No program,1281,1,0
+630,Male,27,925,Program,1202,1,1
+631,Female,39,967,No program,1205,0,0
+632,Female,39,826,No program,1211,0,0
+633,Male,50,817,No program,1346,1,0
+634,Male,37,788,Program,1320,1,1
+635,Female,42,751,Program,1330,0,1
+636,Female,46,661,No program,1280,0,0
+637,Male,31,780,No program,1155,1,0
+638,Female,18,695,No program,1003,0,0
+639,Male,36,819,Program,1307,1,1
+640,Male,48,871,Program,1418,1,1
+641,Male,21,771,Program,1147,1,1
+642,Male,45,948,Program,1393,1,1
+643,Male,34,968,Program,1279,1,1
+644,Female,36,924,No program,1186,0,0
+645,Male,32,659,No program,1147,1,0
+646,Male,45,646,Program,1396,1,1
+647,Male,49,808,Program,1432,1,1
+648,Female,51,816,No program,1320,0,0
+649,Male,25,867,No program,1101,1,0
+650,Female,43,653,Program,1345,0,1
+651,Male,31,772,No program,1149,1,0
+652,Female,25,835,Program,1174,0,1
+653,Female,39,634,Program,1306,0,1
+654,Male,35,819,Program,1286,1,1
+655,Male,43,990,Program,1366,1,1
+656,Male,53,648,No program,1370,1,0
+657,Female,45,933,Program,1368,0,1
+658,Male,28,905,Program,1221,1,1
+659,Male,36,906,No program,1203,1,0
+660,Female,49,943,No program,1309,0,0
+661,Female,47,802,Program,1390,0,1
+662,Female,19,820,Program,1113,0,1
+663,Female,44,701,Program,1362,0,1
+664,Male,32,852,Program,1258,1,1
+665,Male,29,927,No program,1119,1,0
+666,Male,24,819,No program,1074,1,0
+667,Female,32,918,Program,1239,0,1
+668,Male,42,924,No program,1266,1,0
+669,Male,49,671,No program,1326,1,0
+670,Female,36,834,Program,1275,0,1
+671,Male,34,752,No program,1182,1,0
+672,Female,33,783,Program,1249,0,1
+673,Male,45,783,No program,1277,1,0
+674,Male,24,688,No program,1080,1,0
+675,Female,38,894,Program,1293,0,1
+676,Female,45,709,No program,1272,0,0
+677,Male,46,849,No program,1290,1,0
+678,Female,39,620,No program,1207,0,0
+679,Male,23,763,No program,1069,1,0
+680,Female,27,779,No program,1093,0,0
+681,Male,28,734,No program,1114,1,0
+682,Male,21,782,No program,1043,1,0
+683,Female,35,904,Program,1264,0,1
+684,Male,47,859,No program,1312,1,0
+685,Female,11,721,Program,1021,0,1
+686,Male,43,779,Program,1369,1,1
+687,Female,33,790,No program,1154,0,0
+688,Male,27,762,No program,1110,1,0
+689,Male,43,787,Program,1358,1,1
+690,Male,41,771,No program,1252,1,0
+691,Female,36,1014,No program,1180,0,0
+692,Male,26,829,Program,1193,1,1
+693,Male,28,855,No program,1115,1,0
+694,Male,19,742,No program,1029,1,0
+695,Male,54,824,No program,1384,1,0
+696,Male,33,829,No program,1167,1,0
+697,Male,27,840,No program,1111,1,0
+698,Male,13,818,No program,962,1,0
+699,Male,31,998,Program,1251,1,1
+700,Female,30,603,Program,1216,0,1
+701,Male,21,854,No program,1054,1,0
+702,Male,59,853,Program,1528,1,1
+703,Female,44,729,Program,1353,0,1
+704,Male,20,806,No program,1025,1,0
+705,Male,46,709,Program,1405,1,1
+706,Male,45,726,No program,1299,1,0
+707,Male,41,579,No program,1250,1,0
+708,Female,39,927,No program,1206,0,0
+709,Male,36,745,Program,1299,1,1
+710,Male,41,861,Program,1351,1,1
+711,Female,25,773,No program,1065,0,0
+712,Female,29,1002,Program,1207,0,1
+713,Female,25,824,Program,1175,0,1
+714,Male,33,1022,Program,1279,1,1
+715,Male,36,816,Program,1306,1,1
+716,Male,41,945,Program,1344,1,1
+717,Male,40,812,No program,1238,1,0
+718,Male,49,835,Program,1428,1,1
+719,Female,41,776,Program,1334,0,1
+720,Male,48,810,No program,1306,1,0
+721,Female,46,872,No program,1274,0,0
+722,Male,29,849,No program,1131,1,0
+723,Female,43,636,Program,1348,0,1
+724,Male,40,922,No program,1237,1,0
+725,Male,36,726,Program,1304,1,1
+726,Female,26,894,No program,1077,0,0
+727,Male,41,788,Program,1344,1,1
+728,Male,36,807,Program,1287,1,1
+729,Male,31,852,Program,1254,1,1
+730,Female,44,710,No program,1267,0,0
+731,Female,45,793,Program,1369,0,1
+732,Male,44,730,Program,1383,1,1
+733,Male,9,868,Program,1030,1,1
+734,Male,26,833,No program,1101,1,0
+735,Female,44,658,No program,1258,0,0
+736,Female,28,769,Program,1195,0,1
+737,Male,39,740,No program,1225,1,0
+738,Female,37,734,No program,1192,0,0
+739,Female,46,801,Program,1375,0,1
+740,Female,28,618,No program,1094,0,0
+741,Male,34,992,No program,1190,1,0
+742,Male,38,848,Program,1320,1,1
+743,Male,48,607,No program,1321,1,0
+744,Male,33,709,No program,1170,1,0
+745,Male,38,837,Program,1316,1,1
+746,Male,22,571,No program,1052,1,0
+747,Male,41,752,No program,1256,1,0
+748,Female,37,798,No program,1182,0,0
+749,Male,41,927,Program,1346,1,1
+750,Female,31,968,Program,1231,0,1
+751,Male,52,932,Program,1464,1,1
+752,Female,34,948,No program,1166,0,0
+753,Male,36,750,Program,1305,1,1
+754,Female,34,914,No program,1163,0,0
+755,Male,43,804,Program,1379,1,1
+756,Female,27,981,Program,1190,0,1
+757,Female,37,833,Program,1288,0,1
+758,Female,41,869,No program,1227,0,0
+759,Male,23,838,Program,1164,1,1
+760,Female,37,882,No program,1200,0,0
+761,Male,29,838,Program,1236,1,1
+762,Female,49,755,No program,1319,0,0
+763,Male,42,811,No program,1266,1,0
+764,Male,18,1094,Program,1123,1,1
+765,Male,44,692,Program,1373,1,1
+766,Female,37,851,Program,1294,0,1
+767,Female,29,842,No program,1104,0,0
+768,Male,31,901,Program,1254,1,1
+769,Female,22,568,Program,1143,0,1
+770,Male,39,674,Program,1323,1,1
+771,Female,19,813,No program,1012,0,0
+772,Female,34,707,No program,1156,0,0
+773,Female,40,757,No program,1213,0,0
+774,Male,36,868,Program,1300,1,1
+775,Female,44,797,Program,1357,0,1
+776,Male,36,722,Program,1300,1,1
+777,Male,58,771,Program,1525,1,1
+778,Male,26,973,No program,1112,1,0
+779,Male,50,960,No program,1342,1,0
+780,Male,19,755,No program,1023,1,0
+781,Female,24,955,No program,1070,0,0
+782,Male,26,861,No program,1097,1,0
+783,Male,20,889,No program,1040,1,0
+784,Male,50,704,No program,1341,1,0
+785,Male,45,646,No program,1284,1,0
+786,Female,49,933,Program,1409,0,1
+787,Female,29,727,Program,1204,0,1
+788,Male,36,737,No program,1193,1,0
+789,Female,46,822,No program,1294,0,0
+790,Male,46,635,Program,1386,1,1
+791,Female,41,859,No program,1221,0,0
+792,Male,37,933,Program,1297,1,1
+793,Female,23,789,No program,1058,0,0
+794,Male,38,627,Program,1315,1,1
+795,Female,33,741,Program,1250,0,1
+796,Male,28,744,No program,1126,1,0
+797,Male,51,905,No program,1353,1,0
+798,Female,28,906,No program,1108,0,0
+799,Male,37,830,Program,1306,1,1
+800,Female,40,761,Program,1321,0,1
+801,Male,46,785,Program,1402,1,1
+802,Female,39,867,Program,1312,0,1
+803,Male,55,881,Program,1489,1,1
+804,Male,39,976,No program,1237,1,0
+805,Male,30,678,Program,1251,1,1
+806,Male,36,838,No program,1206,1,0
+807,Male,42,826,Program,1353,1,1
+808,Male,13,628,Program,1068,1,1
+809,Female,34,779,No program,1154,0,0
+810,Male,35,745,Program,1292,1,1
+811,Male,33,683,Program,1263,1,1
+812,Male,36,825,No program,1188,1,0
+813,Female,15,561,Program,1073,0,1
+814,Female,38,907,Program,1308,0,1
+815,Male,35,949,No program,1199,1,0
+816,Male,30,925,No program,1145,1,0
+817,Male,6,891,No program,905,1,0
+818,Female,31,825,Program,1238,0,1
+819,Male,36,816,Program,1296,1,1
+820,Male,34,789,Program,1285,1,1
+821,Male,29,724,No program,1126,1,0
+822,Male,38,821,Program,1312,1,1
+823,Male,26,875,Program,1190,1,1
+824,Male,42,669,Program,1357,1,1
+825,Male,43,775,Program,1374,1,1
+826,Female,45,766,Program,1366,0,1
+827,Male,43,830,No program,1268,1,0
+828,Male,31,714,No program,1154,1,0
+829,Male,35,896,Program,1287,1,1
+830,Male,47,750,Program,1409,1,1
+831,Male,41,927,Program,1347,1,1
+832,Female,38,749,No program,1205,0,0
+833,Female,48,921,No program,1306,0,0
+834,Female,29,766,Program,1206,0,1
+835,Male,35,865,Program,1303,1,1
+836,Female,48,828,Program,1395,0,1
+837,Female,33,791,Program,1246,0,1
+838,Male,36,949,Program,1304,1,1
+839,Male,34,818,Program,1273,1,1
+840,Female,47,843,Program,1397,0,1
+841,Male,36,786,No program,1196,1,0
+842,Male,36,759,Program,1295,1,1
+843,Female,28,1021,No program,1102,0,0
+844,Male,31,779,Program,1251,1,1
+845,Male,19,814,No program,1028,1,0
+846,Female,39,833,Program,1296,0,1
+847,Male,43,817,No program,1279,1,0
+848,Female,22,943,Program,1141,0,1
+849,Female,39,683,Program,1314,0,1
+850,Female,38,765,Program,1301,0,1
+851,Male,37,686,Program,1295,1,1
+852,Female,36,731,No program,1177,0,0
+853,Female,51,849,Program,1440,0,1
+854,Male,38,885,No program,1220,1,0
+855,Male,49,1085,No program,1327,1,0
+856,Female,40,850,No program,1214,0,0
+857,Male,40,771,No program,1238,1,0
+858,Male,30,700,Program,1233,1,1
+859,Female,62,841,No program,1442,0,0
+860,Female,34,893,No program,1170,0,0
+861,Male,30,757,No program,1135,1,0
+862,Male,39,827,No program,1229,1,0
+863,Male,39,824,Program,1330,1,1
+864,Male,42,760,Program,1355,1,1
+865,Male,26,878,Program,1205,1,1
+866,Female,34,657,Program,1257,0,1
+867,Male,51,1002,Program,1453,1,1
+868,Female,30,805,No program,1118,0,0
+869,Male,31,843,No program,1153,1,0
+870,Male,41,811,Program,1349,1,1
+871,Female,29,667,No program,1111,0,0
+872,Female,46,859,No program,1284,0,0
+873,Female,39,789,Program,1318,0,1
+874,Male,36,698,Program,1296,1,1
+875,Female,19,838,No program,1009,0,0
+876,Male,32,605,Program,1249,1,1
+877,Male,55,954,No program,1392,1,0
+878,Male,32,710,No program,1158,1,0
+879,Male,42,788,No program,1263,1,0
+880,Male,26,985,Program,1192,1,1
+881,Female,19,655,No program,1014,0,0
+882,Male,42,968,Program,1367,1,1
+883,Male,49,881,No program,1330,1,0
+884,Male,20,872,No program,1031,1,0
+885,Male,43,581,Program,1371,1,1
+886,Female,38,776,Program,1305,0,1
+887,Male,31,661,No program,1150,1,0
+888,Male,52,729,Program,1458,1,1
+889,Male,25,844,No program,1094,1,0
+890,Male,34,712,No program,1177,1,0
+891,Female,42,909,No program,1231,0,0
+892,Female,24,805,Program,1165,0,1
+893,Female,46,641,Program,1378,0,1
+894,Male,34,886,Program,1279,1,1
+895,Male,47,740,Program,1409,1,1
+896,Male,35,696,No program,1191,1,0
+897,Female,28,918,Program,1192,0,1
+898,Female,22,832,No program,1034,0,0
+899,Female,21,849,No program,1037,0,0
+900,Female,34,832,No program,1162,0,0
+901,Female,15,730,No program,965,0,0
+902,Male,19,802,Program,1135,1,1
+903,Female,55,782,No program,1358,0,0
+904,Male,33,735,Program,1268,1,1
+905,Female,49,631,No program,1308,0,0
+906,Male,51,848,Program,1448,1,1
+907,Male,36,733,No program,1201,1,0
+908,Male,35,932,No program,1191,1,0
+909,Female,37,898,Program,1292,0,1
+910,Male,42,770,Program,1353,1,1
+911,Male,43,832,No program,1266,1,0
+912,Male,15,893,No program,993,1,0
+913,Male,35,772,Program,1291,1,1
+914,Male,41,1102,Program,1353,1,1
+915,Male,33,856,Program,1277,1,1
+916,Male,37,791,No program,1209,1,0
+917,Male,44,806,Program,1379,1,1
+918,Female,34,796,Program,1254,0,1
+919,Female,50,931,Program,1417,0,1
+920,Female,40,924,Program,1313,0,1
+921,Male,19,814,Program,1138,1,1
+922,Male,33,784,No program,1177,1,0
+923,Male,41,859,No program,1246,1,0
+924,Male,37,740,No program,1197,1,0
+925,Male,21,806,No program,1056,1,0
+926,Male,16,781,Program,1095,1,1
+927,Female,34,658,Program,1260,0,1
+928,Male,42,744,Program,1353,1,1
+929,Male,28,689,No program,1117,1,0
+930,Male,39,894,Program,1327,1,1
+931,Male,41,683,Program,1343,1,1
+932,Female,45,788,Program,1369,0,1
+933,Male,41,703,No program,1242,1,0
+934,Female,37,809,Program,1296,0,1
+935,Male,19,753,Program,1128,1,1
+936,Male,30,1035,Program,1241,1,1
+937,Male,44,767,Program,1376,1,1
+938,Male,40,875,No program,1227,1,0
+939,Male,26,839,Program,1198,1,1
+940,Male,38,868,No program,1216,1,0
+941,Female,34,902,No program,1156,0,0
+942,Male,48,751,Program,1417,1,1
+943,Female,35,687,No program,1161,0,0
+944,Female,31,866,Program,1233,0,1
+945,Female,32,707,No program,1140,0,0
+946,Male,26,937,No program,1106,1,0
+947,Male,48,691,Program,1422,1,1
+948,Male,37,544,Program,1311,1,1
+949,Male,29,694,No program,1146,1,0
+950,Male,39,748,Program,1330,1,1
+951,Female,44,990,Program,1359,0,1
+952,Female,31,882,Program,1232,0,1
+953,Male,32,957,No program,1166,1,0
+954,Female,34,669,Program,1268,0,1
+955,Female,15,911,Program,1063,0,1
+956,Male,37,739,No program,1205,1,0
+957,Female,35,887,No program,1178,0,0
+958,Male,32,606,Program,1269,1,1
+959,Male,25,898,Program,1186,1,1
+960,Female,46,770,No program,1276,0,0
+961,Male,30,781,Program,1233,1,1
+962,Male,36,932,No program,1198,1,0
+963,Female,56,836,No program,1390,0,0
+964,Female,29,810,Program,1205,0,1
+965,Male,28,882,No program,1128,1,0
+966,Male,37,711,No program,1201,1,0
+967,Female,32,667,No program,1139,0,0
+968,Male,30,908,Program,1240,1,1
+969,Male,39,942,No program,1228,1,0
+970,Male,37,850,No program,1206,1,0
+971,Female,24,799,No program,1067,0,0
+972,Female,21,942,No program,1027,0,0
+973,Male,41,815,No program,1248,1,0
+974,Female,27,839,Program,1184,0,1
+975,Male,25,812,No program,1099,1,0
+976,Female,47,875,Program,1391,0,1
+977,Female,36,683,Program,1279,0,1
+978,Male,30,754,Program,1235,1,1
+979,Female,43,780,Program,1345,0,1
+980,Male,48,638,Program,1422,1,1
+981,Female,45,877,No program,1260,0,0
+982,Female,25,822,Program,1168,0,1
+983,Male,29,729,Program,1226,1,1
+984,Female,38,835,Program,1303,0,1
+985,Female,21,817,No program,1027,0,0
+986,Male,31,730,No program,1153,1,0
+987,Male,35,806,Program,1283,1,1
+988,Female,34,724,No program,1161,0,0
+989,Male,37,854,No program,1214,1,0
+990,Male,37,661,No program,1208,1,0
+991,Male,44,816,No program,1274,1,0
+992,Female,34,885,No program,1152,0,0
+993,Female,27,820,Program,1191,0,1
+994,Male,34,722,Program,1279,1,1
+995,Female,33,692,Program,1250,0,1
+996,Male,35,638,No program,1195,1,0
+997,Female,50,846,Program,1427,0,1
+998,Male,41,818,No program,1247,1,0
+999,Female,53,806,No program,1349,0,0
+1000,Male,46,869,No program,1302,1,0

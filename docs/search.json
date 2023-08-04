@@ -1,0 +1,268 @@
+[
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Programa",
+    "section": "",
+    "text": "Prof. Juan Carlos Castillo\n   325 Sociología FACSO, Universidad de Chile\n   juancastillov@uchile.cl\n   Schedule an appointment\n\n\n\n\n\n   Lunes y Martes\n   7 Agosto al 28 de Noviembre, 2023\n   8:30-10:00 (Lunes) y 10:15-11:45(Martes)\n   Sala …\n   Slack"
+  },
+  {
+    "objectID": "syllabus.html#sobre-el-sentido-general-del-curso",
+    "href": "syllabus.html#sobre-el-sentido-general-del-curso",
+    "title": "Programa",
+    "section": "Sobre el sentido general del curso",
+    "text": "Sobre el sentido general del curso\nEn este curso vamos a aprender dos cosas principales:\n\ninferencia: los resultados que encontramos en nuestra muestra, ¿se encuentran también en la población de la cual proviene la muestra?\nmedidas de asociación entre variables: tamaño y significación estadística\n\nPara ello, un par de ideas transversales:\n\nvamos a partir por el final: la asociación entre variables busca representar asociación entre conceptos, lo que está a la base de distintas teorías, tales como la sociológicas. Por ello, comenzaremos desde acá, reflexionando sobre asociaciones y su medición, poniendo como un ejemplo el coeficiente de correlación. Luego en la segunda unidad vamos a profundizar en temas de inferencia estadística, y al final volveremos a medidas de asociación para variables categórias y otras extensiones.\nvamos a dar énfasis a la comunicación de los resultados: nuestros análisis se reflejan en productos como tablas y gráficos. No basta con entenderlos e interpretarlos, sino también es fundamental una buena comunicación. Acá es pertinente considerar temas estéticos y de orden, pero también plataformas y dispositivos de reporte y comunicación."
+  },
+  {
+    "objectID": "syllabus.html#propósito-general-del-curso",
+    "href": "syllabus.html#propósito-general-del-curso",
+    "title": "Programa",
+    "section": "Propósito general del curso",
+    "text": "Propósito general del curso\nAl finalizar el curso los estudiantes conocerán los fundamentos del análisis estadístico inferencial. Se espera que los estudiantes sean capaces de :\n\nelaborar de manera pertinente hipótesis estadísticas\naplicar estadísticos de asociación y correlación, a partir de los cuáles puedan desarrollar análisis de problemas sociales\ncorroborar el cumplimiento de las condiciones de aplicación de cada estadístico\nutilizar diferentes softwares de análisis estadístico\ncontrastar hipótesis de investigación\nelaborar conclusiones integrando fundamentos teóricos con herramientas de análisis estadístico de resultados.\n\nComplementariamente se espera que los estudiantes adquieran herramientas que les permitan comunicar resultados de investigación en contextos sociales, profesionales y académicos."
+  },
+  {
+    "objectID": "syllabus.html#competencias",
+    "href": "syllabus.html#competencias",
+    "title": "Programa",
+    "section": "Competencias",
+    "text": "Competencias\n\n1a Delimitar, conceptualizar y analizar diversos objetos de investigación social, con especial énfasis en aquellos relacionados con los procesos de transformación del país y Latinoamérica\n1b Manejar diversas estrategias metodológicas de las ciencias sociales\n1c Manejar un conjunto de herramientas para el procesamiento y análisis de información\n1d Transmitir los conocimientos derivados de la práctica investigativa, así como aquellos adquiridos durante el proceso formativo."
+  },
+  {
+    "objectID": "syllabus.html#subcompetencias",
+    "href": "syllabus.html#subcompetencias",
+    "title": "Programa",
+    "section": "Subcompetencias",
+    "text": "Subcompetencias\n\n1.4 Contribuir a generar conocimiento sociológico en el marco de estudios y/o procesos de investigación donde se articulen creativamente las dimensiones teórica, metodológica y práctica.\n1.5 Comunicar los saberes disciplinares de manera pertinente a las características de distintos contextos y audiencias, utilizando diversas estrategias y formatos."
+  },
+  {
+    "objectID": "syllabus.html#resultados-del-aprendizaje",
+    "href": "syllabus.html#resultados-del-aprendizaje",
+    "title": "Programa",
+    "section": "Resultados del aprendizaje",
+    "text": "Resultados del aprendizaje\n\nComprende, domina y es capaz de explicar los elementos conceptuales subyacentes a la determinación de la asociación poblacional entre dos variables a partir del análisis de una muestra, y es capaz de traducir hipótesis derivadas de la teoría sociológica en hipótesis estadísticas posibles de contrastar empíricamente con los datos.\nEs capaz de seleccionar y usar herramientas estadísticas adecuadas para evaluar la asociación entre dos variables considerando las características de los datos y las condiciones de aplicación de cada técnica.\nLogra interpretar desde un punto de vista estadístico y sociológico los resultados derivados de pruebas estadísticas para analizar la relación entre dos variables.\nEs capaz de reportar y comunicar adecuada y eficientemente los resultados de los análisis estadísticos"
+  },
+  {
+    "objectID": "syllabus.html#saberes-contenidos",
+    "href": "syllabus.html#saberes-contenidos",
+    "title": "Programa",
+    "section": "Saberes / Contenidos",
+    "text": "Saberes / Contenidos\n\nUnidad I: Asociación entre dos variables cuantitativas.\n\nDescripción, asociación, y explicación en estadística. La importancia del análisis de covariación entre variables. La inferencia estadística: tipos y rol en el análisis descriptivo, asociativo y explicativo.\nConcepto de covarianza y relación/correlación lineal versus relación no-lineal entre variables.\nCorrelación de Pearson: supuestos y condiciones de aplicación, interpretación de resultados como tamaño efecto según criterios de Cohen. El coeficiente de determinación, utilidad e interpretación.\n\n\n\nUnidad II: Inferencia y asociación\n\nAsociación entre una variable cuantitativa y una dicotómica como intervalos de confianza de medias y proporciones usando distribución Z y revisión de conceptos fundamentales de inferencia: área de una distribución, probabilidades en la curva normal, error Tipo I, y error tipo II.\nAsociación entre una variable cuantitativa y una dicotómica como diferencia de medias y proporciones con prueba Z; revisión y análisis de valor de Z observado, el concepto de valor-p y determinación del tamaño del efecto con d de Cohen.\nGeneralización de intervalos de confianza y pruebas de diferencia de medias y proporciones en dos grupos en muestras pequeñas usando distribución t de Student; revisión de concepto de grados de libertad.\nGeneralizaciones de esta lógica: Prueba t de Student e intervalos de confianza en correlaciones de Pearson; Comparación de medias de tres o más grupos con ANOVA e intervalos de confianza corregidos por número de comparaciones.\n\n\n\nUnidad III: Asociación con variables categóricas\n\nEl uso de tablas de contingencia y la determinación de la asociación: uso de frecuencias observadas, porcentajes fila, columna y totales.\nEvaluación de la asociación poblacional mediante Chi Cuadrado: el concepto de frecuencias esperadas y observadas. Estimación e interpretación de resultados y medición de tamaño efecto.\nBreve mirada a estadísticos de correlación para variables categóricas: la correlación tetracórica y policórica."
+  },
+  {
+    "objectID": "syllabus.html#metodología",
+    "href": "syllabus.html#metodología",
+    "title": "Programa",
+    "section": "Metodología",
+    "text": "Metodología\n\nSesiones de clases lectivas presenciales semanales, donde se presentarán los aspectos centrales de los contenidos correspondientes a la semana.\nPrácticos online semanales: cada tema de las sesiones se acompaña de una guía práctica de aplicación de contenidos. Estas guías están diseñadas para ser desarrolladas de manera autónoma por cada estudiante semana a semana. También serán desarrolladas y revisadas cada semana en grupos pequeños con supervisión de ayudantes para dar mayor oportunidad de participación y resolver las dudas respectivas. Existe un reporte de progreso asociado a estas guías que deberá ser completado semanalmente con fines de monitoreo y retroalimentación.\nTrabajos: se desarrollarán trabajos de investigación que permitirán a l_s participantes aplicar contenidos y recibir retroalimentación de su desempeño. Los trabajos serán asesorados por ayudantes que se asignarán a cada grupo."
+  },
+  {
+    "objectID": "syllabus.html#evaluación",
+    "href": "syllabus.html#evaluación",
+    "title": "Programa",
+    "section": "Evaluación",
+    "text": "Evaluación\nEl curso tendrá tres instancias de evaluación: - Evaluación 1: prueba correlación lineal (30%). - Evaluación 2: prueba inferencia estadística (30%) - Evaluación 3: trabajo grupal (40%)\nLa nota ponderada de las evaluaciones equivaldrá al 60% de la nota del curso y el examen final al 40% restante."
+  },
+  {
+    "objectID": "syllabus.html#inasistencias-y-atraso-en-entregas",
+    "href": "syllabus.html#inasistencias-y-atraso-en-entregas",
+    "title": "Programa",
+    "section": "Inasistencias y atraso en entregas",
+    "text": "Inasistencias y atraso en entregas\nLos justificativos por ausencia o atraso se realizan en la secretaría de carrera. Lo que la carrera informe como justificado, es lo que se va a considerar en el curso. No enviar justificativos a equipo docente y a ayudantes directamente, no es necesario ni apropiado para l_s estudiantes tener que exponer situaciones personales.\nEn caso de faltar a alguna de las evaluaciones existirá una única fecha para evaluaciones recuperativas. Si en esa fecha no es posible asistir por motivos justificados, entonces pasará directo a examen.\nEn el caso de los trabajos, en caso de atraso se descontará 0.5 por día adicional. Si el trabajo no se entrega luego del tercer día de atraso será calificado con nota 1.0"
+  },
+  {
+    "objectID": "syllabus.html#requisitos-de-aprobación",
+    "href": "syllabus.html#requisitos-de-aprobación",
+    "title": "Programa",
+    "section": "Requisitos de aprobación",
+    "text": "Requisitos de aprobación\nRequisitos de eximición a examen: - contar con un promedio ponderado igual o superior a 5.5 - no tener nota bajo 4.0 en ninguna de las evaluaciones\nRequisitos para presentación a examen: - Podrán presentarse al examen de primera oportunidad los estudiantes que hayan obtenido una calificación final igual o superior a 3.5.\n\nEl examen de segunda oportunidad será para aquellos estudiantes que presenten una nota igual o inferior a 3.5 o aquellos que en el examen de primera oportunidad no hubiesen logrado una nota igual o superior a 4.0."
+  },
+  {
+    "objectID": "syllabus.html#bibliografía-obligatoria",
+    "href": "syllabus.html#bibliografía-obligatoria",
+    "title": "Programa",
+    "section": "Bibliografía Obligatoria",
+    "text": "Bibliografía Obligatoria\nCapítulos correspondientes a cada sesión de los siguientes textos principales:\n\nRitchey, F. (2008) Estadística para las ciencias sociales. McGraw-Hill: México.\nMoore (2010) Estadística aplicada básica. Barcelona: Antoni Bosch.\nPardo, Ruiz y San Martín (2015). Análisis de Datos en Ciencias Sociales y de la Salud I. Editorial Síntesis: Madrid."
+  },
+  {
+    "objectID": "syllabus.html#bibliografía-complementaria",
+    "href": "syllabus.html#bibliografía-complementaria",
+    "title": "Programa",
+    "section": "Bibliografía Complementaria",
+    "text": "Bibliografía Complementaria\nWickham, H., & Grolemund, G. (2016). R for data science: import, tidy, transform, visualize, and model data (First edition). Sebastopol: O’Reilly.\nField, A., Milles, J., & Field, Z. (2012). Discovering statistics using R. London: Sage.\nSalkind, N. J. (Ed.). (2010). Encyclopedia of research design (Vol. 1). Sage.\nLevin, J. & Levin, W. (1997). Fundamentos de Estadística en la Investigación Social (Vol.2). Oxford University Press."
+  },
+  {
+    "objectID": "syllabus.html#varios",
+    "href": "syllabus.html#varios",
+    "title": "Programa",
+    "section": "VARIOS",
+    "text": "VARIOS\n\nSe espera asistencia y participación activa, tanto a las sesiones lectivas como a las prácticas. Se pasará lista en todas las sesiones. No habrá penalización por inasistencia, pero si llevaremos registro principalmente con objetivos de monitoreo y retroalimentación del curso\nLas clases en general se acompañan de documentos de presentación, que estarán disponibles antes de la sesión en la página de Contenidos, y están desarrollados con base en Rmarkdown/XaringanRmarkdown/ Xaringan. Estos documentos no son:\n\n“la clase”\nautoexplicativos (ni aspiran a serlo)\n“el ppt” (ni “la ppt”)\n\nPolíticas de participación y trato: se espera y enfatiza la participación por distintos canales disponibles. También se enfatiza un trato respetuoso y horizontal. Quienes están tomando este curso serán referidos como participantes y/o estudiantes, evitar el uso de “l_s cabr_s” o “l_s chiquill_s”, que si bien puede intentar transmitir cercanía finalmente expreza relaciones jerárquicas y de minimización de la contraparte. Quien no se sienta tratad_ apropiadamente o vea que otr_s no lo están siendo, se solicita reportar para solucionar la situación."
+  },
+  {
+    "objectID": "syllabus.html#programación-de-sesiones",
+    "href": "syllabus.html#programación-de-sesiones",
+    "title": "Programa",
+    "section": "Programación de sesiones",
+    "text": "Programación de sesiones\nVisitar la página de Planificación."
+  },
+  {
+    "objectID": "news/index.html",
+    "href": "news/index.html",
+    "title": "Noticias",
+    "section": "",
+    "text": "Ordenar por\n       Por defecto\n         \n          Fecha - Menos reciente\n        \n         \n          Fecha - Más reciente\n        \n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nFecha\n\n\nTítulo\n\n\nCategorías\n\n\n\n\n\n\nlunes agosto 7, 2023 at 12:00 AM\n\n\nBienvenid_s a clases!\n\n\ncomenzando\n\n\n\n\n\n\nNo hay resultados\n\n\n\n\n\n\n\n\nSuscribirse!\n\n\n\nPuedes usar un lector de feeds como Feedly o un servicio RSS-to-email como Blogtrottr para suscribirte a cualquiera de estos mensajes. ::: {.grid}\n\n\n RSS\n\n\n\n\n\n\n\n\n\n:::"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\n            Estadística Correlacional\n        ",
+    "section": "",
+    "text": "Estadística Correlacional\n        \n        \n            Asociación entre variables e inferencia estadística\n        \n        \n            SOC01019 • Segundo Semestre 2023Departamento de Sociología, Facultad de Ciencias SocialesUniversidad de Chile\n        \n    \n    \n      \n        \n        \n        \n      \n    \n\n\n\n\n\nEquipo docente\nProfesor\n\n   Prof. Juan Carlos Castillo\n   325 Sociología FACSO, Universidad de Chile\n   juancastillov@uchile.cl\n   Schedule an appointment\n\nApoyos docentes\n\nDaniela Olivares\nAndreas Lafferte\n\n\n\nDetalles del curso\n\n   Lunes y Martes\n   7 Agosto al 28 de Noviembre, 2023\n   8:30-10:00 (Lunes) y 10:15-11:45(Martes)\n   Sala …\n   Slack\n\n\n\nContacto\nE-mail y Slack son la mejor manera de ponerse en contacto conmigo y el equipo docente del curso."
+  },
+  {
+    "objectID": "example/cace.html",
+    "href": "example/cace.html",
+    "title": "Complier average treatment effects",
+    "section": "",
+    "text": "Throughout this course, we’ve talked about the difference between the average treatment effect (ATE), or the average effect of a program for an entire population, and conditional average treatment effect (CATE), or the average effect of a program for some segment of the population. There are all sorts of CATEs: you can find the CATE for men vs. women, for people who are treated with the program (the average treatment on the treated, or ATT or TOT), for people who are not treated with the program (the average treatment on the untreated, or ATU), and so on.\nOne important type of CATE is the effect of a program on just those who comply with the program. We can call this the complier average treatment effect, but the acronym would be the same as conditional average treatment effect, so we’ll call it the complier average causal effect or CACE.\nThinking about compliance is important. You might randomly assign people to receive treatment or a program, but people might not do what you tell them. Additionally, people might do the program if assigned to do it, but they would have done it anyway. We can split the population into four types of people:\n\nCompliers: People who follow whatever their assignment is (if assigned to treatment, they do the program; if assigned to control, they don’t)\nAlways takers: People who will receive or seek out the program regardless of assignment (if assigned to treatment, they do the program; if assigned to control, they still do the program)\nNever takers: People who will not receive or seek out the program regardless of assignment (if assigned to treatment, they don’t do the program; if assigned to control, they also don’t do it)\nDefiers: People who will do the opposite of whatever their assignment is (if assigned to treatment, they don’t do the program; if assigned to control, they do the program)\n\nTo simplify things, evaluators and econometricians assume that defiers don’t exist based on the idea of monotonicity, which means that we can assume that the effect of being assigned to treatment only increases the likelihood of participating in the program (and doesn’t make it more likely).\nThe tricky part about trying to find who the compliers are in a sample is that we can’t know what people would have done in the absence of treatment. If we see that someone in the experiment was assigned to be in the treatment group and they then participated in the program, they could be a complier (since they did what they were assigned to do), or they could be an always taker (they did what they were assigned to do, but they would have done it anyway). Due to the fundamental problem of causal inference, we cannot know what each person would have done in a parallel world.\nWe can use data from a hypothetical program to see how these three types of compliers distort our outcomes, and more importantly, how we can disentangle compliers from their always- and never-taker counterparts.\nIf you want to follow along with this example, you can download these two datasets:\n\n bed_nets_time_machine.csv\n bed_nets_observed.csv"
+  },
+  {
+    "objectID": "example/cace.html#compliance-and-treatment-effects",
+    "href": "example/cace.html#compliance-and-treatment-effects",
+    "title": "Complier average treatment effects",
+    "section": "",
+    "text": "Throughout this course, we’ve talked about the difference between the average treatment effect (ATE), or the average effect of a program for an entire population, and conditional average treatment effect (CATE), or the average effect of a program for some segment of the population. There are all sorts of CATEs: you can find the CATE for men vs. women, for people who are treated with the program (the average treatment on the treated, or ATT or TOT), for people who are not treated with the program (the average treatment on the untreated, or ATU), and so on.\nOne important type of CATE is the effect of a program on just those who comply with the program. We can call this the complier average treatment effect, but the acronym would be the same as conditional average treatment effect, so we’ll call it the complier average causal effect or CACE.\nThinking about compliance is important. You might randomly assign people to receive treatment or a program, but people might not do what you tell them. Additionally, people might do the program if assigned to do it, but they would have done it anyway. We can split the population into four types of people:\n\nCompliers: People who follow whatever their assignment is (if assigned to treatment, they do the program; if assigned to control, they don’t)\nAlways takers: People who will receive or seek out the program regardless of assignment (if assigned to treatment, they do the program; if assigned to control, they still do the program)\nNever takers: People who will not receive or seek out the program regardless of assignment (if assigned to treatment, they don’t do the program; if assigned to control, they also don’t do it)\nDefiers: People who will do the opposite of whatever their assignment is (if assigned to treatment, they don’t do the program; if assigned to control, they do the program)\n\nTo simplify things, evaluators and econometricians assume that defiers don’t exist based on the idea of monotonicity, which means that we can assume that the effect of being assigned to treatment only increases the likelihood of participating in the program (and doesn’t make it more likely).\nThe tricky part about trying to find who the compliers are in a sample is that we can’t know what people would have done in the absence of treatment. If we see that someone in the experiment was assigned to be in the treatment group and they then participated in the program, they could be a complier (since they did what they were assigned to do), or they could be an always taker (they did what they were assigned to do, but they would have done it anyway). Due to the fundamental problem of causal inference, we cannot know what each person would have done in a parallel world.\nWe can use data from a hypothetical program to see how these three types of compliers distort our outcomes, and more importantly, how we can disentangle compliers from their always- and never-taker counterparts.\nIf you want to follow along with this example, you can download these two datasets:\n\n bed_nets_time_machine.csv\n bed_nets_observed.csv"
+  },
+  {
+    "objectID": "example/cace.html#finding-compliers-with-a-mind-reading-time-machine",
+    "href": "example/cace.html#finding-compliers-with-a-mind-reading-time-machine",
+    "title": "Complier average treatment effects",
+    "section": "Finding compliers with a mind-reading time machine",
+    "text": "Finding compliers with a mind-reading time machine\nFirst let’s load the data and reorder some of the categories:\n\n\nCode\nlibrary(tidyverse)  # ggplot(), %&gt;%, mutate(), and friends\nlibrary(broom)  # Convert models to data frames\nlibrary(estimatr)  # Run 2SLS models in one step with iv_robust()\n\nbed_nets &lt;- read_csv(\"data/bed_nets_observed.csv\") %&gt;%\n  # Make \"No bed net\" (control) come first\n  mutate(bed_net = fct_relevel(bed_net, \"No bed net\"))\n\nbed_nets_time_machine &lt;- read_csv(\"data/bed_nets_time_machine.csv\") %&gt;%\n  # Make \"No bed net\" come first and \"Complier\" come first\n  mutate(bed_net = fct_relevel(bed_net, \"No bed net\"),\n         status = fct_relevel(status, \"Complier\"))\n\n\nThis is what we would be able to see if we could read everyone’s minds. There are always takers who will use a bed net regardless of the program, and they’ll have higher health outcomes. However, those better outcomes are because of something endogenous—there’s something else that makes these people always pursue bed nets, and that’s likely related to health. We probably want to not consider them when looking for the program effect. There are never takers who won’t ever use a bed net, and they have worse health outcomes. Again, there’s endogeneity here—something is causing them to not use the bed nets, and it likely also causes their health level. We don’t want to look at them either.\nThe first group—the compliers—are the people we want to focus on. Here we see that the program had an effect when compared to a control group.\n\n\nCode\nset.seed(1234)  # Make the jittering the same every time\n\nggplot(bed_nets_time_machine, aes(y = health, x = treatment)) +\n  geom_point(aes(shape = bed_net, color = status),\n             position = position_jitter(height = NULL, width = 0.25)) +\n  facet_wrap(vars(status)) +\n  labs(color = \"Type of person\", shape = \"Compliance\",\n       x = NULL, y = \"Health status\") +\n  scale_color_viridis_d(option = \"plasma\", end = 0.85) +\n  theme_bw()"
+  },
+  {
+    "objectID": "example/cace.html#finding-compliers-in-actual-data",
+    "href": "example/cace.html#finding-compliers-in-actual-data",
+    "title": "Complier average treatment effects",
+    "section": "Finding compliers in actual data",
+    "text": "Finding compliers in actual data\nThis is what we actually see in the data, though. You can tell who some of the always takers are (those who used bed nets after being assigned to the control group) and who some of the never takers are (those who did not use a bed net after being assigned to the treatment group), but compliers are mixed up with the always and never takers. We have to somehow disentangle them!\n\n\nCode\nset.seed(1234)\nggplot(bed_nets_time_machine, aes(y = health, x = bed_net)) +\n  geom_point(aes(shape = bed_net, color = status),\n             position = position_jitter(height = NULL, width = 0.25)) +\n  facet_wrap(vars(treatment)) +\n  labs(color = \"Type of person\", shape = \"Compliance\",\n       x = NULL, y = \"Health status\") +\n  scale_color_viridis_d(option = \"plasma\", end = 0.85) +\n  theme_bw()\n\n\n\n\n\n\n\n\n\nWe can do this by assuming the proportion of compliers, never takers, and always takers are equally spread across treatment and control (which we can assume through the magic of randomization). If that’s the case, we can calculate the intent to treat (ITT) effect, which is the CATE of being assigned treatment (or the effect of being assigned treatment on health status, regardless of actual compliance).\nThe ITT is actually composed of three different causal effects: the complier average causal effect (CACE), the always taker average causal effect (ATACE), and the never taker average causal effect (NTACE). In the formula below, \\(\\pi\\) stands for the proportion of people in each group. Formally, the ITT can be defined like this:\n\\[\n\\begin{aligned}\n\\text{ITT}\\ =\\ & \\color{#0D0887}{\\pi_\\text{compliers} \\times (\\text{T} - \\text{C})_\\text{compliers}} + \\\\\n&\\color{#B7318A}{\\pi_\\text{always takers} \\times (\\text{T} - \\text{C})_\\text{always takers}} + \\\\\n&\\color{#FEBA2C}{\\pi_\\text{never takers} \\times (\\text{T} - \\text{C})_\\text{never takers}}\n\\end{aligned}\n\\]\nWe can simplify this to this acronymized version:\n\\[\n\\text{ITT}\\ =\\ \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}} + \\color{#B7318A}{\\pi_\\text{A} \\text{ATACE}} + \\color{#FEBA2C}{\\pi_\\text{N} \\text{NTACE}}\n\\]\nThe number we care about the most here is the CACE, which is stuck in the middle of the equation. But we can rescue it with some fun logical and algebraic trickery!\nIf we assume that assignment to treatment doesn’t make someone more likely to be an always taker or a never taker, we can set the ATACE and NTACE to zero, leaving us with just three variables to worry about: ITT, \\(\\pi_\\text{c}\\), and CACE:\n\\[\n\\begin{aligned}\n\\text{ITT}\\ =\\ & \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}} + \\color{#B7318A}{\\pi_\\text{A} \\text{ATACE}} + \\color{#FEBA2C}{\\pi_\\text{N} \\text{NTACE}} \\\\[6pt]\n=\\ & \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}} + \\color{#B7318A}{\\pi_\\text{A} \\times 0} + \\color{#FEBA2C}{\\pi_\\text{N} \\times 0}\\\\[6pt]\n\\text{ITT}\\ =\\ & \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}}\n\\end{aligned}\n\\]\nWe can use algebra to rearrange this formula so that we’re left with an equation that starts with CACE (since that’s the value we care about):\n\\[\n\\text{CACE} = \\frac{\\text{ITT}}{\\pi_\\text{C}}\n\\]\nIf we can find the ITT and the proportion of compliers, we can find the complier average causal effect (CACE). Fortunately, both those pieces—ITT and \\(\\pi_\\text{C}\\)—are findable in the data we have!"
+  },
+  {
+    "objectID": "example/cace.html#finding-the-itt",
+    "href": "example/cace.html#finding-the-itt",
+    "title": "Complier average treatment effects",
+    "section": "Finding the ITT",
+    "text": "Finding the ITT\nThe ITT is easy to find with a simple OLS model:\n\n\nCode\nitt_model &lt;- lm(health ~ treatment, data = bed_nets)\n\ntidy(itt_model)\n## # A tibble: 2 × 5\n##   term               estimate std.error statistic  p.value\n##   &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n## 1 (Intercept)           40.9      0.444     92.1  0       \n## 2 treatmentTreatment     5.99     0.630      9.51 5.20e-21\n\nITT &lt;- tidy(itt_model) %&gt;%\n  filter(term == \"treatmentTreatment\") %&gt;%\n  pull(estimate)\n\n\nThe ITT here is ≈6—being assigned treatment increases average health status by 5.99 health points."
+  },
+  {
+    "objectID": "example/cace.html#finding-the-proportion-of-compliers",
+    "href": "example/cace.html#finding-the-proportion-of-compliers",
+    "title": "Complier average treatment effects",
+    "section": "Finding the proportion of compliers",
+    "text": "Finding the proportion of compliers\nThe proportion of compliers is a little trickier, but doable with some algebraic trickery. Recall from the graph above that the people who were in the treatment group and who complied are a combination of always takers and compliers. This means we can say:\n\\[\n\\begin{aligned}\n\\pi_\\text{A} + \\pi_\\text{C} =& \\text{% yes in treatment; or} \\\\\n\\pi_\\text{C} =& \\text{% yes in treatment} - \\pi_\\text{A}\n\\end{aligned}\n\\]\nWe actually know \\(\\pi_\\text{A}\\)—remember in the graph above that the people who were in the control group and who used bed nets are guaranteed to be always takers (none of them are compliers or never takers). If we assume that the proportion of always takers is the same in both treatment and control, we can use that percent here, giving us this final equation for \\(\\pi_\\text{C}\\):\n\\[\n\\begin{aligned}\n\\pi_\\text{C} =& \\text{% yes in treatment} - \\pi_\\text{A} \\\\\n=& \\text{% yes in treatment} - \\text{% yes in control}\n\\end{aligned}\n\\]\nSo, if we can find the percent of people assigned to treatment who used bed nets, find the percent of people assigned to control and used bed nets, and subtract the two percentages, we’ll have the proportion of compliers, or \\(\\pi_\\text{C}\\). We can do that with the data we have (61% - 19.5% = 41.5% compliers):\n\n\nCode\nbed_nets %&gt;%\n  group_by(treatment, bed_net) %&gt;%\n  summarize(n = n()) %&gt;%\n  mutate(prop = n / sum(n))\n## # A tibble: 4 × 4\n## # Groups:   treatment [2]\n##   treatment bed_net        n  prop\n##   &lt;chr&gt;     &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;\n## 1 Control   No bed net   808 0.805\n## 2 Control   Bed net      196 0.195\n## 3 Treatment No bed net   388 0.390\n## 4 Treatment Bed net      608 0.610\n\n# pi_c = prop yes in treatment - prop yes in control\npi_c &lt;- 0.6104418 - 0.1952191\n\n\nFinally, now that we know both the ITT and \\(\\pi_\\text{C}\\), we can find the CACE (or the LATE):\n\n\nCode\nCACE &lt;- ITT / pi_c\nCACE\n## [1] 14.43\n\n\nIt’s 14.4, which means that using bed nets increased health by 14 health points for compliers (which is a lot bigger than the 6 that we found before). We successfully filtered out the always takers and the never takers, and we have our complier-specific causal effect."
+  },
+  {
+    "objectID": "example/cace.html#finding-the-cacelate-with-iv2sls",
+    "href": "example/cace.html#finding-the-cacelate-with-iv2sls",
+    "title": "Complier average treatment effects",
+    "section": "Finding the CACE/LATE with IV/2SLS",
+    "text": "Finding the CACE/LATE with IV/2SLS\nDoing that is super tedious though! What if there was an easier way to find the effect of the bed net program for just the compliers? We can do this with IV/2SLS regression by using assignment to treatment as an instrument.\nAssignment to treatment works as an instrument because it’s (1) relevant, since being told to use bed nets is probably highly correlated with using bed nets, (2) exclusive, since the only way that being told to use bed nets can cause changes in health is through the actual use of the bed nets, and (3) exogenous, since being told to use bed nets probably isn’t related to other things that cause health.\nHere’s a 2SLS regression with assignment to treatment as the instrument:\n\n\nCode\nmodel_2sls &lt;- iv_robust(health ~ bed_net | treatment, data = bed_nets)\ntidy(model_2sls)\n##             term estimate std.error statistic   p.value conf.low conf.high   df outcome\n## 1    (Intercept)    38.12    0.5151     74.01 0.000e+00    37.11     39.13 1998  health\n## 2 bed_netBed net    14.43    1.2538     11.51 1.038e-29    11.97     16.89 1998  health\n\n\nThe coefficient for bed_net is identical to the CACE that we found manually! Instrumental variables are helpful for isolated program effects to only compliers when you’re dealing with noncompliance."
+  },
+  {
+    "objectID": "content/01-content.html",
+    "href": "content/01-content.html",
+    "title": "Explicación, asociación y covariación",
+    "section": "",
+    "text": "Documento de presentación"
+  },
+  {
+    "objectID": "assignment/index.html",
+    "href": "assignment/index.html",
+    "title": "Assignments",
+    "section": "",
+    "text": "The main goals of this class are to help you design, critique, code, and run rigorous, valid, and feasible evaluations of public sector programs. Each type of assignment in this class is designed to help you achieve one or more of these goals."
+  },
+  {
+    "objectID": "assignment/index.html#weekly-check-in",
+    "href": "assignment/index.html#weekly-check-in",
+    "title": "Assignments",
+    "section": "Weekly check-in",
+    "text": "Weekly check-in\nEvery week, after you finish working through the content, I want to hear about what you learned and what questions you still have. Because the content in this course is flipped, these questions are crucial for our weekly in-class discussions.\nTo encourage engagement with the course content—and to allow me to collect the class’s questions each week—you’ll need to fill out a short response on iCollege. This should be ≈150 words. That’s fairly short: there are ≈250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced).\nThese check-ins are due by noon on the days we have class. This is so I can look through the responses and start structuring the discussion for the evening’s class.\nYou should answer these two questions each week:\n\nWhat were the three (3) most interesting or exciting things you learned from the session? Why?\nWhat were the three (3) muddiest or unclear things from the session this week? What are you still wondering about?\n\nYou can include more than three interesting or muddiest things, but you must include at least three. There should be six easily identifiable things in each check-in: three exciting things and three questions.\nI will grade these check-ins using a check system:\n\n✔+: (11.5 points (115%) in gradebook) Response shows phenomenal thought and engagement with the course content. I will not assign these often.\n✔: (10 points (100%) in gradebook) Response is thoughtful, well-written, and shows engagement with the course content. This is the expected level of performance.\n✔−: (5 points (50%) in gradebook) Response is hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will hopefully not assign these often.\n\nNotice that is essentially a pass/fail or completion-based system. I’m not grading your writing ability, I’m not counting the exact number of words you’re writing, and I’m not looking for encyclopedic citations of every single reading to prove that you did indeed read everything. I’m looking for thoughtful engagement, three interesting things, and three questions. That’s all. Do good work and you’ll get a ✓.\nYou will submit these check-ins via iCollege."
+  },
+  {
+    "objectID": "assignment/index.html#problem-sets",
+    "href": "assignment/index.html#problem-sets",
+    "title": "Assignments",
+    "section": "Problem sets",
+    "text": "Problem sets\nTo practice writing R code, running inferential models, and thinking about causation, you will complete a series of problem sets.\nYou need to show that you made a good faith effort to work each question. I will not grade these in detail. The problem sets will be graded using a check system:\n\n✔+: (33 points (110%) in gradebook) Assignment is 100% completed. Every question was attempted and answered, and most answers are correct. Document is clean and easy to follow. Work is exceptional. I will not assign these often.\n✔: (30 points (100%) in gradebook) Assignment is 70–99% complete and most answers are correct. This is the expected level of performance.\n✔−: (15 points (50%) in gradebook) Assignment is less than 70% complete and/or most answers are incorrect. This indicates that you need to improve next time. I will hopefully not asisgn these often.\n\nYou may (and should!) work together on the problem sets, but you must turn in your own answers. You cannot work in groups of more than four people, and you must note who participated in the group in your assignment."
+  },
+  {
+    "objectID": "assignment/index.html#evaluation-assignments",
+    "href": "assignment/index.html#evaluation-assignments",
+    "title": "Assignments",
+    "section": "Evaluation assignments",
+    "text": "Evaluation assignments\nFor your final project, you will conduct a pre-registered evaluation of a social program using synthetic data. To (1) give you practice with the principles of program evaluation, research design, measurement, and causal diagrams, and (2) help you with the foundation of your final project, you will complete a set of four evaluation-related assignments.\nIdeally these will become major sections of your final project. However, there is no requirement that the programs you use in these assignments must be the same as the final project. If, through these assignments, you discover that your initially chosen program is too simple, too complex, too boring, etc., you can change at any time.\nThese assignments will be graded using a check system:\n\n✔+: (33 points (110%) in gradebook) Assignment is 100% completed. Every question was attempted and answered, and most answers are correct. Document is clean and easy to follow. Work is exceptional. I will not assign these often.\n✔: (30 points (100%) in gradebook) Assignment is 70–99% complete and most answers are correct. This is the expected level of performance.\n✔−: (15 points (50%) in gradebook) Assignment is less than 70% complete and/or most answers are incorrect. This indicates that you need to improve next time. I will hopefully not asisgn these often."
+  },
+  {
+    "objectID": "assignment/index.html#exams",
+    "href": "assignment/index.html#exams",
+    "title": "Assignments",
+    "section": "Exams",
+    "text": "Exams\nThere will be two exams covering (1) program evaluation, design, and causation, and (2) the core statistical tools of program evaluation and causal inference.\nYou will take these exams online through iCollege. The exams will have a time limit, but you can use notes and readings and the Google. You must take the exams on your own though, and not talk to anyone about them."
+  },
+  {
+    "objectID": "assignment/index.html#final-project",
+    "href": "assignment/index.html#final-project",
+    "title": "Assignments",
+    "section": "Final project",
+    "text": "Final project\nAt the end of the course, you will demonstrate your knowledge of program evaluation and causal inference by completing a final project.\nComplete details for the final project are here.\nThere is no final exam. This project is your final exam."
+  },
+  {
+    "objectID": "assignment/practico1.html",
+    "href": "assignment/practico1.html",
+    "title": "Práctico 1",
+    "section": "",
+    "text": "Acá práctico 1"
+  },
+  {
+    "objectID": "content/index.html",
+    "href": "content/index.html",
+    "title": "Clases y lecturas",
+    "section": "",
+    "text": "Cada clase tiene como referencia lecturas que deben completarse antes de la sesión correspondiente.\nEn esta sección se encuentran disponibles los documentos de presentación que sirven de base a cada clase. Para verlos en pantalla completa presionar F sobre el documento."
+  },
+  {
+    "objectID": "example/index.html",
+    "href": "example/index.html",
+    "title": "Code examples",
+    "section": "",
+    "text": "Visit this section after you have finished the readings and lecture videos. It contains fully annotated R code and other supplementary information and it will be indispensable as you work on your problem sets and project.\nMany sections also contain videos of me live coding the examples so you can see what it looks like to work with R in real time. You’ll notice me make all sorts of little errors, which is totally normal—everyone does!"
+  },
+  {
+    "objectID": "news/2023-01-09_welcome.html",
+    "href": "news/2023-01-09_welcome.html",
+    "title": "Bienvenid_s a clases!",
+    "section": "",
+    "text": "← News\n\n\n\nHola a todos!"
+  },
+  {
+    "objectID": "resource/index.html",
+    "href": "resource/index.html",
+    "title": "Recursos",
+    "section": "",
+    "text": "Acá iremos incluyendo recursos adicionales relacionados con el curso"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Planificación semanal",
+    "section": "",
+    "text": "Este curso se compone de tres actividades principales a la semana:\n\n Clases lectivas presenciales: los lunes de 8:30 a 10:00, donde en base a las lecturas correspondientes a esa semana se presentará un resumen de los contenidos principales y se resolverán dudas.\n Talleres prácticos online: los martes de 10:15 a 11:45 se desarrollarán actividades con énfasis en el manejo de software para análisis y reporte de los resultados. Estas instancias estarán guiadas por los apoyos docentes del curso.\n Lecturas: cada sesión lectiva tiene una lectura obligatoria asignada a la semana, la que se encuentra a disposición en esta página.\n\nLas actividades semanales se resumen en el siguiente esquema:\n\n\n\n\n\n\n\n\n Clases\n Prácticos\n Lecturas\n\n\n\n\n Agosto \n\n\n\n\n\nLunes 07\nExplicación, asociación y covariación\n\n- Leer detalladamente programa del curso\n\n\nMartes 08\n\nReportes 1\n\n\n\nLunes 14\nCorrelación 1: Bases\n\n\nRichtey 1-21 : La imaginación estadística\n\n\n\nMartes 15\n\nFERIADO\n\n\n\nLunes 21\nCorrelación 2: Pearson\n\n\nMoore 97-131 Análisis de relaciones\n\n\n\nMartes 22\n\nCálculo y reporte correlación\n\n\n\nLunes 28\nCorrelación 3: Matrices y tamaños de efecto\n\n\nField 237-276 Correlation\n\n\n\nMartes 29\n\nMatrices y tamaños de efecto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Clases\n Prácticos\n Lecturas\n\n\n\n\n Septiembre \n\n\n\n\n\nLunes 4\nInferencia 1\n\nRitchey cap 6\nPardo 33-49 Conceptos previos\n\n\nMartes 5\n\nInferencia 1\n\n\n\nLunes 11\nPausa\n\n\n\n\nMartes 12\nPausa\n\n\n\n\nLunes 18\nFeriado\n\n\n\n\nMartes 19\nFeriado\n\n\n\n\nLunes 25\nEvaluación 1\n\nRitchey cap 7\n\n\nMartes 26\n\nReporte 2\n\n\n\n Octubre \n\n\n\n\n\nLunes 2\nInferencia 2\n\nMoore cap 6\n\n\nMartes 3\n\nInferencia 2\n\n\n\nLunes 9\nFeriado\n\n\n\n\nMartes 10\n\nReporte 3\n\n\n\nLunes 16\nInferencia 3\n\nMoore cap 7\n\n\nMartes 17\n\nInferencia 3\n\n\n\nLunes 23\nInferencia 4\n\nMoore cap 8\n\n\nMartes 24\n\nInferencia 4\n\n\n\nLunes 30\nEvaluación 2 (30%)\n\n\n\n\nMartes 31\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Clases\n Prácticos\n Lecturas\n\n\n\n\n Noviembre \n\n\n\n\n\nLunes 6\nSemana trabajo autónomo\n\n\n\n\nMartes 7\n\nSemana trabajo autónomo\n\n\n\nLunes 13\nAsociación con categóricas 1\n\nMoore cap 9\n\n\nMartes 14\n\n\n\n\n\nLunes 20\nAsociación con categóricas 2\n\nFinch cap 13\n\n\nLunes 27\nEntrega trabajo final"
+  },
+  {
+    "objectID": "schedule.html#forma-general-de-funcionamiento",
+    "href": "schedule.html#forma-general-de-funcionamiento",
+    "title": "Planificación semanal",
+    "section": "",
+    "text": "Este curso se compone de tres actividades principales a la semana:\n\n Clases lectivas presenciales: los lunes de 8:30 a 10:00, donde en base a las lecturas correspondientes a esa semana se presentará un resumen de los contenidos principales y se resolverán dudas.\n Talleres prácticos online: los martes de 10:15 a 11:45 se desarrollarán actividades con énfasis en el manejo de software para análisis y reporte de los resultados. Estas instancias estarán guiadas por los apoyos docentes del curso.\n Lecturas: cada sesión lectiva tiene una lectura obligatoria asignada a la semana, la que se encuentra a disposición en esta página.\n\nLas actividades semanales se resumen en el siguiente esquema:\n\n\n\n\n\n\n\n\n Clases\n Prácticos\n Lecturas\n\n\n\n\n Agosto \n\n\n\n\n\nLunes 07\nExplicación, asociación y covariación\n\n- Leer detalladamente programa del curso\n\n\nMartes 08\n\nReportes 1\n\n\n\nLunes 14\nCorrelación 1: Bases\n\n\nRichtey 1-21 : La imaginación estadística\n\n\n\nMartes 15\n\nFERIADO\n\n\n\nLunes 21\nCorrelación 2: Pearson\n\n\nMoore 97-131 Análisis de relaciones\n\n\n\nMartes 22\n\nCálculo y reporte correlación\n\n\n\nLunes 28\nCorrelación 3: Matrices y tamaños de efecto\n\n\nField 237-276 Correlation\n\n\n\nMartes 29\n\nMatrices y tamaños de efecto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Clases\n Prácticos\n Lecturas\n\n\n\n\n Septiembre \n\n\n\n\n\nLunes 4\nInferencia 1\n\nRitchey cap 6\nPardo 33-49 Conceptos previos\n\n\nMartes 5\n\nInferencia 1\n\n\n\nLunes 11\nPausa\n\n\n\n\nMartes 12\nPausa\n\n\n\n\nLunes 18\nFeriado\n\n\n\n\nMartes 19\nFeriado\n\n\n\n\nLunes 25\nEvaluación 1\n\nRitchey cap 7\n\n\nMartes 26\n\nReporte 2\n\n\n\n Octubre \n\n\n\n\n\nLunes 2\nInferencia 2\n\nMoore cap 6\n\n\nMartes 3\n\nInferencia 2\n\n\n\nLunes 9\nFeriado\n\n\n\n\nMartes 10\n\nReporte 3\n\n\n\nLunes 16\nInferencia 3\n\nMoore cap 7\n\n\nMartes 17\n\nInferencia 3\n\n\n\nLunes 23\nInferencia 4\n\nMoore cap 8\n\n\nMartes 24\n\nInferencia 4\n\n\n\nLunes 30\nEvaluación 2 (30%)\n\n\n\n\nMartes 31\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Clases\n Prácticos\n Lecturas\n\n\n\n\n Noviembre \n\n\n\n\n\nLunes 6\nSemana trabajo autónomo\n\n\n\n\nMartes 7\n\nSemana trabajo autónomo\n\n\n\nLunes 13\nAsociación con categóricas 1\n\nMoore cap 9\n\n\nMartes 14\n\n\n\n\n\nLunes 20\nAsociación con categóricas 2\n\nFinch cap 13\n\n\nLunes 27\nEntrega trabajo final"
+  }
+]

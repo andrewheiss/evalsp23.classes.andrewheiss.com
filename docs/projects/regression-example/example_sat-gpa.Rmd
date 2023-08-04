@@ -1,0 +1,26 @@
+---
+title: "SAT scores and college GPA"
+output: 
+  html_document: 
+    toc: yes
+---
+
+```{r libraries-data}
+library(tidyverse)     # This lets you create plots with ggplot, manipulate data, etc.
+library(broom)         # This lets you convert regression models into nice tables
+library(modelsummary)  # This lets you combine multiple regression models into a single table
+
+sat_gpa <- read_csv("data/sat_gpa.csv")
+```
+
+# Models
+
+## Do SAT scores predict freshman GPAs?
+
+## Does a certain type of SAT score have a larger effect on freshman GPAs?
+
+## Do high school GPAs predict freshman GPAs?
+
+## College GPA ~ SAT + sex
+
+## College GPA ~ SAT + high school GPA + sex
