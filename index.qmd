@@ -1,6 +1,6 @@
 ---
 title: "Estadística Correlacional"
-subtitle: "Asociación entre variables e inferencia estadística"
+subtitle: "Asociación, inferencia y reporte"
 details: |
   SOC01019 • Segundo Semestre 2023<br>Departamento de Sociología, Facultad de Ciencias Sociales<br>Universidad de Chile
 sidebar: false
@@ -34,23 +34,23 @@ withr::with_dir(here::here(), {
 - {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
 - {{< fa university >}} &nbsp; {{< var instructor.office >}}
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
-- {{< fa calendar-check >}} &nbsp; [Schedule an appointment]({{< var instructor.appointment_url >}})
+- {{< fa calendar-check >}} &nbsp; [Agendar reunión]({{< var instructor.appointment_url >}})
 
 **Apoyos docentes**
 
-- Daniela Olivares
-- Andreas Lafferte
+- {{< fa user >}} &nbsp;Daniela Olivares
+- {{< fa user >}} &nbsp; Andreas Lafferte
+
 
 :::
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
-### Detalles del curso
+### Actividades
 
-- {{< fa calendar >}} &nbsp; {{< var course.days >}}
-- {{< fa calendar-alt >}} &nbsp; {{< var course.dates >}}
-- {{< fa clock >}} &nbsp; {{< var course.time >}}
-- {{< fa location-dot >}} &nbsp; {{< var course.location >}}
-- {{< fa brands slack >}} &nbsp; [Slack]({{< var course.slack >}})
+- {{< fa university >}} &nbsp; **Lunes 8:30-10:00** - Aulario A/7-8
+
+- {{< fa computer >}} &nbsp; **Martes 10:15-11:45** Online / Laboratorio computación 2
+
 :::
 
 ::: {.g-col-12 .g-col-md-4 .contact-policy}

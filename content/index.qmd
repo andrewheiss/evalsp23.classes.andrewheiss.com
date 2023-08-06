@@ -1,5 +1,5 @@
 ---
-title: "Clases y lecturas"
+title: "Sobre clases y lecturas"
 ---
 
 Cada clase tiene como referencia lecturas que deben completarse antes de la sesión correspondiente.

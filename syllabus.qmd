@@ -34,22 +34,17 @@ library(pander)
 
 ## Sobre el sentido general del curso
 
-En este curso vamos a aprender dos cosas principales:
+En este curso vamos a aprender tres cosas principales:
 
 - **inferencia**: los resultados que encontramos en nuestra muestra, ¿se encuentran también en la población de la cual proviene la muestra?
 
-- medidas de **asociación** entre variables: tamaño y significación estadística
+- medidas de **asociación** entre variables: tamaño y significación estadística 
 
-Para ello, un par de ideas transversales:
-
-- vamos a _partir por el final_: la asociación entre variables busca representar asociación entre conceptos, lo que está a la base de distintas teorías, tales como la sociológicas. Por ello, comenzaremos desde acá, reflexionando sobre asociaciones y su medición, poniendo como un ejemplo el coeficiente de correlación. Luego en la segunda unidad vamos a profundizar en temas de inferencia estadística, y al final volveremos a medidas de asociación para variables categórias y otras extensiones.
-
-- vamos a dar énfasis a la _comunicación de los resultados_: nuestros análisis se reflejan en productos como tablas y gráficos. No basta con entenderlos e interpretarlos, sino también es fundamental una buena comunicación. Acá es pertinente considerar temas estéticos y de orden, pero también plataformas y dispositivos de reporte y comunicación. 
-
+- **reporte y reproducibilidad** de los análisis estadísticos: nuestros análisis se reflejan en productos como tablas y gráficos. No basta con entenderlos e interpretarlos, sino también es fundamental una buena comunicación.
 
 ## Propósito general del curso
 
-Al finalizar el curso los estudiantes conocerán los fundamentos del análisis estadístico inferencial. Se espera que los estudiantes sean capaces de :
+Al finalizar el curso los estudiantes conocerán los fundamentos del análisis estadístico inferencial. Se espera que los estudiantes sean capaces de:
 
 - elaborar de manera pertinente hipótesis estadísticas
 - aplicar estadísticos de asociación y correlación, a partir de los cuáles puedan desarrollar análisis de problemas sociales
@@ -62,10 +57,13 @@ Complementariamente se espera que los estudiantes adquieran herramientas que les
 
 ## Competencias
 
-- 1a Delimitar, conceptualizar y analizar diversos objetos de investigación social, con especial énfasis en aquellos relacionados con los procesos de transformación del país y Latinoamérica
-- 1b Manejar diversas estrategias metodológicas de las ciencias sociales
-- 1c Manejar un conjunto de herramientas para el procesamiento y análisis de información
-- 1d Transmitir los conocimientos derivados de la práctica investigativa, así como aquellos adquiridos durante el proceso formativo.
+1a. Delimitar, conceptualizar y analizar diversos objetos de investigación social, con especial énfasis en aquellos relacionados con los procesos de transformación del país y Latinoamérica
+
+1b. Manejar diversas estrategias metodológicas de las ciencias sociales
+
+1c.  Manejar un conjunto de herramientas para el procesamiento y análisis de información
+ 
+1d.  Transmitir los conocimientos derivados de la práctica investigativa, así como aquellos adquiridos durante el proceso formativo.
 
 ## Subcompetencias
 
@@ -113,6 +111,7 @@ Complementariamente se espera que los estudiantes adquieran herramientas que les
 ## Evaluación
 
 El curso tendrá tres instancias de evaluación:
+
 - Evaluación 1: prueba correlación lineal (30%).
 - Evaluación 2: prueba inferencia estadística (30%)
 - Evaluación 3: trabajo grupal (40%)
@@ -130,10 +129,12 @@ En el caso de los trabajos, en caso de atraso se descontará 0.5 por día adicio
 ## Requisitos de aprobación 
 
 Requisitos de eximición a examen:
+
 - contar con un promedio ponderado igual o superior a 5.5
 - no tener nota bajo 4.0 en ninguna de las evaluaciones
 
 Requisitos para presentación a examen:
+
 - Podrán presentarse al examen de primera oportunidad los estudiantes que hayan obtenido una calificación final igual o superior a 3.5.
 
 - El examen de segunda oportunidad será para aquellos estudiantes que presenten una nota igual o inferior a 3.5 o aquellos que en el examen de primera oportunidad no hubiesen logrado una nota igual o superior a 4.0.
@@ -168,9 +169,9 @@ Levin, J. & Levin, W. (1997). Fundamentos de Estadística en la Investigación S
   - “el ppt” (ni  “la ppt”)
 
 
-- Políticas de participación y trato: se espera y enfatiza la participación por distintos canales disponibles. También se enfatiza un trato respetuoso y horizontal. Quienes están tomando este curso serán referidos como participantes y/o estudiantes, evitar el uso de “l_s cabr_s” o “l_s chiquill_s”, que si bien puede intentar transmitir cercanía finalmente expreza relaciones jerárquicas y de minimización de la contraparte. Quien no se sienta tratad_ apropiadamente o vea que otr_s no lo están siendo, se solicita reportar para solucionar la situación.
+- Políticas de participación y trato: se espera y enfatiza la participación por distintos canales disponibles. También se enfatiza un trato respetuoso y horizontal. Quienes están tomando este curso serán referidos como participantes y/o estudiantes, evitar el uso de “l_s cabr_s” o “l_s chiquill_s”, que si bien puede intentar transmitir cercanía finalmente expresan minimización de la contraparte. Quien no se sienta tratad_ apropiadamente o vea que otr_s no lo están siendo, se solicita reportar para solucionar la situación.
 
 ## Programación de sesiones
 
-Visitar la página de Planificación.
+Visitar la página de [Planificación](/schedule.html).
 

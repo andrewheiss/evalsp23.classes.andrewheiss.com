@@ -3,3 +3,11 @@ title: "Recursos"
 ---
 
 Acá iremos incluyendo recursos adicionales relacionados con el curso
+
+## Reporte
+
+- [Tablas con R, con ejemplo de canciones de Spotify](https://felixanalytix.medium.com/how-to-make-beautiful-tables-using-r-programming-35d75cc919fb)
+
+- [Introduction to Quarto](https://www.youtube.com/watch?v=_f3latmOhew)
+
+

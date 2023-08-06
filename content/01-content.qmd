@@ -1,8 +1,11 @@
 ---
-title: "Explicación, asociación y covariación"
+title: "Presentación"
 date: "2023-08-07"
 lang: es
 ---
 
 # Documento de presentación
+
+<iframe src=/slides/01-presentacion.html height="550" width=100% allowfullscreen="true">
+</iframe> 
 

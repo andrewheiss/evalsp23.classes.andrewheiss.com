@@ -9,15 +9,15 @@ instructor:
   github: juancarloscastillo
   office: "325 Sociología FACSO, Universidad de Chile"
   contact_policy: >-
-    E-mail y Slack son la mejor manera de ponerse en contacto conmigo y el equipo docente del curso.
-  appointment_url: https://calendly.com/andrewheiss/
+    E-mail es la mejor manera de ponerse en contacto conmigo y con el equipo docente del curso.
+  appointment_url: https://calendly.com/juancastillov/horas-oficina
 
 course:
   number: "PMAP 8521"
   semester: "Segundo 2023"
   days: "Lunes y Martes"
-  time: "8:30-10:00 (Lunes) y 10:15-11:45(Martes)"
-  location: "Sala ..."
+  time: "8:30-10:00 (Lunes) y 10:15-11:45 (Martes)"
+  location: "Lunes - Aulario A Salas 7 y 8 -- Martes - Online o Laboratorio de Computación 2"
   dates: "7 Agosto al 28 de Noviembre, 2023"
   github: "https://github.com/cursos-metodos-facso/correlacional"
   url: "https://correlacional.netlify.app"

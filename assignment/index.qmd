@@ -1,73 +1,80 @@
 ---
-title: "Assignments"
+title: "Instrucciones generales"
+lang: es
 ---
 
-The main goals of this class are to help you design, critique, code, and run rigorous, valid, and feasible evaluations of public sector programs. Each type of assignment in this class is designed to help you achieve one or more of these goals.
+
+## Descripción
+
+- Los prácticos consisten en el desarrollo de una guía práctica (por lo general cada semana) donde se aplican y profundizan los contenidos de las clases, y donde también se abordan otras temáticas relacionadas al manejo y repote de datos. La organización semestras se puede revisar en la [planificación del curso](/schedule.html).
+
+- El trabajo con estas guías se organiza en los siguientes momentos:
+
+  - la guía se presenta los días martes y se avanza en resolver dudas para su resolución
+  - cada estudiante realiza la guía de manera autónoma durante la semana
+  - en caso de dudas que surjan durante la semana se recomienda preguntar en el foro de U-Cursos disponible para este fin
+  - las sesiones prácticas se realizarán por lo general en grupos pequeños guiados por ayudantes.
+  - cada semana se completa un **reporte de progreso** (detalles abajo)
+
+- En las prácticas vamos a trabajar con el software R, Versión 4.3.1.
+
+## Reportes de progreso{#reporte}
+
+Este curso se caracteriza por el desarrollo secuencial y acumulativo de aprendizajes. En otras palabras, va a ser muy difícil poder lograr los objetivos de aprendizaje posteriores sin haber logrado los objetivos de contenidos previos (es muy difícil aprender a multiplicar sin saber sumar). Por lo tanto, como equipo a cargo del curso nos interesa poder monitorear permanentemente el cumplimiento de objetivos de aprendizaje semana a semana para así poder prestar asesoría oportuna.
+
+El sistema de monitoreo permanente de cumplimiento de objetivos se llevará a cabo mediante **reportes de progreso**. Los reportes consisten en completar un formulario simple y breve, donde se preguntará por el cumplimiento de los objetivos de las prácticas respectivas. El link para completar el reporte se encuentra al final de cada guía Se deben completar durante la semana en que se desarrolla la guía, a más tardar los días viernes.
+
+Como incentivo para completar los reportes de progreso, se entregarán **dos décimas adicionales** a la nota de quienes tengan al menos el 80% de los  reportes de progreso completados entre instancias de evaluación (por ejemplo, en el caso de la evaluación 2 se deben tener todos los reportes de progreso completados entre la evaluación 1 y 2). 
+
+## Trabajo con software R
+
+Para los análisis estadísticos de este curso usamos el programa R, en parte porque es gratuito, pero la principal razón es que es de código abierto. Esto quiere decir que cualquier persona puede revisar cómo está hecho y aportar con modificaciones y procedimientos nuevos, como son las librerías que realizan funciones específicas.
+
+El carácter de apertura de R posee muchas ventajas, pero también conlleva complicaciones. Se actualiza permanentemente, así como también las librerías, y esto puede generar problemas de compatibilidad y de fallas en ejecución del código de análisis.
+
+Para minimizar estos posibles problemas en este curso, vamos a:
+
+- trabajar con la misma y última versión de R, que es la 4.3
+- evitar uso de tilde, ñ, espacios y mayúsculas tanto en carpetas y archivos, así como también en los nombres de las variables
+- al momento de hacer consultas sobre problemas en la ejecución del código, adjuntar la siguiente información:
+
+  1. Código completo hasta que se produce el problema
+  2. Indicar línea del código donde se produce el problema
+  3. Adjuntar el resultado del output de la información de la sesión (`sessionInfo()`)
+
+### Instalación de R & RStudio {#installR}
+
+Para esta versión del curso vamos a trabajar con el programa R Version 4.3 y con RStudio, que ofrece un entorno más amigable para trabajar con R.
+
+Para **instalar R**: ir a [https://cran.r-project.org/index.html](https://cran.r-project.org/index.html) y bajar/instalar la versión correspondiente a la plataforma utilizada (Windows, Mac o Linux)
+
+Para instalar **RStudio**: ir a [https://rstudio.com/products/rstudio/](https://rstudio.com/products/rstudio/) y bajar/instalar RStudio desktop, Open Source License (libre).
+
+En caso de dudas se puede revisar el siguiente **video tutorial** de instalación de R & RStudio, preparado por Julio Iturra (apoyo docente) del curso Estadística Multivariada 2020:
+
+<div style="width: 100%; height: 600px; overflow: hidden;">
+<video  style="width: 100%;" controls>
+<source src="https://www.dropbox.com/s/goofz32r5htw6pt/tutorialR-4.0.mp4?raw=1" type="video/mp4">
+</video>
+</div>
+
+Si por alguna razón se prefiere trabajar sin descargar, también se puede utilizar RCloud, abajo un tutorial preparado por Valentina Andrade para el curso de Estadística Multivariada: 
+
+<div style="width: 100%; height: 600px; overflow: hidden;">
+<video  style="width: 100%;" controls>
+<source src="https://www.dropbox.com/s/6nqm99dqnjvtmry/rcloud.mp4?raw=1" type="video/mp4">
+</video>
+</div>
 
 
-## Weekly check-in
+### Sobre el trabajo en hojas de código en RStudio {#codigoR}
 
-Every week, after you finish working through the content, I want to hear about what you learned and what questions you still have. Because the content in this course is flipped, these questions are **crucial** for our weekly in-class discussions.
+- El trabajo de análisis en RStudio se efectua en una _hoja de código_ (o R script o sintaxis, o para los usuarios de Stata la _do-file_), que es donde se anotan los comandos y funciones. Para abrir una hoja, en RStudio ir a File > New File > R Script (o ctrl+shift+N),y aparecerá un panel con una pestaña "Untitled" (sin título). Esta es la hoja de código donde se anotan los comandos.
 
-To encourage engagement with the course content—and to allow me to collect the class's questions each week—you'll need to fill out a short response on iCollege. This should be ≈150 words. That's fairly short: there are ≈250 words on a typical double-spaced page in Microsoft Word (500 when single-spaced). 
+- Los contenidos de las hojas de código son básicamente 2:
 
-These check-ins are **due by noon on the days we have class**. This is so I can look through the responses and start structuring the discussion for the evening's class.
+  - comandos o funciones: se escriben en la hoja, y para ejecutarlos se debe posicionar el cursor en la línea respectiva y ctrl+enter, el resultado aparecerá en el panel de resultados o _Consola_.
+  - texto: para escribir títulos, comentarios, y todo lo que permita entender qué se está haciendo, al principio de la línea respectiva escribir el signo `#`
 
-You should answer these two questions each week:
+- Para grabar nuestra hoja de código y así respaldar nuestros análisis, File > Save (o ctrl+s), y dar un nombre al archivo. Recordar: breve, sin espacios ni tildes ni eñes. Por defecto, la extensión de estos archivos es .R
 
-1. What were the **three (3)** most interesting or exciting things you learned from the session? Why?
-2. What were the **three (3)** muddiest or unclear things from the session this week? What are you still wondering about?    
-
-You can include more than three interesting or muddiest things, but you must include at least three. There should be six easily identifiable things in each check-in: three exciting things and three questions.
-
-I will grade these check-ins using a check system:
-
-- ✔+: (*11.5 points (115%) in gradebook*) Response shows phenomenal thought and engagement with the course content. I will not assign these often.
-- ✔: (*10 points (100%) in gradebook*) Response is thoughtful, well-written, and shows engagement with the course content. This is the expected level of performance.
-- ✔−: (*5 points (50%) in gradebook*) Response is hastily composed, too short, and/or only cursorily engages with the course content. This grade signals that you need to improve next time. I will hopefully not assign these often.
-
-Notice that is essentially a pass/fail or completion-based system. I'm not grading your writing ability, I'm not counting the exact number of words you're writing, and I'm not looking for encyclopedic citations of every single reading to prove that you did indeed read everything. I'm looking for thoughtful engagement, three interesting things, and three questions. That's all. Do good work and you'll get a ✓.
-
-You will submit these check-ins via iCollege.
-
-
-## Problem sets
-
-To practice writing R code, running inferential models, and thinking about causation, you will complete a series of problem sets. 
-
-You need to show that you made a good faith effort to work each question. I will not grade these in detail. The problem sets will be graded using a check system:
-
-- ✔+: (*33 points (110%) in gradebook*) Assignment is 100% completed. Every question was attempted and answered, and most answers are correct. Document is clean and easy to follow. Work is exceptional. I will not assign these often.
-- ✔: (*30 points (100%) in gradebook*) Assignment is 70–99% complete and most answers are correct. **This is the expected level of performance.**
-- ✔−: (*15 points (50%) in gradebook*) Assignment is less than 70% complete and/or most answers are incorrect. This indicates that you need to improve next time. I will hopefully not asisgn these often.
-
-You may (and should!) work together on the problem sets, but *you must turn in your own answers.* You cannot work in groups of more than **four** people, and you must note who participated in the group in your assignment.
-
-
-## Evaluation assignments
-
-For your [final project](/assignment/final-project.qmd), you will conduct a pre-registered evaluation of a social program using synthetic data. To (1) give you practice with the principles of program evaluation, research design, measurement, and causal diagrams, and (2) help you with the foundation of your final project, you will complete a set of four evaluation-related assignments. 
-
-Ideally these will become major sections of your final project. However, there is no requirement that the programs you use in these assignments must be the same as the final project. If, through these assignments, you discover that your initially chosen program is too simple, too complex, too boring, etc., you can change at any time.
-
-These assignments will be graded using a check system:
-
-- ✔+: (*33 points (110%) in gradebook*) Assignment is 100% completed. Every question was attempted and answered, and most answers are correct. Document is clean and easy to follow. Work is exceptional. I will not assign these often.
-- ✔: (*30 points (100%) in gradebook*) Assignment is 70–99% complete and most answers are correct. **This is the expected level of performance.**
-- ✔−: (*15 points (50%) in gradebook*) Assignment is less than 70% complete and/or most answers are incorrect. This indicates that you need to improve next time. I will hopefully not asisgn these often.
-
-
-## Exams
-
-There will be two exams covering (1) program evaluation, design, and causation, and (2) the core statistical tools of program evaluation and causal inference.
-
-You will take these exams online through iCollege. The exams will have a time limit, but you can use notes and readings and [the Google](https://www.youtube.com/watch?v=AQ45fO1uiOQ). You must take the exams on your own though, and not talk to anyone about them.
-
-
-## Final project
-
-At the end of the course, you will demonstrate your knowledge of program evaluation and causal inference by completing a final project.
-
-[Complete details for the final project are here.](/assignment/final-project.qmd)
-
-There is no final exam. This project is your final exam.
