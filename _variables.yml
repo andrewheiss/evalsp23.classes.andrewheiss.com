@@ -12,6 +12,15 @@ instructor:
     E-mail es la mejor manera de ponerse en contacto conmigo y con el equipo docente del curso.
   appointment_url: https://calendly.com/juancastillov/horas-oficina
 
+other:
+  email: andreas.laffert@ug.uchile.cl
+  appointment_url: https://calendly.com/andreas-laffert
+
+other2:
+  email: danielaolivarescollio@gmail.com
+  appointment_url: https://calendly.com/juancastillov/horas-oficina
+
+
 course:
   number: "PMAP 8521"
   semester: "Segundo 2023"

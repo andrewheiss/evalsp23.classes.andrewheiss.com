@@ -38,8 +38,12 @@ withr::with_dir(here::here(), {
 
 **Apoyos docentes**
 
-- {{< fa user >}} &nbsp;Daniela Olivares
-- {{< fa user >}} &nbsp; Andreas Lafferte
+- {{< fa user >}} &nbsp; Daniela Olivares
+- {{< fa envelope >}} &nbsp; <a href="mailto:{{< var other2.email >}}">{{< var other2.email >}}</a>
+- {{< fa calendar-check >}} &nbsp; [Agendar reunión]({{< var other2.appointment_url >}})
+- {{< fa user >}} &nbsp; Andreas Laffert
+- {{< fa envelope >}} &nbsp; <a href="mailto:{{< var other.email >}}">{{< var other.email >}}</a>
+- {{< fa calendar-check >}} &nbsp; [Agendar reunión]({{< var other.appointment_url >}})
 
 
 :::

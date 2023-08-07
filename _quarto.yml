@@ -26,7 +26,7 @@ website:
   title: "Estadística Correlacional"
   site-url: "https://correlacional.netlify.app"
 
-  favicon: "/files/logo-correlacional.png"
+  favicon: "/files/logo-correlacional-transp.png"
 
   # twitter-card:
   #  image: "/files/social-image-sp23.png"
@@ -79,7 +79,8 @@ website:
             - assignment/index.qmd
         - section: "Guías"
           contents:
-            - assignment/01-practico.qmd
+            - text: "1: Reportes dinámicos 1"
+              file: assignment/01-practico.qmd
 
   page-footer:
     left: |

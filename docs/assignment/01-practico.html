@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Estadística Correlacional - Asociación, inferencia y reporte">
+
+<title>Estadística Correlacional - Reportes dinámicos con RMarkdown</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//files/logo-correlacional-transp.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+
+
+<meta property="og:title" content="Estadística Correlacional - Reportes dinámicos con RMarkdown">
+<meta property="og:description" content="El objetivo de esta guía práctica es familiarizarnos con las herramientas fundamentales para crear documentos dinámicos que nos permitan combinar texto y análisis (código) en un único reporte…">
+<meta property="og:image" content="https://correlacional.netlify.app/files/logo-correlacional.png">
+<meta property="og:site-name" content="Estadística Correlacional">
+<meta property="og:locale" content="es">
+<meta property="og:image:height" content="500">
+<meta property="og:image:width" content="500">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Estadística Correlacional</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html">
+ <span class="menu-text">Programa</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html">
+ <span class="menu-text">Planificación</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../content/index.html">
+ <span class="menu-text">Clases</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../assignment/index.html" aria-current="page">
+ <span class="menu-text">Prácticos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resource/index.html">
+ <span class="menu-text">Recursos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../news/index.html">
+ <span class="menu-text">Noticias</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://rstudio.cloud"><i class="bi bi-cloud-fill" role="img" aria-label="RStudio.cloud">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Reportes dinámicos con RMarkdown</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Sobre prácticos</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/index.html" class="sidebar-item-text sidebar-link">Instrucciones generales</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Guías</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/01-practico.html" class="sidebar-item-text sidebar-link active">1: Reportes dinámicos 1</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#objetivo-de-la-práctica" id="toc-objetivo-de-la-práctica" class="nav-link active" data-scroll-target="#objetivo-de-la-práctica">Objetivo de la práctica</a></li>
+  <li><a href="#reproducibilidad" id="toc-reproducibilidad" class="nav-link" data-scroll-target="#reproducibilidad">1. Reproducibilidad</a></li>
+  <li><a href="#escritura-abierta-markdown" id="toc-escritura-abierta-markdown" class="nav-link" data-scroll-target="#escritura-abierta-markdown">2. Escritura abierta (Markdown)</a>
+  <ul class="collapse">
+  <li><a href="#formatos-básicos-de-markdown" id="toc-formatos-básicos-de-markdown" class="nav-link" data-scroll-target="#formatos-básicos-de-markdown">Formatos básicos de Markdown</a></li>
+  </ul></li>
+  <li><a href="#documentos-dinámicos-rmarkdown" id="toc-documentos-dinámicos-rmarkdown" class="nav-link" data-scroll-target="#documentos-dinámicos-rmarkdown">3. Documentos dinámicos (RMarkdown)</a></li>
+  <li><a href="#generación-de-reporte" id="toc-generación-de-reporte" class="nav-link" data-scroll-target="#generación-de-reporte">4. Generación de reporte</a>
+  <ul class="collapse">
+  <li><a href="#paso-1-instalar-librerías" id="toc-paso-1-instalar-librerías" class="nav-link" data-scroll-target="#paso-1-instalar-librerías">Paso 1: Instalar librerías</a></li>
+  <li><a href="#paso-2-crear-un-nuevo-archivo-en-rmarkdown" id="toc-paso-2-crear-un-nuevo-archivo-en-rmarkdown" class="nav-link" data-scroll-target="#paso-2-crear-un-nuevo-archivo-en-rmarkdown">Paso 2: Crear un nuevo archivo en Rmarkdown</a></li>
+  <li><a href="#paso-3-crear-el-archivo-con-formato-desde-el-.rmd" id="toc-paso-3-crear-el-archivo-con-formato-desde-el-.rmd" class="nav-link" data-scroll-target="#paso-3-crear-el-archivo-con-formato-desde-el-.rmd">Paso 3: Crear el archivo con formato desde el .Rmd</a></li>
+  <li><a href="#paso-4-opciones-de-chunks" id="toc-paso-4-opciones-de-chunks" class="nav-link" data-scroll-target="#paso-4-opciones-de-chunks">Paso 4: Opciones de chunks</a></li>
+  </ul></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#reporte-de-progreso" id="toc-reporte-de-progreso" class="nav-link" data-scroll-target="#reporte-de-progreso">Reporte de progreso</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header">
+<h1 class="title d-none d-lg-block display-7">Reportes dinámicos con RMarkdown</h1>
+
+<div class="date-block bg-assignment text-white p-2">
+  <p class="date">Completar hasta as 11:59 PM del viernes, 11 de agosto de 2023</p>
+</div>
+</header>
+
+<section id="objetivo-de-la-práctica" class="level1">
+<h1>Objetivo de la práctica</h1>
+<p>El objetivo de esta guía práctica es familiarizarnos con las herramientas fundamentales para crear documentos dinámicos que nos permitan combinar texto y análisis (código) en un único reporte utilizando RMarkdown.</p>
+<p>En detalle, aprenderemos:</p>
+<ol type="1">
+<li>Qué es la reproducibilidad y un flujo de trabajo reproducible</li>
+<li>Qué es escritura abierta con Markdown</li>
+<li>Qué es RMarkdown y cómo generar reportes dinámicos</li>
+</ol>
+</section>
+<section id="reproducibilidad" class="level1">
+<h1>1. Reproducibilidad</h1>
+<p>La <strong>reproducibilidad</strong> en ciencias sociales es esencial para garantizar resultados confiables y evitar casualidades. Imagina presentar hallazgos emocionantes en una conferencia y que te pidan que demuestres cómo llegaste a esos resultados. ¡La reproducibilidad se convierte en tu mejor amiga o peor enemiga en ese momento!</p>
+<p><img src="../files/flujo-herramientas.png" class="img-fluid"></p>
+<p>Cuando un estudio es reproducible, <strong>significa que has detallado claramente tu proceso de investigación para que cualquiera pueda seguirlo y obtener los <em>mismos resultados</em></strong>. Esto no solo genera confianza en tu trabajo, sino que permite a otros construir sobre tus hallazgos y contribuir al conocimiento colectivo.</p>
+<p><img src="../files/reproducibility.jpg" class="img-fluid"></p>
+<p>¿Cómo organizamos <strong>un proyecto reproducible</strong>? lo primero es definir una estructura de proyecto autocontenido:</p>
+<ol type="1">
+<li>En este curso trabajaremos con un flujo de trabajo reproducible, basado en el sistema <a href="https://lisa-coes.com/ipo-repro/">IPO</a>. <strong>IPO</strong> es un protocolo de estructura digital de carpetas que permite organizar, procesar y documentar los datos de un proyecto de investigación para que cualquier persona pueda ejecutarlo y compartirlo.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../files/ipo.png" class="img-fluid figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>¿Y cómo lo hacemos? Mediante los <strong>Rproject</strong>. Estos <a href="https://descriptiva-facso.netlify.app/content/01-content">ya los conocemos</a>, y son la raíz de nuestro proyecto que articula o abraza (como un pulpo) los demás componentes.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../files/ipo-rproj.png" class="img-fluid figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="escritura-abierta-markdown" class="level1">
+<h1>2. Escritura abierta (Markdown)</h1>
+<p>Probablemente, el programa que más se ha utilizado para la escritura sea Microsoft Word, desde pregrado hasta el mundo profesional.</p>
+<p><img src="../files/word.png" class="img-fluid"></p>
+<p>Aunque útil, este procesador de texto <strong>tiene diversas barreas</strong>, ya sea de <em>pago/licencias</em>, problemas de <em>versionamiento</em> (difícil saber quién hizo qué) y no permiten <em>reproducibilidad</em> (tenemos que copiar y pegar). Aquí entra el <strong>texto plano</strong>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El texto plano:</p>
+<ul>
+<li>es un tipo de texto que se puede leer independiente del lector que use</li>
+<li>es abierto y gratuito</li>
+<li>permite combinar texto y análisis en un solo documento <em>(reproducibilidad)</em></li>
+<li>foco en el contenido, luego el formato</li>
+<li>distintas opciones de salida (pdf, html, word, etc.)</li>
+</ul>
+</div>
+</div>
+<p><a href="https://daringfireball.net/projects/markdown/">Markdown</a> es una clase especial de lenguaje que permite darle formato a texto simple con pocas marcas. Por ejemplo, poder hacer cursivas, negritas, incorporar links, etc.</p>
+<section id="formatos-básicos-de-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="formatos-básicos-de-markdown">Formatos básicos de Markdown</h2>
+
+<table class="table">
+<colgroup>
+<col width="40%">
+<col width="21%">
+<col width="38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>
+Escribe…
+</th>
+<th>
+…o…
+</th>
+<th>
+…para obtener
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>
+<pre>Algo de texto en el párrafo.<br>
+Más texto
+espacio entre lineas.</pre>
+</td>
+<td>
+</td>
+<td>
+<p>
+Algo de texto.
+</p>
+<p>
+Algo de texto en el párrafo. Siempre utilizando espacios para dividir párrafos
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code><em>Cursivas</em></code>
+</td>
+<td>
+<code><em>Cursivas</em></code>
+</td>
+<td>
+<em>Cursivas</em>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code><strong>Negrita</strong></code>
+</td>
+<td>
+<code><strong>Negrita</strong></code>
+</td>
+<td>
+<strong>Negrita</strong>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code># Título 1</code>
+</td>
+<td>
+</td>
+<td>
+<h1 class="smaller-h1">
+Título 1
+</h1>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code>## Título 2</code>
+</td>
+<td>
+</td>
+<td>
+<h2 class="smaller-h2 anchored">
+Título 2
+</h2>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code>### Título 3</code>
+</td>
+<td>
+</td>
+<td>
+<h3 class="smaller-h3 anchored">
+Título 3
+</h3>
+</td>
+</tr>
+<tr class="odd">
+<td>
+(puedes llegar hasta un título N° 6 con <code>######</code>)
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="http://www.example.com">Link text</a></code>
+</td>
+<td>
+</td>
+<td>
+<a href="http://www.example.com">Link text</a>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code><img src="../path/to/image.png" class="img-fluid" alt="Image caption"></code>
+</td>
+<td>
+</td>
+<td>
+<img src="../files/img-144.png" title="fig:" alt="Class logo">
+</td>
+</tr>
+<tr class="even">
+<td>
+<code>&lt;code&gt;Inline code</code> with backticks
+</td>
+<td>
+</td>
+<td>
+<code>Inline code</code> with backticks
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code>&gt; Citas</code>
+</td>
+<td>
+</td>
+<td>
+<blockquote class="blockquote">
+<p>
+Citas
+</p>
+</blockquote>
+</td>
+</tr>
+<tr class="even">
+<td>
+<pre>- Cosas en
+- listas
+- desordenadas</pre>
+</td>
+<td>
+<pre>* Cosas en
+* listas
+* desordenadas</pre>
+</td>
+<td>
+<ul>
+<li>
+Cosas en
+</li>
+<li>
+listas
+</li>
+<li>
+desordenadas
+</li>
+</ul>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<pre>1. Cosas en
+2. listas
+3. ordenadas</pre>
+</td>
+<td>
+<pre>1) Cosas en
+2) listas
+3) ordenadas</pre>
+</td>
+<td>
+<ol style="list-style-type: decimal">
+<li>
+Cosas en
+</li>
+<li>
+listas
+</li>
+<li>
+ordenadas
+</li>
+</ol>
+</td>
+</tr>
+<tr class="even">
+<td>
+<pre>Línea horizontal
+
+---</pre>
+</td>
+<td>
+<pre>Línea horizontal
+
+***</pre>
+</td>
+<td>
+<p>
+Línea horizontal
+</p>
+<hr>
+</td>
+</tr>
+</tbody>
+
+</table>
+</section>
+</section>
+<section id="documentos-dinámicos-rmarkdown" class="level1">
+<h1>3. Documentos dinámicos (RMarkdown)</h1>
+<p><a href="https://rmarkdown.rstudio.com/">R Markdown</a> es un lenguaje que combina texto plano (Markdown) y código (R). Al mezclar ambos mundos en un solo documento <em>.Rmd</em>, permite la integración simúltanea de texto y análisis (código) a nuestros reportes. Esto es lo que se conoce como <strong>documentos dinámicos</strong>.</p>
+<p>Por ejemplo, este sitio web está escrito con <code>R Markdown</code>, lo que nos permite demostrar cómo combinar código de <code>R</code> (gráficos, tablas y otros resultados) con <code>texto plano</code>, <em>generando documentos reproducibles.</em></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../files/rm-logo.png" class="img-fluid figure-img" style="width:20.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En el ambiente de RStudio, <code>R Markdown</code> es una librería de R que provee de una serie de herramientas para generar documentos dinámicos y publicarlos.</p>
+<p>¡Veamos cómo se hace!</p>
+</section>
+<section id="generación-de-reporte" class="level1">
+<h1>4. Generación de reporte</h1>
+<section id="paso-1-instalar-librerías" class="level3">
+<h3 class="anchored" data-anchor-id="paso-1-instalar-librerías">Paso 1: Instalar librerías</h3>
+<p>El primero paso para inciar un documento <code>R Markdown</code> en R Studio es instalar (o actualizar según sea el caso) la librería asociada. Al instalarla, también se descargan otras dependencias que permiten trabajar y publicar con <code>RMarkdown</code> (como knitr y también tinitex, que permite generación documentos pdf vía Latex).</p>
+<p>Pero primero, llamemos a un viejo conocido: el paquete <code>pacman</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pacman"</span>) <span class="co"># en caso de no tener pacman instalado</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ahora, instalemos las librerías para generar nuestro archivo .Rmd</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rmarkdown,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>               knitr)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="paso-2-crear-un-nuevo-archivo-en-rmarkdown" class="level3">
+<h3 class="anchored" data-anchor-id="paso-2-crear-un-nuevo-archivo-en-rmarkdown">Paso 2: Crear un nuevo archivo en Rmarkdown</h3>
+<ol type="1">
+<li><p>Una vez cargados los paquetes deben dirigirse a <code>File &gt; New File &gt; R Markdown</code>.</p></li>
+<li><p>Luego deben darle un título, poner su nombre y especificar un formato de salida, ya sea en <strong>HTML</strong>, <strong>PDF</strong> o <strong>Word</strong>.</p></li>
+</ol>
+<p><img src="../files/rm-jc.gif" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>Se creará un archivo con un <em>YAML</em> , donde se especifican opciones generales del documento entre tres guiones (—); y un chunk, o trozo de código.</li>
+</ol>
+<p><img src="../files/YAML.png" class="img-fluid"></p>
+<p>El <em>YAML</em> es muy importante, y consta de tres partes mínimas: título, autor y opción de formato de salida. <a href="https://bookdown.org/yihui/rmarkdown/">Hay más opciones</a> que iremos viendo durante el curso.</p>
+<ol start="4" type="1">
+<li>Ahora, ya pueden comenzar a escribir sus informes en <code>RMarkdown</code>. Veamos otras configuraciones.</li>
+</ol>
+</section>
+<section id="paso-3-crear-el-archivo-con-formato-desde-el-.rmd" class="level3">
+<h3 class="anchored" data-anchor-id="paso-3-crear-el-archivo-con-formato-desde-el-.rmd">Paso 3: Crear el archivo con formato desde el .Rmd</h3>
+<p>Para generar el documento, en la salida que especifiquemos, presionamos el botón de <code>Knitr</code>. El <code>Knitear</code> permite <em>compilar</em> el documento <em>tejiendo o uniendo</em> el contenido de manera <strong>secuencial</strong>. Combinará el texto plano y el código de R (en chunks) a partir de las instrucciones que le dimos en el <em>YAML</em>.</p>
+<p><img src="../files/knit-button.png" class="img-fluid"></p>
+<p>Al <code>knitear</code> el documento, le estamos dando la instrucción a R de que pase este archivo Markdown (.md) por un convertidor universal llamado <a href="https://pandoc.org/">pandoc</a>. En la práctica, este proceso se le conoce como <em>renderizar</em>.</p>
+<p><img src="../files/pandoc.png" class="img-fluid"></p>
+<p>El resultado aparece en el visor (Viewer) de R, o se puede seleccionar otra opción de visualización desde la rueda de configuración al lado del botón <code>knitr</code>.</p>
+<p><img src="../files/render.png" class="img-fluid"></p>
+<p>El documento queda grabado como archivo (ej: probando.html) en el mismo directorio del archivo .Rmd</p>
+</section>
+<section id="paso-4-opciones-de-chunks" class="level3">
+<h3 class="anchored" data-anchor-id="paso-4-opciones-de-chunks">Paso 4: Opciones de chunks</h3>
+<p>La manera en que integramos código de R en un archivo <code>RMarkdown</code> es mediante <code>chunks</code>, que son <em>trozos</em> de código dentro de nuestra hoja. Estos permiten hacer análisis estadísticos dentro del documento visualizando los resultados en el documento final.</p>
+<p>Los chunks se ven así dentro del .Rmd:</p>
+<pre><code>```{r}
+# El codigo va aquí
+
+````</code></pre>
+<section id="añadir-chunks" class="level4">
+<h4 class="anchored" data-anchor-id="añadir-chunks">4.1 Añadir Chunks</h4>
+<p>Hay tres formas de insertar chunks:</p>
+<ol type="1">
+<li><p>Pulsar <code>⌘⌥I</code> en macOS o <code>Control + Alt + I</code> en Windows</p></li>
+<li><p>Pulsa el botón “Insert” en la parte superior de la ventana del editor</p></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../files/insertchunk.png" class="img-fluid" style="width:40.0%"></p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Escribirlo manualmente (no recomendado)</li>
+</ol>
+</section>
+<section id="nombrar-chunks" class="level4">
+<h4 class="anchored" data-anchor-id="nombrar-chunks">4.2 Nombrar chunks</h4>
+<p>Se puede añadir nombres a los chunks para hacer más fácil la navegación por el documento. Si no incluyes un nombre, el chunk seguirá apareciendo, pero no sabrás lo que hace.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../files/chunk-toc.png" class="img-fluid" style="width:40.0%"></p>
+</div>
+</div>
+<p>Para añadir un nombre, inclúyelo inmediatamente después de la <code>{r</code> en la primera línea del chunk. Los nombres no pueden contener espacios, pero sí guiones bajos y guiones.</p>
+<p>Importante: <strong>Todos los nombres de chunk de tu documento deben ser únicos.</strong></p>
+<pre><code>```{r nombre-chunk}
+# El codigo va aquí
+
+````</code></pre>
+</section>
+<section id="opciones-de-chunks" class="level4">
+<h4 class="anchored" data-anchor-id="opciones-de-chunks">4.3 Opciones de chunks</h4>
+<p>Hay distintas opciones diferentes que puedes establecer para cada chunk. Puedes ver una lista completa en la <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">Guía de referencia de RMarkdown</a> o en el <a href="https://yihui.org/knitr/options/">sitio web de <strong>knitr</strong></a>.</p>
+<p>Las opciones van dentro de la sección <code>{r}</code> del chunk:</p>
+<pre><code>```{r nombre-chunk, message = F, echo = F}
+# El codigo va aquí
+
+````</code></pre>
+<p>Las opciones de chunk más comunes son estas:</p>
+<ul>
+<li><p><code>echo=FALSE</code>: El código no se muestra en el documento final, pero los resultados si</p></li>
+<li><p><code>message=FALSE</code>: Se omiten los mensajes que genera R (como todas las notas que aparecen después de cargar un paquete)</p></li>
+<li><p><code>warning=FALSE</code>: Se omiten las advertencias que genera R</p></li>
+<li><p><code>include=FALSE</code>: El chunk se sigue ejecutando, pero el código y los resultados no se incluyen en el documento final</p></li>
+</ul>
+<p>Atajos de configuración de chunk: dar clic en el pequeño icono de engranaje en la esquina superior derecha de cualquier chunk:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../files/chunk-options.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="resumen" class="level1">
+<h1>Resumen</h1>
+<p>Hoy aprendimos a generar documentos dinámicos con RMarkdown. En detalle, aprendímos:</p>
+<ol type="1">
+<li>Qué es la reproducibilidad y un flujo de trabajo reproducible</li>
+<li>Qué es escritura abierta con Markdown</li>
+<li>Qué es RMarkdown y cómo generar reportes dinámicos</li>
+</ol>
+</section>
+<section id="reporte-de-progreso" class="level1">
+<h1>Reporte de progreso</h1>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2023 by <a href="https://www.jc-castillo.com">Juan Castillo</a> <br> All content licensed under a <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by" aria-label="creative-commons-by"></i> <i class="fa-brands fa-creative-commons-nc" aria-label="creative-commons-nc"></i> <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/cursos-metodos-facso/correlacional">View the source at <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>
