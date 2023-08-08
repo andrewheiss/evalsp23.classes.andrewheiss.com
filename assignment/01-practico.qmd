@@ -92,13 +92,13 @@ espacio entre lineas.</pre></td>
 espacios para dividir párrafos</p></td>
 </tr>
 <tr class="even">
-<td><code>*Cursivas*</code></td>
-<td><code>_Cursivas_</code></td>
+<td><code>`*Cursivas*`</code></td>
+<td><code>`_Cursivas_`</code></td>
 <td><em>Cursivas</em></td>
 </tr>
 <tr class="odd">
-<td><code>**Negrita**</code></td>
-<td><code>__Negrita__</code></td>
+<td><code>`**Negrita**`</code></td>
+<td><code>`__Negrita__`</code></td>
 <td><strong>Negrita</strong></td>
 </tr>
 <tr class="even">
@@ -128,17 +128,17 @@ Título 3
 <td></td>
 </tr>
 <tr class="even">
-<td><code>[Link text](http://www.example.com)</code></td>
+<td><code>`[Link text](http://www.example.com)`</code></td>
 <td></td>
 <td><a href="http://www.example.com">Link text</a></td>
 </tr>
 <tr class="odd">
-<td><code>![Image caption](/path/to/image.png)</code></td>
+<td><code>`![Image caption](/path/to/image.png)`</code></td>
 <td></td>
 <td><img src="/files/img-144.png" title="fig:" alt="Class logo" /></td>
 </tr>
 <tr class="even">
-<td>`<code>Inline code` with backticks</code></td>
+<td>` ```Inline code``` ` with backticks</code></td>
 <td></td>
 <td><code>Inline code</code> with backticks</td>
 </tr>
