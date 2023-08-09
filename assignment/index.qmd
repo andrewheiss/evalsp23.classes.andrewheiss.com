@@ -36,7 +36,12 @@ Para minimizar estos posibles problemas en este curso, vamos a:
 
 - trabajar con la misma y última versión de R, que es la 4.3
 - evitar uso de tilde, ñ, espacios y mayúsculas tanto en carpetas y archivos, así como también en los nombres de las variables
-- al momento de hacer consultas sobre problemas en la ejecución del código, adjuntar la siguiente información:
+
+## Sobre errores y consultas sobre problemas con R y ejecución de código
+
+En caso de problemas con ejecución de código, se sugiere intentar solucionarlo autónomamente por no más de 10 minutos, si los problemas siguen entonces consultar. 
+
+Se sugiere que las consultas sobre problemas en la ejecución del código y otros se realicen en los foros al final de los prácticos correspondientes, para lo cual se requiere solo habilitar una cuenta en Github. Al hacer la consulta, adjuntar la siguiente información:
 
   1. Código completo hasta que se produce el problema
   2. Indicar línea del código donde se produce el problema

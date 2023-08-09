@@ -2,6 +2,10 @@
 title: "Reportes dinámicos con RMarkdown"
 date: "2023-08-11"
 lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
 ---
 
 # Objetivo de la práctica
@@ -254,3 +258,22 @@ Hoy aprendimos a generar documentos dinámicos con RMarkdown. En detalle, aprend
 # Reporte de progreso
 
 Completar el reporte de progreso correspondiente a esta práctica [aquí](https://forms.gle/fnoKAgHHtgAkfFiN6). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
+
+# Foro
+
+<script src="https://giscus.app/client.js"
+        data-repo="cursos-metodos-facso/correlacional"
+        data-repo-id="R_kgDOKCMXJQ"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOKCMXJc4CYd9S"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="es"
+        crossorigin="anonymous"
+        async>
+</script>
+
