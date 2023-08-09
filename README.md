@@ -6,3 +6,6 @@
 Web: [correlacional.netlify.com](https://correlacional.netlify.app)
 
 Este sitio es un fork de Andrew Heiss, [andrewheiss/evalsp23.classes.andrewheiss.com](https://github.com/andrewheiss/evalsp23.classes.andrewheiss.com)
+
+
+<!--START_SECTION:activity-->
