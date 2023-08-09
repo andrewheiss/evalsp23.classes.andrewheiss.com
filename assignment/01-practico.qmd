@@ -10,10 +10,9 @@ El objetivo de esta guía práctica es familiarizarnos con las herramientas fund
 
 En detalle, aprenderemos:
 
-1. Qué es la reproducibilidad y un flujo de trabajo reproducible
-2. Qué es escritura abierta con Markdown
-3. Qué es RMarkdown y cómo generar reportes dinámicos 
-
+1.  Qué es la reproducibilidad y un flujo de trabajo reproducible
+2.  Qué es escritura abierta con Markdown
+3.  Qué es RMarkdown y cómo generar reportes dinámicos
 
 # 1. Reproducibilidad
 
@@ -21,24 +20,20 @@ La **reproducibilidad** en ciencias sociales es esencial para garantizar resulta
 
 ![](../files/flujo-herramientas.png)
 
-
-Cuando un estudio es reproducible, **significa que has detallado claramente tu proceso de investigación para que cualquiera pueda seguirlo y obtener los _mismos resultados_**. Esto no solo genera confianza en tu trabajo, sino que permite a otros construir sobre tus hallazgos y contribuir al conocimiento colectivo.
-
+Cuando un estudio es reproducible, **significa que has detallado claramente tu proceso de investigación para que cualquiera pueda seguirlo y obtener los *mismos resultados***. Esto no solo genera confianza en tu trabajo, sino que permite a otros construir sobre tus hallazgos y contribuir al conocimiento colectivo.
 
 ![](../files/reproducibility.jpg)
 
-¿Cómo organizamos **un proyecto reproducible**? lo primero es definir una estructura de proyecto autocontenido: 
+¿Cómo organizamos **un proyecto reproducible**? lo primero es definir una estructura de proyecto autocontenido:
 
-1. En este curso trabajaremos con un flujo de trabajo reproducible, basado en el sistema [IPO](https://lisa-coes.com/ipo-repro/). **IPO** es un protocolo de estructura digital de carpetas que permite organizar, procesar y documentar los datos de un proyecto de investigación para que cualquier persona pueda ejecutarlo y compartirlo.
-
+1.  En este curso trabajaremos con un flujo de trabajo reproducible, basado en el sistema [IPO](https://lisa-coes.com/ipo-repro/). **IPO** es un protocolo de estructura digital de carpetas que permite organizar, procesar y documentar los datos de un proyecto de investigación para que cualquier persona pueda ejecutarlo y compartirlo.
 
 ```{r echo=FALSE, warning=FALSE, out.width="75%", fig.align='center'}
 knitr::include_graphics("../files/ipo.png", error = FALSE)
 
 ```
 
-
-2. ¿Y cómo lo hacemos? Mediante los **Rproject**. Estos [ya los conocemos](https://descriptiva-facso.netlify.app/content/01-content), y son la raíz de nuestro proyecto que articula o abraza (como un pulpo) los demás componentes. 
+2.  ¿Y cómo lo hacemos? Mediante los **Rproject**. Estos [ya los conocemos](https://descriptiva-facso.netlify.app/content/01-content), y son la raíz de nuestro proyecto que articula o abraza (como un pulpo) los demás componentes.
 
 ```{r echo=FALSE, warning=FALSE, out.width="75%", fig.align='center'}
 knitr::include_graphics("../files/ipo-rproj.png", error = FALSE)
@@ -49,160 +44,81 @@ knitr::include_graphics("../files/ipo-rproj.png", error = FALSE)
 
 Probablemente, el programa que más se ha utilizado para la escritura sea Microsoft Word, desde pregrado hasta el mundo profesional.
 
-
 ![](../files/word.png)
 
-Aunque útil, este procesador de texto **tiene diversas barreas**, ya sea de _pago/licencias_, problemas de _versionamiento_ (difícil saber quién hizo qué) y no permiten _reproducibilidad_ (tenemos que copiar y pegar). Aquí entra el **texto plano**.
+Aunque útil, este procesador de texto **tiene diversas barreas**, ya sea de *pago/licencias*, problemas de *versionamiento* (difícil saber quién hizo qué) y no permiten *reproducibilidad* (tenemos que copiar y pegar). Aquí entra el **texto plano**.
 
 ::: callout-note
-El texto plano: 
+El texto plano:
 
-- es un tipo de texto que se puede leer independiente del lector que use
-- es abierto y gratuito
-- permite combinar texto y análisis en un solo documento _(reproducibilidad)_
-- foco en el contenido, luego el formato
-- distintas opciones de salida (pdf, html, word, etc.)
+-   es un tipo de texto que se puede leer independiente del lector que use
+-   es abierto y gratuito
+-   permite combinar texto y análisis en un solo documento *(reproducibilidad)*
+-   foco en el contenido, luego el formato
+-   distintas opciones de salida (pdf, html, word, etc.)
 :::
 
 [Markdown](https://daringfireball.net/projects/markdown/) es una clase especial de lenguaje que permite darle formato a texto simple con pocas marcas. Por ejemplo, poder hacer cursivas, negritas, incorporar links, etc.
 
 ## Formatos básicos de Markdown
 
-<table>
-<colgroup>
-<col width="40%" />
-<col width="21%" />
-<col width="38%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Escribe…</th>
-<th>…o…</th>
-<th>…para obtener</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre>Algo de texto en el párrafo.<br>
-Más texto
-espacio entre lineas.</pre></td>
-<td></td>
-<td><p>Algo de texto.</p>
-<p>Algo de texto en el párrafo. Siempre utilizando
-espacios para dividir párrafos</p></td>
-</tr>
-<tr class="even">
-<td><code>`*Cursivas*`</code></td>
-<td><code>`_Cursivas_`</code></td>
-<td><em>Cursivas</em></td>
-</tr>
-<tr class="odd">
-<td><code>`**Negrita**`</code></td>
-<td><code>`__Negrita__`</code></td>
-<td><strong>Negrita</strong></td>
-</tr>
-<tr class="even">
-<td><code># Título 1</code></td>
-<td></td>
-<td><h1 class="smaller-h1">
-Título 1
-</h1></td>
-</tr>
-<tr class="odd">
-<td><code>## Título 2</code></td>
-<td></td>
-<td><h2 class="smaller-h2">
-Título 2
-</h2></td>
-</tr>
-<tr class="even">
-<td><code>### Título 3</code></td>
-<td></td>
-<td><h3 class="smaller-h3">
-Título 3
-</h3></td>
-</tr>
-<tr class="odd">
-<td>(puedes llegar hasta un título N° 6 con <code>######</code>)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>`[Link text](http://www.example.com)`</code></td>
-<td></td>
-<td><a href="http://www.example.com">Link text</a></td>
-</tr>
-<tr class="odd">
-<td><code>`![Image caption](/path/to/image.png)`</code></td>
-<td></td>
-<td><img src="/files/img-144.png" title="fig:" alt="Class logo" /></td>
-</tr>
-<tr class="even">
-<td>` ```Inline code``` ` with backticks</code></td>
-<td></td>
-<td><code>Inline code</code> with backticks</td>
-</tr>
-<tr class="odd">
-<td><code>&gt; Citas</code></td>
-<td></td>
-<td><blockquote>
-<p>Citas</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td><pre>- Cosas en
-- listas
-- desordenadas</pre></td>
-<td><pre>* Cosas en
-* listas
-* desordenadas</pre></td>
-<td><ul>
-<li>Cosas en</li>
-<li>listas</li>
-<li>desordenadas</li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td><pre>1. Cosas en
-2. listas
-3. ordenadas</pre></td>
-<td><pre>1) Cosas en
-2) listas
-3) ordenadas</pre></td>
-<td><ol style="list-style-type: decimal">
-<li>Cosas en</li>
-<li>listas</li>
-<li>ordenadas</li>
-</ol></td>
-</tr>
-<tr class="even">
-<td><pre>Línea horizontal
-
----</pre></td>
-<td><pre>Línea horizontal
-
-***</pre></td>
-<td><p>Línea horizontal</p>
-<hr /></td>
-</tr>
-</tbody>
-</table>
-
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+| Escribe...                                        | ...o...              | ...para obtener                                                                |
++===================================================+======================+================================================================================+
+|     Algo de texto en el párrafo.                  |                      | Algo de texto.                                                                 |
+|                                                   |                      |                                                                                |
+|     Más texto                                     |                      | Algo de texto en el párrafo. Siempre utilizando espacios para dividir párrafos |
+|     espacio entre lineas.                         |                      |                                                                                |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+| `` `*Cursivas*` ``                                | `` `_Cursivas_` ``   | *Cursivas*                                                                     |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+| `` `**Negrita**` ``                               | `` `__Negrita__` ``  | **Negrita**                                                                    |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+| `# Título 1`                                      |                      | # Título 1                                                                     |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+| `## Título 2`                                     |                      | ## Título 2                                                                    |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+| `### Título 3`                                    |                      | ### Título 3                                                                   |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+| (puedes llegar hasta un título N° 6 con `######`) |                      |                                                                                |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+| `` `[Link text](http://www.example.com)` ``       |                      | [Link text](http://www.example.com)                                            |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+| `` `![Image caption](/path/to/image.png)` ``      |                      | ![Class logo](/files/img-144.png){alt="Class logo"}                            |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+| \` \`\`\`Inline code\`\`\` \` with backticks      |                      | `Inline code` with backticks                                                   |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+| `> Citas`                                         |                      | > Citas                                                                        |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+|     - Cosas en                                    |     * Cosas en       | -   Cosas en                                                                   |
+|     - listas                                      |     * listas         |                                                                                |
+|     - desordenadas                                |     * desordenadas   | -   listas                                                                     |
+|                                                   |                      |                                                                                |
+|                                                   |                      | -   desordenadas                                                               |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+|     1. Cosas en                                   |     1) Cosas en      | 1.  Cosas en                                                                   |
+|     2. listas                                     |     2) listas        |                                                                                |
+|     3. ordenadas                                  |     3) ordenadas     | 2.  listas                                                                     |
+|                                                   |                      |                                                                                |
+|                                                   |                      | 3.  ordenadas                                                                  |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
+|     Línea horizontal                              |     Línea horizontal | Línea horizontal                                                               |
+|                                                   |                      |                                                                                |
+|     ---                                           |     ***              | ------------------------------------------------------------------------       |
++---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+
 
 # 3. Documentos dinámicos (RMarkdown)
 
-[R Markdown](https://rmarkdown.rstudio.com/) es un lenguaje que combina texto plano (Markdown) y código (R). Al mezclar ambos mundos en un solo documento _.Rmd_, permite la integración simúltanea de texto y análisis (código) a nuestros reportes. Esto es lo que se conoce como **documentos dinámicos**. 
+[R Markdown](https://rmarkdown.rstudio.com/) es un lenguaje que combina texto plano (Markdown) y código (R). Al mezclar ambos mundos en un solo documento *.Rmd*, permite la integración simúltanea de texto y análisis (código) a nuestros reportes. Esto es lo que se conoce como **documentos dinámicos**.
 
-
-Por ejemplo, este sitio web está escrito con `R Markdown`, lo que nos permite demostrar cómo combinar código de `R` (gráficos, tablas y otros resultados) con `texto plano`, _generando documentos reproducibles._
+Por ejemplo, este sitio web está escrito con `R Markdown`, lo que nos permite demostrar cómo combinar código de `R` (gráficos, tablas y otros resultados) con `texto plano`, *generando documentos reproducibles.*
 
 ```{r echo=FALSE, warning=FALSE, out.width="20%", fig.align='center'}
 knitr::include_graphics("../files/rm-logo.png", error = FALSE)
 
 ```
 
-En el ambiente de RStudio, `R Markdown` es una librería de R que provee de una serie de herramientas para generar documentos dinámicos y publicarlos. 
-
+En el ambiente de RStudio, `R Markdown` es una librería de R que provee de una serie de herramientas para generar documentos dinámicos y publicarlos.
 
 ¡Veamos cómo se hace!
 
@@ -226,68 +142,62 @@ pacman::p_load(rmarkdown,
                knitr)
 ```
 
-
 ### Paso 2: Crear un nuevo archivo en Rmarkdown
 
-1. Una vez cargados los paquetes deben dirigirse a `File > New File > R Markdown`. 
+1.  Una vez cargados los paquetes deben dirigirse a `File > New File > R Markdown`.
 
-2. Luego deben darle un título, poner su nombre y especificar un formato de salida, ya sea en **HTML**, **PDF** o **Word**.
-
+2.  Luego deben darle un título, poner su nombre y especificar un formato de salida, ya sea en **HTML**, **PDF** o **Word**.
 
 ![](../files/rm-jc.gif)
 
-3. Se creará un archivo con un _YAML_ , donde se especifican opciones generales del documento entre tres guiones (---); y un chunk, o trozo de código. 
+3.  Se creará un archivo con un *YAML* , donde se especifican opciones generales del documento entre tres guiones (---); y un chunk, o trozo de código.
 
 ![](../files/YAML.png)
 
-El _YAML_ es muy importante, y consta de tres partes mínimas: título, autor y opción de formato de salida. [Hay más opciones](https://bookdown.org/yihui/rmarkdown/) que iremos viendo durante el curso.
+El *YAML* es muy importante, y consta de tres partes mínimas: título, autor y opción de formato de salida. [Hay más opciones](https://bookdown.org/yihui/rmarkdown/) que iremos viendo durante el curso.
 
-4. Ahora, ya pueden comenzar a escribir sus informes en `RMarkdown`. Veamos otras configuraciones.
-
+4.  Ahora, ya pueden comenzar a escribir sus informes en `RMarkdown`. Veamos otras configuraciones.
 
 ### Paso 3: Crear el archivo con formato desde el .Rmd
 
-Para generar el documento, en la salida que especifiquemos, presionamos el botón de `Knitr`. El `Knitear` permite _compilar_ el documento _tejiendo o uniendo_ el contenido de manera **secuencial**. Combinará el texto plano y el código de R (en chunks) a partir de las instrucciones que le dimos en el _YAML_. 
+Para generar el documento, en la salida que especifiquemos, presionamos el botón de `Knitr`. El `Knitear` permite *compilar* el documento *tejiendo o uniendo* el contenido de manera **secuencial**. Combinará el texto plano y el código de R (en chunks) a partir de las instrucciones que le dimos en el *YAML*.
 
 ![](../files/knit-button.png)
 
-Al `knitear` el documento, le estamos dando la instrucción a R de que pase este archivo Markdown (.md) por un convertidor universal llamado [pandoc](https://pandoc.org/). En la práctica, este proceso se le conoce como _renderizar_.
+Al `knitear` el documento, le estamos dando la instrucción a R de que pase este archivo Markdown (.md) por un convertidor universal llamado [pandoc](https://pandoc.org/). En la práctica, este proceso se le conoce como *renderizar*.
 
 ![](../files/pandoc.png)
 
 El resultado aparece en el visor (Viewer) de R, o se puede seleccionar otra opción de visualización desde la rueda de configuración al lado del botón `knitr`.
 
-
-
 ![](../files/render.png)
-
-
 
 El documento queda grabado como archivo (ej: probando.html) en el mismo directorio del archivo .Rmd
 
 ### Paso 4: Opciones de chunks
 
-La manera en que integramos código de R en un archivo `RMarkdown` es mediante `chunks`, que son _trozos_ de código dentro de nuestra hoja. Estos permiten hacer análisis estadísticos dentro del documento visualizando los resultados en el documento final.
+La manera en que integramos código de R en un archivo `RMarkdown` es mediante `chunks`, que son *trozos* de código dentro de nuestra hoja. Estos permiten hacer análisis estadísticos dentro del documento visualizando los resultados en el documento final.
 
 Los chunks se ven así dentro del .Rmd:
 
     `r ''````{r}
     # El codigo va aquí
-    
+
     ````
+
 #### 4.1 Añadir Chunks
 
 Hay tres formas de insertar chunks:
 
-1. Pulsar `⌘⌥I` en macOS o  `Control + Alt + I` en Windows
+1.  Pulsar `⌘⌥I` en macOS o `Control + Alt + I` en Windows
 
-2. Pulsa el botón "Insert" en la parte superior de la ventana del editor
+2.  Pulsa el botón "Insert" en la parte superior de la ventana del editor
 
 ```{r insert, echo=FALSE, out.width="40%"}
 knitr::include_graphics("../files/insertchunk.png", error = FALSE)
 ```
 
-3. Escribirlo manualmente (no recomendado)
+3.  Escribirlo manualmente (no recomendado)
 
 #### 4.2 Nombrar chunks
 
@@ -303,7 +213,7 @@ Importante: **Todos los nombres de chunk de tu documento deben ser únicos.**
 
     `r ''````{r nombre-chunk}
     # El codigo va aquí
-    
+
     ````
 
 #### 4.3 Opciones de chunks
@@ -314,33 +224,33 @@ Las opciones van dentro de la sección `{r}` del chunk:
 
     `r ''````{r nombre-chunk, message = F, echo = F}
     # El codigo va aquí
-    
+
     ````
-    
+
 Las opciones de chunk más comunes son estas:
 
+-   `echo=FALSE`: El código no se muestra en el documento final, pero los resultados si
 
-- `echo=FALSE`: El código no se muestra en el documento final, pero los resultados si
+-   `message=FALSE`: Se omiten los mensajes que genera R (como todas las notas que aparecen después de cargar un paquete)
 
-- `message=FALSE`: Se omiten los mensajes que genera R (como todas las notas que aparecen después de cargar un paquete)
+-   `warning=FALSE`: Se omiten las advertencias que genera R
 
-- `warning=FALSE`: Se omiten las advertencias que genera R
-
-- `include=FALSE`: El chunk se sigue ejecutando, pero el código y los resultados no se incluyen en el documento final
+-   `include=FALSE`: El chunk se sigue ejecutando, pero el código y los resultados no se incluyen en el documento final
 
 Atajos de configuración de chunk: dar clic en el pequeño icono de engranaje en la esquina superior derecha de cualquier chunk:
 
 ```{r chunk-options, echo=FALSE, out.width="70%"}
 knitr::include_graphics("../files/chunk-options.png", error = FALSE)
 ```
-  
+
 # Resumen
 
 Hoy aprendimos a generar documentos dinámicos con RMarkdown. En detalle, aprendímos:
 
-1. Qué es la reproducibilidad y un flujo de trabajo reproducible
-2. Qué es escritura abierta con Markdown
-3. Qué es RMarkdown y cómo generar reportes dinámicos 
+1.  Qué es la reproducibilidad y un flujo de trabajo reproducible
+2.  Qué es escritura abierta con Markdown
+3.  Qué es RMarkdown y cómo generar reportes dinámicos
 
 # Reporte de progreso
 
+Completar el reporte de progreso correspondiente a esta práctica [aquí](https://forms.gle/fnoKAgHHtgAkfFiN6). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
