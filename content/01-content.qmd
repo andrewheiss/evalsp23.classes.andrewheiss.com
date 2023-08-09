@@ -2,10 +2,33 @@
 title: "Presentación"
 date: "2023-08-07"
 lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
 ---
 
 # Documento de presentación
 
 <iframe src=/slides/01-presentacion.html height="550" width=100% allowfullscreen="true">
 </iframe> 
+
+
+# Foro
+
+<script src="https://giscus.app/client.js"
+        data-repo="cursos-metodos-facso/correlacional"
+        data-repo-id="R_kgDOKCMXJQ"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOKCMXJc4CYd9S"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="es"
+        crossorigin="anonymous"
+        async>
+</script>
 
