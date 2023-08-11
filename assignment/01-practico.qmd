@@ -259,6 +259,11 @@ Hoy aprendimos a generar documentos dinámicos con RMarkdown. En detalle, aprend
 
 Completar el reporte de progreso correspondiente a esta práctica [aquí](https://forms.gle/fnoKAgHHtgAkfFiN6). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
 
+# Video de práctica
+
+{{< video https://youtu.be/i8wkxc7049Q >}}
+
+
 # Foro
 
 <script src="https://giscus.app/client.js"
