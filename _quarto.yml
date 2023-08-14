@@ -10,6 +10,7 @@ project:
     - "slides/*.html"
     - "slides/*.pdf"
     - "slides/img/"
+    - "slides/images/"
     - "slides/libs/"
     - "slides/css/"
     - "slides/*_files/"
@@ -70,7 +71,8 @@ website:
           contents:
             - text: "Sesión 1"
               file: content/01-content.qmd
-
+            - text: "Sesión 2"
+              file: content/02-content.qmd
 
     - title: "Prácticos"
       contents:

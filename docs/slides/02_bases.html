@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Estadística Correlacional</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=".small[Juan Carlos Castillo    Departamento de Sociología - UCH / COES   ]" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/animate.css/animate.xaringan.css" rel="stylesheet" />
+    <script src="libs/fabric/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link rel="stylesheet" href="css/custom_2020.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: front
+
+
+
+
+
+
+
+
+.pull-left-wide[
+# Estadística Correlacional]
+
+.pull-right-narrow[![:scale 85%](img/logo-correlacional-transp.png)]
+
+## Asociación, inferencia y reporte
+
+----
+.pull-left[
+
+## Juan Carlos Castillo
+## Sociología FACSO - UChile
+## 2do Sem 2023 
+## [.orange[correlacional.netlify.com]](https://encuestas-sociales.netlify.com)
+]
+
+
+.pull-right-narrow[
+.center[
+.content-block-gray[
+## Sesión 2: 
+# .orange[Bases]]
+]
+]
+---
+
+layout: true
+class: animated, fadeIn
+
+
+---
+class: roja
+
+# Objetivos de la sesión de hoy
+&lt;br&gt;
+
+### 1. Recordar y nivelar aprendizajes previos a este curso, fundamentalmente respecto al manejo de datos, medición y varianza
+
+### 2. Introducción a medidas de asociación entre variables
+
+
+---
+class: roja right
+
+.pull-left-narrow[
+# Contenidos
+]
+
+.pull-right-wide[
+
+## .yellow[1- Resumen sesión anterior]
+
+## 2- Datos y variables
+
+## 3- Bases: Tendencia central y dispersión
+
+## 4- Midiendo asociación
+]
+
+---
+class: middle
+
+.pull-left[
+.content-box-red[
+.center[
+# Imaginación sociológica
+
+Relación del individuo con la sociedad y con la historia
+
+Individuos en contexto social
+
+(C.Wright Mills)]
+]
+]
+.pull-right[
+.center[
+.content-box-green[
+# Imaginación estadística
+
+Una apreciación de que tan usual o inusual es un evento, circunstancia o comportamiento, en relación con un conjunto mayor de eventos similares
+
+(Ritchey, 2008)
+]
+]]
+
+---
+class: middle
+
+.pull-left[
+.content-box-blue[
+.center[
+# Estadística descriptiva
+
+Número de observaciones registradas y frecuencia de esas observaciones (en una muestra o en la población)
+]
+]
+]
+
+--
+
+.pull-right[
+.center[
+.content-box-yellow[
+# Estadística inferencial
+
+Contraste de hipótesis y teorías científicas en base a datos de investigación
+]
+]]
+
+
+---
+# Sobre el sentido general del curso
+En este curso vamos a aprender tres cosas principales:
+
+1. **Inferencia**: los resultados que encontramos en nuestra muestra, ¿se encuentran también en la población de la cual proviene la muestra?
+
+2. **Asociación** entre variables: tamaño y significación estadística
+
+3. **Reporte y reproducibilidad**
+
+
+---
+class: roja right
+
+.pull-left-narrow[
+# Contenidos
+]
+
+.pull-right-wide[
+
+## 1- Resumen sesión anterior
+
+## 2- .yellow[Datos y variables]
+
+## 3- Bases: Tendencia central y dispersión
+
+## 4- Midiendo asociación
+]
+
+---
+# Datos
+
+* Los datos son una expresión numérica de la medición de al menos una .roja[*característica*] de a lo menos una .roja[*unidad*]  en a lo menos .roja[*un punto en el tiempo*]
+
+--
+ + Ejemplo: La esperanza de vida en Chile el 2017 fue de 79,9 años
+
+   - Característica (variable) : esperanza de vida
+
+   - Unidad: Años
+
+   - Punto en el tiempo: 2017
+
+
+---
+# Medir
+
+.pull-left[
+-   “asignar números, símbolos o valores a las propiedades de objetos o eventos de acuerdo con reglas” (Stevens, 1951)
+
+- Vincula conceptos abstractos con indicadores empíricos
+]
+
+.pull-right[
+![:scale 100%](https://estrategias-ic.netlify.app/docpres/03_operac/images/numeros.png)
+]
+---
+# Medir: requisitos básicos
+
+&lt;br&gt;
+
+- **Exhaustividad**: el mayor número de categorías significativas.
+  - Ej: ¿Qué categorías se deben considerar para población migrante?
+
+- **Exclusividad**: atributos mutuamente excluyentes
+
+---
+## Base de Datos
+
+* Forma "rectangular" de almacenamiento de datos:
+
+.center[![:scale 60%](img/ObservacionesyVariables.png)]
+
+---
+## Base de Datos
+
+  - cada .blue[fila] representa una unidad o caso (ej: un entrevistad_)
+
+  - cada .orange[columna] una variable (ej: edad)
+
+  - cada .purple[variable] posee valores numéricos
+
+  - los valores numéricos pueden estar asociados a una etiqueta (ej: 1=Mujer)
+
+
+---
+## Ejemplos de estudios / bases de datos
+
+1. [Encuesta Centro de Estudios Públicos](https://www.cepchile.cl/cep/site/edic/base/port/encuestacep.html)
+
+2. [Encuesta CASEN](http://observatorio.ministeriodesarrollosocial.gob.cl/casen-multidimensional/casen/casen_2017.php)
+
+3. [Encuesta Lapop](https://www.vanderbilt.edu/lapop-espanol/)
+
+4. [ELSOC](https://coes.cl/encuesta-panel/)
+
+---
+# Variables
+
+- Una variable representa cualquier cosa o propiedad que varia y a la cuál se le asigna un valor. Es decir:
+
+- `\(Variable \neq Constante\)`
+
+- Pueden ser visibles o no visibles/latentes. (Ej: peso / inteligencia)
+
+---
+## Variables
+
+- discretas (Rango finito de valores):
+
+      - Dicotómicas
+      - Politómicas
+
+- continuas:
+
+      - Rango (teóricamente) infinito de valores.
+
+---
+## Escalas de medición de variables
+
+- NOIR: Nominal, Ordinal, Intervalar, Razón
+
+.small[
+| Tipo       	| Características                     	        | Propiedad de números 	| Ejemplo|
+|------------	|----------------------------------------------|---------------	|-----------	|
+| *Nominal*    	| Uso de números en lugar de palabras 	| Identidad            	| Nacionalidad      	|
+| *Ordinal*    	| Números se usan para ordenar series 	| + ranking            	| Nivel educacional 	|
+| *Intervalar* 	| Intervalos iguales entre números    	| + igualdad           	| Temperatura       	|
+| *Razón*      	| Cero real                           	| + aditividad         	| Distancia         	|
+]
+
+???
+
+  - Nominal: Números empleados como etiquetas (ej. sexo, raza)
+
+  - Ordinales: Distintas categorías puede sen ordenados en serie. Posición, no distancia. (ej. cargos en una empresa)
+
+  - Intervalares: Escalas de unidades iguales. Diferencia entre dos número consecuntivos refleja diferencia empírica. (ej. Horas del día)
+
+  - Razón: caracterizados por la presencia de un cero absoluto. (ej. frecuencias de eventos)
+
+---
+## Tipos de datos en relación a escalas de medición.
+
+* **Datos categóricos**:
+
+    - pueden ser medidos sólo mediante escalas nominales, u ordinales en caso de orden de rango
+
+* **Datos continuos**:
+    - Medidos en escalas intervalares o de razón
+    - Pueden ser transformados a datos categóricos
+
+???
+Conversión de continuo a categórico: estatura (cm) a categorías bajo – mediano – alto
+
+
+---
+## Descriptivos según tipo de variable
+
+&lt;br&gt;
+.small[
+|             	| Categórica                      	| Continua                      	| Categ.(y)/Categ.(x)                    	| Cont.(y)/Categ.(x)                	|
+|-------------	|---------------------------------	|-------------------------	|------------------------------------------------	|------------------------------------------	|
+| **Ejemplo**     	| **Estatus Ocupacional**             	| **Ingreso**                       	| **Estatus Ocupacional (Y) / Género (X)**           	| **Ingreso (Y) / Género (X)**                 	|
+| Tabla       	| Frecuencias / porcentajes                  	| `\(\bar{X}\)`/sd ... o recodificar en categorías      	| Tabla de Contingencia                          	| Clasificar Y                             	|
+| Gráfico     	| Barras                          	| Histograma / boxplot          	| Gráfico de barras condicionado                 	| Histograma, box plot condicionado        	|
+]
+
+---
+# Tipos de análisis estadístico bivariado
+
+- Variable dependiente (y) : lo que quiero explicar
+
+- Variable independiente (x): lo que me permite explicar la dependiente
+
+.small[
+| Variable independiente x 	| Variable dependiente Categórica   	| Variable dependiente Continua        	|
+|--------------------------	|-----------------------------------	|--------------------------------------	|
+| Categórica               	| Análisis de tabla de Contigencia, Chi2	| Análisis de Varianza ANOVA, Prueba T 	|
+| Continua                 	| Regresión Logística 	| Correlación / Regresión Lineal                     	|
+]
+???
+
+Ojo, técnicamente tambien podemos generalizar los modelos de regresión con variables independientes categoricas, pero esto requiere unas consideraciones menores, que veremos más adelante
+
+---
+class: roja right
+
+.pull-left-narrow[
+# Contenidos
+]
+
+.pull-right-wide[
+
+## 1- Resumen sesión anterior
+
+## 2- Datos y variables
+
+## 3- .yellow[Tendencia central y dispersión]
+
+## 4- Varianza y covarianza
+]
+
+---
+# Tendencia Central
+
+* **Moda**: valor que ocurre más frecuentemente
+
+* **Mediana**: valor medio de la distribución ordenada. Si N es par, entonces es el promedio de los valores medios
+
+* **Media** o promedio aritmético: suma de los valores dividido por el total de casos
+
+---
+.pull-left-narrow[
+# Dispersión:
+## Varianza
+]
+
+.pull-right-wide[
+
+![:scale 100%](img/varianza1.png)
+]
+
+---
+.pull-left-narrow[
+# Dispersión:
+## Varianza
+]
+
+.pull-right-wide[
+
+![:scale 100%](img/varianza3.png)
+]
+
+
+
+---
+.pull-left-narrow[
+# Dispersión:
+## Varianza
+]
+
+.pull-right-wide[
+
+![:scale 100%](img/varianza2.png)
+]
+
+---
+# Dispersión:
+
+![:scale 100%](img/varianza_formula.png)
+
+---
+class: inverse, middle, center
+
+#La VARIANZA equivale al promedio de la suma de las diferencias del promedio al cuadrado
+
+---
+class: middle
+
+
+.pull-left[
+#  Desviación Estándar
+&lt;br&gt;
+![:scale 120%](img/desviacion_estandar.png)
+]
+
+.pull-right[
+  - Raiz Cuadrada de la varianza.
+
+
+  - Expresada  en la mismas unidades que los puntajes de la escala original
+]
+
+
+
+---
+class: middle, center
+
+# Más sobre datos, variables y varianza en:
+
+##-  [Moore: 1. Comprensión de los datos (1-54)](/docs/lecturas/moore_comprensiondelosdatos.pdf)
+
+---
+class: roja right
+
+.pull-left-narrow[
+# Contenidos
+]
+
+.pull-right-wide[
+
+## 1- Resumen sesión anterior
+
+## 2- Datos y variables
+
+## 3- Tendencia central y dispersión
+
+## 4- .yellow[Midiendo asociación]
+]
+
+
+---
+class: inverse, center middle
+
+
+# ¿Cómo puedo saber si una variable se encuentra asociada a otra variable?
+
+---
+# Ejemplo: educación e ingreso
+
+- simulamos datos para
+
+  - 8 niveles de educación (ej: desde basica incompleta=1 hasta postgrado=8)
+  
+  - 12 niveles de rangos de ingreso (ej: desde menos de 100.000=1 hasta más de 10.000.000=12)
+
+---
+
+![](img/educ-ing1.png)
+
+
+
+---
+# Generación de datos para el ejemplo
+
+.pull-left[
+
+```r
+educ &lt;-c(2,3,4,4,5,7,8,8)
+ing &lt;-c(1,3,3,5,4,7,9,11)
+
+data &lt;-data.frame(educ,ing)
+```
+]
+
+
+.pull-right[
+
+```r
+data
+```
+
+```
+##   educ ing
+## 1    2   1
+## 2    3   3
+## 3    4   3
+## 4    4   5
+## 5    5   4
+## 6    7   7
+## 7    8   9
+## 8    8  11
+```
+
+]
+
+---
+class: inverse middle right
+# ¿Cómo calcular la relación entre educación e ingreso?
+
+---
+class: middle
+
+# En la (peligrosa) mente de Galton (1822-1911)
+.pull-left-narrow[
+&lt;br&gt;
+![](https://www.psicoactiva.com/wp-content/uploads/2003/10/Galton.jpg)
+
+]
+
+.pull-right-wide[
+.right[
+![:scale 80%](img/galton-corr.png)
+]]
+
+---
+
+![:scale 80%](img/educ-ing2.png)
+
+---
+
+![:scale 80%](img/educ-ing3.png)
+
+---
+
+![:scale 80%](img/educ-ing4.png)
+
+---
+
+![:scale 80%](img/educ-ing5.png)
+
+
+---
+
+.pull-left-narrow[
+.medium[
+
+```r
+plot1 &lt;- ggplot(data, 
+  aes(x=educ, y=ing)) + 
+  geom_point(
+    colour = "red", 
+    size = 5) 
+```
+]]
+
+.pull-right-wide[
+![](02_bases_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+]
+
+---
+
+.pull-left-wide[
+![](02_bases_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+]
+
+.pull-right-narrow[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+.content-box-red[
+¿Cómo expresar matemáticamente este patrón de asociación?]
+]
+
+---
+class: bottom
+
+class: roja
+
+## Próxima clase:
+
+# Covarianza y correlación
+
+&lt;br&gt;
+- Lectura obligatoria: [.yellow[Moore 97-131, Análisis de relaciones]](https://correlacional.netlify.app/files/textos/Moore.pdf)
+---
+class: middle
+
+# Podcast recomendado:
+
+.pull-left-wide[
+![](https://www.rockandpop.cl/wp-content/uploads/2022/03/Diseno-sin-titulo-2022-03-16T174806.819-1024x576.jpg)
+]
+.pull-right-narrow[
+&lt;br&gt;
+[Temporada 1, ep.25: Tres generaciones de imbéciles](https://open.spotify.com/episode/7pRcDSoXuKWis0fmHcOcYM)
+]
+
+
+---
+
+# ASISTENCIA
+
+.pull-left[
+
+![:scale 90%](img/qr-correlacional-asistencia.png)
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+bit.ly/correlacional-asistencia
+]
+---
+class: front
+
+.pull-left-wide[
+# Estadística Correlacional]
+
+.pull-right-narrow[![:scale 85%](img/logo-correlacional-transp.png)]
+
+## Asociación, inferencia y reporte
+
+----
+.pull-left[
+
+## Juan Carlos Castillo
+## Sociología FACSO - UChile
+## 2do Sem 2023 
+## [.orange[correlacional.netlify.com]](https://encuestas-sociales.netlify.com)
+]
+    
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://multinivel.netlify.com/docpres/xaringan_custom/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+.logo {
+  background-image: url("img/logo-correlacional-transp.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 16.3em;
+  right: 31em;
+  width: 110px;
+  height: 70px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    // ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
