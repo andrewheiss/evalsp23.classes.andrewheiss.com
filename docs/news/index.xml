@@ -9,7 +9,7 @@
 <link>https://correlacional.netlify.app/news/index.html</link>
 <atom:link href="https://correlacional.netlify.app/news/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.353</generator>
+<generator>quarto-1.3.433</generator>
 <lastBuildDate>Mon, 07 Aug 2023 04:00:00 GMT</lastBuildDate>
 <item>
   <title>Bienvenid_s a clases!</title>
@@ -27,6 +27,27 @@
  ]]></description>
   <category>comenzando</category>
   <guid>https://correlacional.netlify.app/news/2023-01-09_welcome.html</guid>
+  <pubDate>Mon, 07 Aug 2023 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Informaciones de la semana</title>
+  <link>https://correlacional.netlify.app/news/2023-08-14_infos.html</link>
+  <description><![CDATA[ 
+
+<div class="back-nav"><a href="../news/">← News</a></div>
+
+
+
+<p>Actualizaciones sitio web:</p>
+<ul>
+<li></li>
+</ul>
+
+
+
+ ]]></description>
+  <category>info</category>
+  <guid>https://correlacional.netlify.app/news/2023-08-14_infos.html</guid>
   <pubDate>Mon, 07 Aug 2023 04:00:00 GMT</pubDate>
 </item>
 </channel>
