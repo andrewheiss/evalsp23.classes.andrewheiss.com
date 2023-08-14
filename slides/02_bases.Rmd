@@ -550,6 +550,7 @@ plot1
 ---
 
 .pull-left-wide[
+
 ```{r, echo=FALSE,fig.height=8 }
 plot1
 ```
