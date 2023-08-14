@@ -13,7 +13,7 @@ slides/**/*_cache/*
 projects/*.zip
 
 # knitr and caching stuff
-**/*_files/*
+# **/*_files/*
 **/*_cache/*
 !README_files/*
 
