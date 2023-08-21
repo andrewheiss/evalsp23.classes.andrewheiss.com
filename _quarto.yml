@@ -74,6 +74,8 @@ website:
               file: content/01-content.qmd
             - text: "Sesión 2"
               file: content/02-content.qmd
+            - text: "Sesión 3"
+              file: content/03-content.qmd              
 
     - title: "Prácticos"
       contents:

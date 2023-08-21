@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.433">
@@ -8,7 +8,7 @@
 
 <meta name="description" content="Estadística Correlacional - Asociación, inferencia y reporte">
 
-<title>Estadística Correlacional - Planificación</title>
+<title>Estadística Correlacional - Asociación 2: Correlación de Pearson</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,24 +24,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//files/logo-correlacional-transp.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//files/logo-correlacional-transp.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -50,22 +50,21 @@ ul.task-list li input[type="checkbox"] {
   "type": "overlay",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 
 
-<meta property="og:title" content="Estadística Correlacional - Planificación">
-<meta property="og:description" content="">
+<meta property="og:title" content="Estadística Correlacional - Asociación 2: Correlación de Pearson">
 <meta property="og:image" content="https://correlacional.netlify.app/files/logo-correlacional.png">
 <meta property="og:site-name" content="Estadística Correlacional">
 <meta property="og:locale" content="es">
@@ -73,45 +72,45 @@ ul.task-list li input[type="checkbox"] {
 <meta property="og:image:width" content="500">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Estadística Correlacional</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html" rel="" target="">
+    <a class="nav-link" href="../syllabus.html" rel="" target="">
  <span class="menu-text">Programa</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./schedule.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../schedule.html" rel="" target="">
  <span class="menu-text">Planificación</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./content/index.html" rel="" target="">
+    <a class="nav-link active" href="../content/index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Clases</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assignment/index.html" rel="" target="">
+    <a class="nav-link" href="../assignment/index.html" rel="" target="">
  <span class="menu-text">Prácticos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resource/index.html" rel="" target="">
+    <a class="nav-link" href="../resource/index.html" rel="" target="">
  <span class="menu-text">Recursos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./news/index.html" rel="" target="">
+    <a class="nav-link" href="../news/index.html" rel="" target="">
  <span class="menu-text">Noticias</span></a>
   </li>  
   <li class="nav-item compact">
@@ -125,308 +124,106 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/01-content.html">Sesiones</a></li><li class="breadcrumb-item"><a href="../content/03-content.html">Sesión 3</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    
-<!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Planificación</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Sobre clases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sobre clases y lecturas</span></a>
   </div>
-  
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Sesiones</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/01-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sesión 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/02-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sesión 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-content.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Sesión 3</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#documento-de-presentación" id="toc-documento-de-presentación" class="nav-link active" data-scroll-target="#documento-de-presentación">Documento de presentación</a></li>
+  <li><a href="#foro" id="toc-foro" class="nav-link" data-scroll-target="#foro">Foro</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
 
+<header id="title-block-header">
+<h1 class="title display-7">Asociación 2: Correlación de Pearson</h1>
+
+<div class="date-block bg-content text-white p-2">
+  <p class="date">Sesión del lunes, 21 de agosto de 2023</p>
+</div>
 </header>
 
-<section id="forma-general-de-funcionamiento" class="level2">
-<h2 class="anchored" data-anchor-id="forma-general-de-funcionamiento">Forma general de funcionamiento</h2>
-<p>Este curso se compone de tres actividades principales a la semana:</p>
-<ul>
-<li><p><i class="fas fa-chalkboard-teacher"></i> <a href=""><strong>Clases lectivas presenciales</strong></a>: los lunes de 8:30 a 10:00, donde en base a las lecturas correspondientes a esa semana se presentará un resumen de los contenidos principales y se resolverán dudas.</p></li>
-<li><p><i class="fas fa-user-edit"></i> <a href=""><strong>Talleres prácticos online</strong></a>: los martes de 10:15 a 11:45 se desarrollarán actividades con énfasis en el manejo de software para análisis y reporte de los resultados. Estas instancias estarán guiadas por los apoyos docentes del curso.</p></li>
-<li><p><i class="fas fa-book-reader"></i> <a href=""><strong>Lecturas</strong></a>: cada sesión lectiva tiene una lectura obligatoria asignada a la semana, la que se encuentra a disposición en esta página.</p></li>
-</ul>
-<p>Las actividades semanales se resumen en el siguiente esquema:</p>
-<p><img src="files/img/flujo-semanal.png" class="img-fluid"></p>
-<p><br></p>
-<section id="unidad-1-asociación-y-correlación" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-1-asociación-y-correlación">UNIDAD 1: Asociación y correlación</h3>
-<table class="table">
-<tbody>
-<tr class="odd">
-<td><font color="orange"> <strong>Agosto</strong> </font></td>
-<td><i class="fas fa-chalkboard-teacher"></i> Clases</td>
-<td><i class="fas fa-user-edit"></i> Prácticos</td>
-<td><i class="fas fa-book-reader"></i> Lecturas</td>
-</tr>
-<tr class="even">
-<td>Lunes 07</td>
-<td><a href="./content/01-content.html">1. Presentación: Asociación, inferencia y reporte</a></td>
-<td></td>
-<td>Leer detalladamente <a href="./syllabus.html">programa del curso</a></td>
-</tr>
-<tr class="odd">
-<td>Martes 08</td>
-<td></td>
-<td><a href="./assignment/01-practico.html">Reportes dinámicos 1</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Lunes 14</td>
-<td><a href="./content/02-content.html">Asociación 1: Bases</a></td>
-<td></td>
-<td>*<a href="./files/textos/Ritchey.pdf">Richtey</a> 1-21 : La imaginación estadística</td>
-</tr>
-<tr class="odd">
-<td>Martes 15</td>
-<td></td>
-<td>FERIADO</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Lunes 21</td>
-<td><a href="(/content/03-content.html)">Asociación 2: Pearson</a></td>
-<td></td>
-<td><p>*<a href="./files/textos/Moore.pdf">Moore</a> 97-131 Análisis de relaciones</p>
-<p><a href="./files/textos/Piovani2008.pdf">Piovani -The historical construction of correlation</a></p></td>
-</tr>
-<tr class="odd">
-<td>Martes 22</td>
-<td></td>
-<td>Cálculo y reporte correlación</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Lunes 28</td>
-<td>Asociación 3: Matrices y tamaños de efecto</td>
-<td></td>
-<td><a href="./files/textos/Field-correlation.pdf">Field</a> 205-244 Correlation</td>
-</tr>
-<tr class="odd">
-<td>Martes 29</td>
-<td></td>
-<td>Matrices y tamaños de efecto</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
+<section id="documento-de-presentación" class="level1">
+<h1>Documento de presentación</h1>
+<iframe src="../slides/03_pearson.html" height="550" width="100%" allowfullscreen="true">
+</iframe>
 </section>
-<section id="unidad-2-asociación-e-inferencia" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-2-asociación-e-inferencia">UNIDAD 2: Asociación e inferencia</h3>
-<table class="table">
-<thead>
-<tr class="header">
-<th></th>
-<th><i class="fas fa-chalkboard-teacher"></i> Clases</th>
-<th><i class="fas fa-user-edit"></i> Prácticos</th>
-<th><i class="fas fa-book-reader"></i> Lecturas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><font color="orange"> <strong>Septiembre</strong> </font></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Lunes 4</td>
-<td>Inferencia 1</td>
-<td></td>
-<td><p><a href="./files/textos/Ritchey.pdf">Richtey</a> cap 6</p>
-<p><a href="./files/textos/Pardo.pdf">Pardo</a> 33-49 Conceptos previos</p></td>
-</tr>
-<tr class="odd">
-<td>Martes 5</td>
-<td></td>
-<td>Inferencia 1</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Lunes 11</td>
-<td>Pausa</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Martes 12</td>
-<td>Pausa</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Lunes 18</td>
-<td>Feriado</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Martes 19</td>
-<td>Feriado</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Lunes 25</td>
-<td>Evaluación 1</td>
-<td></td>
-<td><a href="./files/textos/Ritchey.pdf">Richtey</a> cap 7</td>
-</tr>
-<tr class="odd">
-<td>Martes 26</td>
-<td></td>
-<td>Reporte 2</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><font color="orange"> Octubre </font></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Lunes 2</td>
-<td>Inferencia 2</td>
-<td></td>
-<td><a href="./files/textos/Moore.pdf">Moore</a> cap 6</td>
-</tr>
-<tr class="even">
-<td>Martes 3</td>
-<td></td>
-<td>Inferencia 2</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Lunes 9</td>
-<td>Feriado</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Martes 10</td>
-<td></td>
-<td>Reporte 3</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Lunes 16</td>
-<td>Inferencia 3</td>
-<td></td>
-<td><a href="./files/textos/Moore.pdf">Moore</a> cap 7</td>
-</tr>
-<tr class="even">
-<td>Martes 17</td>
-<td></td>
-<td>Inferencia 3</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Lunes 23</td>
-<td>Inferencia 4</td>
-<td></td>
-<td><a href="./files/textos/Moore.pdf">Moore</a> cap 8</td>
-</tr>
-<tr class="even">
-<td>Martes 24</td>
-<td></td>
-<td>Inferencia 4</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Lunes 30</td>
-<td>Evaluación 2 (30%)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Martes 31</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-</section>
-<section id="unidad-3-asociación-y-categóricas" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-3-asociación-y-categóricas">UNIDAD 3: Asociación y categóricas</h3>
-<table class="table">
-<thead>
-<tr class="header">
-<th></th>
-<th><i class="fas fa-chalkboard-teacher"></i> Clases</th>
-<th><i class="fas fa-user-edit"></i> Prácticos</th>
-<th><i class="fas fa-book-reader"></i> Lecturas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><font color="orange"> <strong>Noviembre</strong> </font></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Lunes 6</td>
-<td>Semana trabajo autónomo</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Martes 7</td>
-<td></td>
-<td>Semana trabajo autónomo</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Lunes 13</td>
-<td>Asociación con categóricas 1</td>
-<td></td>
-<td><a href="./files/textos/Moore.pdf">Moore</a> cap 9</td>
-</tr>
-<tr class="odd">
-<td>Martes 14</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Lunes 20</td>
-<td>Asociación con categóricas 2</td>
-<td></td>
-<td><a href="./files/textos/Ritchey.pdf">Richtey</a> cap 13</td>
-</tr>
-<tr class="odd">
-<td>Lunes 27</td>
-<td>Entrega trabajo final</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="foro" class="level1">
+<h1>Foro</h1>
+<script src="https://giscus.app/client.js" data-repo="cursos-metodos-facso/correlacional" data-repo-id="R_kgDOKCMXJQ" data-category="Q&amp;A" data-category-id="DIC_kwDOKCMXJc4CYd9S" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="es" crossorigin="anonymous" async="">
+</script>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -484,12 +281,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiado");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiado");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
