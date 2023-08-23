@@ -30,10 +30,10 @@ Existen distintos tipos de correlación, o formas en que dos variables pueden es
 
 -   Correlación lineal o de Pearson
 -   Correlación de Spearman
--   
+-   Correlación de Kendall
 -   etc
 
-Comenzaremos con la vista ayer en clases: la Correlación de Pearson.
+Comenzaremos con la vista la última clase: la Correlación de Pearson.
 
 # 2. Cuál es la correlación de Pearson
 
@@ -45,7 +45,8 @@ La correlación de Pearson (o coeficiente de correlación de pearson) también l
 
 Cuanto más cercano esté el valor de r a 1 o -1, más fuerte será la correlación. Cuanto más cercano esté a 0, más débil será la correlación.
 
-![](../files/corr.png)
+![](../files/cor.png)
+*Fuente: Moore (2010) Estadística aplicada básica, pp 125.*
 
 ¡Veamos cómo se hace!
 
