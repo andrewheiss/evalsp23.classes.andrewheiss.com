@@ -48,7 +48,9 @@ Cuanto más cercano esté el valor de r a 1 o -1, más fuerte será la correlaci
 ![](../files/cor.png)
 *Fuente: Moore (2010) Estadística aplicada básica, pp 125.*
 
-¡Veamos cómo se hace!
+En el siguiente [enlace](https://rpsychologist.com/correlation/) pueden visualizar la correlación para dos variables cambiando la fuerza y el sentido de esta, al mismo tiempo que les permite observar la varianza compartida entre ambas variables.
+
+¡Veamos cómo se hace en R!
 
 # 3. Cómo calcular la correlación de Pearson y graficarla
 
