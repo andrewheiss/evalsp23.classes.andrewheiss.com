@@ -1,0 +1,413 @@
+---
+title: "Matrices de correlación y tamaños de efecto"
+date: "2023-08-29"
+lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
+---
+
+# Objetivo de la práctica
+
+El objetivo de esta guía práctica es conocer maneras de reportar coeficientes de correlación y cómo interprear sus tamaños de efecto en ciencias sociales. Además, nos introduciremos en el tratamiento de valores pérdidos y otras medidas de correlación entre variables.
+
+En detalle, aprenderemos:
+
+1.  Cómo reportar y presentar matrices de correlación
+2.  Interpretar el tamaño de efecto de una correlación
+3.  Tratamiento de casos pérdidos
+4.  Qué es y cómo calcular la correlación de Spearman
+5.  Qué es el coeficiente de determinación $R^2$
+
+::: callout-note
+**¿Qué era la correlación?**
+
+La correlación es una medida de asociación entre variables, que describe el sentido (dirección) y fuerza de la asociación.
+
+En otras palabras, nos permite conocer cómo y cuánto se relaciona la variación de una variable, con la variación de otra variable.
+
+:::
+
+## Recursos de la práctica
+
+En esta práctica trabajaremos con un subconjunto de datos previamente procesados del Estudio Longitudinal Social de Chile (ELSOC) del año 2016, elaborado por [COES](https://coes.cl/encuesta-panel/). Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `ELSOC 2016`](https://github.com/Andreas-Lafferte/descriptiva/raw/main/content/input/data/ELSOC_W06_v1.0_SPSS.sav). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos ELSOC 2016.
+
+
+# Preparación datos
+
+Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.
+
+```{r librerias, echo=TRUE, message=FALSE, warning=FALSE, collapse=TRUE}
+pacman::p_load(tidyverse, # Manipulacion datos
+               sjmisc, # Descriptivos
+               sjPlot, # Tablas
+               kableExtra, #Tablas
+               GGally, # Correlaciones
+               corrplot) # Correlaciones
+
+options(scipen = 999) # para desactivar notacion cientifica
+rm(list = ls()) # para limpiar el entorno de trabajo
+```
+
+Cargamos los datos directamente desde internet (por esta vez).
+
+```{r datos, echo=TRUE, message=FALSE, warning=FALSE}
+
+load(url("https://multivariada.netlify.app/assignment/data/proc/ELSOC_ess_merit2016.RData")) #Cargar base de datos
+
+```
+
+
+A continuación, exploramos la base de datos proc_elsoc.
+
+```{r exploracion, echo=TRUE, message=FALSE, warning=FALSE}
+
+names(proc_elsoc) # Nombre de columnas
+dim(proc_elsoc) # Dimensiones
+
+```
+Contamos con 7 variables (columnas) y 2927 observaciones (filas)
+
+Ahora, profundicemos un poco más y observemos algunos estadísticos descriptivos de resumen de nuestra base de datos. Utilizaremos la función `descr` del paquete `sjmisc`.
+
+```{r descripcion, echo=TRUE, message=FALSE, warning=FALSE}
+sjmisc::descr(proc_elsoc,
+      show = c("label","range", "mean", "sd", "NA.prc", "n")) %>%
+      kable(.,"markdown")
+```
+
+**¡ALTO!** Tenemos algunos valores o casos pérdidos en ciertas variables. ¿Cómo lidiar con los casos pérdidos?
+
+## Tratamiento de casos pérdidos 
+
+Trabajar con datos a menudo implica enfrentar valores perdidos (`NA`), lo que puede ser un desafío significativo. Estos valores indican la ausencia de un valor en una base de datos. Los valores perdidos pueden originarse por diversas razones, como el sesgo de no respuesta en encuestas, errores en la entrada de datos o simplemente la falta de información para ciertas variables.
+
+
+```{r, echo=FALSE}
+
+data.frame(
+  X1 = c(NA, 7, 8, 9, 3),
+  X2 = c(4, 1, NA, NA, 3),
+  X3 = c(1, 4, 2, 9, 6),
+  X4 = c("Hola", "No soy un NA", NA, "Amo R", NA)
+) %>% 
+  kable(format = "html") %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T) %>% 
+  kableExtra::kable_styling(latex_options = "hold_position", position = "center") %>% 
+  row_spec(0, bold = T, color = "white", background = "#ff3331")
+
+
+
+```
+
+La presencia de valores perdidos puede tener un impacto considerable en la precisión y confiabilidad de los análisis estadísticos, lo que a su vez puede conducir a resultados sesgados y conclusiones incorrectas. 
+
+Existen varias formas de tratar valores perdidos, que van desde enfoques simples hasta métodos más complejos, como la imputación. En esta ocasión, nos centraremos en las dos estrategias más comunes: 
+
+- trabajar exclusivamente con casos completos (listwise) o 
+- retener los casos con valores perdidos, pero excluyéndolos al calcular estadísticas (pairwise).
+
+
+### a) Analísis con casos completos: listwise deletion
+
+Este enfoque es uno de los más conocidos: implica remover completamente las observaciones que tienen valores perdidos en cualquier variable de interés. En otras palabras, si una fila/caso en un conjunto de datos tiene al menos un valor faltante en alguna de las variables que estás considerando, se eliminará por completo. 
+
+En R, esto podemos hacerlo con la función `na.omit`. Para hacer esto, sigamos estos pasos:
+
+- respaldar la base de datos original en el espacio de trabajo (por si queremos en adelante realizar algún análisis referido a casos perdidos)
+- contamos el número de casos con el comando `dim`
+- contamos cuántos y en dónde tenemos casos perdidos
+- borramos los casos perdidos con `na.omit`
+- contamos nuevamente con `dim` para asegurarnos que se borraron
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+
+proc_elsoc_original <- proc_elsoc
+dim(proc_elsoc)
+
+```
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+sum(is.na(proc_elsoc))
+```
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+colSums(is.na(proc_elsoc))
+```
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+proc_elsoc <- na.omit(proc_elsoc)
+dim(proc_elsoc)
+```
+
+Ahora nos quedamos con 2887 observaciones sin casos pérdidos.
+
+Aunque simple de implementar, con este enfoque podemos perder información importante, especialmente si los valores perdidos no se distribuyen aleatoreamente.
+
+### b) Retener pero excluir: pairwise deletion
+
+A diferencia del anterior, este es un enfoque en el que las observaciones se utilizan para el análisis siempre que tengan datos disponibles para las variables específicas en cuestión. En lugar de eliminar toda una fila si falta un valor, se eliminan solo los valores faltantes en las variables que se están analizando en ese momento. 
+
+Para hacer esto en R debemos siempre verificar e indicar en nuestro código si queremos (o no) remover los `NA` para realizar los análisis.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, collapse=FALSE}
+
+mean(proc_elsoc_original$pmerit)
+
+mean(proc_elsoc_original$pmerit, na.rm = TRUE)
+
+```
+
+Con el primer código no obtuvimos información sustantiva, pero con el segundo sí al remover los `NA` solo de dicha variable para un calculo determinado.
+
+# Matrices de correlación
+
+Las correlaciones entre variables se presentan en general en modo de matrices, es decir, las variables se presentan en las filas y las columnas, y en las celdas donde se cruzan los pares de variables se muestra su coeficiente de correlación.
+
+En su forma simple en R se aplica la función `cor` a la base de datos, y la guardamos en un objeto que le damos el nombre M para futuras operaciones:
+
+```{r cor1, echo=TRUE, message=FALSE, warning=FALSE}
+M <- cor(proc_elsoc)
+M
+```
+
+
+Este es el reporte simple, pero no muy amigable a la vista. Para una versión más reportable, utilizamos la funcion `tab_corr`
+
+```{r cor2, echo=TRUE, message=FALSE, warning=FALSE}
+sjPlot::tab_corr(proc_elsoc, 
+                 triangle = "lower")
+```
+
+Con esta mejor visualización, algunas observaciones sobre la matriz de correlaciones:
+
+- En esta matriz las variables están representadas en las filas y en las columnas.
+- Cada coeficiente expresa la correlación de una variable con otra. Por ejemplo, la correlación entre la variable de recompensa por esfuerzo y recompensa por inteligencia es 0.698.
+- La información de cada coeficiente se repite sobre y bajo la diagonal, ya que es el mismo par de variables pero en el orden alterno. Podemos omitir los pares de información que se repiten o redundante.
+- En la diagonal corresponde que todos los coeficientes sean 1, ya que la correlación de una variable consigo misma es perfectamente positiva.
+
+
+Otra manera de presentar matrices de correlación es mediante gráficos. Veamos un ejemplo con la función `corrplot.mixed` de la librería `corrplot` sobre nuestra matriz `M` ya creada.
+
+```{r cor3, echo=TRUE, message=FALSE, warning=FALSE}
+corrplot.mixed(M)
+```
+
+Este gráfico/matriz representa el grado de asociación entre variables mediante el tamaño de los círculos e intensidad de colores, y el signo de la asociación se representa con una gradiente de colores que va del azul (positivo) al rojo (negativo).
+
+**¡Genial!** 
+
+Otra manera de graficar la matriz es con la función `ggpairs` del paquete `GGally`, que nos entrega no solo el valor del coeficiente y su significancia (***), si no que también un scatter del cruce entre variables.
+
+```{r cor5, echo=TRUE, message=FALSE, warning=FALSE}
+ggpairs(proc_elsoc) 
+
+```
+
+
+Finalmente, también se puede representar la correlación entre dos variables en un gráfico de nube de puntos o scatterplot:
+
+```{r cor6, echo=TRUE, message=FALSE, warning=FALSE}
+sjPlot::plot_scatter(proc_elsoc, edad, ess)
+```
+Donde:
+
+- cada punto representa un caso
+- la forma de la nube indica si la asociación es positiva, negativa o neutra:
+
+![](../files/scatterplot6.png)
+
+
+En el caso de nuestra nube de puntos entre edad y estatus social subjetivo, observamos que no hay asociación (lo que ya era indicado por su correlación de -0.07 observada en la matriz de correlaciones).
+
+# Tamaños de efecto
+
+¿Y cómo puedo saber si el valor de la correlación es alto, medio o bajo? Si bien la correlación no nos indica causalidad, si nos permite conocer la dirección y fuerza de asociación entre dos variables. Un estándar para determinar qué tan fuerte es dicha asociación en las ciencias sociales es el propuesto por Cohen (1998).
+
+<style>
+  table {
+    margin-left: auto; /* Ajustamos el margen izquierdo a automático */
+    margin-right: auto; /* Ajustamos el margen derecho a automático */
+    border-collapse: collapse;
+    width: 60%;
+    border: 2px solid black;
+  }
+  
+  th, td {
+    border: 1px solid #D3D3D3;
+    padding: 8px;
+    text-align: center;
+  }
+</style>
+
+<table>
+  <tr>
+    <th class="cell-left">r</th>
+    <th class="cell-left">Significado aproximado (Cohen 1988)</th>
+  </tr>
+  <tr>
+    <td class="cell-left">&lt; ±0.1&emsp;</td>
+    <td class="cell-left">Muy pequeño</td>
+  </tr>
+  <tr>
+    <td class="cell-left">±0.1–0.3</td>
+    <td class="cell-left">Pequeño</td>
+  </tr>
+  <tr>
+    <td class="cell-left">±0.3–0.5</td>
+    <td class="cell-left">Moderado</td>
+  </tr>
+  <tr>
+    <td class="cell-left">&gt;±0.5</td>
+    <td class="cell-left">Grande</td>
+  </tr>
+</table>
+
+
+Con estos criterios podemos interpretar de mejor manera nuestros resultados de correlación. Como se observa, mientras más alto (sea en + o -) el coeficiente, más juntos estarán los datos (puntos), mostrando un patrón. 
+
+
+
+```{r correlation-grid, echo=FALSE, out.width="100%", fig.align='center'}
+make_correlated_data <- function(r, n = 200) {
+  MASS::mvrnorm(n = n, 
+                mu = c(0, 0), 
+                Sigma = matrix(c(1, r, r, 1), nrow = 2), 
+                empirical = TRUE) %>% 
+    magrittr::set_colnames(c("x", "y")) %>% 
+    as_tibble()
+}
+
+cor_grid <- tibble(r = c(0.2, 0.4, 0.7, 0.9)) %>% 
+  mutate(data = map(r, make_correlated_data)) %>% 
+  unnest(data)
+
+ggplot(cor_grid, aes(x = x, y = y)) +
+  geom_point(size = 2, color = "white", fill = "black", pch = 21) +
+  facet_wrap(vars(r), labeller = label_both) +
+  # theme_minimal() +
+  theme(strip.text = element_text(face = "bold", size = rel(1.3), hjust = 0))
+```
+
+:::::: {.row .d-flex .justify-content-center}
+::::: {.col-md-6} 
+:::: {.card .bg-danger .text-white}
+::: {.card-body}
+
+**Interpretación**
+
+Recordemos nuestra matriz del comienzo:
+
+Tenemos que la correlación entre la variable de estatus social subjetivo y años de educación es 0.3. ¿Cómo interpreto esto?
+
+Una manera recomendable es la siguiente:
+
+_El coeficiente de correlación de Pearson entre estatus social subjetivo y años de educación es positivo y moderado (r = 0.3) según Cohen (1988)._ 
+
+
+
+:::
+::::
+:::::
+::::::
+
+
+# Otros tipos de correlación: Spearman
+
+Cuando queremos conocer la asociación entre variables que son ordinales y/o cuando nuestras variables no cumplen con los supuestos de distribución normal, podemos utilizar la **correlación de Spearman**
+
+- El coeficiente de correlación de Spearman es una medida estadística que evalúa la relación entre variables al considerar no solo la relación lineal entre ellas, sino también su relación de orden.
+- Emplea rangos en lugar de valores numéricos para evaluar la relación.
+- Sus valores están entre -1 y 1.
+- Es alta cuando las observaciones tienen un ranking similar
+
+En R calcularlo es sencillo, pero debemos tener en cuenta que las variables que relacionemos tengan un orden de rango similar (por ejemplo, que el valor más bajo sea el rango más bajo y el valor más alto el rango más alto). 
+
+
+Tomemos por ejemplo las variables `mesfuerzo` y `mtalento`
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, collapse=FALSE}
+
+sjmisc::frq(proc_elsoc$mesfuerzo)
+
+sjmisc::frq(proc_elsoc$mtalento)
+
+
+```
+
+
+Ahora, calculemos la el coeficiente de correlación de Spearman con `cor.test`
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+cor.test(proc_elsoc$mesfuerzo, proc_elsoc$mtalento, method = "spearman")
+```
+
+Ahora conocemos el valor del coeficiente mediante al argumento `rho`, que es igual a 0.7, siendo positivo y alto según los criterios de Cohen (1988). 
+
+# Coeficiente de determinación
+
+El coeficiente de determinación $R^2$ es una medida estadística que indica la proporción de la varianza total de una variable que es explicada por otra(s) variable(s). En pocas palabras, 
+
+- se utiliza para evaluar cuánta de la variabilidad de una variable se debe a otra variable. 
+- sus valores van desde 0 a 1, en donde 0 indica que no explica nada y 1 que explica toda la variabilidad.
+
+En el contexto de la correlación entre **solo dos variables**, el $R^2$ es igual a elevar al cuadrado el coeficiente de correlación = `(r)^2`. Esto nos permite conocer qué tanto la variabilidad de una variable X estaría explicando la variabilidad de otra variable Y. 
+
+En nuestro ejemplo anterior entre estatus social subjetivo y años de educación, teníamos que su coeficiente de correlación era `r` = 0.3
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+
+coef_r <- M[4,3] # seleccionamos el coef de nuestra matriz
+
+coef_r
+```
+
+Calculemos el $R^2$ de esta asociación.
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+coef_r^2
+```
+
+Con esto, podemos decir que el 9% de la variabilidad del estatus social subjetivo se explica por la variabilidad en los años de educación.
+
+
+
+# Resumen
+
+Hoy aprendímos a reportar el coeficiente de correlación y cómo interpretar sus tamaños de efecto, así como también a lidiar con casos pérdidos y conocer otras medidadas de correlación. En detalle, aprendímos:
+
+
+1.  Cómo reportar y presentar matrices de correlación
+2.  Interpretar el tamaño de efecto de una correlación
+3.  Qué es y cómo calcular la correlación de Spearman
+4.  Tratamiento de casos pérdidos
+5.  Qué es el coeficiente de determinación $R^2$
+
+# Reporte de progreso
+
+Completar el reporte de progreso correspondiente a esta práctica [aquí](https://forms.gle/fnoKAgHHtgAkfFiN6). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
+
+# Video de práctica
+
+
+
+# Foro
+
+<script src="https://giscus.app/client.js"
+        data-repo="cursos-metodos-facso/correlacional"
+        data-repo-id="R_kgDOKCMXJQ"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOKCMXJc4CYd9S"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="es"
+        crossorigin="anonymous"
+        async>
+</script>
+
