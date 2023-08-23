@@ -178,7 +178,7 @@ Hoy aprendimos a generar documentos dinámicos con RMarkdown. En detalle, aprend
 
 # Reporte de progreso
 
-Completar el reporte de progreso correspondiente a esta práctica [aquí](). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
+Completar el reporte de progreso correspondiente a esta práctica [aquí](https://docs.google.com/forms/d/e/1FAIpQLSdtX9y9zGq0Rb1qrGHcl6_3StyY7ZIQr0Y_4PspRadRn7HI5A/viewform?usp=sf_link). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
 
 # Video de práctica
 
