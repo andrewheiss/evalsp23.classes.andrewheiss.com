@@ -97,6 +97,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta property="og:title" content="Estadística Correlacional - Cálculo y reporte de correlación">
 <meta property="og:description" content="">
@@ -228,15 +233,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#objetivo-de-la-práctica" id="toc-objetivo-de-la-práctica" class="nav-link active" data-scroll-target="#objetivo-de-la-práctica">Objetivo de la práctica</a></li>
   <li><a href="#qué-es-la-correlación" id="toc-qué-es-la-correlación" class="nav-link" data-scroll-target="#qué-es-la-correlación">1. Qué es la Correlación</a></li>
-  <li><a href="#cuál-es-la-correlación-de-pearson" id="toc-cuál-es-la-correlación-de-pearson" class="nav-link" data-scroll-target="#cuál-es-la-correlación-de-pearson">2. Cuál es la correlación de Pearson</a></li>
-  <li><a href="#cómo-calcular-la-correlación-de-pearson-y-graficarla" id="toc-cómo-calcular-la-correlación-de-pearson-y-graficarla" class="nav-link" data-scroll-target="#cómo-calcular-la-correlación-de-pearson-y-graficarla">3. Cómo calcular la correlación de Pearson y graficarla</a>
+  <li><a href="#correlación-de-pearson" id="toc-correlación-de-pearson" class="nav-link" data-scroll-target="#correlación-de-pearson">2. Correlación de Pearson</a></li>
+  <li><a href="#estimación-de-la-correlación-de-pearson" id="toc-estimación-de-la-correlación-de-pearson" class="nav-link" data-scroll-target="#estimación-de-la-correlación-de-pearson">3. Estimación de la correlación de Pearson</a>
   <ul class="collapse">
-  <li><a href="#coeficiente-de-correlación-de-pearson" id="toc-coeficiente-de-correlación-de-pearson" class="nav-link" data-scroll-target="#coeficiente-de-correlación-de-pearson">Coeficiente de correlación de Pearson</a></li>
-  <li><a href="#diagrama-de-dispersión" id="toc-diagrama-de-dispersión" class="nav-link" data-scroll-target="#diagrama-de-dispersión">Diagrama de dispersión</a></li>
+  <li><a href="#diagrama-de-dispersión-nube-de-puntos-o-scatterplot" id="toc-diagrama-de-dispersión-nube-de-puntos-o-scatterplot" class="nav-link" data-scroll-target="#diagrama-de-dispersión-nube-de-puntos-o-scatterplot">Diagrama de dispersión (nube de puntos o scatterplot)</a></li>
+  <li><a href="#el-cuarteto-de-anscombe-y-las-limitaciones-de-la-correlación-lineal" id="toc-el-cuarteto-de-anscombe-y-las-limitaciones-de-la-correlación-lineal" class="nav-link" data-scroll-target="#el-cuarteto-de-anscombe-y-las-limitaciones-de-la-correlación-lineal">El cuarteto de Anscombe y las limitaciones de la correlación lineal</a></li>
   </ul></li>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
   <li><a href="#reporte-de-progreso" id="toc-reporte-de-progreso" class="nav-link" data-scroll-target="#reporte-de-progreso">Reporte de progreso</a></li>
-  <li><a href="#video-de-práctica" id="toc-video-de-práctica" class="nav-link" data-scroll-target="#video-de-práctica">Video de práctica</a></li>
   <li><a href="#foro" id="toc-foro" class="nav-link" data-scroll-target="#foro">Foro</a></li>
   </ul>
 </nav>
@@ -248,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 class="title display-7">Cálculo y reporte de correlación</h1>
 
 <div class="date-block bg-assignment text-white p-2">
-  <p class="date">Completar hasta as 11:59 PM del martes, 22 de agosto de 2023</p>
+  <p class="date">Completar hasta as 11:59 PM del viernes, 25 de agosto de 2023</p>
 </div>
 </header>
 
@@ -264,187 +267,361 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="qué-es-la-correlación" class="level1">
 <h1>1. Qué es la Correlación</h1>
-<p>¿Cómo puedo saber si una variable se encuentra asociada a otra variable?</p>
-<p>Como vimos en clases, la <strong>correlación</strong> es una medida estadística que describe la relación entre dos variables. En otras palabras, indica cómo cambian juntas dos variables en relación una a la otra. Cuando existe correlación entre dos variables, el cambio en una de ellas tiende a estar asociado con un cambio en la otra variable.</p>
-<p>En términos concretos, lo que observamos es cómo se comportan los valores de dos (o más) variables para cada observación, y si podemos suponer que ese comportamiento conjunto tiene algún patrón. Hay formas de confimar ese comportamiento conjunto y también distintas formas de comportamiento conjunto. Partamos por lo segundo.</p>
-<p>Existen distintos tipos de correlación, o formas en que dos variables pueden estar asociadas. Por ejemplo:</p>
-<ul>
-<li>Correlación lineal o de Pearson</li>
-<li>Correlación de Spearman</li>
-<li></li>
-<li>etc</li>
-</ul>
-<p>Comenzaremos con la vista ayer en clases: la Correlación de Pearson.</p>
+<p>La <strong>correlación</strong> es una medida estadística que describe la asociación entre dos variables. Cuando existe correlación entre dos variables, el cambio en una de ellas tiende a estar asociado con un cambio en la otra variable.</p>
+<p>En términos concretos, lo que observamos es cómo se comportan los valores de dos (o más) variables para cada observación, y si podemos suponer que ese comportamiento conjunto tiene algún patrón.</p>
 </section>
-<section id="cuál-es-la-correlación-de-pearson" class="level1">
-<h1>2. Cuál es la correlación de Pearson</h1>
-<p>La correlación de Pearson (o coeficiente de correlación de pearson) también llamada correlación lineal es una medida estadística que cuantifica la relación lineal entre dos variables continuas. Esta medida va desde -1 hasta 1, donde:</p>
+<section id="correlación-de-pearson" class="level1">
+<h1>2. Correlación de Pearson</h1>
+<p>La correlación de Pearson (o coeficiente de correlación de pearson) es una medida estadística que cuantifica la relación lineal entre dos variables continuas. Esta medida va desde -1 hasta 1, donde:</p>
 <ul>
 <li>r=1: Correlación positiva perfecta. Cuando una variable aumenta, la otra también aumenta en proporción constante.</li>
 <li>r=−1: Correlación negativa perfecta. Cuando una variable aumenta, la otra disminuye en proporción constante.</li>
 <li>r=0: No hay correlación lineal entre las variables. No hay una relación lineal discernible entre los cambios en las variables.</li>
 </ul>
 <p>Cuanto más cercano esté el valor de r a 1 o -1, más fuerte será la correlación. Cuanto más cercano esté a 0, más débil será la correlación.</p>
-<p><img src="../files/corr.png" class="img-fluid"></p>
-<p>¡Veamos cómo se hace!</p>
+<p><img src="../slides/img/scatters3.png" class="img-fluid"></p>
+<p>En el siguiente <a href="https://rpsychologist.com/correlation/">enlace</a> pueden visualizar la correlación para dos variables cambiando la fuerza y el sentido de esta, al mismo tiempo que les permite observar la varianza compartida entre ambas variables.</p>
 </section>
-<section id="cómo-calcular-la-correlación-de-pearson-y-graficarla" class="level1">
-<h1>3. Cómo calcular la correlación de Pearson y graficarla</h1>
-<section id="coeficiente-de-correlación-de-pearson" class="level2">
-<h2 class="anchored" data-anchor-id="coeficiente-de-correlación-de-pearson">Coeficiente de correlación de Pearson</h2>
-<p>Podemos usar el ejemplo visto la clase antepasada, pero primero cargamos las librerías necesarias:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggplot2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="estimación-de-la-correlación-de-pearson" class="level1">
+<h1>3. Estimación de la correlación de Pearson</h1>
+<p>Utilizaremos un set mínimo simulado de datos (el mismo de la <a href="../content/03-content.html">sesión 3</a> )</p>
 <p>Simulamos datos para 8 casos</p>
 <ul>
 <li>con 8 niveles de educación (ej: desde basica incompleta=1, hasta postgrado=8), y</li>
 <li>12 niveles de rangos de ingreso (ej: desde menos de 100.000=1 hasta más de 10.000.000=12)</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>educ <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">8</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ing  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">11</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(educ,ing)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="02-practico_cache/html/ex1_data_8a42a2ac4af69eced611634550ff8e4b">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">8</span>) <span class="co"># identificador de cada caso</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>educ <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">8</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ing  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">11</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(id,educ,ing)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Para conocer el valor de la correlación entre ambas variables de la base de datos podemos usar la función <code>cor()</code>.</p>
-<div class="cell">
+<div class="cell" data-hash="02-practico_cache/html/unnamed-chunk-1_49f9cf79926e345fe1f862e8eadfab3b">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kbl</span>(data, <span class="at">escape=</span>F, <span class="at">full_width =</span> F)  <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">kable_paper</span>(<span class="st">"hover"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="lightable-paper lightable-hover table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">id</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">educ</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">11</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>La correlación de Pearson se basa en la covarianza, que es una medida de asociación entre variables basada en la varianza de cada una de ellas:</p>
+<p><span class="math display">\[\begin{align*}
+Covarianza = cov(x,y) &amp;= \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})} {n-1}\\
+\\
+Correlación=r &amp;= \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})} {(n-1)\sigma_x \sigma_y }\\ \\
+&amp;= \frac{\sum(x-\bar{x})(y-\bar{y})}{\sqrt{\sum(x-\bar{x})^{2} \sum(y-\bar{y})^{2}}}
+\end{align*}\]</span></p>
+<p>Para obtener el coeficiente de correlación directamente en R se utiliza la función <code>cor()</code> :</p>
+<div class="cell" data-hash="02-practico_cache/html/ex0_cor_021d62bdfc379b4361c1596c99f7263d">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(data<span class="sc">$</span>educ, data<span class="sc">$</span>ing)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9512367</code></pre>
 </div>
 </div>
+<p>Vamos por paso:</p>
+<ul>
+<li><p><span class="math inline">\((x_i - \bar{x})\)</span> es la diferencia de un valor de una variable respecto de su promedio. Por ejemplo, si x=educación, y un caso tiene educación 6 y el promedio de educación es 2, entonces el valor de <span class="math inline">\((x_i - \bar{x})=4\)</span></p></li>
+<li><p><span class="math inline">\((y_i - \bar{y})\)</span> : lo mismo pero para la otra varible, en el caso de nuestro ejemplo es ingreso.</p></li>
+<li><p><span class="math inline">\((x-\bar{x})(y-\bar{y})\)</span> es la multiplicación de los dos pasos anteriores para cada caso.</p></li>
+<li><p><span class="math inline">\(\sum(x-\bar{x})(y-\bar{y})\)</span> es la suma de estos valores para el total de los casos</p></li>
+</ul>
+<p>En nuestra base de datos de ejemplo simulamos columnas adicionales con esta información:</p>
+<ul>
+<li><span class="math inline">\((x_i - \bar{x})\)</span> : dif_m_educ</li>
+<li><span class="math inline">\((y_i - \bar{y})\)</span> : dif_m_ing</li>
+<li><span class="math inline">\((x-\bar{x})(y-\bar{y})\)</span> : dif_xy</li>
+</ul>
+<p>Y además las diferencias de promedio de cada variable al cuadrado:</p>
+<ul>
+<li><span class="math inline">\((x_i - \bar{x})²\)</span> : dif_m_educ2</li>
+<li><span class="math inline">\((y_i - \bar{y})²\)</span> : dif_m_ing2</li>
+</ul>
+<div class="cell" data-hash="02-practico_cache/html/unnamed-chunk-2_54718681172931c13cf86fe39acf5910">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>dif_m_educ <span class="ot">&lt;-</span> data<span class="sc">$</span>educ<span class="sc">-</span><span class="fu">mean</span>(data<span class="sc">$</span>educ)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>dif_m_ing <span class="ot">&lt;-</span> data<span class="sc">$</span>ing<span class="sc">-</span><span class="fu">mean</span>(data<span class="sc">$</span>ing)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>dif_xy <span class="ot">&lt;-</span>  data<span class="sc">$</span>dif_m_educ<span class="sc">*</span>data<span class="sc">$</span>dif_m_ing</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>dif_m_educ2 <span class="ot">&lt;-</span> (data<span class="sc">$</span>dif_m_educ)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>dif_m_ing2 <span class="ot">&lt;-</span> (data<span class="sc">$</span>dif_m_ing)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En nuestra base de datos:</p>
+<div class="cell" data-hash="02-practico_cache/html/unnamed-chunk-3_f959ae04ec3f5c3a745f2ab02c6e427d">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kbl</span>(data, <span class="at">digits =</span> <span class="dv">3</span>,<span class="at">full_width =</span> F)  <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">kable_paper</span>(<span class="st">"hover"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="lightable-paper lightable-hover table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">id</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">educ</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ing</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">dif_m_educ</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">dif_m_ing</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">dif_xy</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">dif_m_educ2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">dif_m_ing2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-3.125</td>
+<td style="text-align: right;">-4.375</td>
+<td style="text-align: right;">13.672</td>
+<td style="text-align: right;">9.766</td>
+<td style="text-align: right;">19.141</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">-2.125</td>
+<td style="text-align: right;">-2.375</td>
+<td style="text-align: right;">5.047</td>
+<td style="text-align: right;">4.516</td>
+<td style="text-align: right;">5.641</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">-1.125</td>
+<td style="text-align: right;">-2.375</td>
+<td style="text-align: right;">2.672</td>
+<td style="text-align: right;">1.266</td>
+<td style="text-align: right;">5.641</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">-1.125</td>
+<td style="text-align: right;">-0.375</td>
+<td style="text-align: right;">0.422</td>
+<td style="text-align: right;">1.266</td>
+<td style="text-align: right;">0.141</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">-0.125</td>
+<td style="text-align: right;">-1.375</td>
+<td style="text-align: right;">0.172</td>
+<td style="text-align: right;">0.016</td>
+<td style="text-align: right;">1.891</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1.875</td>
+<td style="text-align: right;">1.625</td>
+<td style="text-align: right;">3.047</td>
+<td style="text-align: right;">3.516</td>
+<td style="text-align: right;">2.641</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">2.875</td>
+<td style="text-align: right;">3.625</td>
+<td style="text-align: right;">10.422</td>
+<td style="text-align: right;">8.266</td>
+<td style="text-align: right;">13.141</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">2.875</td>
+<td style="text-align: right;">5.625</td>
+<td style="text-align: right;">16.172</td>
+<td style="text-align: right;">8.266</td>
+<td style="text-align: right;">31.641</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Y obtenemos la suma de cada una de las tres últimas columnas, que es lo que se necesita para reemplazar en la fórmula de la correlación:</p>
+<div class="cell" data-hash="02-practico_cache/html/unnamed-chunk-4_356936b479dceb8d24a6b34a30dc5e2a">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(data<span class="sc">$</span>dif_xy); <span class="fu">sum</span>(data<span class="sc">$</span>dif_m_educ2);<span class="fu">sum</span>(data<span class="sc">$</span>dif_m_ing2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 51.625</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 36.875</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 79.875</code></pre>
+</div>
+</div>
+<p>Reemplazando,</p>
+<p><span class="math display">\[\begin{align*}
+r &amp;= \frac{\sum(x-\bar{x})(y-\bar{y})}{\sqrt{\sum(x-\bar{x})^{2} \sum(y-\bar{y})^{2}}} \\ \\
+&amp;= \frac{51.625}{ \sqrt{36.875*79.875}} \\ \\
+&amp;= \frac{51.625}{54.271} \\ \\
+&amp;= 0.951
+\end{align*}\]</span></p>
+<p>Y comprobamos con la función <code>cor()</code> de R, que nos entrega la correlación de Pearson:</p>
+<div class="cell" data-hash="02-practico_cache/html/ex1_cor_1f61dff665645bdce3151d69a7062f62">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(data<span class="sc">$</span>educ, data<span class="sc">$</span>ing)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9512367</code></pre>
+</div>
+</div>
 <p>Como vimos en clases, el valor de la correlación va entre -1 y 1, donde el valor 0 significa que las dos variables no se encuentran correlacionadas, y el valor -1 y 1 significa que se encuentran completamente correlacionadas, positiva y negativamente, respectivamente.</p>
-<p>En este caso, un valor de 0.95 es muy alto, y significa que las variables ingreso y educación, en nuestra base de datos, se encuentran fuertemente correlacionadas.</p>
-</section>
-<section id="diagrama-de-dispersión" class="level2">
-<h2 class="anchored" data-anchor-id="diagrama-de-dispersión">Diagrama de dispersión</h2>
-<p>Sin embargo, siempre es recomendable acompañar el valor de la correlación con una exploración gráfica de los datos. El gráfico o diagrama de dispersión es una buena herramienta, ya que muestra la forma, la dirección y la fuerza de la relación entre dos variables cuantitativas.</p>
+<p>En este caso, un valor de 0.95 es muy alto, y significa que las variables ingreso y educación, en nuestra base de datos simulada, se encuentran fuertemente correlacionadas.</p>
+<section id="diagrama-de-dispersión-nube-de-puntos-o-scatterplot" class="level2">
+<h2 class="anchored" data-anchor-id="diagrama-de-dispersión-nube-de-puntos-o-scatterplot">Diagrama de dispersión (nube de puntos o scatterplot)</h2>
+<p>Siempre es recomendable acompañar el valor de la correlación con una exploración gráfica de la distribución bivariada de los datos. El gráfico o diagrama de dispersión es una buena herramienta, ya que muestra la forma, la dirección y la fuerza de la relación entre dos variables cuantitativas.</p>
 <p>Este tipo de gráfico lo podemos realizar usando la librería <code>ggplot2</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x=</span>educ, <span class="at">y=</span>ing)) <span class="sc">+</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"red"</span>, </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plot1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="02-practico_cache/html/ex1_plot1_7053d9ec4a42b1017415243de35eda83">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggplot2)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x=</span>educ, <span class="at">y=</span>ing)) <span class="sc">+</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"red"</span>, </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> <span class="dv">5</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>plot1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02-practico_files/figure-html/ex1_plot1-1.png" class="img-fluid" width="672"></p>
+<p><img src="02-practico_files/figure-html/ex1_plot1-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
-<p>En el gráfico podemos ver como se crea una nube de puntos en las intersecciones de los valores para ambas variables de cada observación.</p>
-<p>Además podemos agregar una recta de regresión:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x=</span>educ, <span class="at">y=</span>ing)) <span class="sc">+</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"red"</span>, </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plot2</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+<p>En el gráfico podemos ver como se crea una nube de puntos en las intersecciones de los valores para ambas variables de cada caso.</p>
+</section>
+<section id="el-cuarteto-de-anscombe-y-las-limitaciones-de-la-correlación-lineal" class="level2">
+<h2 class="anchored" data-anchor-id="el-cuarteto-de-anscombe-y-las-limitaciones-de-la-correlación-lineal">El cuarteto de Anscombe y las limitaciones de la correlación lineal</h2>
+<p>Ahora, revisaremos un muy buen ejemplo de la importancia de la exploración gráfica de los datos mediante un ejemplo de Anscombe (1973), que permite visualizar las limitaciones del coeficiente de correlación.</p>
+<p>Primero, crearemos la base de datos:</p>
+<div class="cell" data-hash="02-practico_cache/html/ex2_data_81e128b9155bcc90df128f16041deaab">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>anscombe <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">5</span>),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y1 =</span> <span class="fu">c</span>(<span class="fl">8.04</span>, <span class="fl">6.95</span>, <span class="fl">7.58</span>, <span class="fl">8.81</span>, <span class="fl">8.33</span>, <span class="fl">9.96</span>, <span class="fl">7.24</span>, <span class="fl">4.26</span>, <span class="fl">10.84</span>, <span class="fl">4.82</span>, <span class="fl">5.68</span>),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x2 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">5</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y2 =</span> <span class="fu">c</span>(<span class="fl">9.14</span>, <span class="fl">8.14</span>, <span class="fl">8.74</span>, <span class="fl">8.77</span>, <span class="fl">9.26</span>, <span class="fl">8.10</span>, <span class="fl">6.13</span>, <span class="fl">3.10</span>, <span class="fl">9.13</span>, <span class="fl">7.26</span>, <span class="fl">4.74</span>),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x3 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">5</span>),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y3 =</span> <span class="fu">c</span>(<span class="fl">7.46</span>, <span class="fl">6.77</span>, <span class="fl">12.74</span>, <span class="fl">7.11</span>, <span class="fl">7.81</span>, <span class="fl">8.84</span>, <span class="fl">6.08</span>, <span class="fl">5.39</span>, <span class="fl">8.15</span>, <span class="fl">6.42</span>, <span class="fl">5.73</span>),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">x4 =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">19</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">y4 =</span> <span class="fu">c</span>(<span class="fl">6.58</span>, <span class="fl">5.76</span>, <span class="fl">7.71</span>, <span class="fl">8.84</span>, <span class="fl">8.47</span>, <span class="fl">7.04</span>, <span class="fl">5.25</span>, <span class="fl">12.50</span>, <span class="fl">5.56</span>, <span class="fl">7.91</span>, <span class="fl">6.89</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell-output-display">
-<p><img src="02-practico_files/figure-html/ex1_plot2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Ahora, revisaremos un muy buen ejemplo de la importancia de la exploración gráfica de los datos: El cuarteto de Anscombe.</p>
-<p><img src="../files/cuarteto.jpg" class="img-fluid"></p>
-<p>Primero, crearemos el data.frame con los datos.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>anscombe <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">5</span>),</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y1 =</span> <span class="fu">c</span>(<span class="fl">8.04</span>, <span class="fl">6.95</span>, <span class="fl">7.58</span>, <span class="fl">8.81</span>, <span class="fl">8.33</span>, <span class="fl">9.96</span>, <span class="fl">7.24</span>, <span class="fl">4.26</span>, <span class="fl">10.84</span>, <span class="fl">4.82</span>, <span class="fl">5.68</span>),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x2 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">5</span>),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y2 =</span> <span class="fu">c</span>(<span class="fl">9.14</span>, <span class="fl">8.14</span>, <span class="fl">8.74</span>, <span class="fl">8.77</span>, <span class="fl">9.26</span>, <span class="fl">8.10</span>, <span class="fl">6.13</span>, <span class="fl">3.10</span>, <span class="fl">9.13</span>, <span class="fl">7.26</span>, <span class="fl">4.74</span>),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x3 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">5</span>),</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y3 =</span> <span class="fu">c</span>(<span class="fl">7.46</span>, <span class="fl">6.77</span>, <span class="fl">12.74</span>, <span class="fl">7.11</span>, <span class="fl">7.81</span>, <span class="fl">8.84</span>, <span class="fl">6.08</span>, <span class="fl">5.39</span>, <span class="fl">8.15</span>, <span class="fl">6.42</span>, <span class="fl">5.73</span>),</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">x4 =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">19</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>),</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">y4 =</span> <span class="fu">c</span>(<span class="fl">6.58</span>, <span class="fl">5.76</span>, <span class="fl">7.71</span>, <span class="fl">8.84</span>, <span class="fl">8.47</span>, <span class="fl">7.04</span>, <span class="fl">5.25</span>, <span class="fl">12.50</span>, <span class="fl">5.56</span>, <span class="fl">7.91</span>, <span class="fl">6.89</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Calculamos la correlación para cada uno de los pares de datos</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x1, anscombe<span class="sc">$</span>y1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Calculamos la correlación pares de datos</p>
+<div class="cell" data-hash="02-practico_cache/html/ex2_cor_9207881497f19cd1202a6494a964b563">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x1, anscombe<span class="sc">$</span>y1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8164205</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x2, anscombe<span class="sc">$</span>y2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x2, anscombe<span class="sc">$</span>y2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8162365</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x3, anscombe<span class="sc">$</span>y3)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x3, anscombe<span class="sc">$</span>y3)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8162867</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x4, anscombe<span class="sc">$</span>y4)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(anscombe<span class="sc">$</span>x4, anscombe<span class="sc">$</span>y4)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8165214</code></pre>
 </div>
 </div>
-<p>Podemos observar que todas los valores de las correlaciones son muy parecidos hasta el tercer decimal, por lo tanto podríamos pensar que todos los pares de columnas se encuentran correlacionados de manera similar.</p>
+<p>Podemos observar que los valores de las correlaciones son equivalentes, por lo tanto podríamos pensar que todos los pares de columnas se encuentran correlacionados de manera similar.</p>
 <p>Pero, ¿será suficiente con esa información? Pasemos a revisar los gráficos de dispersión de cada par de variables.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(anscombe, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> y1)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"red"</span>, </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Caso I"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="02-practico_files/figure-html/ex2_plot-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(anscombe, <span class="fu">aes</span>(<span class="at">x =</span> x2, <span class="at">y =</span> y2)) <span class="sc">+</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"green"</span>, </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Caso II"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="02-practico_files/figure-html/ex2_plot-2.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(anscombe, <span class="fu">aes</span>(<span class="at">x =</span> x3, <span class="at">y =</span> y3)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"yellow"</span>, </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Caso III"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="02-practico_files/figure-html/ex2_plot-3.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(anscombe, <span class="fu">aes</span>(<span class="at">x =</span> x4, <span class="at">y =</span> y4)) <span class="sc">+</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"orange"</span>, </span>
+<div class="cell" data-hash="02-practico_cache/html/ex2_plot_fd979acd0614ae913c17c80721bc7fd6">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(anscombe, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> y1)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"red"</span>, </span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Caso IV"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Caso I"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02-practico_files/figure-html/ex2_plot-4.png" class="img-fluid" width="672"></p>
+<p><img src="02-practico_files/figure-html/ex2_plot-1.png" class="img-fluid" width="960"></p>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(anscombe, <span class="fu">aes</span>(<span class="at">x =</span> x2, <span class="at">y =</span> y2)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"green"</span>, </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Caso II"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="02-practico_files/figure-html/ex2_plot-2.png" class="img-fluid" width="960"></p>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(anscombe, <span class="fu">aes</span>(<span class="at">x =</span> x3, <span class="at">y =</span> y3)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"yellow"</span>, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Caso III"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="02-practico_files/figure-html/ex2_plot-3.png" class="img-fluid" width="960"></p>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(anscombe, <span class="fu">aes</span>(<span class="at">x =</span> x4, <span class="at">y =</span> y4)) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"orange"</span>, </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Caso IV"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="02-practico_files/figure-html/ex2_plot-4.png" class="img-fluid" width="960"></p>
 </div>
 </div>
+<p>Como vemos, con distintas distribuciones las correlaciones pueden ser las mismas, principalmente porque Pearson es una medida que solo captura relaciones lineales (rectas), además de verse influido fuertemente por valores extremos. Por lo mismo, es relevante siempre una buena visualización de la distribución bivariada de los datos como complemento al cálculo del coeficiente de correlación.</p>
 </section>
-</section>
-<section id="resumen" class="level1">
-<h1>Resumen</h1>
-<p>Hoy aprendimos a generar documentos dinámicos con RMarkdown. En detalle, aprendímos:</p>
-<ol type="1">
-<li>Qué es una correlación</li>
-<li>Cuál es la correlación lineal de Pearson</li>
-<li>Cómo calcular una correlación de Pearson y graficarla</li>
-</ol>
 </section>
 <section id="reporte-de-progreso" class="level1">
 <h1>Reporte de progreso</h1>
-<p>Completar el reporte de progreso correspondiente a esta práctica <a href="">aquí</a>. El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.</p>
-</section>
-<section id="video-de-práctica" class="level1">
-<h1>Video de práctica</h1>
+<p>Completar el reporte de progreso correspondiente a esta práctica <a href="https://docs.google.com/forms/d/e/1FAIpQLSex--rT5VrvetmhXBGh7duprKP8_B2eIcEEZybmHpL00hHe_A/viewform">aquí</a>. El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.</p>
 </section>
 <section id="foro" class="level1">
 <h1>Foro</h1>
