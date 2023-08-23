@@ -86,6 +86,8 @@ website:
           contents:
             - text: "1: Reportes dinámicos 1"
               file: assignment/01-practico.qmd
+            - text: "2: Cálculo y reporte de correlación"
+              file: assignment/02-practico.qmd
 
   page-footer:
     left: |
