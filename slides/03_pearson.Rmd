@@ -228,6 +228,7 @@ $$\sigma^{2}={\sum_{i=1}^{N}(x_{i}-\bar{x})^{2}\over {N - 1}}$$
 
 ```{r, echo=FALSE}
 data$id <- seq(1,8) # agregar para graficos univariados
+data <- data %>% select(id,educ,ing)
 ggplot(
   data = data, 
   aes(y = educ, x = id)) + 
@@ -298,7 +299,7 @@ sum(data$dif_m_educ2)
 
 \begin{align*}
 Varianza =\sigma^{2} &={\sum_{i=1}^{N}(x_{i}-\bar{x})^{2}\over {N - 1}}\\
-\sigma^{2} &={(36,875)\over {7 - 1}}\\
+\sigma^{2} &={(36,875)\over {8 - 1}}\\
 \sigma^{2} &= 5,267\\
 \end{align*}
 
@@ -332,7 +333,7 @@ sum(data$dif_m_ing2)
 
 \begin{align*}
 Varianza =\sigma^{2} &={\sum_{i=1}^{N}(x_{i}-\bar{x})^{2}\over {N - 1}}\\
-\sigma^{2} &={(79,875)\over {7 - 1}}\\
+\sigma^{2} &={(79,875)\over {8 - 1}}\\
 \sigma^{2} &= 11.41071\\
 \end{align*}
 
