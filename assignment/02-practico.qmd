@@ -241,8 +241,11 @@ Como vemos, con distintas distribuciones las correlaciones pueden ser las mismas
 
 # Reporte de progreso
 
-Completar el reporte de progreso correspondiente a esta práctica [aquí](https://docs.google.com/forms/d/e/1FAIpQLSex--rT5VrvetmhXBGh7duprKP8_B2eIcEEZybmHpL00hHe_A/viewform). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
+Completar el reporte de progreso correspondiente a esta práctica [aquí](https://forms.gle/3J8Z9wmF9C8JYLGX6). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
 
+# Video de práctica
+
+{{< video https://youtu.be/xAzHypJaO1U >}}
 
 # Foro
 
