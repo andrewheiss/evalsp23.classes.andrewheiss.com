@@ -31,20 +31,43 @@ withr::with_dir(here::here(), {
 
 **Profesor**
 
-- {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
+![](https://ucampus.uchile.cl/d/r/usuario/ff/ffd4a9d15a5239c0a425a58a798889c8/perfil/bf49d6261628eb095bcaec76eda1e0d1.jpg)
+
+
+[{{< var instructor.name >}}]({{< var instructor.url >}})
+
 - {{< fa university >}} &nbsp; {{< var instructor.office >}}
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var instructor.email >}}">{{< var instructor.email >}}</a>
 - {{< fa calendar-check >}} &nbsp; [Agendar reunión]({{< var instructor.appointment_url >}})
 
 **Apoyos docentes**
 
-- {{< fa user >}} &nbsp; Daniela Olivares
+![](https://static.u-cursos.cl/r/usuario/af/af4bf2025223c7ec26f2b05853a831e8/datos_usuario/av_611aa760e705a.jpg)
+
+Daniela Olivares
+
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var other2.email >}}">{{< var other2.email >}}</a>
 - {{< fa calendar-check >}} &nbsp; [Agendar reunión]({{< var other2.appointment_url >}})
-- {{< fa user >}} &nbsp; Andreas Laffert
+
+![](https://static.u-cursos.cl/r/usuario/5b/5b662afdc07fea74ce535d3c5e29712e/datos_usuario/av_6121add2d12f1.jpg)
+
+Andreas Laffert
+
 - {{< fa envelope >}} &nbsp; <a href="mailto:{{< var other.email >}}">{{< var other.email >}}</a>
 - {{< fa calendar-check >}} &nbsp; [Agendar reunión]({{< var other.appointment_url >}})
 
+**Ayudantes**
+
+- Bladimir Beltran
+- Matías Buller
+- Neyem Cares
+- Carolina Collao
+- Aníbal Figueroa
+- Valentina Frómeta
+- Pedro González
+- Anaís Herrada
+- Moira Martínez
+- Emilio Miranda
 
 :::
 
