@@ -10,15 +10,15 @@ website:
 
 # Objetivo de la práctica
 
-El objetivo de esta guía práctica es conocer maneras de reportar coeficientes de correlación y cómo interprear sus tamaños de efecto en ciencias sociales. Además, nos introduciremos en el tratamiento de valores pérdidos y otras medidas de correlación entre variables.
+El objetivo de esta guía práctica es conocer maneras de reportar coeficientes de correlación y cómo interpretar sus tamaños de efecto en ciencias sociales. Además, nos introduciremos en el tratamiento de valores perdidos y otras medidas de correlación entre variables.
 
 En detalle, aprenderemos:
 
-1.  Cómo reportar y presentar matrices de correlación
-2.  Interpretar el tamaño de efecto de una correlación
-3.  Tratamiento de casos pérdidos
-4.  Qué es y cómo calcular la correlación de Spearman
-5.  Qué es el coeficiente de determinación $R^2$
+1.  Cómo reportar y presentar matrices de correlación.
+2.  Interpretar el tamaño de efecto de una correlación.
+3.  Tratamiento de casos perdidos.
+4.  Qué es y cómo calcular la correlación de Spearman.
+5.  Qué es el coeficiente de determinación $R^2$.
 
 ::: callout-note
 **¿Qué era la correlación?**
@@ -31,7 +31,7 @@ En otras palabras, nos permite conocer cómo y cuánto se relaciona la variació
 
 ## Recursos de la práctica
 
-En esta práctica trabajaremos con un subconjunto de datos previamente procesados del Estudio Longitudinal Social de Chile (ELSOC) del año 2016, elaborado por [COES](https://coes.cl/encuesta-panel/). Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `ELSOC 2016`](https://github.com/Andreas-Lafferte/descriptiva/raw/main/content/input/data/ELSOC_W06_v1.0_SPSS.sav). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos ELSOC 2016.
+En esta práctica trabajaremos con un subconjunto de datos previamente procesados del Estudio Longitudinal Social de Chile (ELSOC) del año 2016, elaborado por [COES](https://coes.cl/encuesta-panel/). Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `ELSOC 2016`](https://multivariada.netlify.app/assignment/data/proc/ELSOC_ess_merit2016.RData). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos ELSOC 2016.
 
 
 # Preparación datos
@@ -59,7 +59,7 @@ load(url("https://multivariada.netlify.app/assignment/data/proc/ELSOC_ess_merit2
 ```
 
 
-A continuación, exploramos la base de datos proc_elsoc.
+A continuación, exploramos la base de datos **proc_elsoc**.
 
 ```{r exploracion, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -67,7 +67,7 @@ names(proc_elsoc) # Nombre de columnas
 dim(proc_elsoc) # Dimensiones
 
 ```
-Contamos con 7 variables (columnas) y 2927 observaciones (filas)
+Contamos con 7 variables (columnas) y 2927 observaciones (filas).
 
 Ahora, profundicemos un poco más y observemos algunos estadísticos descriptivos de resumen de nuestra base de datos. Utilizaremos la función `descr` del paquete `sjmisc`.
 
@@ -77,11 +77,11 @@ sjmisc::descr(proc_elsoc,
       kable(.,"markdown")
 ```
 
-**¡ALTO!** Tenemos algunos valores o casos pérdidos en ciertas variables. ¿Cómo lidiar con los casos pérdidos?
+**¡ALTO!** Tenemos algunos valores o casos perdidos en ciertas variables. ¿Cómo lidiar con los casos perdidos?
 
-## Tratamiento de casos pérdidos 
+## Tratamiento de casos perdidos 
 
-Trabajar con datos a menudo implica enfrentar valores perdidos (`NA`), lo que puede ser un desafío significativo. Estos valores indican la ausencia de un valor en una base de datos. Los valores perdidos pueden originarse por diversas razones, como el sesgo de no respuesta en encuestas, errores en la entrada de datos o simplemente la falta de información para ciertas variables.
+Trabajar con datos a menudo implica enfrentar valores perdidos (`NA`), lo que puede ser un gran desafío. Estos valores _indican la ausencia de un valor en una base de datos_. Los valores perdidos pueden originarse por diversas razones, como el sesgo de no respuesta en encuestas, errores en la entrada de datos o simplemente la falta de información para ciertas variables.
 
 
 ```{r, echo=FALSE}
@@ -115,11 +115,11 @@ Este enfoque es uno de los más conocidos: implica remover completamente las obs
 
 En R, esto podemos hacerlo con la función `na.omit`. Para hacer esto, sigamos estos pasos:
 
-- respaldar la base de datos original en el espacio de trabajo (por si queremos en adelante realizar algún análisis referido a casos perdidos)
-- contamos el número de casos con el comando `dim`
-- contamos cuántos y en dónde tenemos casos perdidos
-- borramos los casos perdidos con `na.omit`
-- contamos nuevamente con `dim` para asegurarnos que se borraron
+- respaldar la base de datos original en el espacio de trabajo (por si queremos en adelante realizar algún análisis referido a casos perdidos)-
+- contamos el número de casos con el comando `dim`.
+- contamos cuántos y en dónde tenemos casos perdidos.
+- borramos los casos perdidos con `na.omit`.
+- contamos nuevamente con `dim` para asegurarnos que se borraron.
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 
@@ -142,9 +142,9 @@ proc_elsoc <- na.omit(proc_elsoc)
 dim(proc_elsoc)
 ```
 
-Ahora nos quedamos con 2887 observaciones sin casos pérdidos.
+Ahora nos quedamos con 2887 observaciones sin casos perdidos.
 
-Aunque simple de implementar, con este enfoque podemos perder información importante, especialmente si los valores perdidos no se distribuyen aleatoreamente.
+Aunque simple de implementar, con este enfoque podemos perder información importante, especialmente si los valores perdidos no se distribuyen aleatoriamente.
 
 ### b) Retener pero excluir: pairwise deletion
 
@@ -160,7 +160,7 @@ mean(proc_elsoc_original$pmerit, na.rm = TRUE)
 
 ```
 
-Con el primer código no obtuvimos información sustantiva, pero con el segundo sí al remover los `NA` solo de dicha variable para un calculo determinado.
+Con el primer código no obtuvimos información sustantiva, pero con el segundo sí al remover los `NA` solo de dicha variable para un cálculo determinado.
 
 # Matrices de correlación
 
@@ -174,7 +174,7 @@ M
 ```
 
 
-Este es el reporte simple, pero no muy amigable a la vista. Para una versión más reportable, utilizamos la funcion `tab_corr`
+Este es el reporte simple, pero no muy amigable a la vista. Para una versión más reportable, utilizamos la funcion `tab_corr`.
 
 ```{r cor2, echo=TRUE, message=FALSE, warning=FALSE}
 sjPlot::tab_corr(proc_elsoc, 
@@ -185,7 +185,7 @@ Con esta mejor visualización, algunas observaciones sobre la matriz de correlac
 
 - En esta matriz las variables están representadas en las filas y en las columnas.
 - Cada coeficiente expresa la correlación de una variable con otra. Por ejemplo, la correlación entre la variable de recompensa por esfuerzo y recompensa por inteligencia es 0.698.
-- La información de cada coeficiente se repite sobre y bajo la diagonal, ya que es el mismo par de variables pero en el orden alterno. Podemos omitir los pares de información que se repiten o redundante.
+- La información de cada coeficiente se repite sobre y bajo la diagonal, ya que es el mismo par de variables pero en el orden alterno. Podemos omitir los pares de información que se repiten o son redundantes.
 - En la diagonal corresponde que todos los coeficientes sean 1, ya que la correlación de una variable consigo misma es perfectamente positiva.
 
 
@@ -199,7 +199,7 @@ Este gráfico/matriz representa el grado de asociación entre variables mediante
 
 **¡Genial!** 
 
-Otra manera de graficar la matriz es con la función `ggpairs` del paquete `GGally`, que nos entrega no solo el valor del coeficiente y su significancia (***), si no que también un scatter del cruce entre variables.
+Otra manera de graficar la matriz es con la función `ggpairs` del paquete `GGally`, que nos entrega no solo el valor del coeficiente y su significancia (***), si no que también un _scatter_ del cruce entre variables.
 
 ```{r cor5, echo=TRUE, message=FALSE, warning=FALSE}
 ggpairs(proc_elsoc) 
@@ -207,7 +207,7 @@ ggpairs(proc_elsoc)
 ```
 
 
-Finalmente, también se puede representar la correlación entre dos variables en un gráfico de nube de puntos o scatterplot:
+Finalmente, también se puede representar la correlación entre dos variables en un gráfico de nube de puntos o _scatterplot_.
 
 ```{r cor6, echo=TRUE, message=FALSE, warning=FALSE}
 sjPlot::plot_scatter(proc_elsoc, edad, ess)
@@ -270,7 +270,7 @@ Con estos criterios podemos interpretar de mejor manera nuestros resultados de c
 
 
 
-```{r correlation-grid, echo=FALSE, out.width="100%", fig.align='center'}
+```{r correlation-grid, echo=FALSE, out.width="80%", fig.align='center'}
 make_correlated_data <- function(r, n = 200) {
   MASS::mvrnorm(n = n, 
                 mu = c(0, 0), 
@@ -316,17 +316,17 @@ _El coeficiente de correlación de Pearson entre estatus social subjetivo y año
 
 # Otros tipos de correlación: Spearman
 
-Cuando queremos conocer la asociación entre variables que son ordinales y/o cuando nuestras variables no cumplen con los supuestos de distribución normal, podemos utilizar la **correlación de Spearman**
+Cuando queremos conocer la asociación entre variables que son ordinales y/o cuando nuestras variables no cumplen con los supuestos de distribución normal, podemos utilizar la **correlación de Spearman**.
 
 - El coeficiente de correlación de Spearman es una medida estadística que evalúa la relación entre variables al considerar no solo la relación lineal entre ellas, sino también su relación de orden.
 - Emplea rangos en lugar de valores numéricos para evaluar la relación.
 - Sus valores están entre -1 y 1.
-- Es alta cuando las observaciones tienen un ranking similar
+- Es alta cuando las observaciones tienen un ranking similar.
 
-En R calcularlo es sencillo, pero debemos tener en cuenta que las variables que relacionemos tengan un orden de rango similar (por ejemplo, que el valor más bajo sea el rango más bajo y el valor más alto el rango más alto). 
+En R calcularlo es sencillo, pero _debemos tener en cuenta que las variables que relacionemos tengan un orden de rango similar_: por ejemplo, que el valor más bajo sea el rango más bajo y que el valor más alto sea el rango más alto. 
 
 
-Tomemos por ejemplo las variables `mesfuerzo` y `mtalento`
+Tomemos por ejemplo las variables `mesfuerzo` y `mtalento`.
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE, collapse=FALSE}
 
@@ -338,13 +338,13 @@ sjmisc::frq(proc_elsoc$mtalento)
 ```
 
 
-Ahora, calculemos la el coeficiente de correlación de Spearman con `cor.test`
+Ahora, calculemos el coeficiente de correlación de Spearman con `cor.test`.
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
-cor.test(proc_elsoc$mesfuerzo, proc_elsoc$mtalento, method = "spearman")
+cor.test(proc_elsoc$mesfuerzo, proc_elsoc$mtalento, method = "spearman") #especificamos metodo spearman
 ```
 
-Ahora conocemos el valor del coeficiente mediante al argumento `rho`, que es igual a 0.7, siendo positivo y alto según los criterios de Cohen (1988). 
+Ahora conocemos el valor del coeficiente mediante al argumento `rho`, que es igual a 0.7, siendo positivo y grande según los criterios de Cohen (1988). 
 
 # Coeficiente de determinación
 
@@ -355,7 +355,7 @@ El coeficiente de determinación $R^2$ es una medida estadística que indica la 
 
 En el contexto de la correlación entre **solo dos variables**, el $R^2$ es igual a elevar al cuadrado el coeficiente de correlación = `(r)^2`. Esto nos permite conocer qué tanto la variabilidad de una variable X estaría explicando la variabilidad de otra variable Y. 
 
-En nuestro ejemplo anterior entre estatus social subjetivo y años de educación, teníamos que su coeficiente de correlación era `r` = 0.3
+En nuestro ejemplo anterior entre estatus social subjetivo y años de educación, teníamos que su coeficiente de correlación era _r = 0.3_.
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 
@@ -372,18 +372,16 @@ coef_r^2
 
 Con esto, podemos decir que el 9% de la variabilidad del estatus social subjetivo se explica por la variabilidad en los años de educación.
 
-
-
 # Resumen
 
-Hoy aprendímos a reportar el coeficiente de correlación y cómo interpretar sus tamaños de efecto, así como también a lidiar con casos pérdidos y conocer otras medidadas de correlación. En detalle, aprendímos:
+Hoy aprendímos a reportar el coeficiente de correlación y cómo interpretar sus tamaños de efecto, así como también a lidiar con casos perdidos y conocer otras medidadas de correlación. En detalle, aprendímos:
 
 
-1.  Cómo reportar y presentar matrices de correlación
-2.  Interpretar el tamaño de efecto de una correlación
-3.  Qué es y cómo calcular la correlación de Spearman
-4.  Tratamiento de casos pérdidos
-5.  Qué es el coeficiente de determinación $R^2$
+1.  Cómo reportar y presentar matrices de correlación.
+2.  Interpretar el tamaño de efecto de una correlación.
+3.  Qué es y cómo calcular la correlación de Spearman.
+4.  Tratamiento de casos perdidos.
+5.  Qué es el coeficiente de determinación $R^2$.
 
 # Reporte de progreso
 
