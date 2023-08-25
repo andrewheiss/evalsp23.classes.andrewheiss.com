@@ -146,9 +146,16 @@ Ahora nos quedamos con 2887 observaciones sin casos perdidos.
 
 Aunque simple de implementar, con este enfoque podemos perder información importante, especialmente si los valores perdidos no se distribuyen aleatoriamente.
 
+::: callout-box
+
+Siempre hay que intentar rescatar la mayor cantidad de casos posibles. Por lo tanto, si un listwise genera más de un 10% de casos perdidos se debe detectar qué variables esta produciendo esta pérdida e intentar recuperar datos. se puede revisar un ejemplo [aquí](https://multivariada.netlify.app/assignment/11-code/#recuperar-casos-perdidos-ejemplo-variable-ingresos)
+
+:::
+
+
 ### b) Retener pero excluir: pairwise deletion
 
-A diferencia del anterior, este es un enfoque en el que las observaciones se utilizan para el análisis siempre que tengan datos disponibles para las variables específicas en cuestión. En lugar de eliminar toda una fila si falta un valor, se eliminan solo los valores faltantes en las variables que se están analizando en ese momento. 
+A diferencia del anterior, este es un enfoque en el que las observaciones se utilizan para el análisis siempre que tengan datos disponibles para las variables específicas que se están analizando. En lugar de eliminar toda una fila si falta un valor, se eliminan solo los valores faltantes en las variables que se están analizando en ese momento. 
 
 Para hacer esto en R debemos siempre verificar e indicar en nuestro código si queremos (o no) remover los `NA` para realizar los análisis.
 
@@ -164,28 +171,39 @@ Con el primer código no obtuvimos información sustantiva en ciertas variables,
 
 # Matrices de correlación
 
-Las correlaciones entre variables se presentan en general en modo de matrices, es decir, las variables se presentan en las filas y las columnas, y en las celdas donde se cruzan los pares de variables se muestra su coeficiente de correlación.
+La correlación es una estimación de asociación de dos variables. Sin embargo, en los análisis de bases de datos usualmente se exploran asociaciones entre múltiples pares de variables, lo que genera una matriz de correlación. En una matriz, las variables se presentan en las filas y las columnas, y en las celdas donde se cruzan los pares de variables se muestra su coeficiente de correlación.
 
 En su forma simple en R se aplica la función `cor` a la base de datos, y la guardamos en un objeto que le damos el nombre M para futuras operaciones:
 
+
 ```{r cor1, echo=TRUE, message=FALSE, warning=FALSE}
-M <- cor(proc_elsoc)
+M <- cor(proc_elsoc_original, use = "complete.obs") 
 M
 ```
 
-
-Este es el reporte simple, pero no muy amigable a la vista. Para una versión más reportable, utilizamos la funcion `tab_corr`.
+Este es el reporte simple, pero no muy amigable a la vista. Para una versión más reportable, utilizamos la funcion `tab_corr`. 
 
 ```{r cor2, echo=TRUE, message=FALSE, warning=FALSE}
-sjPlot::tab_corr(proc_elsoc, 
+sjPlot::tab_corr(proc_elsoc_original, 
                  triangle = "lower")
 ```
+
+La **distinción** entre **listwise y pairwise es relevante al momento de estimar matricies de correlación**, donde esta decisión debe estar claramente explicitada y fundamentada. En ejemplo de tabla anterior usamos _listwise_ que es el argumento por defecto (y nos lo indica al final de la tabla). 
+
+Veamos como hacerlo con _pairwise_:
+
+```{r cor2_1, echo=TRUE, message=FALSE, warning=FALSE}
+sjPlot::tab_corr(proc_elsoc_original, 
+                 na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
 
 Con esta mejor visualización, algunas observaciones sobre la matriz de correlaciones:
 
 - En esta matriz las variables están representadas en las filas y en las columnas.
-- Cada coeficiente expresa la correlación de una variable con otra. Por ejemplo, la correlación entre la variable de recompensa por esfuerzo y recompensa por inteligencia es 0.698.
-- La información de cada coeficiente se repite sobre y bajo la diagonal, ya que es el mismo par de variables pero en el orden alterno. Podemos omitir los pares de información que se repiten o son redundantes.
+- Cada coeficiente expresa la correlación de una variable con otra. Por ejemplo, la correlación entre la variable de `mesfuerzo` y `mtalento` es 0.698.
+- La información de cada coeficiente se repite sobre y bajo la diagonal, ya que es el mismo par de variables pero en el orden alterno. Por convención en general se omiten las correlaciones redundantes sobre la diagonal, por eso aparece en blanco.
 - En la diagonal corresponde que todos los coeficientes sean 1, ya que la correlación de una variable consigo misma es perfectamente positiva.
 
 
@@ -196,8 +214,6 @@ corrplot.mixed(M)
 ```
 
 Este gráfico/matriz representa el grado de asociación entre variables mediante el tamaño de los círculos e intensidad de colores, y el signo de la asociación se representa con una gradiente de colores que va del azul (positivo) al rojo (negativo).
-
-**¡Genial!** 
 
 Otra manera de graficar la matriz es con la función `ggpairs` del paquete `GGally`, que nos entrega no solo el valor del coeficiente y su significancia (***), si no que también un _scatter_ del cruce entre variables.
 
@@ -351,9 +367,10 @@ Ahora conocemos el valor del coeficiente mediante al argumento `rho`, que es igu
 El coeficiente de determinación $R^2$ es una medida estadística que indica la proporción de la varianza total de una variable que es explicada por otra(s) variable(s). En pocas palabras, 
 
 - se utiliza para evaluar cuánta de la variabilidad de una variable se debe a otra variable. 
-- sus valores van desde 0 a 1, en donde 0 indica que no explica nada y 1 que explica toda la variabilidad.
+- sus valores van desde 0 a 1, en donde 0 indica que ambas variables comparten el 0% de su varianza, y 1 que comparten el 100% de su varianza. 
 
-En el contexto de la correlación entre **solo dos variables**, el $R^2$ es igual a elevar al cuadrado el coeficiente de correlación = `(r)^2`. Esto nos permite conocer qué tanto la variabilidad de una variable X estaría explicando la variabilidad de otra variable Y. 
+
+En el contexto de la correlación entre **solo dos variables**, el $R^2$ es igual a elevar al cuadrado el coeficiente de correlación = `(r)^2`. Esto nos permite conocer qué tanto la variabilidad de una variable X estaría asociado a la variabilidad de otra variable Y. 
 
 En nuestro ejemplo anterior entre estatus social subjetivo y años de educación, teníamos que su coeficiente de correlación era _r = 0.3_.
 
@@ -370,7 +387,7 @@ Calculemos el $R^2$ de esta asociación.
 coef_r^2
 ```
 
-Con esto, podemos decir que el 9% de la variabilidad del estatus social subjetivo se explica por la variabilidad en los años de educación.
+Con esto, podemos decir que el 9% de la variabilidad del estatus social subjetivo es compartido con la variabilidad en los años de educación.
 
 # Resumen
 
