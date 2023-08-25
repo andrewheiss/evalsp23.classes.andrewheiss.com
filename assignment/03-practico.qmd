@@ -154,13 +154,13 @@ Para hacer esto en R debemos siempre verificar e indicar en nuestro código si q
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE, collapse=FALSE}
 
-mean(proc_elsoc_original$pmerit)
+mean(proc_elsoc_original$pmerit); mean(proc_elsoc$edad); mean(proc_elsoc$ess)
 
-mean(proc_elsoc_original$pmerit, na.rm = TRUE)
+mean(proc_elsoc_original$pmerit, na.rm = TRUE); mean(proc_elsoc$edad, na.rm = TRUE); mean(proc_elsoc$ess, na.rm = TRUE)
 
 ```
 
-Con el primer código no obtuvimos información sustantiva, pero con el segundo sí al remover los `NA` solo de dicha variable para un cálculo determinado.
+Con el primer código no obtuvimos información sustantiva en ciertas variables, pero con el segundo sí al remover los `NA` solo de dicha variable para un cálculo determinado.
 
 # Matrices de correlación
 

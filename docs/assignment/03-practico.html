@@ -552,16 +552,28 @@ Nota
 <p>A diferencia del anterior, este es un enfoque en el que las observaciones se utilizan para el análisis siempre que tengan datos disponibles para las variables específicas en cuestión. En lugar de eliminar toda una fila si falta un valor, se eliminan solo los valores faltantes en las variables que se están analizando en ese momento.</p>
 <p>Para hacer esto en R debemos siempre verificar e indicar en nuestro código si queremos (o no) remover los <code>NA</code> para realizar los análisis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(proc_elsoc_original<span class="sc">$</span>pmerit)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(proc_elsoc_original<span class="sc">$</span>pmerit); <span class="fu">mean</span>(proc_elsoc<span class="sc">$</span>edad); <span class="fu">mean</span>(proc_elsoc<span class="sc">$</span>ess)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(proc_elsoc_original<span class="sc">$</span>pmerit, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 45.98337</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.333564</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(proc_elsoc_original<span class="sc">$</span>pmerit, <span class="at">na.rm =</span> <span class="cn">TRUE</span>); <span class="fu">mean</span>(proc_elsoc<span class="sc">$</span>edad, <span class="at">na.rm =</span> <span class="cn">TRUE</span>); <span class="fu">mean</span>(proc_elsoc<span class="sc">$</span>ess, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.653899</code></pre>
 </div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 45.98337</code></pre>
 </div>
-<p>Con el primer código no obtuvimos información sustantiva, pero con el segundo sí al remover los <code>NA</code> solo de dicha variable para un cálculo determinado.</p>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.333564</code></pre>
+</div>
+</div>
+<p>Con el primer código no obtuvimos información sustantiva en ciertas variables, pero con el segundo sí al remover los <code>NA</code> solo de dicha variable para un cálculo determinado.</p>
 </section>
 </section>
 </section>
@@ -570,8 +582,8 @@ Nota
 <p>Las correlaciones entre variables se presentan en general en modo de matrices, es decir, las variables se presentan en las filas y las columnas, y en las celdas donde se cruzan los pares de variables se muestra su coeficiente de correlación.</p>
 <p>En su forma simple en R se aplica la función <code>cor</code> a la base de datos, y la guardamos en un objeto que le damos el nombre M para futuras operaciones:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(proc_elsoc)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>M</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(proc_elsoc)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>M</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             mesfuerzo    mtalento          ess      edcine        sexo
 mesfuerzo  1.000000000  0.69768811 -0.004312135 -0.12167659 -0.04480502
@@ -593,8 +605,8 @@ pmerit     0.09236979  1.000000000</code></pre>
 </div>
 <p>Este es el reporte simple, pero no muy amigable a la vista. Para una versión más reportable, utilizamos la funcion <code>tab_corr</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_corr</span>(proc_elsoc, </span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">triangle =</span> <span class="st">"lower"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_corr</span>(proc_elsoc, </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">triangle =</span> <span class="st">"lower"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <table style="border-collapse:collapse; border:none;">
@@ -694,7 +706,7 @@ pmerit     0.09236979  1.000000000</code></pre>
 </ul>
 <p>Otra manera de presentar matrices de correlación es mediante gráficos. Veamos un ejemplo con la función <code>corrplot.mixed</code> de la librería <code>corrplot</code> sobre nuestra matriz <code>M</code> ya creada.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(M)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(M)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="03-practico_files/figure-html/cor3-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -703,14 +715,14 @@ pmerit     0.09236979  1.000000000</code></pre>
 <p><strong>¡Genial!</strong></p>
 <p>Otra manera de graficar la matriz es con la función <code>ggpairs</code> del paquete <code>GGally</code>, que nos entrega no solo el valor del coeficiente y su significancia (***), si no que también un <em>scatter</em> del cruce entre variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(proc_elsoc) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(proc_elsoc) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="03-practico_files/figure-html/cor5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Finalmente, también se puede representar la correlación entre dos variables en un gráfico de nube de puntos o <em>scatterplot</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(proc_elsoc, edad, ess)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(proc_elsoc, edad, ess)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="03-practico_files/figure-html/cor6-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -821,7 +833,7 @@ Grande
 <p>En R calcularlo es sencillo, pero <em>debemos tener en cuenta que las variables que relacionemos tengan un orden de rango similar</em>: por ejemplo, que el valor más bajo sea el rango más bajo y que el valor más alto sea el rango más alto.</p>
 <p>Tomemos por ejemplo las variables <code>mesfuerzo</code> y <code>mtalento</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>mesfuerzo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>mesfuerzo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x &lt;numeric&gt; 
 # total N=2887 valid N=2887 mean=2.57 sd=1.05
@@ -835,7 +847,7 @@ Value |    N | Raw % | Valid % | Cum. %
     5 |   78 |  2.70 |    2.70 | 100.00
  &lt;NA&gt; |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>mtalento)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>mtalento)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x &lt;numeric&gt; 
 # total N=2887 valid N=2887 mean=2.74 sd=1.06
@@ -852,7 +864,7 @@ Value |    N | Raw % | Valid % | Cum. %
 </div>
 <p>Ahora, calculemos el coeficiente de correlación de Spearman con <code>cor.test</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(proc_elsoc<span class="sc">$</span>mesfuerzo, proc_elsoc<span class="sc">$</span>mtalento, <span class="at">method =</span> <span class="st">"spearman"</span>) <span class="co">#especificamos metodo spearman</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(proc_elsoc<span class="sc">$</span>mesfuerzo, proc_elsoc<span class="sc">$</span>mtalento, <span class="at">method =</span> <span class="st">"spearman"</span>) <span class="co">#especificamos metodo spearman</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Spearman's rank correlation rho
@@ -877,16 +889,16 @@ sample estimates:
 <p>En el contexto de la correlación entre <strong>solo dos variables</strong>, el <span class="math inline">\(R^2\)</span> es igual a elevar al cuadrado el coeficiente de correlación = <code>(r)^2</code>. Esto nos permite conocer qué tanto la variabilidad de una variable X estaría explicando la variabilidad de otra variable Y.</p>
 <p>En nuestro ejemplo anterior entre estatus social subjetivo y años de educación, teníamos que su coeficiente de correlación era <em>r = 0.3</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>coef_r <span class="ot">&lt;-</span> M[<span class="dv">4</span>,<span class="dv">3</span>] <span class="co"># seleccionamos el coef de nuestra matriz</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>coef_r</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>coef_r <span class="ot">&lt;-</span> M[<span class="dv">4</span>,<span class="dv">3</span>] <span class="co"># seleccionamos el coef de nuestra matriz</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>coef_r</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2895925</code></pre>
 </div>
 </div>
 <p>Calculemos el <span class="math inline">\(R^2\)</span> de esta asociación.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>coef_r<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>coef_r<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.0838638</code></pre>
 </div>
