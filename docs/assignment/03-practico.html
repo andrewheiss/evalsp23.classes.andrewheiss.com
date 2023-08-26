@@ -546,10 +546,23 @@ Nota
 </div>
 <p>Ahora nos quedamos con 2887 observaciones sin casos perdidos.</p>
 <p>Aunque simple de implementar, con este enfoque podemos perder información importante, especialmente si los valores perdidos no se distribuyen aleatoriamente.</p>
+<div class="callout-box callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Box
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Siempre hay que intentar rescatar la mayor cantidad de casos posibles. Por lo tanto, si un listwise genera más de un 10% de casos perdidos se debe detectar qué variables esta produciendo esta pérdida e intentar recuperar datos. Puedes revisar un ejemplo <a href="https://multivariada.netlify.app/assignment/11-code/#recuperar-casos-perdidos-ejemplo-variable-ingresos">aquí.</a></p>
+</div>
+</div>
 </section>
 <section id="b-retener-pero-excluir-pairwise-deletion" class="level3">
 <h3 class="anchored" data-anchor-id="b-retener-pero-excluir-pairwise-deletion">b) Retener pero excluir: pairwise deletion</h3>
-<p>A diferencia del anterior, este es un enfoque en el que las observaciones se utilizan para el análisis siempre que tengan datos disponibles para las variables específicas en cuestión. En lugar de eliminar toda una fila si falta un valor, se eliminan solo los valores faltantes en las variables que se están analizando en ese momento.</p>
+<p>A diferencia del anterior, este es un enfoque en el que las observaciones se utilizan para el análisis siempre que tengan datos disponibles para las variables específicas que se están analizando. En lugar de eliminar toda una fila si falta un valor, se eliminan solo los valores faltantes en las variables que se están analizando en ese momento.</p>
 <p>Para hacer esto en R debemos siempre verificar e indicar en nuestro código si queremos (o no) remover los <code>NA</code> para realizar los análisis.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(proc_elsoc_original<span class="sc">$</span>pmerit); <span class="fu">mean</span>(proc_elsoc<span class="sc">$</span>edad); <span class="fu">mean</span>(proc_elsoc<span class="sc">$</span>ess)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -579,10 +592,10 @@ Nota
 </section>
 <section id="matrices-de-correlación" class="level1">
 <h1>Matrices de correlación</h1>
-<p>Las correlaciones entre variables se presentan en general en modo de matrices, es decir, las variables se presentan en las filas y las columnas, y en las celdas donde se cruzan los pares de variables se muestra su coeficiente de correlación.</p>
+<p>La correlación es una estimación de asociación de dos variables. Sin embargo, en los análisis de bases de datos usualmente se exploran asociaciones entre múltiples pares de variables, lo que genera una matriz de correlación. En una matriz, las variables se presentan en las filas y las columnas, y en las celdas donde se cruzan los pares de variables se muestra su coeficiente de correlación.</p>
 <p>En su forma simple en R se aplica la función <code>cor</code> a la base de datos, y la guardamos en un objeto que le damos el nombre M para futuras operaciones:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(proc_elsoc)</span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(proc_elsoc_original, <span class="at">use =</span> <span class="st">"complete.obs"</span>) </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>M</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             mesfuerzo    mtalento          ess      edcine        sexo
@@ -605,23 +618,23 @@ pmerit     0.09236979  1.000000000</code></pre>
 </div>
 <p>Este es el reporte simple, pero no muy amigable a la vista. Para una versión más reportable, utilizamos la funcion <code>tab_corr</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_corr</span>(proc_elsoc, </span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_corr</span>(proc_elsoc_original, </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">triangle =</span> <span class="st">"lower"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <table style="border-collapse:collapse; border:none;">
 <tbody><tr>
 <th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">&nbsp;</th>
-<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">mesfuerzo</th>
-<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">mtalento</th>
-<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">ess</th>
-<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">edcine</th>
-<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">sexo</th>
-<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">edad</th>
-<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">pmerit</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Recompensa: esfuerzo</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Recompensa: talento</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Estatus Social Subjetivo</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Educación</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Sexo</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Edad</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Meritocracia promedio</th>
 </tr>
 <tr>
-<td style="font-style:italic;">mesfuerzo</td>
+<td style="font-style:italic;">Recompensa: esfuerzo</td>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
@@ -631,7 +644,7 @@ pmerit     0.09236979  1.000000000</code></pre>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
 </tr>
 <tr>
-<td style="font-style:italic;">mtalento</td>
+<td style="font-style:italic;">Recompensa: talento</td>
 <td style="padding:0.2cm; text-align:center;">0.698<span style="vertical-align:super;font-size:0.8em;">***</span></td>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
@@ -641,7 +654,7 @@ pmerit     0.09236979  1.000000000</code></pre>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
 </tr>
 <tr>
-<td style="font-style:italic;">ess</td>
+<td style="font-style:italic;">Estatus Social Subjetivo</td>
 <td style="padding:0.2cm; text-align:center; color:#999999;">-0.004<span style="vertical-align:super;font-size:0.8em;"></span></td>
 <td style="padding:0.2cm; text-align:center; color:#999999;">0.018<span style="vertical-align:super;font-size:0.8em;"></span></td>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
@@ -651,7 +664,7 @@ pmerit     0.09236979  1.000000000</code></pre>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
 </tr>
 <tr>
-<td style="font-style:italic;">edcine</td>
+<td style="font-style:italic;">Educación</td>
 <td style="padding:0.2cm; text-align:center;">-0.122<span style="vertical-align:super;font-size:0.8em;">***</span></td>
 <td style="padding:0.2cm; text-align:center;">-0.106<span style="vertical-align:super;font-size:0.8em;">***</span></td>
 <td style="padding:0.2cm; text-align:center;">0.290<span style="vertical-align:super;font-size:0.8em;">***</span></td>
@@ -661,7 +674,7 @@ pmerit     0.09236979  1.000000000</code></pre>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
 </tr>
 <tr>
-<td style="font-style:italic;">sexo</td>
+<td style="font-style:italic;">Sexo</td>
 <td style="padding:0.2cm; text-align:center;">-0.045<span style="vertical-align:super;font-size:0.8em;">*</span></td>
 <td style="padding:0.2cm; text-align:center;">-0.038<span style="vertical-align:super;font-size:0.8em;">*</span></td>
 <td style="padding:0.2cm; text-align:center;">-0.037<span style="vertical-align:super;font-size:0.8em;">*</span></td>
@@ -671,7 +684,7 @@ pmerit     0.09236979  1.000000000</code></pre>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
 </tr>
 <tr>
-<td style="font-style:italic;">edad</td>
+<td style="font-style:italic;">Edad</td>
 <td style="padding:0.2cm; text-align:center;">0.096<span style="vertical-align:super;font-size:0.8em;">***</span></td>
 <td style="padding:0.2cm; text-align:center;">0.074<span style="vertical-align:super;font-size:0.8em;">***</span></td>
 <td style="padding:0.2cm; text-align:center;">-0.066<span style="vertical-align:super;font-size:0.8em;">***</span></td>
@@ -681,7 +694,7 @@ pmerit     0.09236979  1.000000000</code></pre>
 <td style="padding:0.2cm; text-align:center;">&nbsp;</td>
 </tr>
 <tr>
-<td style="font-style:italic;">pmerit</td>
+<td style="font-style:italic;">Meritocracia promedio</td>
 <td style="padding:0.2cm; text-align:center;">0.920<span style="vertical-align:super;font-size:0.8em;">***</span></td>
 <td style="padding:0.2cm; text-align:center;">0.922<span style="vertical-align:super;font-size:0.8em;">***</span></td>
 <td style="padding:0.2cm; text-align:center; color:#999999;">0.008<span style="vertical-align:super;font-size:0.8em;"></span></td>
@@ -697,32 +710,127 @@ pmerit     0.09236979  1.000000000</code></pre>
 </tbody></table>
 </div>
 </div>
+<p>La <strong>distinción</strong> entre <strong>listwise y pairwise es relevante al momento de estimar matricies de correlación</strong>, donde esta decisión debe estar claramente explicitada y fundamentada. En ejemplo de tabla anterior usamos <em>listwise</em> que es el argumento por defecto (y nos lo indica al final de la tabla).</p>
+<p>Veamos como hacerlo con <em>pairwise</em>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_corr</span>(proc_elsoc_original, </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.deletion =</span> <span class="st">"pairwise"</span>, <span class="co"># espeficicamos tratamiento NA</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">triangle =</span> <span class="st">"lower"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<table style="border-collapse:collapse; border:none;">
+<tbody><tr>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">&nbsp;</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Recompensa: esfuerzo</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Recompensa: talento</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Estatus Social Subjetivo</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Educación</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Sexo</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Edad</th>
+<th style="font-style:italic; font-weight:normal; border-top:double black; border-bottom:1px solid black; padding:0.2cm;">Meritocracia promedio</th>
+</tr>
+<tr>
+<td style="font-style:italic;">Recompensa: esfuerzo</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+</tr>
+<tr>
+<td style="font-style:italic;">Recompensa: talento</td>
+<td style="padding:0.2cm; text-align:center;">0.696<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+</tr>
+<tr>
+<td style="font-style:italic;">Estatus Social Subjetivo</td>
+<td style="padding:0.2cm; text-align:center; color:#999999;">-0.006<span style="vertical-align:super;font-size:0.8em;"></span></td>
+<td style="padding:0.2cm; text-align:center; color:#999999;">0.016<span style="vertical-align:super;font-size:0.8em;"></span></td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+</tr>
+<tr>
+<td style="font-style:italic;">Educación</td>
+<td style="padding:0.2cm; text-align:center;">-0.124<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">-0.109<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">0.287<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+</tr>
+<tr>
+<td style="font-style:italic;">Sexo</td>
+<td style="padding:0.2cm; text-align:center;">-0.044<span style="vertical-align:super;font-size:0.8em;">*</span></td>
+<td style="padding:0.2cm; text-align:center; color:#999999;">-0.036<span style="vertical-align:super;font-size:0.8em;"></span></td>
+<td style="padding:0.2cm; text-align:center; color:#999999;">-0.035<span style="vertical-align:super;font-size:0.8em;"></span></td>
+<td style="padding:0.2cm; text-align:center;">-0.090<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+</tr>
+<tr>
+<td style="font-style:italic;">Edad</td>
+<td style="padding:0.2cm; text-align:center;">0.099<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">0.075<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">-0.068<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">-0.379<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">0.062<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+</tr>
+<tr>
+<td style="font-style:italic;">Meritocracia promedio</td>
+<td style="padding:0.2cm; text-align:center;">0.920<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">0.922<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center; color:#999999;">0.008<span style="vertical-align:super;font-size:0.8em;"></span></td>
+<td style="padding:0.2cm; text-align:center;">-0.125<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">-0.043<span style="vertical-align:super;font-size:0.8em;">*</span></td>
+<td style="padding:0.2cm; text-align:center;">0.092<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="padding:0.2cm; text-align:center;">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="8" style="border-bottom:double black; border-top:1px solid black; font-style:italic; font-size:0.9em; text-align:right;">Computed correlation used pearson-method with pairwise-deletion.</td>
+</tr>
+ 
+</tbody></table>
+</div>
+</div>
 <p>Con esta mejor visualización, algunas observaciones sobre la matriz de correlaciones:</p>
 <ul>
 <li>En esta matriz las variables están representadas en las filas y en las columnas.</li>
-<li>Cada coeficiente expresa la correlación de una variable con otra. Por ejemplo, la correlación entre la variable de recompensa por esfuerzo y recompensa por inteligencia es 0.698.</li>
-<li>La información de cada coeficiente se repite sobre y bajo la diagonal, ya que es el mismo par de variables pero en el orden alterno. Podemos omitir los pares de información que se repiten o son redundantes.</li>
+<li>Cada coeficiente expresa la correlación de una variable con otra. Por ejemplo, la correlación entre la variable de <code>mesfuerzo</code> y <code>mtalento</code> es 0.69.</li>
+<li>La información de cada coeficiente se repite sobre y bajo la diagonal, ya que es el mismo par de variables pero en el orden alterno. Por convención en general se omiten las correlaciones redundantes sobre la diagonal, por eso aparece en blanco.</li>
 <li>En la diagonal corresponde que todos los coeficientes sean 1, ya que la correlación de una variable consigo misma es perfectamente positiva.</li>
 </ul>
 <p>Otra manera de presentar matrices de correlación es mediante gráficos. Veamos un ejemplo con la función <code>corrplot.mixed</code> de la librería <code>corrplot</code> sobre nuestra matriz <code>M</code> ya creada.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(M)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot.mixed</span>(M)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="03-practico_files/figure-html/cor3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Este gráfico/matriz representa el grado de asociación entre variables mediante el tamaño de los círculos e intensidad de colores, y el signo de la asociación se representa con una gradiente de colores que va del azul (positivo) al rojo (negativo).</p>
-<p><strong>¡Genial!</strong></p>
 <p>Otra manera de graficar la matriz es con la función <code>ggpairs</code> del paquete <code>GGally</code>, que nos entrega no solo el valor del coeficiente y su significancia (***), si no que también un <em>scatter</em> del cruce entre variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(proc_elsoc) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(proc_elsoc) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="03-practico_files/figure-html/cor5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Finalmente, también se puede representar la correlación entre dos variables en un gráfico de nube de puntos o <em>scatterplot</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(proc_elsoc, edad, ess)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(proc_elsoc, edad, ess)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="03-practico_files/figure-html/cor6-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -833,7 +941,7 @@ Grande
 <p>En R calcularlo es sencillo, pero <em>debemos tener en cuenta que las variables que relacionemos tengan un orden de rango similar</em>: por ejemplo, que el valor más bajo sea el rango más bajo y que el valor más alto sea el rango más alto.</p>
 <p>Tomemos por ejemplo las variables <code>mesfuerzo</code> y <code>mtalento</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>mesfuerzo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>mesfuerzo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x &lt;numeric&gt; 
 # total N=2887 valid N=2887 mean=2.57 sd=1.05
@@ -847,7 +955,7 @@ Value |    N | Raw % | Valid % | Cum. %
     5 |   78 |  2.70 |    2.70 | 100.00
  &lt;NA&gt; |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>mtalento)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>mtalento)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x &lt;numeric&gt; 
 # total N=2887 valid N=2887 mean=2.74 sd=1.06
@@ -864,7 +972,7 @@ Value |    N | Raw % | Valid % | Cum. %
 </div>
 <p>Ahora, calculemos el coeficiente de correlación de Spearman con <code>cor.test</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(proc_elsoc<span class="sc">$</span>mesfuerzo, proc_elsoc<span class="sc">$</span>mtalento, <span class="at">method =</span> <span class="st">"spearman"</span>) <span class="co">#especificamos metodo spearman</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(proc_elsoc<span class="sc">$</span>mesfuerzo, proc_elsoc<span class="sc">$</span>mtalento, <span class="at">method =</span> <span class="st">"spearman"</span>) <span class="co">#especificamos metodo spearman</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Spearman's rank correlation rho
@@ -884,26 +992,26 @@ sample estimates:
 <p>El coeficiente de determinación <span class="math inline">\(R^2\)</span> es una medida estadística que indica la proporción de la varianza total de una variable que es explicada por otra(s) variable(s). En pocas palabras,</p>
 <ul>
 <li>se utiliza para evaluar cuánta de la variabilidad de una variable se debe a otra variable.</li>
-<li>sus valores van desde 0 a 1, en donde 0 indica que no explica nada y 1 que explica toda la variabilidad.</li>
+<li>sus valores van desde 0 a 1, en donde 0 indica que ambas variables comparten el 0% de su varianza, y 1 que comparten el 100% de su varianza.</li>
 </ul>
-<p>En el contexto de la correlación entre <strong>solo dos variables</strong>, el <span class="math inline">\(R^2\)</span> es igual a elevar al cuadrado el coeficiente de correlación = <code>(r)^2</code>. Esto nos permite conocer qué tanto la variabilidad de una variable X estaría explicando la variabilidad de otra variable Y.</p>
+<p>En el contexto de la correlación entre <strong>solo dos variables</strong>, el <span class="math inline">\(R^2\)</span> es igual a elevar al cuadrado el coeficiente de correlación = <code>(r)^2</code>. Esto nos permite conocer qué tanto la variabilidad de una variable X estaría asociado a la variabilidad de otra variable Y.</p>
 <p>En nuestro ejemplo anterior entre estatus social subjetivo y años de educación, teníamos que su coeficiente de correlación era <em>r = 0.3</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>coef_r <span class="ot">&lt;-</span> M[<span class="dv">4</span>,<span class="dv">3</span>] <span class="co"># seleccionamos el coef de nuestra matriz</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>coef_r</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>coef_r <span class="ot">&lt;-</span> M[<span class="dv">4</span>,<span class="dv">3</span>] <span class="co"># seleccionamos el coef de nuestra matriz</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>coef_r</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2895925</code></pre>
 </div>
 </div>
 <p>Calculemos el <span class="math inline">\(R^2\)</span> de esta asociación.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>coef_r<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>coef_r<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.0838638</code></pre>
 </div>
 </div>
-<p>Con esto, podemos decir que el 9% de la variabilidad del estatus social subjetivo se explica por la variabilidad en los años de educación.</p>
+<p>Con esto, podemos decir que el 9% de la variabilidad del estatus social subjetivo es compartido con la variabilidad en los años de educación.</p>
 </section>
 <section id="resumen" class="level1">
 <h1>Resumen</h1>

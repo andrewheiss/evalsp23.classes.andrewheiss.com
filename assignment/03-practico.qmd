@@ -148,7 +148,7 @@ Aunque simple de implementar, con este enfoque podemos perder información impor
 
 ::: callout-box
 
-Siempre hay que intentar rescatar la mayor cantidad de casos posibles. Por lo tanto, si un listwise genera más de un 10% de casos perdidos se debe detectar qué variables esta produciendo esta pérdida e intentar recuperar datos. se puede revisar un ejemplo [aquí](https://multivariada.netlify.app/assignment/11-code/#recuperar-casos-perdidos-ejemplo-variable-ingresos)
+Siempre hay que intentar rescatar la mayor cantidad de casos posibles. Por lo tanto, si un listwise genera más de un 10% de casos perdidos se debe detectar qué variables esta produciendo esta pérdida e intentar recuperar datos. Puedes revisar un ejemplo [aquí.](https://multivariada.netlify.app/assignment/11-code/#recuperar-casos-perdidos-ejemplo-variable-ingresos)
 
 :::
 
@@ -202,7 +202,7 @@ sjPlot::tab_corr(proc_elsoc_original,
 Con esta mejor visualización, algunas observaciones sobre la matriz de correlaciones:
 
 - En esta matriz las variables están representadas en las filas y en las columnas.
-- Cada coeficiente expresa la correlación de una variable con otra. Por ejemplo, la correlación entre la variable de `mesfuerzo` y `mtalento` es 0.698.
+- Cada coeficiente expresa la correlación de una variable con otra. Por ejemplo, la correlación entre la variable de `mesfuerzo` y `mtalento` es 0.69.
 - La información de cada coeficiente se repite sobre y bajo la diagonal, ya que es el mismo par de variables pero en el orden alterno. Por convención en general se omiten las correlaciones redundantes sobre la diagonal, por eso aparece en blanco.
 - En la diagonal corresponde que todos los coeficientes sean 1, ya que la correlación de una variable consigo misma es perfectamente positiva.
 
