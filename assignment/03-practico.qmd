@@ -1,6 +1,6 @@
 ---
 title: "Matrices de correlación y tamaños de efecto"
-date: "2023-08-29"
+date: "2023-09-01"
 lang: es
 website:
   comments:
