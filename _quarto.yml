@@ -76,6 +76,8 @@ website:
               file: content/02-content.qmd
             - text: "Sesión 3"
               file: content/03-content.qmd
+            - text: "Sesión 4"
+              file: content/04-content.qmd
 
     - title: "Prácticos"
       contents:
@@ -86,6 +88,8 @@ website:
           contents:
             - text: "1: Reportes dinámicos 1"
               file: assignment/01-practico.qmd
+            - text: "2: Cálculo y reporte de correlación"
+              file: assignment/02-practico.qmd
             - text: "3: Matrices de correlación y tamaños de efecto"
               file: assignment/03-practico.qmd
 

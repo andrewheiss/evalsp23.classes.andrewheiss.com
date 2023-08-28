@@ -295,3 +295,25 @@ pre.text, pre.sourceCode, .cell-output pre {
 pre.text {
   color: #ffffff;
 }
+
+
+/* imagenes circulares
+<div class="image-cropper">
+  <img src="/avatar.jpg" alt="avatar" class="profile-pic">
+</div>
+*/
+
+.image-cropper {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 70%;
+}
+.profile-pic {
+display: inline;
+margin: 0 auto;
+margin-right: inherit; //centers the image
+height: 50%;
+width: auto;
+}
