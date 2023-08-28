@@ -90,6 +90,8 @@ website:
               file: assignment/01-practico.qmd
             - text: "2: Cálculo y reporte de correlación"
               file: assignment/02-practico.qmd
+            - text: "3: Matrices de correlación y tamaños de efecto"
+              file: assignment/03-practico.qmd
 
   page-footer:
     left: |

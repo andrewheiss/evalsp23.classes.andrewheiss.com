@@ -71,9 +71,6 @@ class: animated, fadeIn
 ---
 class: roja
 
-## ver tema coeficiente covariación
-
-
 ## Objetivos de la sesión de hoy
 <br>
 
