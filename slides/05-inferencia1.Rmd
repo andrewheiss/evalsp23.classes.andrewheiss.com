@@ -151,6 +151,11 @@ Cuando se analizan datos, 2 cosas principales
   
 ]
 ]
+---
+
+
+![:scale 50%](https://multivariada.netlify.app/slides/images/cafe.png)
+
 
 
 ---
@@ -255,6 +260,8 @@ formada por hogares distintos y, sin duda, daría un valor distinto de x̄
 
 ¿Qué tan **probable** es el rango de variación?
 
+¿Es un rango aceptable en términos de investigación social?
+
 ---
 class: roja right
 
@@ -273,6 +280,11 @@ class: roja right
 
 ### 4- Curva normal y puntajes Z
 
+]
+
+---
+.center[
+![:scale 70%](img/karatekid.jpg)
 ]
 
 ---
