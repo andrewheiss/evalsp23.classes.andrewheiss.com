@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Estadística Correlacional</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=".small[Juan Carlos Castillo    Departamento de Sociología - UCH / COES   ]" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/animate.css/animate.xaringan.css" rel="stylesheet" />
+    <script src="libs/fabric/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link rel="stylesheet" href="css/custom_2020.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: front
+
+
+
+
+
+
+
+
+.pull-left-wide[
+# Estadística Correlacional]
+
+.pull-right-narrow[![:scale 85%](img/logo-correlacional-transp.png)]
+
+## Asociación, inferencia y reporte
+
+----
+.pull-left[
+
+## Juan Carlos Castillo
+## Sociología FACSO - UChile
+## 2do Sem 2023 
+## [.orange[correlacional.netlify.com]](https:/correlacional.netlify.com)
+]
+
+
+.pull-right-narrow[
+.center[
+.content-block-gray[
+## Sesión 5: 
+## .orange[Introducción a la Inferencia Estadística]]
+]
+]
+
+---
+
+layout: true
+class: animated, fadeIn
+
+---
+class: roja right
+
+# .black[Contenidos]
+
+.pull-left-narrow[
+]
+
+.pull-right-wide[
+
+### .yellow[1- Resumen sesión anterior]
+
+### 2- Inferencia y muestras
+
+### 3- Aleatoridad y probabilidad
+
+### 4- Curva normal y puntajes Z
+
+]
+---
+.right[ # Resumen
+]
+
+- Reporte de correlación: además de reportar la intensidad y el sentido, acompañar reporte de tamaño de efecto y varianza compartida `\(R^2\)` 
+
+--
+
+- Correlación de Spearman: apropiada para variables ordinales, equivale a la correlación de Pearson del ranking de las variables
+
+--
+
+- Matriz de correlaciones: forma tradicional de reporte de asociaciones de las variables de una investigación, importante considerar tratamiento de datos perdidos (listwise o pairwise)
+
+
+---
+class: roja right
+
+# .black[Contenidos]
+
+.pull-left-narrow[
+]
+
+.pull-right-wide[
+
+### 1- Resumen sesión anterior
+
+### .yellow[2- Inferencia y muestras]
+
+### 3- Aleatoridad y probabilidad
+
+### 4- Curva normal y puntajes Z
+
+]
+
+---
+# Inferencia: la otra parte del análisis
+
+Cuando se analizan datos, 2 cosas principales
+
+.pull-left[
+.content-box-yellow[
+- cálculo del estadístico:
+
+  - promedio
+
+  - desviación estándar
+
+  - correlación
+  
+  - ...
+]
+]
+
+.pull-right[
+.content-box-red[
+- inferencia: ¿existe este estadístico en la población?
+
+  - probabilidad
+  
+  - error
+  
+  - significación
+  
+]
+]
+
+
+---
+class: middle
+# Motivación: 
+
+
+[![](https://observatorio.ministeriodesarrollosocial.gob.cl/images/casen_2022.svg)](https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2022/Presentacion%20de%20resultados%20Casen%202022.pdf)
+---
+
+.pull-left-narrow[
+# Inferencia
+]
+
+
+.pull-right-wide[
+¿En qué medida se pueden relacionar resultados que se encuentran en un .green[(sub)conjunto de unidades] con lo que ocurre .red[en general]?]
+
+--
+
+.pull-right-wide[
+Ej: si en un subconjunto de la población encuentro que el promedio de matemáticas es mayor en mujeres que en hombres ¿es esto un .orange[reflejo] de lo que ocurre en general, o se debe solo al .red[azar]? ¿se puede .green[extrapolar] a la poblacion?
+]
+
+???
+
+mapa y territorio, Borges
+lidiando con el caos y la incertidumbre
+la domesticación de la casualidad
+error
+
+---
+background-image: url("https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTEyL3JtNjE0LWotYmctMDA4LmpwZw.jpg")
+background-size: cover
+
+
+.medium[En aquel Imperio, el Arte de la Cartografía logró tal Perfección que el mapa de una sola Provincia ocupaba toda una Ciudad, y el mapa del Imperio, toda una Provincia. Con el tiempo, estos Mapas Desmesurados no satisficieron y los Colegios de Cartógrafos levantaron un Mapa del Imperio, que tenía el tamaño del Imperio y coincidía puntualmente con él.
+
+Menos Adictas al Estudio de la Cartografía, las Generaciones Siguientes entendieron que ese dilatado Mapa era Inútil y no sin Impiedad lo entregaron a las Inclemencias del Sol y los Inviernos. En los desiertos del Oeste perduran despedazadas Ruinas del Mapa, habitadas por Animales y por Mendigos; en todo el País no hay otra reliquia de las Disciplinas Geográficas.]
+
+.small[Suárez Miranda, Viajes de Varones Prudentes, Libro Cuarto, Cap. XLV, Lérida, 1658.]
+
+--
+
+.right[Borges -  Del Rigor de la Ciencia]
+
+
+---
+.pull-left-narrow[
+
+![](https://multivariada.netlify.app/slides/images/inference1.png)
+]
+.pull-right-wide[
+
+## Conceptos claves de inferencia
+- La **inferencia** en estadística se refiere a la relación que existe entre los resultados obtenidos basados en nuestra muestra y la población
+
+{{content}}
+
+]
+
+--
+
+- **¿En qué medida podemos hacer inferencias desde nuestra muestra a la población?**
+
+{{content}}
+
+--
+
+- Un concepto central es la probabilidad de **ERROR**
+
+
+---
+# Parámetros y estadísticos
+
+----
+
+|                     	| Población (parámetro)  	| Muestra (estadístico)  	|
+|---------------------	|------------	|---------	|
+| Promedio            	|  `\(\mu\)`           	|   `\(\bar{x}\)`           	|
+| Varianza            	|        `\(\sigma²\)`      	|  `\(s²\)`                  	|
+| Desviación estándar 	|        `\(\sigma\)`        	| `\(s\)`                    	|
+| Correlación 	|        `\(\rho\)`        	| `\(r\)`                    	|
+
+
+---
+# Muestreo y variabilidad
+
+¿Cómo es posible que la media x̄ obtenida a partir de una muestra de unos pocos hogares de todos los del país, pueda ser una estimación precisa de µ?
+
+Una segunda muestra aleatoria obtenida en el mismo momento estaría
+formada por hogares distintos y, sin duda, daría un valor distinto de x̄
+
+---
+# Muestreo y variabilidad
+
+**Variabilidad muestral**: el valor de un estadístico varía en un muestreo aleatorio repetido
+
+¿Cuánto varía? 
+
+¿En qué rangos?
+
+¿Qué tan **probable** es el rango de variación?
+
+---
+class: roja right
+
+# .black[Contenidos]
+
+.pull-left-narrow[
+]
+
+.pull-right-wide[
+
+### 1- Resumen sesión anterior
+
+### 2- Inferencia y muestras
+
+### 3- .yellow[Aleatoridad y probabilidad]
+
+### 4- Curva normal y puntajes Z
+
+]
+
+---
+# Aleatoriedad y probabilidad
+----
+
+.pull-left[
+.content-box-red[
+Llamamos a un fenómeno **aleatorio** si los resultados individuales son inciertos y, sin embargo, existe una **distribución regular** de los resultados después de un gran número de repeticiones.]
+]
+
+--
+
+.pull-right[
+.content-box-green[
+La probabilidad de cualquier resultado de un fenómeno aleatorio es la **proporción de veces**  que el resultado se da después de una larga serie de
+repeticiones
+
+]]
+
+---
+
+
+.pull-left-narrow[
+# Azar y repetición
+El comportamiento del azar es impredecible con pocas repeticiones pero presenta un comportamiento regular y predecible con muchas repeticiones.
+]
+
+.pull-right-wide[
+![](img/caras-moneda.png)
+]
+---
+class: middle
+
+# (Dato freak)
+
+.pull-left[
+Cerca del año 1900, el estadístico inglés Karl Pearson lanzó al aire una moneda **24.000** veces. El resultado: 12.012 caras, una proporción de 0,5005.]
+
+.pull-right[
+![](img/pearson.png)
+
+]
+
+
+---
+# Dados
+
+Tenemos 1 dado, cuál es la probabilidad de que salga 3 al lanzarlo?
+
+- Espacio muestral S= conjunto de todos los resultados posibles
+
+`$$S=\{1,2,3,4,5,6\}$$`
+
+- N del espacio muestral= 6 sucesos posibles
+
+- Probabilidad de que salga 3 al tirar el dado= 
+`\(\frac{1}{6}=0.166\)`
+
+---
+class: inverse middle right
+
+Un **modelo de probabilidad** para un fenómeno aleatorio consiste en un espacio muestral S y una asignación de probabilidades P.
+
+El **espacio muestral `\(S\)`** es el conjunto de todos los resultados posibles de un fenómeno aleatorio. 
+
+Un **suceso** es un conjunto de resultados. P asigna un número P(A) a un suceso A como su probabilidad.
+
+---
+# Reglas modelo de probabilidad
+
+![](img/reg_prob.png)
+
+
+---
+
+# [Dados, probabilidades y distribuciones](https://academo.org/demos/dice-roll-statistics/)
+
+----
+.pull-left[
+![](img/dice.png)
+]
+
+.pull-right[
+Ejercicio:
+  
+  - probar lanzando 1 dado repetidas veces
+
+  - probar con 2 dados
+  
+  - ... y con 6
+
+-&gt; [link](https://academo.org/demos/dice-roll-statistics/)
+]
+
+---
+# Dados, probabilidades y áreas
+.center[
+![](img/areas1.png)
+]
+---
+# Dados, probabilidades y áreas
+.center[
+![](img/areas2.png)
+]
+---
+# Dados, probabilidades y áreas
+.center[
+![](img/areas3.png)
+]
+---
+# Dados, probabilidades y áreas
+
+.pull-left[
+![](img/areas4.png)
+]
+
+.pull-right[
+&lt;br&gt;
+ Eventos posibles (espacio muestral S) = 6 = (1,2,3,4,5,6)
+
+
+`\begin{align*}
+P(x)\geq4&amp;=P(4)+P(5)+P(6) \\
+&amp;=0.1\overline{6}+0.1\overline{6}+0.1\overline{6} \\
+&amp;=0.5
+\end{align*}`
+]
+
+---
+# Sucesos con distinta probabilidad
+
+Ej: suma de 3 dados al azar repetidos
+.center[
+![](img/3dice.png)
+]
+
+---
+
+.pull-left[
+## Histograma
+Frecuencias o probabilidad de cada evento
+
+![](05-inferencia1_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right[
+## Curvas de densidad
+
+Modelo matemático de la distribución
+
+![](05-inferencia1_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+
+]
+
+---
+
+# Curva de densidad
+
+.pull-left[
+.medium[
+- describe el aspecto general de una distribución
+
+- se halla siempre en el eje de las abscisas o por encima de él, y define por debajo un área exactamente igual a 1.
+
+- El área por debajo de la curva, y entre cualquier intervalo de valores, es la proporción de todas las observaciones que están situadas en dicho intervalo.]
+]
+
+.pull-right[
+
+![](05-inferencia1_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+]
+
+---
+class: roja right
+
+# .black[Contenidos]
+
+.pull-left-narrow[
+]
+
+.pull-right-wide[
+
+### 1- Resumen sesión anterior
+
+### 2- Inferencia y muestras
+
+### 3- Aleatoridad y probabilidad
+
+### .yellow[4- Curva normal y puntajes Z]
+
+]
+
+---
+background-image: url("img/normal.png")
+background-size: cover
+# Distribuciones normales
+
+- clase particular de curvas de densidad
+
+- simétricas y con un solo punto de elevación
+
+- la media se sitúa al centro, y la desviación estandar expresa su dispersión
+
+- la pendiente es más fuerte cerca del centro, y se suaviza hacia los extremos
+
+- Los puntos en los que tiene lugar este cambio de curvatura se hallan a una distancia σ, a ambos lados de la media µ.
+
+---
+.center[
+![:scale 45%](img/norm1.png)
+]
+---
+# ¿Por qué son importantes las distribuciones normales en estadística?
+
+- las distribuciones normales son buenas descripciones de algunas distribuciones de datos reales
+
+- buenas aproximaciones a los resultados de muchos tipos de fenómenos aleatorios (ej: lanzar dados)
+
+- permiten realizar **inferencia estadística** sobre fenómenos basados en distribuciones normales
+
+---
+class: inverse bottom right
+
+## Relación entre áreas bajo la curva normal y probabilidades
+
+
+---
+# Regla del 68-95-99,7
+
+En una distribución normal de media `\(\mu\)` y desviación estándar `\(\sigma\)`:
+
+- El **68%** de todas las observaciones se encuentran dentro del
+intervalo µ ± σ.
+
+- El **95%** de todas las observaciones se encuentran dentro del
+intervalo µ ± 2σ.
+
+- El **99,7%** de todas las observaciones se encuentran dentro del in-
+tervalo µ ± 3σ.
+
+---
+
+![](img/norm2.png)
+
+---
+
+**Ejemplo**:
+
+Estatura promedio mujeres en Chile: 160 cm
+Desviación estándar: 5 cm
+
+¿Qué podemos decir basándonos en la distribución normal?
+
+--
+
+- el 68% de las mujeres se encuentra entre 155 y 165cm
+
+- el 95% de las mujeres se encuentra entre 150 y 170cm
+
+- solo un 5% de las mujeres mide más de 170cm
+- prácticamente todas las mujeres (99.7) se encuentran entre 145 y 175cm
+
+
+---
+# Valores `\(z\)` y estandarización
+
+- estandarización: expresar el valor de una distribución en términos de desviaciones estándar basados en la distribución normal
+
+- para estandarizar un valor, se le resta la media y se divide por la desviación estándar
+
+
+`$$z=\frac{x-\mu}{\sigma}$$`
+
+- los valores estandarizados se denominan .red[valores z]
+
+---
+# Valores `\(z\)` y estandarización
+
+- Un valor z nos dice a cuántas desviaciones típicas se encuentra la observación original de la media y en qué dirección.
+
+- Las observaciones mayores que la media son positivas y las menores, negativas.
+
+---
+Siguiendo con el ejemplo anterior de estatura de mujeres `\(\bar{x}=160\)` y `\(\sigma=5\)`, la estatura estandarizada es:
+
+$$z=\frac{altura-160}{5}  $$
+
+Por ejemplo, una mujer que mide 165:
+
+`$$z=\frac{165-160}{5}=\frac{5}{5}=1$$`
+
+Su puntaje `\(z\)` nos dice que está una desviación estandar sobre el promedio
+---
+# Puntajes `\(z\)` y proporciones 
+.pull-left[
+Los valores `\(z\)` permiten calcular la proporción de casos bajo la curva normal que están sobre y bajo el puntaje
+
+Por ejemplo, para el caso de 1 desviación sobre el promedio, el área bajo la curva bajo este puntaje sería:
+
+]
+
+.pull-right[
+
+![](05-inferencia1_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+
+
+---
+class: middle
+
+.pull-left-wide[
+&lt;br&gt;
+&lt;br&gt;
+![](img/norm2.png)
+]
+
+.pull-right-narrow[
+.medium[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+En base a la distribución normal sabemos que bajo 1 desviación estańdar está el 68% de los datos + la cola izquierda de la curva, que es (100-68/2)=16%.
+
+Por lo tanto 84% (68+16) de los casos tienen una estatura menor a 165 cm
+]]
+---
+.pull-left[
+- Ej: estatura de 152cm
+
+`\begin{align*}
+z&amp;=\frac{x-\mu}{\sigma}\\\\
+z&amp;=\frac{altura-160}{5}\\\\
+z&amp;=\frac{152-160}{5}=\frac{-8}{5}=-1.6
+\end{align*}`
+]
+
+.pull-right[
+
+![](05-inferencia1_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+¿Cómo calcular el área bajo la curva para un valor específico?
+]
+
+
+---
+# Tabla de Puntajes Z
+
+.pull-left[
+![](img/ztable-neg.jpg)
+]
+
+.pull-right[
+![](img/ztable-pos.jpg)
+]
+
+---
+# Tabla de Puntajes Z
+
+.pull-left[
+- El valor correspondiente a -1.6 en la tabla de valores Z se busca en la fila Z -1.6 y la columna 0.00 (ya que la centésima de -1.6 es 0).
+
+- = 0.0548, es decir, alrededor de un 5% de los casos se enceuntra bajo esa estatura (152 cm)
+]
+
+.pull-right[
+- en R= 
+
+
+```r
+pnorm(q=-1.6)
+```
+
+```
+[1] 0.05479929
+```
+
+]
+
+---
+class: inverse
+
+##Resumen
+
+- inferencia: ¿con qué probabilidad podemos decir que lo que calculamos en nuestra muestra existe en la población?
+
+- probabilidades y distribución normal
+
+- puntajes Z y área bajo la curva normal
+
+
+---
+class: inverse
+
+## Próxima semana: Distribuciones muestrales, error estándar e intervalos de confianza
+
+- ¿Qué tan probable es que un resultado obtenido en una muestra se deba al azar?
+
+- ¿Cómo nos sirve la curva normal para contrastar hipótesis de investigación?
+
+- ¿Con qué nivel de confianza podemos afirmar que nuestra hipótesis es verdadera?
+
+
+---
+# Lectura:
+
+
+[Moore cap. 6 - Introducción a la inferencia estadística](https://correlacional.netlify.app/files/textos/Moore.pdf)
+
+---
+
+# ASISTENCIA
+
+.pull-left[
+
+![:scale 90%](img/qr-correlacional-asistencia.png)
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+bit.ly/correlacional-asistencia
+]
+
+
+---
+class: front
+
+.pull-left-wide[
+# Estadística Correlacional]
+
+.pull-right-narrow[![:scale 85%](img/logo-correlacional-transp.png)]
+
+## Asociación, inferencia y reporte
+
+----
+.pull-left[
+
+## Juan Carlos Castillo
+## Sociología FACSO - UChile
+## 2do Sem 2023 
+## [.orange[correlacional.netlify.com]](https://encuestas-sociales.netlify.com)
+]
+    
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://multinivel.netlify.com/docpres/xaringan_custom/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "dracula",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+.logo {
+  background-image: url("img/logo-correlacional-transp.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 16.3em;
+  right: 31em;
+  width: 110px;
+  height: 70px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    // ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
