@@ -94,6 +94,8 @@ website:
               file: assignment/02-practico.qmd
             - text: "3: Matrices de correlación y tamaños de efecto"
               file: assignment/03-practico.qmd
+            - text: "4: Inferencia estadística 1"
+              file: assignment/04-practico.qmd
 
   page-footer:
     left: |
