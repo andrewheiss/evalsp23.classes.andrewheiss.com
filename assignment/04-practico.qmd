@@ -266,11 +266,12 @@ qnorm(.9955656, fhgtmean, fhgtsd)
 
 # Reporte de progreso
 
-Completar el reporte de progreso correspondiente a esta práctica [aquí](). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
+Completar el reporte de progreso correspondiente a esta práctica [aquí](https://forms.gle/FMb6eprMxcVAEPV99). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
+
 
 # Video de práctica
 
-
+{{< video https://youtu.be/SlcKzUw_jhc >}}
 
 # Foro
 

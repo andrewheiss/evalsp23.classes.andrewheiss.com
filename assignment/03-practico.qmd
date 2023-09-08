@@ -406,7 +406,7 @@ Completar el reporte de progreso correspondiente a esta práctica [aquí](https:
 
 # Video de práctica
 
-
+{{< video https://youtu.be/SPF8DyTBXos >}}
 
 # Foro
 
