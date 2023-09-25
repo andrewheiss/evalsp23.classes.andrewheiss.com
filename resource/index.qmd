@@ -69,6 +69,10 @@ En esta sección se irán subiendo una serie de recursos relacionados con el cur
 
 ## Inferencia 
 
+- [Statistical Inference via Data Science A ModernDive into R and the Tidyverse](https://moderndive.com/index.html)
+
+- [Introduction to modern statistics (Mine Çetinkaya-Rundel and Johanna Hardin)](openintro-ims.netlify.app/)
+
 - [Inferencia univariada](https://descriptiva-facso.netlify.app/content/08-content)
 
 ## Visualización

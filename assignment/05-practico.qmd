@@ -37,7 +37,7 @@ Para integrar código de R en un archivo `RMarkdown` usamos los `chunks`, que so
 
 Los chunks se ven así dentro del .Rmd:
 
-    `r ''```{r}
+    `r ''````{r}
     # El codigo va aquí
 
     ```
@@ -62,7 +62,7 @@ Para añadir un nombre, inclúyelo inmediatamente después de la `{r` en la prim
 
 Importante: **Todos los nombres de chunk de tu documento deben ser únicos.**
 
-    `r ''```{r nombre-chunk}
+    `r ''````{r nombre-chunk}
     # El codigo va aquí
 
     ```
@@ -73,7 +73,7 @@ Hay distintas opciones diferentes que puedes establecer para cada chunk. Puedes 
 
 Las opciones van dentro de la sección `{r}` del chunk:
 
-    `r ''```{r nombre-chunk, message = FALSE, echo = TRUE}
+    `r ''````{r nombre-chunk, message = FALSE, echo = TRUE}
     # El codigo va aquí
 
     ```
@@ -81,7 +81,7 @@ Las opciones van dentro de la sección `{r}` del chunk:
 Otra forma de hacerlo es **configurar** las opciones generales de todos los chunks que hagamos **al inicio del documento**:
 
 
-    `r ''```{r setup, include = FALSE}
+    `r ''````{r setup, include = FALSE}
     knitr::opts_chunk$set(echo = TRUE, 
                           message = FALSE, 
                           warning = FALSE)
@@ -150,7 +150,7 @@ tab1 %>%
 Ahora tenemos una tabla, pero es muy simple y poco presentable. Especifiquemos opciones de formato:
 
 - `format`: para especificar formato de la tabla (html, markdown, latex)
-- `aling`: para especificar alineacion de las celdas ('r'=derecha, 'c'=centro, 'l'=izquierda),
+- `align`: para especificar alineacion de las celdas ('r'=derecha, 'c'=centro, 'l'=izquierda),
 - `col.names`: para nombres de columnas visibles en la tabla, se ingresan como un vector `c()`
 
 
@@ -272,7 +272,7 @@ Por ejemplo, si queremos referenciar a nuestra `tabla1`, en el chunk en donde la
     
     tabla1
 
-    ````
+    ```
 
 ```{r}
 #| label: tbl-confianza

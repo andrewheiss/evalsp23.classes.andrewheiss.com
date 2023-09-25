@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Estadística Correlacional - Asociación, inferencia y reporte">
+
+<title>Estadística Correlacional - Reportes dinámicos 2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//files/logo-correlacional-transp.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Estadística Correlacional - Reportes dinámicos 2">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://correlacional.netlify.app/files/logo-correlacional.png">
+<meta property="og:site-name" content="Estadística Correlacional">
+<meta property="og:locale" content="es">
+<meta property="og:image:height" content="500">
+<meta property="og:image:width" content="500">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Estadística Correlacional</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html" rel="" target="">
+ <span class="menu-text">Programa</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html" rel="" target="">
+ <span class="menu-text">Planificación</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../content/index.html" rel="" target="">
+ <span class="menu-text">Clases</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../assignment/index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Prácticos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resource/index.html" rel="" target="">
+ <span class="menu-text">Recursos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../news/index.html" rel="" target="">
+ <span class="menu-text">Noticias</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://rstudio.cloud" rel="" target=""><i class="bi bi-cloud-fill" role="img" aria-label="RStudio.cloud">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignment/01-practico.html">Guías</a></li><li class="breadcrumb-item"><a href="../assignment/05-practico.html">5: Reportes Dinámicos 2</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Sobre prácticos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instrucciones generales</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Guías</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/01-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: Reportes dinámicos 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/02-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: Cálculo y reporte de correlación</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/03-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: Matrices de correlación y tamaños de efecto</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/04-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Inferencia estadística 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/05-practico.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">5: Reportes Dinámicos 2</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#objetivo-de-la-práctica" id="toc-objetivo-de-la-práctica" class="nav-link active" data-scroll-target="#objetivo-de-la-práctica">Objetivo de la práctica</a>
+  <ul class="collapse">
+  <li><a href="#recursos-de-la-práctica" id="toc-recursos-de-la-práctica" class="nav-link" data-scroll-target="#recursos-de-la-práctica">Recursos de la práctica</a></li>
+  </ul></li>
+  <li><a href="#crear-un-documento-r-markdown" id="toc-crear-un-documento-r-markdown" class="nav-link" data-scroll-target="#crear-un-documento-r-markdown">Crear un documento R Markdown</a>
+  <ul class="collapse">
+  <li><a href="#chunks" id="toc-chunks" class="nav-link" data-scroll-target="#chunks">Chunks</a></li>
+  </ul></li>
+  <li><a href="#preparación-de-datos" id="toc-preparación-de-datos" class="nav-link" data-scroll-target="#preparación-de-datos">Preparación de datos</a></li>
+  <li><a href="#tablas-en-r-markdown" id="toc-tablas-en-r-markdown" class="nav-link" data-scroll-target="#tablas-en-r-markdown">Tablas en R Markdown</a></li>
+  <li><a href="#gráficos-en-r-markdown" id="toc-gráficos-en-r-markdown" class="nav-link" data-scroll-target="#gráficos-en-r-markdown">Gráficos en R Markdown</a></li>
+  <li><a href="#autoreferenciar-elementos-dentro-un-r-markdown" id="toc-autoreferenciar-elementos-dentro-un-r-markdown" class="nav-link" data-scroll-target="#autoreferenciar-elementos-dentro-un-r-markdown">Autoreferenciar elementos dentro un R Markdown</a></li>
+  <li><a href="#actividad-en-salas" id="toc-actividad-en-salas" class="nav-link" data-scroll-target="#actividad-en-salas">Actividad en salas</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#reporte-de-progreso" id="toc-reporte-de-progreso" class="nav-link" data-scroll-target="#reporte-de-progreso">Reporte de progreso</a></li>
+  <li><a href="#video-de-práctica" id="toc-video-de-práctica" class="nav-link" data-scroll-target="#video-de-práctica">Video de práctica</a></li>
+  <li><a href="#foro" id="toc-foro" class="nav-link" data-scroll-target="#foro">Foro</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header">
+<h1 class="title display-7">Reportes dinámicos 2</h1>
+
+<div class="date-block bg-assignment text-white p-2">
+  <p class="date">Completar hasta as 11:59 PM del viernes, 29 de septiembre de 2023</p>
+</div>
+</header>
+
+<section id="objetivo-de-la-práctica" class="level1">
+<h1>Objetivo de la práctica</h1>
+<p>El objetivo de esta guía práctica es aprender cómo crear y mostrar tablas y gráficos en documentos dinámicos mediante R Markdown. Además, aprenderemos cómo autoreferenciar elementos dentro de nuestro documento Rmd.</p>
+<p>En detalle, aprenderemos:</p>
+<ol type="1">
+<li>Generación y presentación de tablas en R Markdown.</li>
+<li>Generación y presentación de gráficos en R Markdown.</li>
+<li>Cómo autoreferenciar elementos dentro un documento R Markdown.</li>
+</ol>
+<section id="recursos-de-la-práctica" class="level2">
+<h2 class="anchored" data-anchor-id="recursos-de-la-práctica">Recursos de la práctica</h2>
+<p>En esta práctica trabajaremos con un subconjunto de datos previamente procesados derivados de las encuestas realizadas en diferentes países por el <a href="https://www.vanderbilt.edu/lapop/">Latin American Public Opinion Proyect (LAPOP)</a> en su ola del 2018. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: <a href="https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData"><i class="fa-solid fa-table" aria-label="table"></i> <code>LAPOP 2018</code></a>. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos LAPOP 2018.</p>
+</section>
+</section>
+<section id="crear-un-documento-r-markdown" class="level1">
+<h1>Crear un documento R Markdown</h1>
+<p>Recordemos que, <a href="https://correlacional.netlify.app/assignment/01-practico#paso-2-crear-un-nuevo-archivo-en-rmarkdown">para generar un archivo en Rmarkdown</a>, hacemos lo siguiente:</p>
+<p><img src="../files/crear-rmd.gif" class="img-fluid"></p>
+<section id="chunks" class="level2">
+<h2 class="anchored" data-anchor-id="chunks">Chunks</h2>
+<p>Para integrar código de R en un archivo <code>RMarkdown</code> usamos los <code>chunks</code>, que son <em>trozos</em> de código dentro de nuestra hoja. Estos permiten hacer análisis dentro del documento visualizando los resultados en el documento final.</p>
+<p>Los chunks se ven así dentro del .Rmd:</p>
+<pre><code>```{r}
+# El codigo va aquí
+
+```</code></pre>
+<section id="insertar-chunks" class="level4">
+<h4 class="anchored" data-anchor-id="insertar-chunks">Insertar chunks</h4>
+<p>Hay tres formas de insertar chunks:</p>
+<ol type="1">
+<li><p>Pulsar <code>⌘⌥I</code> en macOS o <code>Control + Alt + I</code> en Windows</p></li>
+<li><p>Pulsa el botón “Insert” en la parte superior de la ventana del editor</p></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../files/insertchunk.png" class="img-fluid" style="width:40.0%"></p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Escribirlo manualmente (no recomendado)</li>
+</ol>
+</section>
+<section id="nombre-de-chunk" class="level4">
+<h4 class="anchored" data-anchor-id="nombre-de-chunk">Nombre de chunk</h4>
+<p>Para añadir un nombre, inclúyelo inmediatamente después de la <code>{r</code> en la primera línea del chunk. Los nombres no pueden contener espacios, pero sí guiones bajos y guiones.</p>
+<p>Importante: <strong>Todos los nombres de chunk de tu documento deben ser únicos.</strong></p>
+<pre><code>```{r nombre-chunk}
+# El codigo va aquí
+
+```</code></pre>
+</section>
+<section id="opciones-de-chunk" class="level4">
+<h4 class="anchored" data-anchor-id="opciones-de-chunk">Opciones de chunk</h4>
+<p>Hay distintas opciones diferentes que puedes establecer para cada chunk. Puedes ver una lista completa en la <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">Guía de referencia de RMarkdown</a> o en el <a href="https://yihui.org/knitr/options/">sitio web de <strong>knitr</strong></a>.</p>
+<p>Las opciones van dentro de la sección <code>{r}</code> del chunk:</p>
+<pre><code>```{r nombre-chunk, message = FALSE, echo = TRUE}
+# El codigo va aquí
+
+```</code></pre>
+<p>Otra forma de hacerlo es <strong>configurar</strong> las opciones generales de todos los chunks que hagamos <strong>al inicio del documento</strong>:</p>
+<pre><code>```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE, 
+                      warning = FALSE)
+
+```</code></pre>
+<p>De esta manera ya no es necesario indicar en <em>cada</em> chunk las opciones, y se aplicaran las configuraciones generales que indicamos al comienzo.</p>
+</section>
+</section>
+</section>
+<section id="preparación-de-datos" class="level1">
+<h1>Preparación de datos</h1>
+<p>Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, <span class="co"># Manipulacion datos</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>               sjmisc, <span class="co"># Descriptivos</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co">#Tablas</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>               ggrepel) <span class="co"># Graficos</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Cargamos los datos desde internet.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData"</span>)) <span class="co">#Cargar base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A continuación, exploramos la base de datos <strong>lapop</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lapop) <span class="co"># Nombre de columnas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "year"        "pais"        "pais_name"   "idnum"       "upm"        
+ [6] "strata"      "wt"          "weight1500"  "sexo"        "edad"       
+[11] "educ"        "l1"          "ideologia_f" "empleo"      "decile"     
+[16] "it1"         "prot3"       "aoj12"       "b2"          "b3"         
+[21] "b4"          "b10a"        "b12"         "b20"         "b20a"       
+[26] "b21"         "b21a"        "n9"          "n11"         "n15"        
+[31] "ros4"        "ing4"        "eff1"        "pn4"         "exc7"       
+[36] "pol1"        "vb2"         "gini"        "gdp"        </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(lapop) <span class="co"># Dimensiones</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 23386    39</code></pre>
+</div>
+</div>
+<p>Contamos con 39 variables (columnas) y 23.386 observaciones (filas).</p>
+</section>
+<section id="tablas-en-r-markdown" class="level1">
+<h1>Tablas en R Markdown</h1>
+<p>Para generar tablas en R Markdown usaremos la función <code>kable()</code> del paquete <code>kableExtra</code> (hay otras maneras, pero esta es de las más útiles).</p>
+<p>Primero, generaremos un objeto llamado <code>tab1</code> que usaremos como contenido de la tabla. Este objeto tendrá la distribución de <code>it1</code> por país.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais, it1) <span class="sc">%&gt;%</span> <span class="co"># agrupamos por pais y variable</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co"># contamos por categ de respuesta</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> <span class="fu">round</span>((n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span> <span class="co"># porcentaje</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> <span class="co"># borramos NA</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> pais, <span class="at">names_from =</span> it1, <span class="at">values_from =</span> prop) <span class="co"># convertimos a formato ancho</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>tab1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 5
+# Groups:   pais [15]
+   pais    `1`   `2`   `3`   `4`
+   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 ARG    7.98  21.7  45.1  23.2
+ 2 BOL   13.6   40.5  31.9  11.6
+ 3 BRA   12.9   45.4  19.8  19.8
+ 4 CHL   10.6   23.4  40.5  24.6
+ 5 COL    9.14  25.7  34.4  29.0
+ 6 CRI    8.53  22.6  34.6  32.2
+ 7 DOM   11.3   29.0  31.3  24.0
+ 8 ECU   11.7   37.8  32.2  17.3
+ 9 HND   14.0   28.6  22.8  29.3
+10 MEX   11.2   33.2  31.5  20.7
+11 PAN   14.2   34    31.5  18.5
+12 PER   14.9   42.3  31.2  10.6
+13 PRY    9.7   24.1  35.6  26.9
+14 SLV    8.6   32.3  26.3  29.2
+15 URY    7.08  18.7  43.8  27.1</code></pre>
+</div>
+</div>
+<p><strong>Creemos nuestra tabla</strong>. Usemos primero la función <code>kable()</code> directamente:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">pais</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ARG</td>
+<td style="text-align: right;">7.98</td>
+<td style="text-align: right;">21.66</td>
+<td style="text-align: right;">45.09</td>
+<td style="text-align: right;">23.23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BOL</td>
+<td style="text-align: right;">13.56</td>
+<td style="text-align: right;">40.49</td>
+<td style="text-align: right;">31.87</td>
+<td style="text-align: right;">11.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BRA</td>
+<td style="text-align: right;">12.88</td>
+<td style="text-align: right;">45.39</td>
+<td style="text-align: right;">19.76</td>
+<td style="text-align: right;">19.76</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CHL</td>
+<td style="text-align: right;">10.56</td>
+<td style="text-align: right;">23.44</td>
+<td style="text-align: right;">40.54</td>
+<td style="text-align: right;">24.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COL</td>
+<td style="text-align: right;">9.14</td>
+<td style="text-align: right;">25.74</td>
+<td style="text-align: right;">34.40</td>
+<td style="text-align: right;">28.98</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CRI</td>
+<td style="text-align: right;">8.53</td>
+<td style="text-align: right;">22.58</td>
+<td style="text-align: right;">34.64</td>
+<td style="text-align: right;">32.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DOM</td>
+<td style="text-align: right;">11.28</td>
+<td style="text-align: right;">29.02</td>
+<td style="text-align: right;">31.27</td>
+<td style="text-align: right;">24.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ECU</td>
+<td style="text-align: right;">11.68</td>
+<td style="text-align: right;">37.83</td>
+<td style="text-align: right;">32.22</td>
+<td style="text-align: right;">17.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HND</td>
+<td style="text-align: right;">14.04</td>
+<td style="text-align: right;">28.65</td>
+<td style="text-align: right;">22.82</td>
+<td style="text-align: right;">29.29</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MEX</td>
+<td style="text-align: right;">11.20</td>
+<td style="text-align: right;">33.16</td>
+<td style="text-align: right;">31.46</td>
+<td style="text-align: right;">20.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PAN</td>
+<td style="text-align: right;">14.24</td>
+<td style="text-align: right;">34.00</td>
+<td style="text-align: right;">31.49</td>
+<td style="text-align: right;">18.47</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PER</td>
+<td style="text-align: right;">14.92</td>
+<td style="text-align: right;">42.34</td>
+<td style="text-align: right;">31.23</td>
+<td style="text-align: right;">10.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PRY</td>
+<td style="text-align: right;">9.70</td>
+<td style="text-align: right;">24.09</td>
+<td style="text-align: right;">35.64</td>
+<td style="text-align: right;">26.86</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SLV</td>
+<td style="text-align: right;">8.60</td>
+<td style="text-align: right;">32.30</td>
+<td style="text-align: right;">26.27</td>
+<td style="text-align: right;">29.19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">URY</td>
+<td style="text-align: right;">7.08</td>
+<td style="text-align: right;">18.72</td>
+<td style="text-align: right;">43.77</td>
+<td style="text-align: right;">27.07</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Ahora tenemos una tabla, pero es muy simple y poco presentable. Especifiquemos opciones de formato:</p>
+<ul>
+<li><code>format</code>: para especificar formato de la tabla (html, markdown, latex)</li>
+<li><code>align</code>: para especificar alineacion de las celdas (‘r’=derecha, ‘c’=centro, ‘l’=izquierda),</li>
+<li><code>col.names</code>: para nombres de columnas visibles en la tabla, se ingresan como un vector <code>c()</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">País</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Nada confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Poco confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Algo confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Muy confiable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ARG</td>
+<td style="text-align: center;">7.98</td>
+<td style="text-align: center;">21.66</td>
+<td style="text-align: center;">45.09</td>
+<td style="text-align: center;">23.23</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">BOL</td>
+<td style="text-align: center;">13.56</td>
+<td style="text-align: center;">40.49</td>
+<td style="text-align: center;">31.87</td>
+<td style="text-align: center;">11.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">BRA</td>
+<td style="text-align: center;">12.88</td>
+<td style="text-align: center;">45.39</td>
+<td style="text-align: center;">19.76</td>
+<td style="text-align: center;">19.76</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CHL</td>
+<td style="text-align: center;">10.56</td>
+<td style="text-align: center;">23.44</td>
+<td style="text-align: center;">40.54</td>
+<td style="text-align: center;">24.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">COL</td>
+<td style="text-align: center;">9.14</td>
+<td style="text-align: center;">25.74</td>
+<td style="text-align: center;">34.40</td>
+<td style="text-align: center;">28.98</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CRI</td>
+<td style="text-align: center;">8.53</td>
+<td style="text-align: center;">22.58</td>
+<td style="text-align: center;">34.64</td>
+<td style="text-align: center;">32.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DOM</td>
+<td style="text-align: center;">11.28</td>
+<td style="text-align: center;">29.02</td>
+<td style="text-align: center;">31.27</td>
+<td style="text-align: center;">24.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ECU</td>
+<td style="text-align: center;">11.68</td>
+<td style="text-align: center;">37.83</td>
+<td style="text-align: center;">32.22</td>
+<td style="text-align: center;">17.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">HND</td>
+<td style="text-align: center;">14.04</td>
+<td style="text-align: center;">28.65</td>
+<td style="text-align: center;">22.82</td>
+<td style="text-align: center;">29.29</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">MEX</td>
+<td style="text-align: center;">11.20</td>
+<td style="text-align: center;">33.16</td>
+<td style="text-align: center;">31.46</td>
+<td style="text-align: center;">20.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">PAN</td>
+<td style="text-align: center;">14.24</td>
+<td style="text-align: center;">34.00</td>
+<td style="text-align: center;">31.49</td>
+<td style="text-align: center;">18.47</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">PER</td>
+<td style="text-align: center;">14.92</td>
+<td style="text-align: center;">42.34</td>
+<td style="text-align: center;">31.23</td>
+<td style="text-align: center;">10.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">PRY</td>
+<td style="text-align: center;">9.70</td>
+<td style="text-align: center;">24.09</td>
+<td style="text-align: center;">35.64</td>
+<td style="text-align: center;">26.86</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SLV</td>
+<td style="text-align: center;">8.60</td>
+<td style="text-align: center;">32.30</td>
+<td style="text-align: center;">26.27</td>
+<td style="text-align: center;">29.19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">URY</td>
+<td style="text-align: center;">7.08</td>
+<td style="text-align: center;">18.72</td>
+<td style="text-align: center;">43.77</td>
+<td style="text-align: center;">27.07</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Ahora agregemos otros elementos importantes, como el título, estilo y fuente a la tabla:</p>
+<ul>
+<li><code>caption</code>: para dar titulo de la tabla</li>
+<li><code>kable_classic()</code>: para dar estilo (revisar otros <a href="https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#Getting_Started">aquí</a>)</li>
+<li><code>add_footnote()</code>: para agregar fuente o pie a la tabla</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">caption =</span> <span class="st">"Tabla 1. Confianza interpersonal según país"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_classic</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">add_footnote</span>(<span class="at">label =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Tabla 1. Confianza interpersonal según país</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">País</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Nada confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Poco confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Algo confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Muy confiable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ARG</td>
+<td style="text-align: center;">7.98</td>
+<td style="text-align: center;">21.66</td>
+<td style="text-align: center;">45.09</td>
+<td style="text-align: center;">23.23</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">BOL</td>
+<td style="text-align: center;">13.56</td>
+<td style="text-align: center;">40.49</td>
+<td style="text-align: center;">31.87</td>
+<td style="text-align: center;">11.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">BRA</td>
+<td style="text-align: center;">12.88</td>
+<td style="text-align: center;">45.39</td>
+<td style="text-align: center;">19.76</td>
+<td style="text-align: center;">19.76</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CHL</td>
+<td style="text-align: center;">10.56</td>
+<td style="text-align: center;">23.44</td>
+<td style="text-align: center;">40.54</td>
+<td style="text-align: center;">24.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">COL</td>
+<td style="text-align: center;">9.14</td>
+<td style="text-align: center;">25.74</td>
+<td style="text-align: center;">34.40</td>
+<td style="text-align: center;">28.98</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CRI</td>
+<td style="text-align: center;">8.53</td>
+<td style="text-align: center;">22.58</td>
+<td style="text-align: center;">34.64</td>
+<td style="text-align: center;">32.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DOM</td>
+<td style="text-align: center;">11.28</td>
+<td style="text-align: center;">29.02</td>
+<td style="text-align: center;">31.27</td>
+<td style="text-align: center;">24.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ECU</td>
+<td style="text-align: center;">11.68</td>
+<td style="text-align: center;">37.83</td>
+<td style="text-align: center;">32.22</td>
+<td style="text-align: center;">17.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">HND</td>
+<td style="text-align: center;">14.04</td>
+<td style="text-align: center;">28.65</td>
+<td style="text-align: center;">22.82</td>
+<td style="text-align: center;">29.29</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">MEX</td>
+<td style="text-align: center;">11.20</td>
+<td style="text-align: center;">33.16</td>
+<td style="text-align: center;">31.46</td>
+<td style="text-align: center;">20.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">PAN</td>
+<td style="text-align: center;">14.24</td>
+<td style="text-align: center;">34.00</td>
+<td style="text-align: center;">31.49</td>
+<td style="text-align: center;">18.47</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">PER</td>
+<td style="text-align: center;">14.92</td>
+<td style="text-align: center;">42.34</td>
+<td style="text-align: center;">31.23</td>
+<td style="text-align: center;">10.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">PRY</td>
+<td style="text-align: center;">9.70</td>
+<td style="text-align: center;">24.09</td>
+<td style="text-align: center;">35.64</td>
+<td style="text-align: center;">26.86</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SLV</td>
+<td style="text-align: center;">8.60</td>
+<td style="text-align: center;">32.30</td>
+<td style="text-align: center;">26.27</td>
+<td style="text-align: center;">29.19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">URY</td>
+<td style="text-align: center;">7.08</td>
+<td style="text-align: center;">18.72</td>
+<td style="text-align: center;">43.77</td>
+<td style="text-align: center;">27.07</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: center; padding: 0; border: 0;"><sup>a</sup> Fuente: Elaboración propia en base a LAPOP 2018.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+<p>¿Muy grande? También podemos ajustar el ancho que ocupa la tabla, el tamaño de la letra y la posición:</p>
+<ul>
+<li><code>full_width</code>: para indicar si la tabla cubre todo el ancho o no (TRUE/FALSE)</li>
+<li><code>position</code>: para indicar posición de la tabla en el documento</li>
+<li><code>font_size</code>: para indicar tamaño de la letra</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>tabla1 <span class="ot">&lt;-</span> tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">caption =</span> <span class="st">"Tabla 1. Confianza interpersonal según país"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>, <span class="at">font_size =</span> <span class="dv">14</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">add_footnote</span>(<span class="at">label =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>tabla1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Tabla 1. Confianza interpersonal según país</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">País</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Nada confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Poco confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Algo confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Muy confiable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ARG</td>
+<td style="text-align: center;">7.98</td>
+<td style="text-align: center;">21.66</td>
+<td style="text-align: center;">45.09</td>
+<td style="text-align: center;">23.23</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">BOL</td>
+<td style="text-align: center;">13.56</td>
+<td style="text-align: center;">40.49</td>
+<td style="text-align: center;">31.87</td>
+<td style="text-align: center;">11.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">BRA</td>
+<td style="text-align: center;">12.88</td>
+<td style="text-align: center;">45.39</td>
+<td style="text-align: center;">19.76</td>
+<td style="text-align: center;">19.76</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CHL</td>
+<td style="text-align: center;">10.56</td>
+<td style="text-align: center;">23.44</td>
+<td style="text-align: center;">40.54</td>
+<td style="text-align: center;">24.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">COL</td>
+<td style="text-align: center;">9.14</td>
+<td style="text-align: center;">25.74</td>
+<td style="text-align: center;">34.40</td>
+<td style="text-align: center;">28.98</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CRI</td>
+<td style="text-align: center;">8.53</td>
+<td style="text-align: center;">22.58</td>
+<td style="text-align: center;">34.64</td>
+<td style="text-align: center;">32.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DOM</td>
+<td style="text-align: center;">11.28</td>
+<td style="text-align: center;">29.02</td>
+<td style="text-align: center;">31.27</td>
+<td style="text-align: center;">24.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ECU</td>
+<td style="text-align: center;">11.68</td>
+<td style="text-align: center;">37.83</td>
+<td style="text-align: center;">32.22</td>
+<td style="text-align: center;">17.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">HND</td>
+<td style="text-align: center;">14.04</td>
+<td style="text-align: center;">28.65</td>
+<td style="text-align: center;">22.82</td>
+<td style="text-align: center;">29.29</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">MEX</td>
+<td style="text-align: center;">11.20</td>
+<td style="text-align: center;">33.16</td>
+<td style="text-align: center;">31.46</td>
+<td style="text-align: center;">20.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">PAN</td>
+<td style="text-align: center;">14.24</td>
+<td style="text-align: center;">34.00</td>
+<td style="text-align: center;">31.49</td>
+<td style="text-align: center;">18.47</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">PER</td>
+<td style="text-align: center;">14.92</td>
+<td style="text-align: center;">42.34</td>
+<td style="text-align: center;">31.23</td>
+<td style="text-align: center;">10.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">PRY</td>
+<td style="text-align: center;">9.70</td>
+<td style="text-align: center;">24.09</td>
+<td style="text-align: center;">35.64</td>
+<td style="text-align: center;">26.86</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SLV</td>
+<td style="text-align: center;">8.60</td>
+<td style="text-align: center;">32.30</td>
+<td style="text-align: center;">26.27</td>
+<td style="text-align: center;">29.19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">URY</td>
+<td style="text-align: center;">7.08</td>
+<td style="text-align: center;">18.72</td>
+<td style="text-align: center;">43.77</td>
+<td style="text-align: center;">27.07</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: center; padding: 0; border: 0;"><sup>a</sup> Fuente: Elaboración propia en base a LAPOP 2018.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="gráficos-en-r-markdown" class="level1">
+<h1>Gráficos en R Markdown</h1>
+<p>Para hacer gráficos usaremos el paquete <code>ggplot2</code>. Para conocer cómo usar este paquete revisar <a href="https://descriptiva-facso.netlify.app/content/06-content">aquí</a>.</p>
+<p>Primero, creamos un objeto llamado <code>g1</code> en donde almacenaremos la información que queremos graficar. Este objeto tendrá, para cada país, el promedio de satisfacción con la democracia (<code>pn4</code>) y del índice de Gini (<code>gini</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">satis_m =</span> <span class="fu">mean</span>(pn4, <span class="at">na.rm =</span> T),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">gini_m =</span> <span class="fu">mean</span>(gini, <span class="at">na.rm =</span> T))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>g1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 3
+   pais  satis_m gini_m
+   &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+ 1 ARG      2.21   41.1
+ 2 BOL      2.34   44.6
+ 3 BRA      2.37   53.3
+ 4 CHL      2.32   44.4
+ 5 COL      2.13   49.7
+ 6 CRI      2.40   48.3
+ 7 DOM      2.38   45.7
+ 8 ECU      2.30   44.7
+ 9 HND      2.30   49.4
+10 MEX      2.39   46.3
+11 PAN      2.09   49.9
+12 PER      2.17   43.3
+13 PRY      2.40   48.5
+14 SLV      2.29   38  
+15 URY      2.62   39.5</code></pre>
+</div>
+</div>
+<p>Ahora, graficamos esta asociación en un objeto llamado <code>grafico1</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>grafico1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> g1,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gini_m, <span class="at">y =</span> satis_m, <span class="at">label =</span> pais)) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,<span class="at">colour =</span> <span class="st">"black"</span>,<span class="at">fill=</span><span class="st">"lightblue"</span>,<span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">size=</span><span class="dv">3</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Índice de Gini"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Satisfacción con la democracia"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018"</span>) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="05-practico_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Para especificar elementos de presentación de gráficos en un documento Rmd. usaremos las opciones de <strong>chunks</strong>. Algunas de las más comunes son:</p>
+<ul>
+<li><code>fig.align</code>: para espeficiar alineación del gráfico en el documento (left, right, center)</li>
+<li><code>out.width</code>: para especificar el tamaño del gráfico en el documento</li>
+<li><code>fig.cap</code>: para espeficiar el título del gráfico que se muestra en el documento</li>
+</ul>
+<p>Llamemos a nuestro <code>grafico1</code>, pero ahora especificando en el chunk: <code>{r, fig.align='center', fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia', out.width='80%'}</code></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-practico_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Asociación entre Índice de Gini y Satisfacción con la democracia</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Ahora tenemos un gráfico centrado, más grande y con un título en nuestro documento.</p>
+</section>
+<section id="autoreferenciar-elementos-dentro-un-r-markdown" class="level1">
+<h1>Autoreferenciar elementos dentro un R Markdown</h1>
+<p>Una de las ventajas de usar documentos dinámicos con R Markdown es que podemos <strong>autoreferenciar los elementos que creamos dentro del mismo documento</strong>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Autoreferenciar?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esto se refiere que, si en un documento creamos un gráfico por ejemplo, podemos citarlo o referenciarlo en el texto que escribamos, generando un enlace que al pincharlo llevará a dicha figura (en el orden establecido en el documento).</p>
+</div>
+</div>
+<p>Para hacer esto <strong>debemos darle un nombre o <em>label</em> al chunk</strong> en donde producimos la tabla o gráfico en nuestro documento. Tomemos por ejemplo la misma <code>tabla1</code> y <code>grafico1</code> que generamos anteriormente, pero ahora les daremos un nombre al chunk en donde ejecutaremos dichos elementos.</p>
+<p>¿Qué nombre le ponemos? hay que considerar lo siguiente:</p>
+<ul>
+<li>Cuando es una <strong>tabla</strong> debemos nombrar al chunk con el prefijo <strong><code>tbl-</code></strong> antes del nombre respectivo.</li>
+<li>Cuando es una <strong>figura</strong> debemos nombrar al chunk con el prefijo <strong><code>fig-</code></strong> antes del nombre respectivo.</li>
+</ul>
+<p>¿Cómo las referenciamos? para referenciar tablas o figuras debemos usar el prefijo <code>@</code> antes del nombre que le dimos al elemento.</p>
+<section id="a-tablas" class="level4">
+<h4 class="anchored" data-anchor-id="a-tablas">a) Tablas</h4>
+<p>Por ejemplo, si queremos referenciar a nuestra <code>tabla1</code>, en el chunk en donde la ejecutemos debemos indicar:</p>
+<pre><code>```{r tbl-confianza}
+
+tabla1
+
+```</code></pre>
+<div class="cell tbl-cap-location-top">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>tabla1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-confianza" class="anchored">
+<table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Tabla&nbsp;1: Confianza interpersonal según país</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">País</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Nada confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Poco confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Algo confiable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Muy confiable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ARG</td>
+<td style="text-align: center;">7.98</td>
+<td style="text-align: center;">21.66</td>
+<td style="text-align: center;">45.09</td>
+<td style="text-align: center;">23.23</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">BOL</td>
+<td style="text-align: center;">13.56</td>
+<td style="text-align: center;">40.49</td>
+<td style="text-align: center;">31.87</td>
+<td style="text-align: center;">11.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">BRA</td>
+<td style="text-align: center;">12.88</td>
+<td style="text-align: center;">45.39</td>
+<td style="text-align: center;">19.76</td>
+<td style="text-align: center;">19.76</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CHL</td>
+<td style="text-align: center;">10.56</td>
+<td style="text-align: center;">23.44</td>
+<td style="text-align: center;">40.54</td>
+<td style="text-align: center;">24.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">COL</td>
+<td style="text-align: center;">9.14</td>
+<td style="text-align: center;">25.74</td>
+<td style="text-align: center;">34.40</td>
+<td style="text-align: center;">28.98</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">CRI</td>
+<td style="text-align: center;">8.53</td>
+<td style="text-align: center;">22.58</td>
+<td style="text-align: center;">34.64</td>
+<td style="text-align: center;">32.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DOM</td>
+<td style="text-align: center;">11.28</td>
+<td style="text-align: center;">29.02</td>
+<td style="text-align: center;">31.27</td>
+<td style="text-align: center;">24.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ECU</td>
+<td style="text-align: center;">11.68</td>
+<td style="text-align: center;">37.83</td>
+<td style="text-align: center;">32.22</td>
+<td style="text-align: center;">17.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">HND</td>
+<td style="text-align: center;">14.04</td>
+<td style="text-align: center;">28.65</td>
+<td style="text-align: center;">22.82</td>
+<td style="text-align: center;">29.29</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">MEX</td>
+<td style="text-align: center;">11.20</td>
+<td style="text-align: center;">33.16</td>
+<td style="text-align: center;">31.46</td>
+<td style="text-align: center;">20.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">PAN</td>
+<td style="text-align: center;">14.24</td>
+<td style="text-align: center;">34.00</td>
+<td style="text-align: center;">31.49</td>
+<td style="text-align: center;">18.47</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">PER</td>
+<td style="text-align: center;">14.92</td>
+<td style="text-align: center;">42.34</td>
+<td style="text-align: center;">31.23</td>
+<td style="text-align: center;">10.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">PRY</td>
+<td style="text-align: center;">9.70</td>
+<td style="text-align: center;">24.09</td>
+<td style="text-align: center;">35.64</td>
+<td style="text-align: center;">26.86</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SLV</td>
+<td style="text-align: center;">8.60</td>
+<td style="text-align: center;">32.30</td>
+<td style="text-align: center;">26.27</td>
+<td style="text-align: center;">29.19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">URY</td>
+<td style="text-align: center;">7.08</td>
+<td style="text-align: center;">18.72</td>
+<td style="text-align: center;">43.77</td>
+<td style="text-align: center;">27.07</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: center; padding: 0; border: 0;"><sup>a</sup> Fuente: Elaboración propia en base a LAPOP 2018.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+
+
+</div>
+</div>
+<p>En este caso, a nuestra tabla le daremos el nombre de <em>confianza</em> más el prefijo <code>tbl-</code>. Y para referenciar dentro de un texto a la tabla usamos: <code>@tbl-confianza</code>.</p>
+<p>Texto de ejemplo:</p>
+<blockquote class="blockquote">
+<p>En la <a href="#tbl-confianza">Tabla&nbsp;1</a> se muestra la distribución porcentual del grado de confianza interpersonal por país.</p>
+</blockquote>
+</section>
+<section id="b-figuras" class="level4">
+<h4 class="anchored" data-anchor-id="b-figuras">b) Figuras</h4>
+<p>Por ejemplo, si queremos referenciar a nuestro <code>grafico1</code>, en el chunk en donde lo ejecutemos debemos indicar:</p>
+<pre><code>```{r fig-asociacion}
+
+grafico1
+
+````</code></pre>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-asociacion" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="05-practico_files/figure-html/fig-asociacion-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;1: Asociación entre Índice de Gini y Satisfacción con la democracia</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>En este caso, a nuestro gráfico le daremos el nombre de <em>asociacion</em> más el prefijo <code>fig-</code>. Y para referenciar dentro de un texto a la figura usamos: <code>@fig-asociacion</code>.</p>
+<p>Texto de ejemplo:</p>
+<blockquote class="blockquote">
+<p>En la <a href="#fig-asociacion">Figura&nbsp;1</a> se muestra la asociación entre el promedio de satisfacción con la democracía y el nivel de desigualdad ecónomica de los países.</p>
+</blockquote>
+</section>
+<section id="c-resultados" class="level4">
+<h4 class="anchored" data-anchor-id="c-resultados">c) Resultados</h4>
+<p>También podemos referenciar a resultados estadísticos que hayamos realizado con anterioridad en nuestro documento.</p>
+<p>Como ejemplo, obtengamos la correlación entre la satisfacción con la democracia y el índice de Gini de los países y lo guardamos en un objeto <code>M</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(g1<span class="sc">$</span>satis_m, g1<span class="sc">$</span>gini_m)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>M</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.2186253</code></pre>
+</div>
+</div>
+<p>Para referenciar este resultado, usamos en el texto:</p>
+<pre><code> `r `</code></pre>
+<p>Dentro de las comillas ’ ’ y después de la letra <em>r</em>, indicamos el nombre del objeto que contiene un resultado. En este caso, para referenciar el resultado indicamos:</p>
+<p><img src="../files/resul-m.png" class="img-fluid"></p>
+<p>Texto de ejemplo:</p>
+<blockquote class="blockquote">
+<p>El coeficiente de correlación de Pearson entre satisfacción con la democracia y el índice de Gini es negativo y pequeño = -0.2186253.</p>
+</blockquote>
+</section>
+</section>
+<section id="actividad-en-salas" class="level1">
+<h1>Actividad en salas</h1>
+<p>Genera un nuevo documento R Markdown en el cual:</p>
+<ol type="1">
+<li>Especifica opciones generales de chunk con <code>echo=TRUE</code>, <code>warning=FALSE</code> y <code>message=FALSE</code>.</li>
+<li>Carga las mismas librerías y datos que usamos en esta guía.</li>
+<li>Genera una tabla con el promedio de la variable <code>ros4</code> para cada <code>pais</code>. Luego, presenta esta tabla con <code>kable()</code> y dale opciones de formato. Llama a esta tabla como <code>tbl-redis</code> en el chunk.</li>
+<li>Genera un gráfico de barras para la variable <code>prot3</code> con <code>ggplot2</code>. Llama a esta figura como <code>fig-protesta</code> en el chunk.</li>
+<li>Escribe un breve texto reportando los resultados del punto 3) y 4), referenciando la tabla y figura creadas.</li>
+</ol>
+</section>
+<section id="resumen" class="level1">
+<h1>Resumen</h1>
+<p>Hoy aprendimos a generar y presentar tablas y gráficos en documentos dinámicos con R Markdown, así como también a autoreferenciar elementos dentro de un documento Rmd. En detalle, aprendímos:</p>
+<ol type="1">
+<li>Generación y presentación de tablas en R Markdown.</li>
+<li>Generación y presentación de gráficos en R Markdown.</li>
+<li>Cómo autoreferenciar elementos dentro un documento R Markdown.</li>
+</ol>
+</section>
+<section id="reporte-de-progreso" class="level1">
+<h1>Reporte de progreso</h1>
+<p>Completar el reporte de progreso correspondiente a esta práctica <a href="https://forms.gle/NjDcuqqbetSVXqcf9">aquí</a>. El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.</p>
+</section>
+<section id="video-de-práctica" class="level1">
+<h1>Video de práctica</h1>
+</section>
+<section id="foro" class="level1">
+<h1>Foro</h1>
+<script src="https://giscus.app/client.js" data-repo="cursos-metodos-facso/correlacional" data-repo-id="R_kgDOKCMXJQ" data-category="Q&amp;A" data-category-id="DIC_kwDOKCMXJc4CYd9S" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="es" crossorigin="anonymous" async="">
+</script>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2023 by <a href="https://www.jc-castillo.com">Juan Castillo</a> <br> All content licensed under a <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by" aria-label="creative-commons-by"></i> <i class="fa-brands fa-creative-commons-nc" aria-label="creative-commons-nc"></i> <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/cursos-metodos-facso/correlacional">View the source at <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

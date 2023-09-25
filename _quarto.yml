@@ -96,6 +96,8 @@ website:
               file: assignment/03-practico.qmd
             - text: "4: Inferencia estadística 1"
               file: assignment/04-practico.qmd
+            - text: "5: Reportes Dinámicos 2"
+              file: assignment/05-practico.qmd
 
   page-footer:
     left: |
