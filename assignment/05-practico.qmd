@@ -1,0 +1,394 @@
+---
+title: "Reportes dinámicos 2"
+date: "2023-09-29"
+lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
+---
+
+# Objetivo de la práctica
+
+El objetivo de esta guía práctica es aprender cómo crear y mostrar tablas y gráficos en documentos dinámicos mediante R Markdown. Además, aprenderemos cómo autoreferenciar elementos dentro de nuestro documento Rmd.
+
+En detalle, aprenderemos:
+
+1.  Generación y presentación de tablas en R Markdown.
+2.  Generación y presentación de gráficos en R Markdown.
+3.  Cómo autoreferenciar elementos dentro un documento R Markdown.
+
+
+## Recursos de la práctica
+
+En esta práctica trabajaremos con un subconjunto de datos previamente procesados derivados de las encuestas realizadas en diferentes países por el [Latin American Public Opinion Proyect (LAPOP)](https://www.vanderbilt.edu/lapop/) en su ola del 2018. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `LAPOP 2018`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos LAPOP 2018.
+
+
+# Crear un documento R Markdown
+
+Recordemos que, [para generar un archivo en Rmarkdown](https://correlacional.netlify.app/assignment/01-practico#paso-2-crear-un-nuevo-archivo-en-rmarkdown), hacemos lo siguiente: 
+
+![](../files/crear-rmd.gif)
+
+
+## Chunks
+
+Para integrar código de R en un archivo `RMarkdown` usamos los `chunks`, que son *trozos* de código dentro de nuestra hoja. Estos permiten hacer análisis dentro del documento visualizando los resultados en el documento final.
+
+Los chunks se ven así dentro del .Rmd:
+
+    `r ''```{r}
+    # El codigo va aquí
+
+    ```
+
+#### Insertar chunks
+
+Hay tres formas de insertar chunks:
+
+1.  Pulsar `⌘⌥I` en macOS o `Control + Alt + I` en Windows
+
+2.  Pulsa el botón "Insert" en la parte superior de la ventana del editor
+
+```{r insert, echo=FALSE, out.width="40%"}
+knitr::include_graphics("../files/insertchunk.png", error = FALSE)
+```
+
+3.  Escribirlo manualmente (no recomendado)
+
+#### Nombre de chunk
+
+Para añadir un nombre, inclúyelo inmediatamente después de la `{r` en la primera línea del chunk. Los nombres no pueden contener espacios, pero sí guiones bajos y guiones.
+
+Importante: **Todos los nombres de chunk de tu documento deben ser únicos.**
+
+    `r ''```{r nombre-chunk}
+    # El codigo va aquí
+
+    ```
+    
+#### Opciones de chunk
+
+Hay distintas opciones diferentes que puedes establecer para cada chunk. Puedes ver una lista completa en la [Guía de referencia de RMarkdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) o en el [sitio web de **knitr**](https://yihui.org/knitr/options/).
+
+Las opciones van dentro de la sección `{r}` del chunk:
+
+    `r ''```{r nombre-chunk, message = FALSE, echo = TRUE}
+    # El codigo va aquí
+
+    ```
+
+Otra forma de hacerlo es **configurar** las opciones generales de todos los chunks que hagamos **al inicio del documento**:
+
+
+    `r ''```{r setup, include = FALSE}
+    knitr::opts_chunk$set(echo = TRUE, 
+                          message = FALSE, 
+                          warning = FALSE)
+
+    ```
+
+De esta manera ya no es necesario indicar en _cada_ chunk las opciones, y se aplicaran las configuraciones generales que indicamos al comienzo. 
+
+# Preparación de datos
+
+Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.
+
+```{r librerias, echo=TRUE, message=FALSE, warning=FALSE, collapse=TRUE}
+pacman::p_load(tidyverse, # Manipulacion datos
+               sjmisc, # Descriptivos
+               kableExtra, #Tablas
+               ggrepel) # Graficos
+
+options(scipen = 999) # para desactivar notacion cientifica
+rm(list = ls()) # para limpiar el entorno de trabajo
+```
+
+Cargamos los datos desde internet.
+
+```{r datos, echo=TRUE, message=FALSE, warning=FALSE}
+
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData")) #Cargar base de datos
+
+```
+
+A continuación, exploramos la base de datos **lapop**.
+
+```{r exploracion, echo=TRUE, message=FALSE, warning=FALSE}
+
+names(lapop) # Nombre de columnas
+dim(lapop) # Dimensiones
+
+```
+Contamos con 39 variables (columnas) y 23.386 observaciones (filas).
+
+# Tablas en R Markdown
+
+Para generar tablas en R Markdown usaremos la función `kable()` del paquete `kableExtra` (hay otras maneras, pero esta es de las más útiles).
+
+Primero, generaremos un objeto llamado `tab1` que usaremos como contenido de la tabla. Este objeto tendrá la distribución de `it1` por país.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+
+tab1 <- lapop %>%
+  group_by(pais, it1) %>% # agrupamos por pais y variable
+  summarise(n = n()) %>% # contamos por categ de respuesta
+  mutate(prop = round((n / sum(n)) * 100, 2)) %>% # porcentaje
+  na.omit() %>% # borramos NA
+  pivot_wider(id_cols = pais, names_from = it1, values_from = prop) # convertimos a formato ancho
+
+tab1
+```
+
+**Creemos nuestra tabla**. Usemos primero la función `kable()` directamente:
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+tab1 %>% 
+  kableExtra::kable()
+```
+
+Ahora tenemos una tabla, pero es muy simple y poco presentable. Especifiquemos opciones de formato:
+
+- `format`: para especificar formato de la tabla (html, markdown, latex)
+- `aling`: para especificar alineacion de las celdas ('r'=derecha, 'c'=centro, 'l'=izquierda),
+- `col.names`: para nombres de columnas visibles en la tabla, se ingresan como un vector `c()`
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+tab1 %>% 
+  kableExtra::kable(format = "html",
+                    align = "c",
+                    col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable"))
+```
+
+Ahora agregemos otros elementos importantes, como el título, estilo y fuente a la tabla:
+
+- `caption`: para dar titulo de la tabla
+- `kable_classic()`: para dar estilo (revisar otros [aquí](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#Getting_Started))
+- `add_footnote()`: para agregar fuente o pie a la tabla
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+tab1 %>% 
+  kableExtra::kable(format = "html",
+                    align = "c",
+                    col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable"),
+                    caption = "Tabla 1. Confianza interpersonal según país") %>% 
+  kableExtra::kable_classic() %>% 
+  kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a LAPOP 2018.")
+```
+
+¿Muy grande? También podemos ajustar el ancho que ocupa la tabla, el tamaño de la letra y la posición:
+
+- `full_width`: para indicar si la tabla cubre todo el ancho o no (TRUE/FALSE) 
+- `position`: para indicar posición de la tabla en el documento
+- `font_size`: para indicar tamaño de la letra
+
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+tabla1 <- tab1 %>% 
+  kableExtra::kable(format = "html",
+                    align = "c",
+                    col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable"),
+                    caption = "Tabla 1. Confianza interpersonal según país") %>% 
+  kableExtra::kable_classic(full_width = FALSE, position = "center", font_size = 14) %>% 
+  kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a LAPOP 2018.")
+
+tabla1
+```
+
+# Gráficos en R Markdown
+
+Para hacer gráficos usaremos el paquete `ggplot2`. Para conocer cómo usar este paquete revisar  [aquí](https://descriptiva-facso.netlify.app/content/06-content). 
+
+Primero, creamos un objeto llamado `g1` en donde almacenaremos la información que queremos graficar. Este objeto tendrá, para cada país, el promedio de satisfacción con la democracia (`pn4`) y del índice de Gini (`gini`).
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+g1 <- lapop %>% 
+  group_by(pais) %>% 
+  summarise(satis_m = mean(pn4, na.rm = T),
+            gini_m = mean(gini, na.rm = T))
+g1
+```
+
+Ahora, graficamos esta asociación en un objeto llamado `grafico1`.
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+
+grafico1 <- ggplot(data = g1,
+       mapping = aes(x = gini_m, y = satis_m, label = pais)) +
+  geom_point() +
+  geom_smooth(method = "lm",colour = "black",fill="lightblue",size=0.5) + 
+  geom_text_repel(size=3, show.legend = FALSE) +
+  labs(x = "Índice de Gini",
+       y = "Satisfacción con la democracia",
+       caption = "Fuente: Elaboración propia en base a LAPOP 2018") +
+  theme_bw()
+
+grafico1
+```
+
+Para especificar elementos de presentación de gráficos en un documento Rmd. usaremos las opciones de **chunks**. Algunas de las más comunes son:
+
+- `fig.align`: para espeficiar alineación del gráfico en el documento (left, right, center)
+- `out.width`: para especificar el tamaño del gráfico en el documento
+- `fig.cap`: para espeficiar el título del gráfico que se muestra en el documento
+
+
+Llamemos a nuestro `grafico1`, pero ahora especificando en el chunk:  `{r, fig.align='center', fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia', out.width='80%'}` 
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, fig.align='center', fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia', out.width='80%'}
+grafico1
+```
+
+Ahora tenemos un gráfico centrado, más grande y con un título en nuestro documento.
+
+
+# Autoreferenciar elementos dentro un R Markdown
+
+Una de las ventajas de usar documentos dinámicos con R Markdown es que podemos **autoreferenciar los elementos que creamos dentro del mismo documento**.
+
+::: {.callout-tip}
+#### ¿Autoreferenciar?
+
+Esto se refiere que, si en un documento creamos un gráfico por ejemplo, podemos citarlo o referenciarlo en el texto que escribamos, generando un enlace que al pincharlo llevará a dicha figura (en el orden establecido en el documento).
+:::
+
+Para hacer esto **debemos darle un nombre o _label_ al chunk** en donde producimos la tabla o gráfico en nuestro documento. Tomemos por ejemplo la misma `tabla1` y `grafico1` que generamos anteriormente, pero ahora les daremos un nombre al chunk en donde ejecutaremos dichos elementos. 
+
+¿Qué nombre le ponemos? hay que considerar lo siguiente:
+
+- Cuando es una **tabla** debemos nombrar al chunk con el prefijo **`tbl-`** antes del nombre respectivo. 
+- Cuando es una **figura** debemos nombrar al chunk con el prefijo **`fig-`** antes del nombre respectivo.
+
+¿Cómo las referenciamos? para referenciar tablas o figuras debemos usar el prefijo `@` antes del nombre que le dimos al elemento. 
+
+
+#### a) Tablas 
+
+Por ejemplo, si queremos referenciar a nuestra `tabla1`, en el chunk en donde la ejecutemos debemos indicar:
+
+    `r ''````{r tbl-confianza}
+    
+    tabla1
+
+    ````
+
+```{r}
+#| label: tbl-confianza
+#| tbl-cap: "Confianza interpersonal según país"
+#| tbl-cap-location: top
+#| warning: false
+tabla1
+```
+
+En este caso, a nuestra tabla le daremos el nombre de _confianza_ más el prefijo `tbl-`. Y para referenciar dentro de un texto a la tabla usamos: `@tbl-confianza`.
+
+Texto de ejemplo:
+
+> En la @tbl-confianza se muestra la distribución porcentual del grado de confianza interpersonal por país. 
+
+
+#### b) Figuras 
+
+
+Por ejemplo, si queremos referenciar a nuestro `grafico1`, en el chunk en donde lo ejecutemos debemos indicar:
+
+    `r ''````{r fig-asociacion}
+    
+    grafico1
+
+    ````
+
+```{r}
+#| label: fig-asociacion
+#| fig-cap: "Asociación entre Índice de Gini y Satisfacción con la democracia"
+#| warning: false
+#| message: false
+#| fig-align: center
+#| out-width: 80%
+
+
+grafico1
+```
+
+En este caso, a nuestro gráfico le daremos el nombre de _asociacion_ más el prefijo `fig-`. Y para referenciar dentro de un texto a la figura usamos: `@fig-asociacion`.
+
+Texto de ejemplo:
+
+> En la @fig-asociacion se muestra la asociación entre el promedio de satisfacción con la democracía y el nivel de desigualdad ecónomica de los países. 
+
+#### c) Resultados
+
+También podemos referenciar a resultados estadísticos que hayamos realizado con anterioridad en nuestro documento. 
+
+Como ejemplo, obtengamos la correlación entre la satisfacción con la democracia y el índice de Gini de los países y lo guardamos en un objeto `M`.
+
+```{r cor, echo=TRUE, message=FALSE, warning=FALSE}
+M <- cor(g1$satis_m, g1$gini_m)
+
+M
+```
+
+
+Para referenciar este resultado, usamos en el texto:
+
+    `r ''
+    
+    ` `r `
+    
+Dentro de las comillas ' ' y después de la letra _r_, indicamos el nombre del objeto que contiene un resultado. En este caso, para referenciar el resultado indicamos: 
+
+![](../files/resul-m.png)
+
+Texto de ejemplo:
+
+> El coeficiente de correlación de Pearson entre satisfacción con la democracia y el índice de Gini es negativo y pequeño = `r M`.
+
+
+# Actividad en salas
+
+Genera un nuevo documento R Markdown en el cual:
+
+1) Especifica opciones generales de chunk con `echo=TRUE`, `warning=FALSE` y `message=FALSE`. 
+2) Carga las mismas librerías y datos que usamos en esta guía.
+3) Genera una tabla con el promedio de la variable `ros4` para cada `pais`. Luego, presenta esta tabla con `kable()` y dale opciones de formato. Llama a esta tabla como `tbl-redis` en el chunk.
+4) Genera un gráfico de barras para la variable `prot3` con `ggplot2`. Llama a esta figura como `fig-protesta` en el chunk.
+5) Escribe un breve texto reportando los resultados del punto 3) y 4), referenciando la tabla y figura creadas.
+
+
+
+# Resumen
+
+Hoy aprendimos a generar y presentar tablas y gráficos en documentos dinámicos con R Markdown, así como también a autoreferenciar elementos dentro de un documento Rmd. En detalle, aprendímos:
+
+1.  Generación y presentación de tablas en R Markdown.
+2.  Generación y presentación de gráficos en R Markdown.
+3.  Cómo autoreferenciar elementos dentro un documento R Markdown.
+
+# Reporte de progreso
+
+Completar el reporte de progreso correspondiente a esta práctica [aquí](https://forms.gle/NjDcuqqbetSVXqcf9). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
+
+# Video de práctica
+
+
+
+# Foro
+
+<script src="https://giscus.app/client.js"
+        data-repo="cursos-metodos-facso/correlacional"
+        data-repo-id="R_kgDOKCMXJQ"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOKCMXJc4CYd9S"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="es"
+        crossorigin="anonymous"
+        async>
+</script>
+
