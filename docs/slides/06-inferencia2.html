@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Estadística Correlacional</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=".small[Juan Carlos Castillo    Departamento de Sociología - UCH / COES   ]" />
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link href="libs/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
+    <script src="libs/fabric-4.3.1/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link rel="stylesheet" href="css/custom_2020.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: front
+
+
+
+
+
+
+
+
+.pull-left-wide[
+# Estadística Correlacional]
+
+.pull-right-narrow[![:scale 85%](img/logo-correlacional-transp.png)]
+
+## Asociación, inferencia y reporte
+
+----
+.pull-left[
+
+## Juan Carlos Castillo
+## Sociología FACSO - UChile
+## 2do Sem 2023 
+## [.orange[correlacional.netlify.com]](https:/correlacional.netlify.com)
+]
+
+
+.pull-right-narrow[
+.center[
+.content-block-gray[
+## Sesión 6: 
+## .orange[Inferencia 2:  Error e intervalos de confianza]]
+]
+]
+
+---
+
+layout: true
+class: animated, fadeIn
+
+---
+class: roja right
+ 
+.pull-left-narrow[
+# .black[Contenidos]
+]
+
+.pull-right-wide[
+
+## .yellow[1- Resumen sesión anterior]
+## 2- Distribución muestral del promedio
+## 3- Error estándar
+## 4- Intervalos de confianza
+]
+
+---
+# Inferencia: la otra parte del análisis
+
+Cuando se analizan datos, 2 cosas principales
+
+.pull-left[
+.content-box-yellow[
+- cálculo del estadístico:
+
+  - promedio
+
+  - desviación estándar
+
+  - correlación
+  
+  - ...
+]
+]
+
+.pull-right[
+.content-box-red[
+- inferencia: ¿existe este estadístico en la población?
+
+  - probabilidad
+  
+  - error
+  
+  - significación
+  
+]
+]
+
+---
+# Parámetros y estadísticos
+
+----
+
+|                     	| Población (parámetro)  	| Muestra (estadístico)  	|
+|---------------------	|------------	|---------	|
+| Promedio            	|  `\(\mu\)`           	|   `\(\bar{x}\)`           	|
+| Varianza            	|        `\(\sigma²\)`      	|  `\(s²\)`                  	|
+| Desviación estándar 	|        `\(\sigma\)`        	| `\(s\)`                    	|
+| Correlación 	|        `\(\rho\)`        	| `\(r\)`                    	|
+
+
+---
+# Muestreo y variabilidad
+
+¿Cómo es posible que la media x̄ obtenida a partir de una muestra de unos pocos hogares de todos los del país, pueda ser una estimación precisa de µ?
+
+Una segunda muestra aleatoria obtenida en el mismo momento estaría
+formada por hogares distintos y, sin duda, daría un valor distinto de x̄
+
+Por lo tanto: ¿cómo podemos .red[confiar] en los estadísticos de una muestra?
+
+---
+# Muestreo y variabilidad
+
+**Variabilidad muestral**: el valor de un estadístico varía en un muestreo aleatorio repetido
+
+¿Cuánto varía? 
+
+¿En qué rangos?
+
+¿Qué tan **probable** es el rango de variación?
+
+¿Es un rango aceptable en términos de investigación social?
+
+---
+# Dados, probabilidades y áreas
+
+.pull-left[
+![](img/areas4.png)
+]
+
+.pull-right[
+&lt;br&gt;
+ Eventos posibles (espacio muestral S) = 6 = (1,2,3,4,5,6)
+
+
+`\begin{align*}
+P(x)\geq4&amp;=P(4)+P(5)+P(6) \\
+&amp;=0.1\overline{6}+0.1\overline{6}+0.1\overline{6} \\
+&amp;=0.5
+\end{align*}`
+]
+
+---
+# Sucesos con distinta probabilidad
+
+Ej: suma de 3 dados al azar repetidos
+.center[
+![](img/3dice.png)
+]
+
+---
+
+.pull-left[
+## Histograma
+Frecuencias o probabilidad de cada evento
+
+![](06-inferencia2_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right[
+## Curvas de densidad
+
+Modelo matemático de la distribución
+
+![](06-inferencia2_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+
+]
+
+---
+# ¿Por qué son importantes las distribuciones normales en estadística?
+
+- las distribuciones normales son buenas descripciones de algunas distribuciones de datos reales
+
+- permiten realizar **inferencia estadística** sobre la probabilidad de ocurrencia de ciertos fenómenos basados en distribuciones normales
+
+---
+## Distribución normal estándar
+![:scale 80%](img/norm2.png)
+
+
+---
+# Valores `\(z\)` y estandarización
+
+- estandarización: expresar el valor de una distribución en términos de desviaciones estándar basados en la distribución normal
+
+- para estandarizar un valor, se le resta la media y se divide por la desviación estándar
+
+
+`$$z=\frac{x-\mu}{\sigma}$$`
+
+- los valores estandarizados se denominan .red[valores z]
+
+---
+# Puntajes `\(z\)` y proporciones 
+.pull-left[
+Los valores `\(z\)` permiten calcular la proporción de casos bajo la curva normal que están sobre y bajo el puntaje
+
+Por ejemplo, para el caso de 1 desviación sobre el promedio, el área bajo la curva bajo este puntaje sería:
+
+]
+
+.pull-right[
+
+![](06-inferencia2_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+]
+
+
+---
+class: middle
+
+.pull-left[
+## Curva normal, puntajes Z y proporciones
+![](img/norm2.png)
+]
+
+.pull-right[
+.medium[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Siguiendo con el ejemplo de altura `\(\bar{x}=160,\sigma=5\)`
+
+`$$z=\frac{x-\mu}{\sigma}=\frac{165-160}{5}=1$$`
+
+En base a la distribución normal sabemos que bajo 1 desviación estańdar está el 68% de los datos + la cola izquierda de la curva, que es (100-68/2)=16%.
+
+Ej:  84% (68+16) de los casos tienen una estatura menor a 165 cm
+]]
+
+
+---
+class: roja right
+ 
+.pull-left-narrow[
+# .black[Contenidos]
+]
+
+.pull-right-wide[
+
+## 1- Resumen sesión anterior
+## .yellow[2- Distribución muestral del promedio]
+## 3- Error estándar
+## 4- Intervalos de confianza
+]
+
+
+---
+
+# Inferencia
+
+¿En qué medida se pueden relacionar resultados que se encuentran en una .green[muestra] (subconjunto de unidades) con lo que ocurre .red[en general]?
+
+--
+.medium[
+- Ej: si en un subconjunto de la población encuentro que el promedio de matemáticas es mayor en mujeres que en hombres ¿se puede .green[extrapolar] a la población, o se debe solo al .red[azar]?
+]
+
+--
+.content-box-red[
+.center[
+-&gt; .red[¿Bajo qué normas o reglas estoy dispuest_ a .green[confiar] en que lo que obtuve con mi muestra (ej: un promedio) ocurre efectivamente en la población?]]]
+
+???
+
+¿le creo o no le creo al promedio de una muestra? ¿qué tendría que pasar para que le creyera?
+
+mapa y territorio, Borges
+lidiando con el caos y la incertidumbre
+la domesticación de la casualidad
+error
+
+---
+# Principios de la ciencia (Merton)
+
+- **Universalismo**: cualquier persona puede contribuir al conocimiento científico, independiente de su origen.
+
+- **Desinterés**: la conducta de investigadores debe estar orientada por la búsqueda de la verdad, no con intereses personales ni monetarios.
+
+- **Comunalidad**: los hallazgos de la ciencia pertenecen a la comunidad y no a quién los descubrió.
+
+- .red[**Escepticismo organizado**: los hallazgos no se aceptan porque sí, se requieren pruebas.]
+
+---
+class: roja
+
+# ¿Qué .yellow[pruebas] se requieren para que se pueda .orange[confiar] en que un resultado obtenido con una muestra ocurra en la población?
+
+
+---
+# Ejercicio
+
+- tenemos una población de (ej.) 200
+
+- en esta población existen 6 niveles educacionales, homogéneamente distribuidos (cada nivel educacional equivale a a 1/6 de la población)
+
+- por lo tanto, el nivel educacional promedio de la población equivale a 1+2+3+4+5+6/6= 3.5
+
+---
+# Ejercicio: Muestra aleatoria y error
+
+- cada persona selecciona al azar a 5 sujetos (5 dados) y les "pregunta" su nivel educacional (cara superior del dado luego de tirarlo)
+
+- sacar el promedio de cada muestra
+
+- ¿qué tanto varían los promedios?
+
+-&gt; registro [aquí](https://docs.google.com/spreadsheets/d/1YrMd_ds5zHgQWrdjYcX5Diwv7bQHDzf5r2A0oYWriyA/edit#gid=0)
+
+
+???
+
+---
+# Distribución muestral del promedio
+
+.pull-left-narrow[
+![](img/normal.png)
+]
+
+.pull-right-wide[
+- Si tengo la desviación estándar de los promedios, puedo construir un .red[intervalo] de probabilidad, basado en la curva normal
+
+- En lenguaje de inferencia no digo que mi promedio es=10, sino un rango (intervalo) y un cierto nivel de probabilidad
+]
+
+---
+class: roja
+
+## .yellow[Problema: tenemos 1 SOLA MUESTRA, y un solo promedio]
+
+# ¿Cómo obtenemos entonces la desviación estándar del promedio?
+
+---
+class: roja right
+ 
+.pull-left-narrow[
+# .black[Contenidos]
+]
+
+.pull-right-wide[
+
+## 1- Resumen sesión anterior
+## 2- Distribución muestral del promedio
+## .yellow[3- Error estándar]
+## 4- Intervalos de confianza
+]
+
+
+---
+
+.pull-left-narrow[
+![](https://multivariada.netlify.app/slides/images/inference1.png)
+
+]
+
+.pull-right-wide[
+.content-box-purple[
+
+## Desviación estándar y error estándar]
+- más que el promedio de la variable en nuestra **muestra**, en inferencia nos interesa estimar en qué medida ese promedio da cuenta del promedio de la **población**
+
+{{content}}
+
+]
+
+--
+
+- contamos con **una muestra**, pero sabemos que otras muestras podrían haber sido extraídas, probablemente con distintos resultados.
+
+---
+# Distribución muestral del promedio
+
+![](https://multivariada.netlify.app/slides/images/se_1.png)
+---
+# Distribución muestral del promedio
+
+![](https://multivariada.netlify.app/slides/images/se_2.png)
+---
+# Distribución muestral del promedio
+
+![](https://multivariada.netlify.app/slides/images/se_3.png)
+
+
+---
+# Teorema del límite central
+
+- la distribución de los promedios de distintas muestras - o .red[distribución muestral del promedio] - se aproxima a una distribución normal
+
+--
+
+- En muestras mayores a 30 la desviación estándar de los promedios (error estándar del promedio) equivale a:
+`$$\sigma_{\bar{X}}=SE(error estándar)=\frac{s}{\sqrt{N}}$$`
+  - `\(s\)` = desviación estándar de la muestra
+  - `\(N\)` = tamaño de la muestra
+
+---
+class: inverse
+
+## Basados en el teorema del límite central, es posible calcular la desviación estándar del promedio (error estándar) con .red[una sola muestra]
+
+-&gt; ver demostración [aquí](https://docs.google.com/spreadsheets/d/1YrMd_ds5zHgQWrdjYcX5Diwv7bQHDzf5r2A0oYWriyA/edit#gid=0) 
+
+---
+class: inverse middle right
+
+# ¿Para qué nos sirve el .red[error estándar] o .red[SE] del promedio?
+
+##(... y de otros estadísticos, como la correlación)
+
+---
+
+# Usos del error estándar
+
+- Dos usos complementarios:
+
+  - construcción de intevalos de confianza
+
+  - test de hipótesis (próxima clase)
+
+---
+class: roja right
+ 
+.pull-left-narrow[
+# .black[Contenidos]
+]
+
+.pull-right-wide[
+
+## 1- Resumen sesión anterior
+## 2- Distribución muestral del promedio
+## 3- Error estándar
+## .yellow[4- Intervalos de confianza]
+]
+
+
+
+---
+# Intervalos y probabilidad
+
+.pull-left-narrow[
+.medium[
+
+- Nuestro promedio muestral `\(\bar{x}\)` posee una distribución normal con una desviación estandar = SE (error estándar)
+
+- Esto nos permite estimar probabilidades basados en los valores de la curva normal
+
+]
+]
+.pull-right-wide[
+.center[![:scale 95%](https://multivariada.netlify.app/slides/images/normal.png)]]
+
+---
+# Intervalos de confianza
+
+.pull-left-wide[
+.center[![:scale 85%](https://multivariada.netlify.app/slides/images/normal.png)]]
+
+
+.pull-right-narrow[
+.medium[
+
+- Por ejemplo, un intervalo de confianza de `\(\bar{x}\pm1.96SE\)` abarca aproximadamente el 95% de los valores probables
+
+- En este caso, puedo decir que el promedio se encuentra en un rango de valores con un .red[nivel de confianza] de 95%
+
+
+]
+]
+
+---
+## Ejemplo: intervalo de confianza para un promedio
+----
+.pull-left[
+.content-box-green[
+- Tenemos:
+
+  - promedio de ingresos: 800.000
+  
+  - desviación estándar: 100.000
+  
+  - N muestral: 1.600
+]]
+
+.pull-right[
+
+`\begin{align*}
+SE&amp;=\frac{s}{\sqrt{N}} \\\\
+&amp;=\frac{100.000}{\sqrt{1.600}} \\\\
+&amp;=\frac{100.000}{40}=2.500
+\end{align*}`
+]
+
+---
+
+- Entonces:
+
+  - error estándar es `\(SE=2.500\)`, 
+  - promedio `\(\bar{x}=800.000\)`
+
+- Con estos valores podemos construir un rango de probabilidad basado en la curva normal, sumando y restando errores estándar
+
+- Por ejemplo, `\(\bar{x}{\color{red}\pm}1.96SE\)` abarcan aproximadamente el 95% de los valores alrededor del promedio
+
+- Por lo tanto, podemos decir que el promedio de ingresos se encuentra entre 797.500 y 802.500 .red[con un 95% de confianza] 
+
+---
+
+# ¿Confianza en qué?
+
+- bajo esta lógica, la confianza está en que si tuvieramos la posibilidad de extraer múltiples muestras, el 95% de las veces nuestro intervalo contendría el promedio
+
+- o que existe un 5% de probabilidad de error, es decir, que el promedio de la muestra no sea el de la población
+
+- o que las chances de error son 1 de 20 
+
+---
+class: roja
+
+# Un .yellow[intervalo de confianza] (IC o CI) es la mejor estimación del rango de un estadístico en la población (parámetro poblacional) con una muestra aleatoria
+
+---
+.center[
+![:scale 50%](img/intervalos.png)
+]
+---
+class: inverse middle
+
+
+## ¿De qué depende el .red[tamaño] del intervalo de confianza?
+
+## ¿Cómo se establece el .red[nivel de confianza] del intervalo?
+
+---
+## ¿De qué depende el tamaño del intervalo de confianza?
+
+- recordemos que el intervalo de confianza se elabora sumando y restando errores estándar al promedio
+
+`$$\sigma_{\bar{X}}=SE(error estándar)=\frac{s}{\sqrt{N}}$$`
+--
+
+- dado que el tamaño muestral (N) se encuentra en el denominador del `\(SE\)`, a mayor N, menor será el `\(SE\)` y menor el intervalo de confianza
+
+- esto tiene implicancias directas en el cálculo del tamaño muestral
+
+---
+# ¿De qué depende el nivel de confianza?
+
+- en estadística inferencial, la confianza se asocia a un nivel de probabilidad de error
+
+- la probabilidad de error a aceptar no es un criterio estadístico, es convencional
+
+- por convención, se acepta como estadísticamente significativa una probabilidad de error menor al 5%, asociada a un intervalo de confianza de `\(\pm1.96SE\)` (usando la distribución `\(Z\)`)
+
+---
+class: inverse
+
+
+# Resumen
+
+- distribución muestral del promedio
+
+- error estándar
+
+- intervalos de confianza
+
+---
+# Lectura:
+
+
+[Moore cap. 7 - Inferencia para medias y desviaciones típicas](https://correlacional.netlify.app/files/textos/Moore.pdf)
+
+# Recomendaciones
+
+
+Ver [simulación de intervalo de confianza para promedio muestral](https://shiny.rit.albany.edu/stat/confidence/)
+
+
+---
+
+# ASISTENCIA
+
+.pull-left[
+
+![:scale 90%](img/qr-correlacional-asistencia.png)
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+bit.ly/correlacional-asistencia
+]
+
+
+---
+class: front
+
+.pull-left-wide[
+# Estadística Correlacional]
+
+.pull-right-narrow[![:scale 85%](img/logo-correlacional-transp.png)]
+
+## Asociación, inferencia y reporte
+
+----
+.pull-left[
+
+## Juan Carlos Castillo
+## Sociología FACSO - UChile
+## 2do Sem 2023 
+## [.orange[correlacional.netlify.com]](https://encuestas-sociales.netlify.com)
+]
+    
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://multinivel.netlify.com/docpres/xaringan_custom/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "dracula",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+.logo {
+  background-image: url("img/logo-correlacional-transp.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 16.3em;
+  right: 31em;
+  width: 110px;
+  height: 70px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    // ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
