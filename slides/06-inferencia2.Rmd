@@ -570,17 +570,16 @@ SE&=\frac{s}{\sqrt{N}} \\\\
 
 ---
 
-- Entonces:
-
-  - error estándar es $SE=2.500$, 
-  - promedio $\bar{x}=800.000$
+- Tenemos: $SE=2.500$,  $\bar{x}_{ingresos}=800.000$
 
 - Con estos valores podemos construir un rango de probabilidad basado en la curva normal, sumando y restando errores estándar
 
-- Por ejemplo, $\bar{x}{\color{red}\pm}1.96SE$ abarcan aproximadamente el 95% de los valores alrededor del promedio
-
-- Por lo tanto, podemos decir que el promedio de ingresos se encuentra entre 797.500 y 802.500 .red[con un 95% de confianza] 
-
+- Por ejemplo, $\bar{x}{\color{red}\pm}1.96SE$ abarcan el 95% de los valores alrededor del promedio
+  - $800.000 - (1.96*2.500) = 800.000 - 4.900={\color{red}{795.100}}$ 
+  - $800.000 + (1.96*2.500) = 800.000 + 4.900={\color{red}{804.900}}$
+  
+- Por lo tanto, podemos decir .red[con un 95% de confianza]  que el promedio de ingresos se encuentra entre 795.100 y 804.900
+ 
 ---
 
 # ¿Confianza en qué?
