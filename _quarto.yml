@@ -101,7 +101,8 @@ website:
               file: assignment/04-practico.qmd
             - text: "5: Reportes Dinámicos 2"
               file: assignment/05-practico.qmd
-
+            - text: "6: Inferencia 2"
+              file: assignment/06-practico.qmd
   page-footer:
     left: |
       Content {{< fa brands creative-commons >}} {{< var course.copyright_year >}} by [{{< var instructor.name_no_title >}}]({{< var instructor.url >}}) <br>
