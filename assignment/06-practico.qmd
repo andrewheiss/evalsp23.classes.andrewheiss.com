@@ -10,7 +10,7 @@ website:
 
 # Objetivo de la práctica
 
-El objetivo de esta guía práctica es continuar adentrándonos en la inferencia estadística, revisando algunos de sus conceptos clave como distribución muestral, error estándar, y la definición y aplicaciones de los intervalos de confianza.
+El objetivo de esta guía práctica es continuar profundizando en la inferencia estadística, revisando algunos de sus conceptos clave como distribución muestral, error estándar, y la definición y aplicaciones de los intervalos de confianza.
 
 En detalle, aprenderemos:
 
@@ -22,7 +22,7 @@ En detalle, aprenderemos:
 
 ## ¿Qué es la inferencia estadística?
 
-La inferencia estadísticaes el proceso de realizar conclusiones o predicciones sobre una población a partir de una muestra o subconjunto representativo de esa población. En concreto, llamamos inferencia al ejercicio de **extrapolar** determinados valores de una muestra, llamados *estadísticos*, para estimar un *parámetro* de la población.
+La inferencia estadística es el proceso de realizar conclusiones o predicciones sobre una población a partir de una muestra o subconjunto representativo de esa población. En concreto, llamamos inferencia al ejercicio de **extrapolar** determinados valores de una muestra, llamados *estadísticos*, para estimar un *parámetro* de la población.
 
 ![](../files/INFERENCIA.jpg)
 
@@ -37,7 +37,7 @@ Existen **distribuciones empíricas** y **distribuciones teóricas**, en donde:
 -   las primeras reflejan la distribución de los valores que asume la variable en un grupo *concreto* a partir de una observación.
 -   las segundas son una *función matématica* que expresan la distribución de un conjunto de números mediante su *probabilidad de ocurencia*.
 
-Como vimos en el [práctico 4](/assignment/04-practico.html), una distribuciones teóricas más conocidas: **la distribución normal estándar**.
+Como vimos en el [práctico 4](/assignment/04-practico.html), una de las distribuciones teóricas más conocidas es **la distribución normal estándar**.
 
 # Distribución muestral
 
@@ -47,7 +47,7 @@ Como vimos en el [práctico 4](/assignment/04-practico.html), una distribuciones
 
 La **distribución muestral** es la distribución de las estimaciones, o estadísticos como la media o proporción, tomadas de múltiples muestras aleatorias de una población. Permite comprender cómo varían las estimaciones de una muestra a otra.
 
-**Ejemplo 1**: Imaginemos que tenemos una población de niñ_s de 0 a 9 años, y tomamos múltiples muestras de 6 individu_s (n=6). Cada una de las muestras tendrá un promedio (estadístico muestral, en este caso $\bar{x}$) difernte, que no necesariamente coincidirán con el promedio de la población (parámentro, en este caso $\mu_{x}$)
+**Ejemplo 1**: Imaginemos que tenemos una población de niñ_s de 0 a 9 años, y tomamos múltiples muestras de 6 individu_s (n=6). Cada una de las muestras tendrá un promedio (estadístico muestral, en este caso $\bar{x}$) diferente, que no necesariamente coincidirn con el promedio de la población (parámetro, en este caso $\mu_{x}$)
 
 ![](../files/dist_muestral.png)
 
@@ -62,14 +62,14 @@ muestras
 Como se vio en la [sesión 6](/content/06-content.html), si tengo la desviación estándar de los promedios, puedo construir un intervalo de probabilidad, basado en la curva normal (mirar [sesión 5](/content/05-content.html)).
 
 ::: callout-note
-Una acaracterística importante es que se asume que las muestras tomadas de la población son *aleatorias y representativas*, lo que es esencial para que la distribución muestral refleje adecuadamente la variabilidad de las estimaciones.
+Una característica importante es que se asume que las muestras tomadas de la población son *aleatorias y representativas*, lo que es esencial para que la distribución muestral refleje adecuadamente la variabilidad de las estimaciones.
 :::
 
 La importancia de la distribución muestral es que nos permitirá estimar parámetros poblacionales a partir de estadísticos muestrales, construir intervalos de confianza, y realizar pruebas de hipótesis.
 
 # Error estándar
 
-El error estándar es una medida de la variabilidad de una estimación, proporciona una medida de cuán precisas son nuestras estimaciones de la población. Corresponde a la estimación de la desviación estándar de la muestra.
+El error estándar es una medida de la variabilidad de una estimación, proporciona una medida de cuán precisas son nuestras estimaciones de la población. El error estándar del promedio corresponde a una estimación de la desviación estándar de los promedios extraídos de distintas muestras.
 
 ![](https://multivariada.netlify.app/slides/images/se_1.png)
 
@@ -81,7 +81,7 @@ El error estándar es una medida de la variabilidad de una estimación, proporci
 **Teorema del límite central** la distribución de los promedios de distintas muestras - o distribución muestral del promedio - se aproxima a una *distribución normal*.
 :::
 
-Basados en el teorema del límite central, es posible calcular la desviación estándar del promedio (error estándar) con una sola muestra:
+Basados en el teorema del límite central, es posible calcular la desviación estándar del promedio (error estándar) **con una sola muestra**:
 
 $$\sigma_{\bar{X}}=SE(error estándar)=\frac{s}{\sqrt{N}}$$
 
@@ -109,16 +109,16 @@ intervalo_confianza <- t.test(muestra)$conf.int  # Intervalo de confianza del 95
 intervalo_confianza
 ```
 
-Como vimos en la [sesión 6](/content/06-content.html) el promedio de la muestra \bar{x} se distruye normal, con un error estándar $SE$, lo que nos permite estimar probabilidades basándonos en la curva normal. 
+Como vimos en la [sesión 6](/content/06-content.html), el promedio de la muestra \bar{x} se distruye normal, con un error estándar $SE$, lo que nos permite estimar probabilidades basándonos en la curva normal. 
 
-Por ejemplo, si nos desviamos $1.96SE$ desde la media abarcaremos aproximadamente el 95% de los valores probables.
+Por ejemplo, si nos desviamos $\pm1.96SE$ desde la media abarcaremos aproximadamente el 95% de los valores probables.
 
 ![](https://multivariada.netlify.app/slides/images/normal.png)
 
 ::: callout-note 
 **Nivel de confianza**: Corresponde a la probabilidad de que la muestra elegida produzca un intervalo que incluya el parámetro que se está estimando ($1-\alpha$).
 
-**Nivel de significacncia**: Correpsonde a la probabilidad de que el intervalo calculado a partir de la muestra no comprenda el parámetro de la población ($\alpha$).
+**Nivel de significacncia**: Corresponde a la probabilidad de que el intervalo calculado a partir de la muestra no comprenda el parámetro de la población ($\alpha$).
 ::: 
 
 ## Cálculo de intervalos de confianza
@@ -140,7 +140,7 @@ options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls()) # para limpiar el entorno de trabajo
 ```
 
-y también carguemos la base de datos que utilizaremos, que corresponde a un subset de la ESI (https://www.ine.gob.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos) para ocupados:
+y también carguemos la base de datos que utilizaremos, que corresponde a un subset de la ESI (Encuesta Sumplementaria de Ingresos) (https://www.ine.gob.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos) para ocupados:
 
 ```{r}
 load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/esi-2021-ocupados.rdata"))
@@ -180,7 +180,7 @@ En este caso, sabemos que el total de las personas ocupadas de la muestra son n=
 
 ### Intervalos de confianza con ponderador
 
-Mientras que para las muestras complejas, que cuentan con ponderador (o factor de expansión) también podemos hacer este ejercicio.
+Para muestras complejas que cuentan con ponderador (o factor de expansión) también podemos hacer este ejercicio.
 
 Primero, es necesario identificar la variable de factor de expansión o ponderador:
 ```{r}
@@ -227,11 +227,11 @@ En detalle, aprenderemos:
 
 1.  Qué es una distribución muestral.
 2.  Qué es el error estándar.
-3.  Qué son y cómo calcular intervalos de conafianza.
+3.  Qué son y cómo calcular intervalos de confianza.
 
 # Reporte de progreso
 
-Completar el reporte de progreso correspondiente a esta práctica [aquí](https://forms.gle/FMb6eprMxcVAEPV99). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
+Completar el reporte de progreso correspondiente a esta práctica [disponible próximamente aquí](). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
 
 # Video de práctica
 

@@ -288,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="objetivo-de-la-práctica" class="level1">
 <h1>Objetivo de la práctica</h1>
-<p>El objetivo de esta guía práctica es continuar adentrándonos en la inferencia estadística, revisando algunos de sus conceptos clave como distribución muestral, error estándar, y la definición y aplicaciones de los intervalos de confianza.</p>
+<p>El objetivo de esta guía práctica es continuar profundizando en la inferencia estadística, revisando algunos de sus conceptos clave como distribución muestral, error estándar, y la definición y aplicaciones de los intervalos de confianza.</p>
 <p>En detalle, aprenderemos:</p>
 <ol type="1">
 <li>Qué es una distribución muestral.</li>
@@ -300,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Primero recordemos:</h1>
 <section id="qué-es-la-inferencia-estadística" class="level2">
 <h2 class="anchored" data-anchor-id="qué-es-la-inferencia-estadística">¿Qué es la inferencia estadística?</h2>
-<p>La inferencia estadísticaes el proceso de realizar conclusiones o predicciones sobre una población a partir de una muestra o subconjunto representativo de esa población. En concreto, llamamos inferencia al ejercicio de <strong>extrapolar</strong> determinados valores de una muestra, llamados <em>estadísticos</em>, para estimar un <em>parámetro</em> de la población.</p>
+<p>La inferencia estadística es el proceso de realizar conclusiones o predicciones sobre una población a partir de una muestra o subconjunto representativo de esa población. En concreto, llamamos inferencia al ejercicio de <strong>extrapolar</strong> determinados valores de una muestra, llamados <em>estadísticos</em>, para estimar un <em>parámetro</em> de la población.</p>
 <p><img src="../files/INFERENCIA.jpg" class="img-fluid"></p>
 <p>Un concepto central en todo esto es la probabilidad de <em>error</em>, es decir, en qué medida nos estamos equivocando (o estamos dispuestos a estar equivocados) al tratar de extrapolar una estimación muestral a la población.</p>
 </section>
@@ -312,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>las primeras reflejan la distribución de los valores que asume la variable en un grupo <em>concreto</em> a partir de una observación.</li>
 <li>las segundas son una <em>función matématica</em> que expresan la distribución de un conjunto de números mediante su <em>probabilidad de ocurencia</em>.</li>
 </ul>
-<p>Como vimos en el <a href="../assignment/04-practico.html">práctico 4</a>, una distribuciones teóricas más conocidas: <strong>la distribución normal estándar</strong>.</p>
+<p>Como vimos en el <a href="../assignment/04-practico.html">práctico 4</a>, una de las distribuciones teóricas más conocidas es <strong>la distribución normal estándar</strong>.</p>
 </section>
 </section>
 <section id="distribución-muestral" class="level1">
@@ -331,7 +331,7 @@ Nota
 </div>
 </div>
 <p>La <strong>distribución muestral</strong> es la distribución de las estimaciones, o estadísticos como la media o proporción, tomadas de múltiples muestras aleatorias de una población. Permite comprender cómo varían las estimaciones de una muestra a otra.</p>
-<p><strong>Ejemplo 1</strong>: Imaginemos que tenemos una población de niñ_s de 0 a 9 años, y tomamos múltiples muestras de 6 individu_s (n=6). Cada una de las muestras tendrá un promedio (estadístico muestral, en este caso <span class="math inline">\(\bar{x}\)</span>) difernte, que no necesariamente coincidirán con el promedio de la población (parámentro, en este caso <span class="math inline">\(\mu_{x}\)</span>)</p>
+<p><strong>Ejemplo 1</strong>: Imaginemos que tenemos una población de niñ_s de 0 a 9 años, y tomamos múltiples muestras de 6 individu_s (n=6). Cada una de las muestras tendrá un promedio (estadístico muestral, en este caso <span class="math inline">\(\bar{x}\)</span>) diferente, que no necesariamente coincidirn con el promedio de la población (parámetro, en este caso <span class="math inline">\(\mu_{x}\)</span>)</p>
 <p><img src="../files/dist_muestral.png" class="img-fluid"></p>
 <p><strong>Ejemplo 2</strong>: Si usamos valores simulados, podemos ver que todas las medias obtenidas en cada muesta son distintas.</p>
 <div class="cell">
@@ -365,14 +365,14 @@ Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Una acaracterística importante es que se asume que las muestras tomadas de la población son <em>aleatorias y representativas</em>, lo que es esencial para que la distribución muestral refleje adecuadamente la variabilidad de las estimaciones.</p>
+<p>Una característica importante es que se asume que las muestras tomadas de la población son <em>aleatorias y representativas</em>, lo que es esencial para que la distribución muestral refleje adecuadamente la variabilidad de las estimaciones.</p>
 </div>
 </div>
 <p>La importancia de la distribución muestral es que nos permitirá estimar parámetros poblacionales a partir de estadísticos muestrales, construir intervalos de confianza, y realizar pruebas de hipótesis.</p>
 </section>
 <section id="error-estándar" class="level1">
 <h1>Error estándar</h1>
-<p>El error estándar es una medida de la variabilidad de una estimación, proporciona una medida de cuán precisas son nuestras estimaciones de la población. Corresponde a la estimación de la desviación estándar de la muestra.</p>
+<p>El error estándar es una medida de la variabilidad de una estimación, proporciona una medida de cuán precisas son nuestras estimaciones de la población. El error estándar del promedio corresponde a una estimación de la desviación estándar de los promedios extraídos de distintas muestras.</p>
 <p><img src="https://multivariada.netlify.app/slides/images/se_1.png" class="img-fluid"></p>
 <p><img src="https://multivariada.netlify.app/slides/images/se_2.png" class="img-fluid"></p>
 <p><img src="https://multivariada.netlify.app/slides/images/se_3.png" class="img-fluid"></p>
@@ -389,7 +389,7 @@ Nota
 <p><strong>Teorema del límite central</strong> la distribución de los promedios de distintas muestras - o distribución muestral del promedio - se aproxima a una <em>distribución normal</em>.</p>
 </div>
 </div>
-<p>Basados en el teorema del límite central, es posible calcular la desviación estándar del promedio (error estándar) con una sola muestra:</p>
+<p>Basados en el teorema del límite central, es posible calcular la desviación estándar del promedio (error estándar) <strong>con una sola muestra</strong>:</p>
 <p><span class="math display">\[\sigma_{\bar{X}}=SE(error estándar)=\frac{s}{\sqrt{N}}\]</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar una muestra de datos</span></span>
@@ -419,8 +419,8 @@ attr(,"conf.level")
 [1] 0.95</code></pre>
 </div>
 </div>
-<p>Como vimos en la <a href="../content/06-content.html">sesión 6</a> el promedio de la muestra {x} se distruye normal, con un error estándar <span class="math inline">\(SE\)</span>, lo que nos permite estimar probabilidades basándonos en la curva normal.</p>
-<p>Por ejemplo, si nos desviamos <span class="math inline">\(1.96SE\)</span> desde la media abarcaremos aproximadamente el 95% de los valores probables.</p>
+<p>Como vimos en la <a href="../content/06-content.html">sesión 6</a>, el promedio de la muestra {x} se distruye normal, con un error estándar <span class="math inline">\(SE\)</span>, lo que nos permite estimar probabilidades basándonos en la curva normal.</p>
+<p>Por ejemplo, si nos desviamos <span class="math inline">\(\pm1.96SE\)</span> desde la media abarcaremos aproximadamente el 95% de los valores probables.</p>
 <p><img src="https://multivariada.netlify.app/slides/images/normal.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -433,7 +433,7 @@ Nota
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Nivel de confianza</strong>: Corresponde a la probabilidad de que la muestra elegida produzca un intervalo que incluya el parámetro que se está estimando (<span class="math inline">\(1-\alpha\)</span>).</p>
-<p><strong>Nivel de significacncia</strong>: Correpsonde a la probabilidad de que el intervalo calculado a partir de la muestra no comprenda el parámetro de la población (<span class="math inline">\(\alpha\)</span>).</p>
+<p><strong>Nivel de significacncia</strong>: Corresponde a la probabilidad de que el intervalo calculado a partir de la muestra no comprenda el parámetro de la población (<span class="math inline">\(\alpha\)</span>).</p>
 </div>
 </div>
 <section id="cálculo-de-intervalos-de-confianza" class="level2">
@@ -452,7 +452,7 @@ Nota
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>y también carguemos la base de datos que utilizaremos, que corresponde a un subset de la ESI (https://www.ine.gob.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos) para ocupados:</p>
+<p>y también carguemos la base de datos que utilizaremos, que corresponde a un subset de la ESI (Encuesta Sumplementaria de Ingresos) (https://www.ine.gob.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos) para ocupados:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/esi-2021-ocupados.rdata"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -528,7 +528,7 @@ sample estimates:
 </section>
 <section id="intervalos-de-confianza-con-ponderador" class="level3">
 <h3 class="anchored" data-anchor-id="intervalos-de-confianza-con-ponderador">Intervalos de confianza con ponderador</h3>
-<p>Mientras que para las muestras complejas, que cuentan con ponderador (o factor de expansión) también podemos hacer este ejercicio.</p>
+<p>Para muestras complejas que cuentan con ponderador (o factor de expansión) también podemos hacer este ejercicio.</p>
 <p>Primero, es necesario identificar la variable de factor de expansión o ponderador:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>esi_pond <span class="ot">&lt;-</span> esi <span class="sc">%&gt;%</span> <span class="fu">as_survey_design</span>(<span class="at">ids =</span> <span class="dv">1</span>, <span class="co"># indica conglomerados de muestreo; ~0 o ~1 cuando no hay</span></span>
@@ -592,12 +592,12 @@ Value |     N | Raw % | Valid % | Cum. %
 <ol type="1">
 <li>Qué es una distribución muestral.</li>
 <li>Qué es el error estándar.</li>
-<li>Qué son y cómo calcular intervalos de conafianza.</li>
+<li>Qué son y cómo calcular intervalos de confianza.</li>
 </ol>
 </section>
 <section id="reporte-de-progreso" class="level1">
 <h1>Reporte de progreso</h1>
-<p>Completar el reporte de progreso correspondiente a esta práctica <a href="https://forms.gle/FMb6eprMxcVAEPV99">aquí</a>. El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.</p>
+<p>Completar el reporte de progreso correspondiente a esta práctica <a href="">disponible próximamente aquí</a>. El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.</p>
 </section>
 <section id="video-de-práctica" class="level1">
 <h1>Video de práctica</h1>
