@@ -49,7 +49,7 @@ La **distribución muestral** es la distribución de las estimaciones, o estadí
 
 **Ejemplo 1**: Imaginemos que tenemos una población de niñ_s de 0 a 9 años, y tomamos múltiples muestras de 6 individu_s (n=6). Cada una de las muestras tendrá un promedio (estadístico muestral, en este caso $\bar{x}$) difernte, que no necesariamente coincidirán con el promedio de la población (parámentro, en este caso $\mu_{x}$)
 
-![](../files/dist_muestral.jpg)
+![](../files/dist_muestral.png)
 
 **Ejemplo 2**: Si usamos valores simulados, podemos ver que todas las medias obtenidas en cada muesta son distintas.
 
@@ -143,7 +143,7 @@ rm(list = ls()) # para limpiar el entorno de trabajo
 y también carguemos la base de datos que utilizaremos, que corresponde a un subset de la ESI (https://www.ine.gob.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos) para ocupados:
 
 ```{r}
-load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/esi-2021-ocupados.RData"))
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/esi-2021-ocupados.rdata"))
 ```
 
 ::: callout-note 

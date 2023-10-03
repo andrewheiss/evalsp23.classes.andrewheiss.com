@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Estadística Correlacional - Asociación, inferencia y reporte">
+
+<title>Estadística Correlacional - Inferencia 2: Intervalos de confianza</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//files/logo-correlacional-transp.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta property="og:title" content="Estadística Correlacional - Inferencia 2: Intervalos de confianza">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://correlacional.netlify.app/files/logo-correlacional.png">
+<meta property="og:site-name" content="Estadística Correlacional">
+<meta property="og:locale" content="es">
+<meta property="og:image:height" content="500">
+<meta property="og:image:width" content="500">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Estadística Correlacional</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html" rel="" target="">
+ <span class="menu-text">Programa</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html" rel="" target="">
+ <span class="menu-text">Planificación</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../content/index.html" rel="" target="">
+ <span class="menu-text">Clases</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assignment/index.html" rel="" target="">
+ <span class="menu-text">Prácticos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resource/index.html" rel="" target="">
+ <span class="menu-text">Recursos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../news/index.html" rel="" target="">
+ <span class="menu-text">Noticias</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://rstudio.cloud" rel="" target=""><i class="bi bi-cloud-fill" role="img" aria-label="RStudio.cloud">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#objetivo-de-la-práctica" id="toc-objetivo-de-la-práctica" class="nav-link active" data-scroll-target="#objetivo-de-la-práctica">Objetivo de la práctica</a></li>
+  <li><a href="#primero-recordemos" id="toc-primero-recordemos" class="nav-link" data-scroll-target="#primero-recordemos">Primero recordemos:</a>
+  <ul class="collapse">
+  <li><a href="#qué-es-la-inferencia-estadística" id="toc-qué-es-la-inferencia-estadística" class="nav-link" data-scroll-target="#qué-es-la-inferencia-estadística">¿Qué es la inferencia estadística?</a></li>
+  <li><a href="#qué-es-una-distribución" id="toc-qué-es-una-distribución" class="nav-link" data-scroll-target="#qué-es-una-distribución">¿Qué es una distribución?</a></li>
+  </ul></li>
+  <li><a href="#distribución-muestral" id="toc-distribución-muestral" class="nav-link" data-scroll-target="#distribución-muestral">Distribución muestral</a></li>
+  <li><a href="#error-estándar" id="toc-error-estándar" class="nav-link" data-scroll-target="#error-estándar">Error estándar</a></li>
+  <li><a href="#intervalos-de-confianza" id="toc-intervalos-de-confianza" class="nav-link" data-scroll-target="#intervalos-de-confianza">Intervalos de confianza</a>
+  <ul class="collapse">
+  <li><a href="#cálculo-de-intervalos-de-confianza" id="toc-cálculo-de-intervalos-de-confianza" class="nav-link" data-scroll-target="#cálculo-de-intervalos-de-confianza">Cálculo de intervalos de confianza</a>
+  <ul class="collapse">
+  <li><a href="#intervalos-de-confianza-sin-ponderador" id="toc-intervalos-de-confianza-sin-ponderador" class="nav-link" data-scroll-target="#intervalos-de-confianza-sin-ponderador">Intervalos de confianza sin ponderador</a></li>
+  <li><a href="#intervalos-de-confianza-con-ponderador" id="toc-intervalos-de-confianza-con-ponderador" class="nav-link" data-scroll-target="#intervalos-de-confianza-con-ponderador">Intervalos de confianza con ponderador</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#reporte-de-progreso" id="toc-reporte-de-progreso" class="nav-link" data-scroll-target="#reporte-de-progreso">Reporte de progreso</a></li>
+  <li><a href="#video-de-práctica" id="toc-video-de-práctica" class="nav-link" data-scroll-target="#video-de-práctica">Video de práctica</a></li>
+  <li><a href="#foro" id="toc-foro" class="nav-link" data-scroll-target="#foro">Foro</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header">
+<h1 class="title display-7">Inferencia 2: Intervalos de confianza</h1>
+
+<div class="date-block bg-assignment text-white p-2">
+  <p class="date">Completar hasta as 11:59 PM del viernes, 8 de septiembre de 2023</p>
+</div>
+</header>
+
+<section id="objetivo-de-la-práctica" class="level1">
+<h1>Objetivo de la práctica</h1>
+<p>El objetivo de esta guía práctica es continuar adentrándonos en la inferencia estadística, revisando algunos de sus conceptos clave como distribución muestral, error estándar, y la definición y aplicaciones de los intervalos de confianza.</p>
+<p>En detalle, aprenderemos:</p>
+<ol type="1">
+<li>Qué es una distribución muestral.</li>
+<li>Qué es el error estándar.</li>
+<li>Qué son y cómo calcular intervalos de conafianza.</li>
+</ol>
+</section>
+<section id="primero-recordemos" class="level1">
+<h1>Primero recordemos:</h1>
+<section id="qué-es-la-inferencia-estadística" class="level2">
+<h2 class="anchored" data-anchor-id="qué-es-la-inferencia-estadística">¿Qué es la inferencia estadística?</h2>
+<p>La inferencia estadísticaes el proceso de realizar conclusiones o predicciones sobre una población a partir de una muestra o subconjunto representativo de esa población. En concreto, llamamos inferencia al ejercicio de <strong>extrapolar</strong> determinados valores de una muestra, llamados <em>estadísticos</em>, para estimar un <em>parámetro</em> de la población.</p>
+<p><img src="../files/INFERENCIA.jpg" class="img-fluid"></p>
+<p>Un concepto central en todo esto es la probabilidad de <em>error</em>, es decir, en qué medida nos estamos equivocando (o estamos dispuestos a estar equivocados) al tratar de extrapolar una estimación muestral a la población.</p>
+</section>
+<section id="qué-es-una-distribución" class="level2">
+<h2 class="anchored" data-anchor-id="qué-es-una-distribución">¿Qué es una distribución?</h2>
+<p>Recordemos que por distribución nos referimos al conjunto de todos los valores posibles de una variable y las frecuencias (o probabilidades) con las que se producen.</p>
+<p>Existen <strong>distribuciones empíricas</strong> y <strong>distribuciones teóricas</strong>, en donde:</p>
+<ul>
+<li>las primeras reflejan la distribución de los valores que asume la variable en un grupo <em>concreto</em> a partir de una observación.</li>
+<li>las segundas son una <em>función matématica</em> que expresan la distribución de un conjunto de números mediante su <em>probabilidad de ocurencia</em>.</li>
+</ul>
+<p>Como vimos en el <a href="../assignment/04-practico.html">práctico 4</a>, una distribuciones teóricas más conocidas: <strong>la distribución normal estándar</strong>.</p>
+</section>
+</section>
+<section id="distribución-muestral" class="level1">
+<h1>Distribución muestral</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Variabilidad muestral</strong>: el valor de un estadístico varía en un muestreo aleatorio repetido.</p>
+</div>
+</div>
+<p>La <strong>distribución muestral</strong> es la distribución de las estimaciones, o estadísticos como la media o proporción, tomadas de múltiples muestras aleatorias de una población. Permite comprender cómo varían las estimaciones de una muestra a otra.</p>
+<p><strong>Ejemplo 1</strong>: Imaginemos que tenemos una población de niñ_s de 0 a 9 años, y tomamos múltiples muestras de 6 individu_s (n=6). Cada una de las muestras tendrá un promedio (estadístico muestral, en este caso <span class="math inline">\(\bar{x}\)</span>) difernte, que no necesariamente coincidirán con el promedio de la población (parámentro, en este caso <span class="math inline">\(\mu_{x}\)</span>)</p>
+<p><img src="../files/dist_muestral.png" class="img-fluid"></p>
+<p><strong>Ejemplo 2</strong>: Si usamos valores simulados, podemos ver que todas las medias obtenidas en cada muesta son distintas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)  <span class="co"># Establecer semilla </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>muestras <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">100</span>, <span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>))) <span class="co"># 100 muestras de tamaño 30</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>muestras</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 50.28864 50.92574 49.56125 49.25099 48.40735 51.67506 49.28325 48.90829
+  [9] 50.64635 51.94797 49.68514 49.00100 49.87287 47.58167 50.91109 47.61967
+ [17] 47.94270 52.20491 51.38777 50.76559 49.02265 49.16394 50.59675 51.40631
+ [25] 50.28247 51.94561 50.39929 51.95632 55.25584 51.26112 49.02810 46.46643
+ [33] 52.21139 49.48146 50.43067 52.84081 47.97451 46.55278 49.87576 50.88025
+ [41] 50.78748 49.42165 50.46664 51.06194 49.94867 48.39219 49.79581 49.82214
+ [49] 49.93791 49.16883 52.24256 51.46923 46.51443 50.23611 49.87410 50.87291
+ [57] 52.32911 46.21546 47.26934 51.29019 50.49509 49.63433 53.25368 50.81717
+ [65] 49.45387 49.61571 50.33774 47.02089 47.94071 50.16296 51.12409 50.68963
+ [73] 50.32398 52.22186 49.95585 50.74844 48.08507 52.90382 51.43478 46.74822
+ [81] 49.21148 51.83738 49.66936 49.32308 50.31842 46.47797 50.64338 50.01220
+ [89] 52.26135 47.49504 49.93140 53.04953 49.59253 48.83580 49.57802 49.23299
+ [97] 50.32517 50.82952 48.92960 49.47553</code></pre>
+</div>
+</div>
+<p>Como se vio en la <a href="../content/06-content.html">sesión 6</a>, si tengo la desviación estándar de los promedios, puedo construir un intervalo de probabilidad, basado en la curva normal (mirar <a href="../content/05-content.html">sesión 5</a>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una acaracterística importante es que se asume que las muestras tomadas de la población son <em>aleatorias y representativas</em>, lo que es esencial para que la distribución muestral refleje adecuadamente la variabilidad de las estimaciones.</p>
+</div>
+</div>
+<p>La importancia de la distribución muestral es que nos permitirá estimar parámetros poblacionales a partir de estadísticos muestrales, construir intervalos de confianza, y realizar pruebas de hipótesis.</p>
+</section>
+<section id="error-estándar" class="level1">
+<h1>Error estándar</h1>
+<p>El error estándar es una medida de la variabilidad de una estimación, proporciona una medida de cuán precisas son nuestras estimaciones de la población. Corresponde a la estimación de la desviación estándar de la muestra.</p>
+<p><img src="https://multivariada.netlify.app/slides/images/se_1.png" class="img-fluid"></p>
+<p><img src="https://multivariada.netlify.app/slides/images/se_2.png" class="img-fluid"></p>
+<p><img src="https://multivariada.netlify.app/slides/images/se_3.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Teorema del límite central</strong> la distribución de los promedios de distintas muestras - o distribución muestral del promedio - se aproxima a una <em>distribución normal</em>.</p>
+</div>
+</div>
+<p>Basados en el teorema del límite central, es posible calcular la desviación estándar del promedio (error estándar) con una sola muestra:</p>
+<p><span class="math display">\[\sigma_{\bar{X}}=SE(error estándar)=\frac{s}{\sqrt{N}}\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar una muestra de datos</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Establecer semilla </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>muestra <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>)  <span class="co"># Muestra de tamaño 100, media 50, desviación estándar 10</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el error estándar</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>error_estandar <span class="ot">&lt;-</span> <span class="fu">sd</span>(muestra) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(muestra))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>error_estandar</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9128159</code></pre>
+</div>
+</div>
+<p>La importancia del error estándar es que nos permitirá construir intervalos de confianza, y realizar pruebas de hipótesis.</p>
+</section>
+<section id="intervalos-de-confianza" class="level1">
+<h1>Intervalos de confianza</h1>
+<p>Un intervalo de confianza es un rango dentro del cual es probable que se encuentre un parámetro poblacional con un nivel de confianza específico. Además, proporciona información sobre la precisión de nuestras estimaciones.</p>
+<p>Por ejemplo,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular un intervalo de confianza para la media</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>intervalo_confianza <span class="ot">&lt;-</span> <span class="fu">t.test</span>(muestra)<span class="sc">$</span>conf.int  <span class="co"># Intervalo de confianza del 95% para la media</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>intervalo_confianza</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 49.09283 52.71528
+attr(,"conf.level")
+[1] 0.95</code></pre>
+</div>
+</div>
+<p>Como vimos en la <a href="../content/06-content.html">sesión 6</a> el promedio de la muestra {x} se distruye normal, con un error estándar <span class="math inline">\(SE\)</span>, lo que nos permite estimar probabilidades basándonos en la curva normal.</p>
+<p>Por ejemplo, si nos desviamos <span class="math inline">\(1.96SE\)</span> desde la media abarcaremos aproximadamente el 95% de los valores probables.</p>
+<p><img src="https://multivariada.netlify.app/slides/images/normal.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Nivel de confianza</strong>: Corresponde a la probabilidad de que la muestra elegida produzca un intervalo que incluya el parámetro que se está estimando (<span class="math inline">\(1-\alpha\)</span>).</p>
+<p><strong>Nivel de significacncia</strong>: Correpsonde a la probabilidad de que el intervalo calculado a partir de la muestra no comprenda el parámetro de la población (<span class="math inline">\(\alpha\)</span>).</p>
+</div>
+</div>
+<section id="cálculo-de-intervalos-de-confianza" class="level2">
+<h2 class="anchored" data-anchor-id="cálculo-de-intervalos-de-confianza">Cálculo de intervalos de confianza</h2>
+<p>Ahora ¡Manos a la obra!</p>
+<p>Calculemos intervalos de confianza. Primero, carguemos las librerías necesarias:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, <span class="co"># colección de paquetes para manipulación de datos</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>               car,       <span class="co"># para recodificar</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>               psych,     <span class="co"># para analizar datos</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>               sjmisc,    <span class="co"># para analizar datos</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>               srvyr,     <span class="co"># para estimación de IC y ponderadores</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>               Publish)   <span class="co"># para IC</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>y también carguemos la base de datos que utilizaremos, que corresponde a un subset de la ESI (https://www.ine.gob.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos) para ocupados:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/esi-2021-ocupados.rdata"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recordemos que podemos contar con bases de datos que tengan factor de expansión (ponderador) o no. Esta distinción se presenta cuando trabajamos con muestras simples o complejas. Al trabajar con muestras complejas debemos identificar cuál es la variable del ponderador e incorporarla en nuestro cálculo, como veremos a continuación.</p>
+</div>
+</div>
+<section id="intervalos-de-confianza-sin-ponderador" class="level3">
+<h3 class="anchored" data-anchor-id="intervalos-de-confianza-sin-ponderador">Intervalos de confianza sin ponderador</h3>
+<p>Podemos calcular intervalos de confianza con muestras representativas sin ponderadores o factores de expansión. Supongamos que es el caso.</p>
+<section id="ic-para-medias" class="level4">
+<h4 class="anchored" data-anchor-id="ic-para-medias">IC para Medias</h4>
+<p>Calculemos un intervalo de confianza para la media de ingresos de personas ocupadas:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(esi<span class="sc">$</span>ing_t_p)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   vars     n     mean       sd   median  trimmed      mad min      max
+X1    1 37124 586360.4 697362.9 405347.7 474473.1 255411.6   0 38206253
+      range skew kurtosis      se
+X1 38206253   12   402.32 3619.36</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Publish<span class="sc">::</span><span class="fu">ci.mean</span>(esi<span class="sc">$</span>ing_t_p, <span class="at">alpha =</span> <span class="fl">0.05</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> mean      CI-95%               
+ 586360.41 [579266.37;593454.45]</code></pre>
+</div>
+</div>
+<p>Al no aplicar factores de expansión, contamos con una media de ingresos de $586.360 como estimación puntual. Pero también podemos decir que con un 95% de confianza el parámetro poblacional se encontrará entre $579.266 y $593.454.</p>
+</section>
+<section id="ic-para-proporciones" class="level4">
+<h4 class="anchored" data-anchor-id="ic-para-proporciones">IC para Proporciones</h4>
+<p>Para calcular un intervalo de confianza para la proporción por la variable sexo, usamos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(esi<span class="sc">$</span>sexo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x &lt;numeric&gt; 
+# total N=37124 valid N=37124 mean=1.44 sd=0.50
+
+Value |     N | Raw % | Valid % | Cum. %
+----------------------------------------
+    1 | 20806 | 56.04 |   56.04 |  56.04
+    2 | 16318 | 43.96 |   43.96 | 100.00
+ &lt;NA&gt; |     0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="dv">20806</span>, <span class="at">n =</span> <span class="dv">37124</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    1-sample proportions test with continuity correction
+
+data:  20806 out of 37124, null probability 0.5
+X-squared = 542.32, df = 1, p-value &lt; 0.00000000000000022
+alternative hypothesis: true p is not equal to 0.5
+95 percent confidence interval:
+ 0.5553777 0.5655019
+sample estimates:
+        p 
+0.5604461 </code></pre>
+</div>
+</div>
+<p>En este caso, sabemos que el total de las personas ocupadas de la muestra son n=37.124, y que la cantidad de hombres son 20.806, correspondientes al 56% como estimación puntual. También podemos sostener con un 95% que la proporción de hombres en la población se encuentra entre 55.54% y 56.6%.</p>
+</section>
+</section>
+<section id="intervalos-de-confianza-con-ponderador" class="level3">
+<h3 class="anchored" data-anchor-id="intervalos-de-confianza-con-ponderador">Intervalos de confianza con ponderador</h3>
+<p>Mientras que para las muestras complejas, que cuentan con ponderador (o factor de expansión) también podemos hacer este ejercicio.</p>
+<p>Primero, es necesario identificar la variable de factor de expansión o ponderador:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>esi_pond <span class="ot">&lt;-</span> esi <span class="sc">%&gt;%</span> <span class="fu">as_survey_design</span>(<span class="at">ids =</span> <span class="dv">1</span>, <span class="co"># indica conglomerados de muestreo; ~0 o ~1 cuando no hay</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">strata =</span> estrato, <span class="co"># indica efecto de diseño muestral</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">weights =</span> fact_cal_esi) <span class="co"># indica el ponderador</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">survey.lonely.psu =</span> <span class="st">"certainty"</span>) <span class="co"># seteamos para que ids no moleste</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="ic-para-medias-1" class="level4">
+<h4 class="anchored" data-anchor-id="ic-para-medias-1">IC para Medias</h4>
+<p>Ahora, teniendo en consideración el factor de expansión, podemos señalar que:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>esi_pond <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">survey_mean</span>(ing_t_p, <span class="at">vartype =</span> <span class="st">"ci"</span>, <span class="at">levels =</span> <span class="fl">0.95</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="co"># usamos funcion survey_mean</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+    media media_low media_upp
+    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 681039.   666563.   695516.</code></pre>
+</div>
+</div>
+<p>El promedio de ingresos de personas ocupadas ponderado en la población corresponde a $681.039 como estimación puntual, pero que es posible afirmar con un 95% de confianza que el parámetro poblacional se encuentra entre $666.562 y $695.516.</p>
+</section>
+<section id="ic-para-proporciones-1" class="level4">
+<h4 class="anchored" data-anchor-id="ic-para-proporciones-1">IC para Proporciones</h4>
+<p>Finalmente, si calculamos la proporción de hombres ocupados en la población considerando el factor de expansión:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(esi<span class="sc">$</span>sexo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x &lt;numeric&gt; 
+# total N=37124 valid N=37124 mean=1.44 sd=0.50
+
+Value |     N | Raw % | Valid % | Cum. %
+----------------------------------------
+    1 | 20806 | 56.04 |   56.04 |  56.04
+    2 | 16318 | 43.96 |   43.96 | 100.00
+ &lt;NA&gt; |     0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>esi_pond <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sexo) <span class="sc">%&gt;%</span> <span class="co"># agrupamos por sexo</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">prop =</span> <span class="fu">survey_prop</span>(<span class="at">vartype =</span> <span class="st">"ci"</span>, <span class="at">levels =</span> <span class="fl">0.95</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+   sexo  prop prop_low prop_upp
+  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1     1 0.582    0.575    0.590
+2     2 0.418    0.410    0.425</code></pre>
+</div>
+</div>
+<p>Tenemos que, con un 95% de conafianza, podemos afirmar que la proporción de hombre ocupados se encuentra entre el 57% y 58%.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="resumen" class="level1">
+<h1>Resumen</h1>
+<p>En esta guía práctica pudimos repasar los conceptos de inferencia estadística y distribución. Y con ello, abordamos las ideas de distribución muestral, error estándar, y la definición y cálculo de intervalos de confianza, tanto para muestras simples como complejas.</p>
+<p>En detalle, aprenderemos:</p>
+<ol type="1">
+<li>Qué es una distribución muestral.</li>
+<li>Qué es el error estándar.</li>
+<li>Qué son y cómo calcular intervalos de conafianza.</li>
+</ol>
+</section>
+<section id="reporte-de-progreso" class="level1">
+<h1>Reporte de progreso</h1>
+<p>Completar el reporte de progreso correspondiente a esta práctica <a href="https://forms.gle/FMb6eprMxcVAEPV99">aquí</a>. El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.</p>
+</section>
+<section id="video-de-práctica" class="level1">
+<h1>Video de práctica</h1>
+<!--  -->
+</section>
+<section id="foro" class="level1">
+<h1>Foro</h1>
+<script src="https://giscus.app/client.js" data-repo="cursos-metodos-facso/correlacional" data-repo-id="R_kgDOKCMXJQ" data-category="Q&amp;A" data-category-id="DIC_kwDOKCMXJc4CYd9S" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="es" crossorigin="anonymous" async="">
+</script>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2023 by <a href="https://www.jc-castillo.com">Juan Castillo</a> <br> All content licensed under a <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by" aria-label="creative-commons-by"></i> <i class="fa-brands fa-creative-commons-nc" aria-label="creative-commons-nc"></i> <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/cursos-metodos-facso/correlacional">View the source at <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>
