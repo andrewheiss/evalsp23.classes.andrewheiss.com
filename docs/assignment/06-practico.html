@@ -230,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>las primeras reflejan la distribución de los valores que asume la variable en un grupo <em>concreto</em> a partir de una observación.</li>
 <li>las segundas son una <em>función matématica</em> que expresan la distribución de un conjunto de números mediante su <em>probabilidad de ocurencia</em>.</li>
 </ul>
-<p>Como vimos en el <a href="../assignment/04-practico.html">práctico 4</a>, una distribuciones teóricas más conocidas: <strong>la distribución normal estándar</strong>.</p>
+<p>Como vimos en el <a href="../assignment/04-practico.html">práctico 4</a>, una de las distribuciones teóricas más conocidas es la <strong>distribución normal estándar</strong>.</p>
 </section>
 </section>
 <section id="distribución-muestral" class="level1">
@@ -291,8 +291,11 @@ Nota
 <section id="error-estándar" class="level1">
 <h1>Error estándar</h1>
 <p>El error estándar es una medida de la variabilidad de una estimación, proporciona una medida de cuán precisas son nuestras estimaciones de la población. Corresponde a la estimación de la desviación estándar de la muestra.</p>
+<p>Consideremos a cada punto una observación para la muestra roja, con la línea vertical como la media y la línea horizontal como la desviación estándar.</p>
 <p><img src="https://multivariada.netlify.app/slides/images/se_1.png" class="img-fluid"></p>
+<p>Luego, lo mismo para cada una de las muestras verde, lila, naranja y negra.</p>
 <p><img src="https://multivariada.netlify.app/slides/images/se_2.png" class="img-fluid"></p>
+<p>Lo que tendremos es que cada promedio de cada muestra es un valor que podemos promediar, y tienen su propia desviación estándar a su propio promedio. Luego, a esa desviación estándar de los promedios de cada muestra al promedio general, la llamaremos error estándar.</p>
 <p><img src="https://multivariada.netlify.app/slides/images/se_3.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -337,7 +340,7 @@ attr(,"conf.level")
 [1] 0.95</code></pre>
 </div>
 </div>
-<p>Como vimos en la <a href="../content/06-content.html">sesión 6</a> el promedio de la muestra {x} se distruye normal, con un error estándar <span class="math inline">\(SE\)</span>, lo que nos permite estimar probabilidades basándonos en la curva normal.</p>
+<p>Como vimos en la <a href="../content/06-content.html">sesión 6</a> el promedio de la muestra <span class="math inline">\(\bar{x}\)</span> se distruye normal, con un error estándar <span class="math inline">\(SE\)</span>, lo que nos permite estimar probabilidades basándonos en la curva normal.</p>
 <p>Por ejemplo, si nos desviamos <span class="math inline">\(1.96SE\)</span> desde la media abarcaremos aproximadamente el 95% de los valores probables.</p>
 <p><img src="https://multivariada.netlify.app/slides/images/normal.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -370,7 +373,7 @@ Nota
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>y también carguemos la base de datos que utilizaremos, que corresponde a un subset de la ESI (https://www.ine.gob.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos) para ocupados:</p>
+<p>y también carguemos la base de datos que utilizaremos, que corresponde a un subset de la Encuesta Suplementaria de ingresos <a href="https://www.ine.gob.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos">ESI</a> para ocupados:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/esi-2021-ocupados.rdata"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
