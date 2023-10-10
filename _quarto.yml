@@ -50,6 +50,7 @@ website:
         file: content/index.qmd
       - text: "Prácticos"
         file: assignment/index.qmd
+      - trabajos.qmd
       - text: "Recursos"
         file: resource/index.qmd
       - text: "Noticias"

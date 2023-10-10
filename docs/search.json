@@ -2,21 +2,21 @@
   {
     "objectID": "trabajos.html",
     "href": "trabajos.html",
-    "title": "Reporte de análisis bivariado",
+    "title": "Trabajos",
     "section": "",
     "text": "El curso de Estadística Correlacional considera la elaboración de un trabajo grupal como instancia final de evaluación. El trabajo a realizar es la elaboración de un reporte de análisis bivariado. La nota de este trabajo equivale a un 40% de la nota final del curso."
   },
   {
     "objectID": "trabajos.html#escritura-académica",
     "href": "trabajos.html#escritura-académica",
-    "title": "Reporte de análisis bivariado",
+    "title": "Trabajos",
     "section": "Escritura académica",
     "text": "Escritura académica\n\nUna idea por párrafo\nUso de “oración principal” (topic sentence): usualmente es la oración al principio del párrafo, que resume el sentido del párrafo completo y que conecta con el párrafo anterior.\nRecursos de apoyo a la escritura académica de la Universidad de Chile"
   },
   {
     "objectID": "trabajos.html#a-tener-en-cuenta",
     "href": "trabajos.html#a-tener-en-cuenta",
-    "title": "Reporte de análisis bivariado",
+    "title": "Trabajos",
     "section": "A tener en cuenta:",
     "text": "A tener en cuenta:\n\nlos conceptos centrales deben estar en las hipótesis y también luego operacionalizarse en variables. No presentar variables que no se relacionen con los conceptos centrales de la sección inicial .\nsi hay muchos casos perdidos (mas de un tercio de datos originales), explicar claramente a qué se debe esta pérdida. Existe la posiblidad de recuperar casos perdidos de predictores categóricos (o recodificados a categóricos) agregando una categoría adicional de perdidos. Esto se explica en la guía de índices y transformación de variables.\ninterpretación de hipótesis e inferencia: las hipótesis nunca se comprueban o se descartan, solo se puede hablar de que existe o no existe evidencia a favor de la hipótesis planteada. Recordar que la ausencia de evidencia no es evidencia de ausencia.\nevitar términos técnicos estadísticos (ej: correlación ) antes de la sección de metodología\nmantener coherencia entre conceptos, hipótesis, descripción de variables, análisis, discusión, ojalá siempre en el mismo orden."
   },

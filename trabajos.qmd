@@ -1,9 +1,13 @@
 ---
-title: Reporte de análisis bivariado
+title: Trabajos
 lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
 ---
 
-El curso de Estadística Correlacional considera la elaboración de un trabajo grupal como instancia final de [evaluación](/syllabus#evaluación). El trabajo a realizar es la elaboración de un reporte de análisis bivariado.
+El curso de Estadística Correlacional considera la elaboración de un trabajo grupal como instancia final de [evaluación](/syllabus#evaluación). El trabajo a realizar es la elaboración de un **reporte de análisis bivariado**.
 La nota de este trabajo equivale a un **40%** de la nota final del curso.
 
 
@@ -13,7 +17,7 @@ Aplicar los contenidos del curso a una temática de interés en formato de repor
 
 # Datos
 
-Para la elaboración de los trabajo se utilizará la base de datos de la Encuesta de Caracterización Socioeconómica [CASEN](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen), por los siguientes motivos:
+Para la elaboración de los trabajos se utilizará la base de datos de la Encuesta de Caracterización Socioeconómica [CASEN](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen), por los siguientes motivos:
 
   - es una encuesta relevante para el país en temas de pobreza, desigualdad y bienestar, y nos parece relevante como parte del proceso de formación en sociología saber como manejar  este instrumento
 
@@ -21,7 +25,7 @@ Para la elaboración de los trabajo se utilizará la base de datos de la Encuest
 
   - la posibilidad de generar un reporte único final sobre distintos temas que cubre CASEN, como un aporte del curso al análisis de la realidad social del país
 
-En principio utilizaremos [CASEN 2022](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2022) (la más reciente), pero tambiénes posible utilizar la [la Encuesta de Bienestar Social EBS 2021](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-bienestar-social), que se aplica a una submuestra de CASEN y que por lo tanto permite vincular la información de ambas encuestas. En su primera versión se aplicó a una submuestra de CASEN 2020. La versión de EBS vinculada a CASEN 2022 se encuentra actualmente en fase de recolección de datos, por lo tanto aún no está disponible.
+En principio utilizaremos [CASEN 2022](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2022) (la más reciente), pero también es posible utilizar la [ Encuesta de Bienestar Social EBS 2021](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-bienestar-social), que se aplica a una submuestra de CASEN y que por lo tanto permite vincular la información de ambas encuestas. En su primera versión se aplicó a una submuestra de CASEN 2020, por lo que los análisis utilizando la EBS 2021 remiten a la CASEN 2020 en pandemia. La versión de EBS vinculada a CASEN 2022 se encuentra actualmente en fase de recolección de datos, por lo tanto aún no está disponible.
 
 # Temas
 
@@ -38,7 +42,7 @@ El espacio principal de asesoría será durante el práctico, que desde el 17 de
 
 # Inscripción de grupos
 
-Inscribirse en la siguiente [planilla](https://docs.google.com/spreadsheets/d/1DQ5mUqJnvoPpUO2FjNv-1tKqbSigIhbodoSbnpt_3is/edit#gid=0) a más tardar hasta el **16 de octubre**
+Inscribirse en la siguiente [planilla](https://docs.google.com/spreadsheets/d/1DQ5mUqJnvoPpUO2FjNv-1tKqbSigIhbodoSbnpt_3is/edit#gid=0) a más tardar hasta el **16 de octubre**.
 
 
 # Secciones del informe 
@@ -54,10 +58,12 @@ Definición de la problemática a abordar, su relevancia y principales conceptos
 En este apartado es importante considerar:
 
   - Relevancia del tema de investigación.
+  
+  - Problematización: señalar problema de investigación y principales antecedentes
 
   - Precisar los conceptos centrales a investigar: Ejemplo "vamos a analizar la participación informal, entendiendo por ello la frecuencia de participación en actividades como marchas, boycotts y en redes sociales" [cita que apoye la definición].
   
-  - Mencionar las principales hipótesis de investigación en el párrafo final de esta sección (ej: se espera que el nivel educacional sea mayor en zonas urbanas en relacion a zonas rurales). Mencionar al menos tres hipótesis.
+  - Mencionar el principal objetivo del trabajo y las hipótesis de investigación en el párrafo final de esta sección (ej: se espera que el nivel educacional sea mayor en zonas urbanas en relación a zonas rurales). Mencionar al menos tres hipótesis.
 
 **2. Variables** (2 puntos)
 
@@ -79,9 +85,9 @@ Mencionar al final de esta sección los métodos estadísticos a utilizar para e
 
 **3. Análisis** (6 puntos)
 
-- 3.1 Análisis descriptivo: tablas o gráficos comentados, univariados y bivariados según sea más pertinente. Esta sección debe incluir la reproducción de alguno de los gráficos o tablas de reportes de CASEN / EBS
+- 3.1 Análisis descriptivo: tablas o gráficos comentados, univariados y bivariados según sea más pertinente. Para esto considere medidas de tendencia central, dispersion y frecuencias, siempre considerando el nivel de medicion de sus variables. En los casos que sea atingente, incluya los intervalos de confanza al 95 %. Esta sección debe incluir la reproducción de alguno de los gráficos o tablas de reportes de CASEN / EBS.
 
-- 3.2 Análisis estadístico bivariado: considerar la estimación de coeficientes de correlación y también medidas de asociación para variables categóricas.
+- 3.2 Análisis estadístico bivariado: considerar la estimación de coeficientes de correlación y también medidas de asociación para variables categóricas. Esta parte del análisis se relaciona directamente con las hipótesis planteadas. Para esto considere pruebas de hipotesis estadsticas, estadisticos de tamaño del efecto y tablas de contingencia / cruzadas, siempre considerando el nivel de medición de sus variables.
 
 Al final de esta sección también se realiza la discusión de resultados en relación a las hipótesis planteadas
 
@@ -92,6 +98,7 @@ Resumen general, limitaciones y sugerencias para futuros análisis
 
 **5. Bibliografía** (1 punto)
 
+Formato APA 7
 
 # Formato
 
@@ -125,4 +132,7 @@ En la sección de tareas de UCursos. Se debe adjuntar un archivo comprimido con 
 - evitar términos técnicos estadísticos (ej: correlación ) antes de la sección de metodología
 
 - mantener coherencia entre conceptos, hipótesis, descripción de variables, análisis, discusión, ojalá siempre en el mismo orden. 
+
+# Foro
+
 
