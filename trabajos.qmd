@@ -1,0 +1,138 @@
+---
+title: Trabajos
+lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
+---
+
+El curso de Estadística Correlacional considera la elaboración de un trabajo grupal como instancia final de [evaluación](/syllabus#evaluación). El trabajo a realizar es la elaboración de un **reporte de análisis bivariado**.
+La nota de este trabajo equivale a un **40%** de la nota final del curso.
+
+
+# Objetivo general
+
+Aplicar los contenidos del curso a una temática de interés en formato de reporte breve de investigación.
+
+# Datos
+
+Para la elaboración de los trabajos se utilizará la base de datos de la Encuesta de Caracterización Socioeconómica [CASEN](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen), por los siguientes motivos:
+
+  - es una encuesta relevante para el país en temas de pobreza, desigualdad y bienestar, y nos parece relevante como parte del proceso de formación en sociología saber como manejar  este instrumento
+
+  - lograr una mayor colaboración y eficiencia desde el equipo docente a sus trabajos
+
+  - la posibilidad de generar un reporte único final sobre distintos temas que cubre CASEN, como un aporte del curso al análisis de la realidad social del país
+
+En principio utilizaremos [CASEN 2022](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2022) (la más reciente), pero también es posible utilizar la [ Encuesta de Bienestar Social EBS 2021](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-bienestar-social), que se aplica a una submuestra de CASEN y que por lo tanto permite vincular la información de ambas encuestas. En su primera versión se aplicó a una submuestra de CASEN 2020, por lo que los análisis utilizando la EBS 2021 remiten a la CASEN 2020 en pandemia. La versión de EBS vinculada a CASEN 2022 se encuentra actualmente en fase de recolección de datos, por lo tanto aún no está disponible.
+
+# Temas
+
+Cada grupo seleccionará un tema de análisis que considere relaciones entre dos variables, por ejemplo: género y nivel educacional, migración y pobreza, nivel educacional por regiones. Para seleccionar el tema se deben revisar los cuestionarios, libros de códigos y reportes de las encuestas mencionadas.
+
+Al menos alguno de los temas/variables seleccionadas debe haber sido presentada en los [reportes de CASEN](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2022) y o en los [reportes de la EBS](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-bienestar-social-2021), y los análisis deben poder reproducir alguna tabla o gráfico que aparezca en ese informe.
+
+
+# Modalidad de trabajo y asesorías
+
+Los trabajos se desarrollarán en grupos de máximo 5 integrantes. Cada grupo será asignado a un/a ayudante y también a un/a apoyo docente, quienes asesorarán periódicamente a sus grupos.
+
+El espacio principal de asesoría será durante el práctico, que desde el 17 de octubre se dividirá en dos momentos: ejercicios breves de aplicación de contenidos de la clase, y asesoría de trabajos.
+
+# Inscripción de grupos
+
+Inscribirse en la siguiente [planilla](https://docs.google.com/spreadsheets/d/1DQ5mUqJnvoPpUO2FjNv-1tKqbSigIhbodoSbnpt_3is/edit#gid=0) a más tardar hasta el **16 de octubre**.
+
+
+# Secciones del informe 
+
+A continuación se presentan las secciones que debe contener el informe, con una aproximación del número de palabras de cada sección:
+
+**Título**: Breve, lo principal es hacer alusión a las principales variables a relacionar (0,5 puntos)
+
+**1. Introducción** (2 puntos)
+
+Definición de la problemática a abordar, su relevancia y principales conceptos (500 palabras). 
+
+En este apartado es importante considerar:
+
+  - Relevancia del tema de investigación.
+  
+  - Problematización: señalar problema de investigación y principales antecedentes
+
+  - Precisar los conceptos centrales a investigar: Ejemplo "vamos a analizar la participación informal, entendiendo por ello la frecuencia de participación en actividades como marchas, boycotts y en redes sociales" [cita que apoye la definición].
+  
+  - Mencionar el principal objetivo del trabajo y las hipótesis de investigación en el párrafo final de esta sección (ej: se espera que el nivel educacional sea mayor en zonas urbanas en relación a zonas rurales). Mencionar al menos tres hipótesis.
+
+**2. Variables** (2 puntos)
+
+Esta sección también incluye una tabla de descriptivos básicos, y una descripción detallada de la operacionalización y medición de las variables.
+
+::: callout-note
+**Atención sobre recodificación de variables**
+ 
+Es importante que las variables sean recodificadas en el sentido del atributo que se está midiendo de menos a más, es decir, que el mayor valor exprese la mayor presencia del atributo.
+
+  - Ejemplo 1: si lo que se está midiendo es apoyo al aborto libre en una escala donde 5 es totalmente en desacuerdo y 1 totalmente de acuerdo, se deben recodificar los valores para que un mayor puntaje exprese mayor apoyo al aborto libre. En concreto: 1=5, 2=4, 4=2, 5=1.
+
+  - Ejemplo 2: variable dicotómica 0: si vota, 1: no vota, debe ser recodificada a 1: si vota, 0: no vota.
+
+:::
+
+Mencionar al final de esta sección los métodos estadísticos a utilizar para el contraste de hipótesis.
+
+
+**3. Análisis** (6 puntos)
+
+- 3.1 Análisis descriptivo: tablas o gráficos comentados, univariados y bivariados según sea más pertinente. Para esto considere medidas de tendencia central, dispersion y frecuencias, siempre considerando el nivel de medicion de sus variables. En los casos que sea atingente, incluya los intervalos de confanza al 95 %. Esta sección debe incluir la reproducción de alguno de los gráficos o tablas de reportes de CASEN / EBS.
+
+- 3.2 Análisis estadístico bivariado: considerar la estimación de coeficientes de correlación y también medidas de asociación para variables categóricas. Esta parte del análisis se relaciona directamente con las hipótesis planteadas. Para esto considere pruebas de hipotesis estadsticas, estadisticos de tamaño del efecto y tablas de contingencia / cruzadas, siempre considerando el nivel de medición de sus variables.
+
+Al final de esta sección también se realiza la discusión de resultados en relación a las hipótesis planteadas
+
+**4. Conclusiones** (2 puntos)
+
+Resumen general, limitaciones y sugerencias para futuros análisis
+
+
+**5. Bibliografía** (1 punto)
+
+Formato APA 7
+
+# Formato
+
+El formato de entrega del trabajo será en html vía Rmarkdown, dado facilita la integración y reproducibilidad de los análisis en R. Se pondrá a disposición de l_s estudiantes una plantilla para poder realizarlo en este formato.
+
+# Modalidad de entrega
+
+En la sección de tareas de UCursos. Se debe adjuntar un archivo comprimido con la carpeta del proyecto (por temas de espacio esta carpeta no debe contener la base original de CASEN).
+
+---
+
+# Recomendaciones para el trabajo {.tabset}
+
+## Escritura académica
+
+- Una idea por párrafo
+
+- Uso de "oración principal" (topic sentence): usualmente es la oración al principio del párrafo, que resume el sentido del párrafo completo y que conecta con el párrafo anterior.
+
+- [Recursos de apoyo a la escritura académica de la Universidad de Chile](https://aprendizaje.uchile.cl/recursos-para-leer-escribir-y-hablar-en-la-universidad/escribir/)
+
+
+## A tener en cuenta:
+
+- los conceptos centrales deben estar en las hipótesis y también luego operacionalizarse en variables. No presentar variables que no se relacionen con los conceptos centrales de la sección inicial .
+
+- si hay muchos casos perdidos (mas de un tercio de datos originales), explicar claramente a qué se debe esta pérdida. Existe la posiblidad de recuperar casos perdidos de predictores categóricos (o recodificados a categóricos) agregando una categoría adicional de perdidos. Esto se explica en la guía de [índices y transformación de variables](https://multivariada.netlify.app/assignment/11-code/).
+
+- interpretación de hipótesis e inferencia: las hipótesis nunca se comprueban o se descartan, solo se puede hablar de que existe o no existe evidencia a favor de la hipótesis planteada. Recordar que la ausencia de evidencia no es evidencia de ausencia.
+
+- evitar términos técnicos estadísticos (ej: correlación ) antes de la sección de metodología
+
+- mantener coherencia entre conceptos, hipótesis, descripción de variables, análisis, discusión, ojalá siempre en el mismo orden. 
+
+# Foro
+
+
